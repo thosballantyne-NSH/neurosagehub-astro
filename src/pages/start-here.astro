@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Start Here | Neurosage Hub"
+  description="Not sure where to begin? Take the Parent Pathway Quiz to get a personalised starting point for supporting your child's sensory regulation, autism, or developmental needs."
+>
+  <Header />
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <h1 class="text-display font-bold text-stone-900 mb-4">Where would you like to start?</h1>
+    <p class="text-xl text-stone-500 leading-relaxed mb-10">
+      Answer a few simple questions about your child's current needs and we'll point you to the best pathway for your family.
+    </p>
+    <!-- Quiz embed / lead capture goes here -->
+    <div id="quiz" class="bg-stone-50 rounded-2xl p-10 border border-stone-200 text-center">
+      <p class="text-stone-400 text-sm">Quiz embed placeholder — connect your quiz tool here.</p>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

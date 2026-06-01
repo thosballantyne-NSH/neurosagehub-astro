@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const pathways = [
+  {
+    title: 'ASD Essentials',
+    tagline: '"I need to understand what is happening and where to begin."',
+    desc: 'A foundational pathway for parents who are newly navigating autism or want a clearer understanding of the brain-body model behind their child\'s needs.',
+    href: '/autism-pathways',
+    topics: [
+      'Understanding the autism spectrum and neurodiversity',
+      'Sensory processing and the nervous system',
+      'Primitive reflexes and developmental foundations',
+      'Gut-brain connection basics',
+      'Family-centered support strategies',
+      'Communication milestones and what to observe',
+    ],
+  },
+  {
+    title: 'Sensory Regulation',
+    tagline: '"My child melts down, seeks input, avoids input, or struggles with transitions."',
+    desc: 'Learn to identify your child\'s sensory profile, understand triggers, and build calming routines that work in real home life.',
+    href: '/sensory-processing',
+    topics: [
+      'Sensory seeking vs. sensory avoiding',
+      'The 8 sensory systems explained simply',
+      'Building a sensory-friendly home environment',
+      'Calming vs. alerting activities',
+      'Sensory trigger log and observation tools',
+      'Transition support strategies',
+    ],
+  },
+  {
+    title: 'Home-Based Support',
+    tagline: '"I want a practical daily plan I can follow."',
+    desc: 'A step-by-step daily framework with morning activation, after-school resets, meal routines, and evening calm-down sequences.',
+    href: '/home-routines',
+    topics: [
+      'Morning brain-body activation routine',
+      'After-school sensory reset protocol',
+      'Meal and nutrition support strategies',
+      'Evening calm-down and sleep readiness',
+      'Weekly progress tracking and journaling',
+      'Building consistency without burnout',
+    ],
+  },
+  {
+    title: 'Sleep & Regulation',
+    tagline: '"Sleep, mood, and transitions are affecting our whole family."',
+    desc: 'Support your child\'s circadian rhythm, evening regulation, and sleep readiness through gentle, science-informed routines.',
+    href: '/parent-pathways#sleep',
+    topics: [
+      'Why sleep and regulation are connected',
+      'Circadian rhythm and light exposure',
+      'Evening sensory wind-down routine',
+      'Bedtime visual schedule and predictability',
+      'Sleep tracker and pattern observation',
+      'Parent regulation and co-regulation',
+    ],
+  },
+  {
+    title: 'Communication Readiness',
+    tagline: '"I want to support connection, language, and engagement at home."',
+    desc: 'Practical strategies for supporting communication, play-based engagement, and language readiness through daily home interactions.',
+    href: '/parent-pathways#communication',
+    topics: [
+      'Communication readiness and pre-language skills',
+      'Play-based engagement routines',
+      'Visual supports and AAC introduction',
+      'Responsive interaction strategies',
+      'Documenting communication progress',
+      'Working with your speech therapist at home',
+    ],
+  },
+  {
+    title: 'Movement & Reflexes',
+    tagline: '"My child struggles with coordination, posture, focus, or developmental foundations."',
+    desc: 'Understand primitive reflexes, support reflex integration, and use movement-based routines to support attention, coordination, and learning readiness.',
+    href: '/parent-pathways#movement',
+    topics: [
+      'What are primitive reflexes and why they matter',
+      'Identifying retained reflexes at home',
+      'Cross-crawl and bilateral coordination',
+      'Balance, posture, and vestibular support',
+      'Movement breaks for focus and regulation',
+      'Coordinating with your occupational therapist',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Parent Pathways | Neurosage Hub"
+  description="Structured, neuroscience-backed learning pathways for parents — ASD essentials, sensory regulation, home routines, sleep support, communication readiness, and movement and reflex integration."
+>
+  <Header />
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+
+    <p class="text-sm font-semibold text-sage-600 uppercase tracking-widest mb-3">Guided Learning Journeys</p>
+    <h1 class="text-display font-bold text-stone-900 mb-4">Find the pathway that fits your child's needs</h1>
+    <p class="text-xl text-stone-500 leading-relaxed mb-16 max-w-2xl">
+      Each Neurosage pathway is a structured learning journey — not a random course library. Start where your child is right now and build from there.
+    </p>
+
+    <div class="space-y-10" id="pathways">
+      {pathways.map(({ title, tagline, desc, href, topics }) => (
+        <div class="bg-stone-50 rounded-2xl p-8 border border-stone-100">
+          <h2 class="text-2xl font-bold text-stone-900 mb-1">{title}</h2>
+          <p class="text-sage-700 text-sm italic mb-3">{tagline}</p>
+          <p class="text-stone-500 leading-relaxed mb-6">{desc}</p>
+          <div class="mb-6">
+            <p class="text-xs font-semibold uppercase tracking-wider text-stone-400 mb-3">What You'll Learn</p>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {topics.map((t) => (
+                <li class="flex items-start gap-2 text-sm text-stone-600">
+                  <span class="text-sage-500 mt-0.5">✓</span> {t}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <a href={href} class="inline-flex items-center px-5 py-2.5 rounded-lg bg-sage-600 text-white text-sm font-semibold hover:bg-sage-700 transition-colors">
+            Start {title} →
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <!-- Quiz CTA -->
+    <div class="mt-16 bg-warm-50 rounded-2xl p-10 text-center border border-warm-100">
+      <h2 class="text-2xl font-bold text-stone-900 mb-3">Not Sure Where to Start?</h2>
+      <p class="text-stone-500 mb-6">Take the Parent Pathway Quiz — answer a few simple questions and we'll recommend the best starting pathway for your family.</p>
+      <a href="/start-here#quiz" class="inline-flex items-center px-6 py-3 rounded-lg bg-sage-600 text-white font-semibold hover:bg-sage-700 transition-colors">
+        Take the Quiz — It's Free
+      </a>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

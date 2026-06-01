@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Pathways | NeurosageHub"
+  description="Structured, neuroscience-backed learning pathways to help you grow in focus, resilience, performance, and more."
+>
+  <Header />
+  <main class="container-wide py-20">
+    <h1 class="text-4xl font-bold text-gray-900 mb-4">Pathways</h1>
+    <p class="text-xl text-gray-500 max-w-2xl">
+      Guided journeys built on real neuroscience. Choose a pathway that matches your goals.
+    </p>
+    <!-- Pathway cards go here -->
+  </main>
+  <Footer />
+</BaseLayout>

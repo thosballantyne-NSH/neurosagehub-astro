@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const sections = [
+  {
+    title: 'Accessing and Using the Site',
+    body: 'You are responsible for obtaining and maintaining your device, software, and network access necessary to use the Site. Learning Source does not guarantee that the Site will function on any particular device, software, or network. We reserve the right to withdraw or amend the Site at any time without notice.',
+  },
+  {
+    title: 'Registering for an Account',
+    body: 'To register, you must provide your first and last name, a working email address, a working phone number, and a preferred password. All information must be correct, current, and complete. You may register for and maintain a single, non-transferable account. You are responsible for maintaining the confidentiality of your password.',
+  },
+  {
+    title: 'Electronic Communications',
+    body: 'By using the Site, you consent to receiving electronic communications from us, including notices about fees, transactional information, and other information related to the Site and these Terms.',
+  },
+  {
+    title: 'Chatbot Terms; User Content',
+    body: 'Communications with our ChatBot are not legally binding on Learning Source. ChatBot responses are for convenience only and may not accurately reflect current policy. By providing User Content, you grant Learning Source a perpetual, irrevocable, worldwide, royalty-free license to use, reproduce, modify, and distribute that content.',
+  },
+  {
+    title: 'Links to Third-Party Sites',
+    body: 'The Site may link to external websites. We are not responsible for any third-party websites, their content, or their privacy practices.',
+  },
+  {
+    title: 'Proprietary Rights',
+    body: '"Learning Source" is a trademark belonging to us. All materials on the Site are our sole property, Copyright © 2025. Any reproduction, distribution, or modification of copyrighted material without express written consent is strictly prohibited.',
+  },
+  {
+    title: 'Disclaimer of Warranties',
+    body: 'THE SITE IS PROVIDED "AS IS" AND "WITH ALL FAULTS." WE EXPRESSLY DISCLAIM ALL WARRANTIES OF ANY KIND, INCLUDING ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.',
+  },
+  {
+    title: 'Limitation of Liability',
+    body: 'TO THE FULLEST EXTENT PERMITTED BY LAW, LEARNING SOURCE SHALL NOT BE LIABLE FOR ANY CONSEQUENTIAL, DIRECT, INCIDENTAL, INDIRECT, PUNITIVE, OR SPECIAL DAMAGES ARISING OUT OF YOUR USE OF THE SITE. IN NO EVENT SHALL LEARNING SOURCE\'S TOTAL LIABILITY EXCEED ONE HUNDRED DOLLARS ($100.00).',
+  },
+  {
+    title: 'Dispute Resolution and Arbitration',
+    body: 'All disputes shall be resolved by binding arbitration rather than in court, except as provided below. You may opt out of arbitration within 30 days of first consenting to these Terms by emailing info@neurosagehub.com with your name, address, and a clear statement that you do not wish to resolve disputes through arbitration.',
+  },
+  {
+    title: 'Geographic Restrictions',
+    body: 'The Site is intended for use by persons located in the United States, Australia, Canada, England, and the United Arab Emirates. Access from other locations is at your own risk and subject to local laws.',
+  },
+  {
+    title: 'General',
+    body: 'These Terms are governed by Texas state law and applicable U.S. federal law. Any disputes not subject to arbitration will be heard in courts located in Travis County, Texas. These Terms constitute the entire agreement between you and Learning Source regarding the Site.',
+  },
+];
+---
+
+<BaseLayout
+  title="Terms of Service | Neurosage Hub"
+  description="Terms of Service for Neurosage Hub, operated by Learning Source, LLC."
+>
+  <Header />
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
+    <h1 class="text-4xl font-bold text-gray-900 mb-2">Terms of Service</h1>
+    <p class="text-sm text-gray-400 mb-4">Last Updated: August 19, 2025</p>
+
+    <div class="bg-amber-50 border border-amber-200 rounded-xl p-5 mb-10 text-sm text-amber-800">
+      <strong>Please read these Terms carefully.</strong> By using the Site, you agree to be bound by these Terms and our Privacy Policy. These Terms contain a dispute resolution and arbitration provision including a class action waiver.
+    </div>
+
+    <p class="text-gray-700 leading-relaxed mb-10">
+      These Website Terms of Use are a legal contract between <strong>Learning Source, LLC</strong> ("Learning Source," "we," "us," or "our") and you, governing your access to and use of neurosagehub.com. The Site is available to users who are 18 years of age or older and reside in the United States or its territories.
+    </p>
+
+    <div class="space-y-8">
+      {sections.map(({ title, body }) => (
+        <section class="border-b border-gray-100 pb-8">
+          <h2 class="text-lg font-semibold text-gray-900 mb-3">{title}</h2>
+          <p class="text-gray-700 leading-relaxed text-sm">{body}</p>
+        </section>
+      ))}
+    </div>
+
+    <div class="mt-12 bg-gray-50 rounded-xl p-6 border border-gray-100">
+      <h2 class="text-lg font-semibold text-gray-900 mb-3">Contact Us</h2>
+      <p class="text-gray-700 text-sm mb-1"><strong>Learning Source, LLC</strong></p>
+      <p class="text-gray-600 text-sm">1701 Directors Blvd, Suite 800, Austin, TX 78744</p>
+      <p class="text-sm mt-2">
+        <a href="mailto:info@neurosagehub.com" class="text-brand-600 hover:underline">info@neurosagehub.com</a>
+        &nbsp;·&nbsp;
+        <a href="tel:8559607220" class="text-brand-600 hover:underline">(855) 960-7220</a>
+      </p>
+    </div>
+
+  </main>
+  <Footer />
+</BaseLayout>

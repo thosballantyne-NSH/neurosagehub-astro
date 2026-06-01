@@ -1,0 +1,217 @@
+/*
+ * Neurosage Hub — Global Design System
+ * Design: Organic Modernism
+ * - Warm ivory background:  oklch(0.975 0.012 85)
+ * - Deep blue primary:      oklch(0.38 0.09 240)
+ * - Sage green accent:      oklch(0.65 0.06 162)
+ * - Warm coral CTA:         oklch(0.67 0.13 28)
+ * - Typography: DM Serif Display (headings) + DM Sans (body)
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== CSS TOKENS ===== */
+:root {
+  --nsh-ivory:        oklch(0.975 0.012 85);
+  --nsh-ivory-mist:   oklch(0.965 0.014 200);
+  --nsh-blue-deep:    oklch(0.22 0.02 240);
+  --nsh-blue-primary: oklch(0.38 0.09 240);
+  --nsh-blue-light:   oklch(0.955 0.015 220);
+  --nsh-sage:         oklch(0.65 0.06 162);
+  --nsh-sage-dark:    oklch(0.45 0.08 162);
+  --nsh-coral:        oklch(0.67 0.13 28);
+  --nsh-coral-dark:   oklch(0.55 0.12 28);
+  --nsh-warm-text:    oklch(0.38 0.025 240);
+  --nsh-muted-text:   oklch(0.55 0.04 240);
+  --nsh-border:       oklch(0.91 0.012 220);
+}
+
+/* ===== BASE ===== */
+@layer base {
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--nsh-ivory);
+    color: var(--nsh-blue-deep);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    line-height: 1.2;
+    color: oklch(0.22 0.02 240);
+  }
+}
+
+/* ===== COMPONENTS ===== */
+@layer components {
+
+  /* Container */
+  .container {
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  @media (min-width: 640px)  { .container { padding-left: 2rem; padding-right: 2rem; } }
+  @media (min-width: 1024px) { .container { padding-left: 2.5rem; padding-right: 2.5rem; } }
+
+  /* ── Typography ── */
+  .nsh-heading-display {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    color: oklch(0.22 0.02 240);
+    letter-spacing: -0.02em;
+  }
+  .nsh-heading-2 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    line-height: 1.15;
+    color: oklch(0.22 0.02 240);
+    letter-spacing: -0.015em;
+  }
+  .nsh-heading-3 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 1.375rem;
+    line-height: 1.25;
+    color: oklch(0.22 0.02 240);
+    letter-spacing: -0.01em;
+  }
+  .nsh-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: oklch(0.65 0.06 162);
+    display: inline-block;
+  }
+  .nsh-body-lg {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: oklch(0.38 0.025 240);
+  }
+  .nsh-body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: oklch(0.48 0.04 240);
+  }
+
+  /* ── Buttons ── */
+  .nsh-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: oklch(0.67 0.13 28);
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.875rem 1.75rem;
+    border-radius: 0.75rem;
+    border: none;
+    text-decoration: none;
+    transition: all 160ms cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 4px 16px oklch(0.67 0.13 28 / 0.3);
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .nsh-btn-primary:hover {
+    background: oklch(0.6 0.13 28);
+    box-shadow: 0 6px 24px oklch(0.67 0.13 28 / 0.4);
+    transform: translateY(-1px);
+  }
+  .nsh-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: oklch(0.38 0.09 240);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.875rem 1.75rem;
+    border-radius: 0.75rem;
+    border: 1.5px solid oklch(0.38 0.09 240 / 0.4);
+    text-decoration: none;
+    transition: all 160ms cubic-bezier(0.23, 1, 0.32, 1);
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .nsh-btn-secondary:hover {
+    background: oklch(0.955 0.015 220);
+    border-color: oklch(0.38 0.09 240 / 0.7);
+  }
+
+  /* ── Cards ── */
+  .nsh-card {
+    background: white;
+    border-radius: 1.25rem;
+    border: 1px solid oklch(0.91 0.012 220);
+    box-shadow: 0 2px 12px oklch(0.22 0.02 240 / 0.05);
+    transition: box-shadow 200ms ease, transform 200ms ease;
+  }
+  .nsh-card:hover {
+    box-shadow: 0 8px 32px oklch(0.22 0.02 240 / 0.1);
+    transform: translateY(-2px);
+  }
+  .nsh-protocol-card {
+    background: oklch(0.975 0.012 85);
+    border-radius: 1rem;
+    border: 1px solid oklch(0.91 0.012 220);
+    padding: 1.25rem 1.5rem;
+    transition: all 160ms ease;
+  }
+  .nsh-protocol-card:hover {
+    border-color: oklch(0.65 0.06 162 / 0.5);
+    background: oklch(0.965 0.014 200);
+  }
+
+  /* ── Pills / Tags ── */
+  .nsh-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.3rem 0.875rem;
+    border-radius: 100px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    white-space: nowrap;
+  }
+  .nsh-pill-sage {
+    background: oklch(0.65 0.06 162 / 0.12);
+    color: oklch(0.45 0.08 162);
+  }
+
+  /* ── Section backgrounds ── */
+  .nsh-section-ivory { background: oklch(0.975 0.012 85); }
+  .nsh-section-mist  { background: oklch(0.965 0.014 200); }
+  .nsh-section-white { background: white; }
+  .nsh-section-dark  { background: oklch(0.22 0.02 240); }
+
+  /* ── Fade-up animation ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 600ms cubic-bezier(0.23, 1, 0.32, 1),
+                transform 600ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .fade-up { opacity: 1; transform: none; transition: none; }
+  }
+}

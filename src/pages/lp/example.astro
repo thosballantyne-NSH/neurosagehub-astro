@@ -1,0 +1,63 @@
+---
+/**
+ * Example PPC landing page
+ * Duplicate this file for each campaign (e.g. lp/focus-training.astro)
+ * URL will be /lp/example — change filename to change URL slug
+ */
+import LandingLayout from '../../layouts/LandingLayout.astro';
+---
+
+<LandingLayout
+  title="Rewire Your Focus in 30 Days | NeurosageHub"
+  description="A neuroscience-backed 30-day pathway to sharper focus, better memory, and less mental fatigue."
+  noindex={true}
+>
+  <!-- Hero -->
+  <section class="container-wide py-20 text-center">
+    <p class="text-sm font-semibold text-sage-600 uppercase tracking-widest mb-3">
+      Limited offer
+    </p>
+    <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 max-w-2xl mx-auto leading-tight">
+      Rewire your focus in 30 days
+    </h1>
+    <p class="mt-5 text-lg text-gray-500 max-w-xl mx-auto">
+      A step-by-step pathway built on neuroscience that helps you eliminate brain fog,
+      sharpen attention, and build lasting mental clarity.
+    </p>
+    <a
+      href="#get-started"
+      class="mt-8 inline-flex items-center px-8 py-4 rounded-lg bg-sage-600 text-white font-semibold text-lg hover:bg-sage-700 transition-colors"
+    >
+      Start for free →
+    </a>
+  </section>
+
+  <!-- Social proof / benefits -->
+  <section class="bg-gray-50 py-16">
+    <div class="container-wide grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      {[
+        { stat: '30 days', label: 'Structured pathway' },
+        { stat: '10 min/day', label: 'Science-backed exercises' },
+        { stat: '100% free', label: 'To get started' },
+      ].map(({ stat, label }) => (
+        <div>
+          <p class="text-4xl font-bold text-sage-600">{stat}</p>
+          <p class="mt-1 text-gray-500">{label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA form anchor -->
+  <section id="get-started" class="container-wide py-20 text-center">
+    <h2 class="text-3xl font-bold text-gray-900 mb-4">Ready to start?</h2>
+    <p class="text-gray-500 mb-8">Join thousands already on their pathway.</p>
+    <!-- Replace with your form embed or signup component -->
+    <a
+      href="https://hub.neurosagehub.com/signup"
+      class="inline-flex items-center px-8 py-4 rounded-lg bg-sage-600 text-white font-semibold text-lg hover:bg-sage-700 transition-colors"
+    >
+      Create your free account
+    </a>
+  </section>
+</LandingLayout>

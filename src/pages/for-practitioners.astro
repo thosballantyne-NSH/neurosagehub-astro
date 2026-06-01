@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="For Practitioners | Neurosage Hub"
+  description="Extend your care into the home. Assign structured parent pathways, home protocols, and progress tracking to your patients — without adding to your workload."
+>
+  <Header />
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <h1 class="text-display font-bold text-stone-900 mb-4">Extend your care into the home</h1>
+    <p class="text-xl text-stone-500 leading-relaxed mb-10">
+      Assign structured parent pathways, home protocols, and progress tracking to your patients. Keep families supported and aligned between visits — without adding to your workload.
+    </p>
+    <a
+      href="#demo"
+      class="inline-flex items-center px-6 py-3 rounded-lg bg-sage-600 text-white font-semibold hover:bg-sage-700 transition-colors"
+    >
+      Book a Practitioner Demo
+    </a>
+    <div id="demo" class="mt-16 prose prose-stone max-w-none">
+      <p class="text-stone-500 text-sm italic">Full page content and demo form goes here (Day 8 of build timeline).</p>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

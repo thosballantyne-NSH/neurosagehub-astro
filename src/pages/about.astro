@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="About | Neurosage Hub"
+  description="Neurosage Hub was built to give families a calmer, clearer way to support their child's development at home — guided by neuroscience and designed for real life."
+>
+  <Header />
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+
+    <!-- Mission -->
+    <section class="mb-16">
+      <p class="text-sm font-semibold text-sage-600 uppercase tracking-widest mb-3">Our Mission</p>
+      <h1 class="text-display font-bold text-stone-900 mb-6">
+        You don't have to become a therapist. You need a clear plan.
+      </h1>
+      <p class="text-xl text-stone-500 leading-relaxed mb-6">
+        Neurosage Hub was built for the parents who are doing everything they can — researching late at night, coordinating appointments, trying to stay calm when everything feels overwhelming.
+      </p>
+      <p class="text-stone-500 leading-relaxed mb-6">
+        We believe that small, consistent routines — done with love and guided by neuroscience — can genuinely help children feel safer, more regulated, and more ready to learn. And we believe parents deserve clear, practical support to make that happen at home.
+      </p>
+      <p class="text-stone-500 leading-relaxed">
+        Neurosage Hub is not a course library. It's a guided ecosystem where parents learn what matters, practice small routines, observe progress, and feel supported between professional appointments.
+      </p>
+    </section>
+
+    <!-- Foundation-First -->
+    <section id="mission" class="mb-16 bg-sage-50 rounded-2xl p-8 border border-sage-100">
+      <h2 class="text-2xl font-bold text-stone-900 mb-4">The Foundation-First Model</h2>
+      <p class="text-stone-500 leading-relaxed mb-4">
+        Everything we build is grounded in the Foundation-First principle: a child's capacity to learn, communicate, and connect depends on the regulation of their nervous system first.
+      </p>
+      <p class="text-stone-500 leading-relaxed">
+        Sensory processing, movement, primitive reflex integration, sleep, nutrition, and emotional safety are not optional extras — they are the foundation. Neurosage Hub helps parents understand and support that foundation at home, in partnership with the professionals already in their child's life.
+      </p>
+    </section>
+
+    <!-- Disclaimer -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold text-stone-900 mb-4" id="team">Our Approach</h2>
+      <p class="text-stone-500 leading-relaxed mb-4">
+        Neurosage Hub provides educational resources and parent support tools. We do not diagnose, treat, or replace medical care or therapy. Our content is designed to complement — not replace — the work of the therapists, doctors, and educators already supporting your family.
+      </p>
+      <p class="text-stone-500 leading-relaxed">
+        We are committed to grounding everything we publish in peer-reviewed research and practitioner-informed guidance, presented in language that real parents can understand and act on.
+      </p>
+    </section>
+
+    <!-- CTA -->
+    <div class="bg-stone-50 rounded-2xl p-8 text-center border border-stone-100">
+      <h2 class="text-xl font-bold text-stone-900 mb-3">Ready to get started?</h2>
+      <p class="text-stone-500 mb-6 text-sm">Take the Parent Pathway Quiz and find the right starting point for your family.</p>
+      <a href="/start-here#quiz" class="inline-flex items-center px-6 py-3 rounded-lg bg-sage-600 text-white font-semibold hover:bg-sage-700 transition-colors">
+        Take the Quiz — It's Free
+      </a>
+    </div>
+
+  </main>
+  <Footer />
+</BaseLayout>

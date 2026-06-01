@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Blog | NeurosageHub"
+  description="Neuroscience insights, research breakdowns, and practical guides to help you think and live better."
+>
+  <Header />
+  <main class="container-wide py-20">
+    <h1 class="text-4xl font-bold text-gray-900 mb-4">Blog</h1>
+    <p class="text-xl text-gray-500 max-w-2xl">
+      Science-backed articles, research breakdowns, and practical guides.
+    </p>
+    <!-- Blog post grid goes here — connect to a CMS or markdown collection -->
+  </main>
+  <Footer />
+</BaseLayout>

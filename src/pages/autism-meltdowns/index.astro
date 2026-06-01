@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Autism Meltdowns: What They Are, Why They Happen & How to Help | Neurosage Hub"
+  description="A complete guide to autism meltdowns for parents — understand triggers, how to respond in the moment, and how to build a calmer home environment using the Foundation-First approach."
+>
+  <Header />
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+
+    <!-- Breadcrumb -->
+    <nav class="text-sm text-stone-400 mb-8">
+      <a href="/" class="hover:text-stone-600">Home</a>
+      <span class="mx-2">/</span>
+      <span class="text-stone-600">Autism Meltdowns</span>
+    </nav>
+
+    <h1 class="text-display font-bold text-stone-900 mb-6">
+      Autism Meltdowns: What They Are, Why They Happen & How to Help
+    </h1>
+    <p class="text-xl text-stone-500 leading-relaxed mb-10">
+      Understanding autism meltdowns — not as behaviour problems, but as nervous system responses — is the first step to helping your child feel safer and more regulated at home.
+    </p>
+
+    <!-- Cluster navigation -->
+    <div class="bg-sage-50 rounded-2xl p-6 mb-12 border border-sage-100">
+      <p class="text-sm font-semibold text-sage-700 mb-3">In this section:</p>
+      <ul class="space-y-2">
+        <li><a href="/autism-meltdowns/triggers"              class="text-sage-600 hover:underline text-sm">→ Common autism meltdown triggers</a></li>
+        <li><a href="/autism-meltdowns/how-to-help"           class="text-sage-600 hover:underline text-sm">→ How to help during and after a meltdown</a></li>
+        <li><a href="/autism-meltdowns/meltdown-vs-tantrum"   class="text-sage-600 hover:underline text-sm">→ Meltdown vs tantrum: what's the difference?</a></li>
+      </ul>
+    </div>
+
+    <!-- Pillar content — 1,500+ words go here -->
+    <div class="prose prose-stone max-w-none">
+      <p class="text-stone-500 text-sm italic">Pillar content — full article goes here (Day 5 of build timeline).</p>
+    </div>
+
+  </main>
+  <Footer />
+</BaseLayout>

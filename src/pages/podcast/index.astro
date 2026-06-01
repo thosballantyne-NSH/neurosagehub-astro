@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Podcast | NeurosageHub"
+  description="Listen to the NeurosageHub podcast — conversations with researchers and practitioners at the intersection of neuroscience and everyday performance."
+>
+  <Header />
+  <main class="container-wide py-20">
+    <h1 class="text-4xl font-bold text-gray-900 mb-4">Podcast</h1>
+    <p class="text-xl text-gray-500 max-w-2xl">
+      Deep conversations with scientists, practitioners, and peak performers.
+    </p>
+    <!-- Episode list goes here -->
+  </main>
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,58 @@
+---
+/**
+ * LandingLayout — used for PPC landing pages.
+ * Strips nav/footer to reduce distraction and focus on conversion.
+ * Pass noindex=true (default) to keep paid landing pages out of search results.
+ */
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = 'NeurosageHub',
+  noindex = true,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Minimal header — logo only, no nav links -->
+    <header class="py-4 border-b border-gray-100">
+      <div class="container-wide">
+        <a href="/" class="font-semibold text-gray-900">NeurosageHub</a>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <!-- Minimal footer — legal only -->
+    <footer class="py-6 border-t border-gray-100 mt-20">
+      <div class="container-wide flex justify-between text-xs text-gray-400">
+        <span>&copy; {new Date().getFullYear()} NeurosageHub</span>
+        <span><a href="/privacy" class="hover:underline">Privacy</a> · <a href="/terms" class="hover:underline">Terms</a></span>
+      </div>
+    </footer>
+  </body>
+</html>

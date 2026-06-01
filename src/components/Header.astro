@@ -1,0 +1,128 @@
+---
+const navLinks = [
+  { href: '/start-here',        label: 'Start Here' },
+  { href: '/parent-pathways',   label: 'Parent Pathways' },
+  { href: '/home-routines',     label: 'Home Routines' },
+  { href: '/for-practitioners', label: 'Practitioners' },
+  { href: '/podcast',           label: 'Podcast' },
+  { href: '/about',             label: 'About' },
+];
+const current = Astro.url.pathname;
+---
+
+<header
+  id="nsh-header"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  style="background: rgba(248,243,234,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid transparent;"
+>
+  <div class="container">
+    <div class="flex items-center justify-between h-16">
+
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2.5 shrink-0">
+        <img
+          src="/logo-blue.png"
+          alt="Neurosage Hub"
+          class="h-9 w-auto"
+          id="nav-logo"
+          onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block'"
+        />
+        <span
+          id="logo-fallback"
+          style="display:none; font-family:'DM Serif Display',serif; color:oklch(0.22 0.02 240); font-size:1.125rem; font-weight:700;"
+        >
+          Neurosage Hub
+        </span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-0.5">
+        {navLinks.map(({ href, label }) => (
+          <a
+            href={href}
+            class="px-3.5 py-2 rounded-lg text-sm transition-all duration-200"
+            style={`font-family:'DM Sans',sans-serif; color:${current.startsWith(href) && href !== '/' || current === href ? 'oklch(0.38 0.09 240)' : 'oklch(0.38 0.025 240)'}; background:${current.startsWith(href) && href !== '/' || current === href ? 'oklch(0.955 0.015 220)' : 'transparent'}; font-weight:${current.startsWith(href) && href !== '/' || current === href ? '600' : '400'};`}
+          >
+            {label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- CTA + mobile toggle -->
+      <div class="flex items-center gap-3">
+        <a
+          href="/start-here#quiz"
+          class="hidden md:inline-flex nsh-btn-primary"
+          style="font-size:0.875rem; padding:0.625rem 1.25rem;"
+        >
+          Take the Quiz
+        </a>
+        <button
+          id="mobile-toggle"
+          class="lg:hidden p-2 rounded-lg"
+          style="color:oklch(0.38 0.09 240);"
+          aria-label="Toggle menu"
+        >
+          <svg id="icon-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <svg id="icon-close" class="hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="lg:hidden hidden border-t"
+    style="background:rgba(248,243,234,0.98); border-color:oklch(0.9 0.015 220);"
+  >
+    <div class="container py-4 flex flex-col gap-1">
+      {navLinks.map(({ href, label }) => (
+        <a
+          href={href}
+          class="px-4 py-3 rounded-xl text-sm"
+          style="font-family:'DM Sans',sans-serif; color:oklch(0.38 0.025 240);"
+        >
+          {label}
+        </a>
+      ))}
+      <a href="/start-here#quiz" class="nsh-btn-primary mt-2 justify-center">
+        Take the Parent Pathway Quiz
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="h-16"></div>
+
+<script>
+  const header = document.getElementById('nsh-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      header.style.background = 'rgba(248,243,234,0.95)';
+      header.style.borderBottomColor = 'oklch(0.9 0.015 220)';
+      header.style.boxShadow = '0 2px 20px oklch(0.22 0.02 240 / 0.06)';
+    } else {
+      header.style.background = 'rgba(248,243,234,0.85)';
+      header.style.borderBottomColor = 'transparent';
+      header.style.boxShadow = 'none';
+    }
+  }, { passive: true });
+
+  const toggle = document.getElementById('mobile-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const iconMenu = document.getElementById('icon-menu');
+  const iconClose = document.getElementById('icon-close');
+  toggle.addEventListener('click', () => {
+    const isHidden = menu.classList.toggle('hidden');
+    iconMenu.classList.toggle('hidden', !isHidden);
+    iconClose.classList.toggle('hidden', isHidden);
+  });
+
+  // Fade-up scroll observer — runs once per page load
+  const observer = new IntersectionObserver(
+    (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
+  );
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
