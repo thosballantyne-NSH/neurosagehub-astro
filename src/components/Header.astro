@@ -1,9 +1,9 @@
 ---
 const navLinks = [
+  { href: '/start-here',        label: 'Start Here' },
+  { href: '/home-routines',     label: 'Home Routines' },
   { href: '/for-parents',       label: 'For Parents' },
   { href: '/for-practitioners', label: 'For Practitioners' },
-  { href: '/about',             label: 'About Us' },
-  { href: '/start-here',        label: 'Resources' },
 ];
 const current = Astro.url.pathname;
 ---
@@ -39,21 +39,28 @@ const current = Astro.url.pathname;
           <a
             href={href}
             class="px-4 py-2 rounded-lg text-sm transition-all duration-200"
-            style={`font-family:'DM Sans',sans-serif; color:${current.startsWith(href) ? 'oklch(0.46 0.22 258)' : 'oklch(0.35 0.06 258)'}; background:${current.startsWith(href) ? 'oklch(0.95 0.04 258)' : 'transparent'}; font-weight:${current.startsWith(href) ? '600' : '500'};`}
+            style={`font-family:'DM Sans',sans-serif; color:oklch(0.35 0.06 258); font-weight:500;`}
           >
             {label}
           </a>
         ))}
       </nav>
 
-      <!-- CTA + mobile toggle -->
+      <!-- Right actions + mobile toggle -->
       <div class="flex items-center gap-3">
         <a
-          href="/start-here"
-          class="hidden md:inline-flex nsh-btn-primary"
+          href="https://app.neurosagehub.com/login"
+          class="hidden md:inline-block text-sm font-medium"
+          style="color:oklch(0.50 0.04 258); font-family:'DM Sans',sans-serif;"
+        >
+          Login
+        </a>
+        <a
+          href="/start-here#quiz"
+          class="hidden md:inline-flex nsh-btn-cta"
           style="font-size:0.875rem; padding:0.5rem 1.25rem;"
         >
-          Get Started Free
+          Take the Quiz
         </a>
         <button
           id="mobile-toggle"
@@ -84,14 +91,36 @@ const current = Astro.url.pathname;
           {label}
         </a>
       ))}
-      <a href="/start-here" class="nsh-btn-primary mt-2 justify-center">
-        Get Started Free
+      <a
+        href="https://app.neurosagehub.com/login"
+        class="px-4 py-3 rounded-xl text-sm font-medium mt-1"
+        style="font-family:'DM Sans',sans-serif; color:oklch(0.50 0.04 258);"
+      >
+        Login
+      </a>
+      <a href="/start-here#quiz" class="nsh-btn-cta mt-2 justify-center">
+        Take the Quiz
       </a>
     </div>
   </div>
 </header>
 
 <div class="h-16"></div>
+
+<!-- Mobile sticky CTA — visible only on small screens -->
+<div
+  id="mobile-sticky-cta"
+  class="fixed bottom-0 left-0 right-0 z-40 md:hidden"
+  style="background:white; border-top:1px solid oklch(0.90 0.03 258); padding:0.75rem 1.25rem; box-shadow:0 -4px 16px oklch(0.22 0.12 258 / 0.08);"
+>
+  <a
+    href="/start-here#quiz"
+    class="nsh-btn-cta w-full justify-center"
+    style="font-size:1rem; padding:0.875rem;"
+  >
+    Get Started Free — Take the Quiz
+  </a>
+</div>
 
 <script>
   const header = document.getElementById('nsh-header');
