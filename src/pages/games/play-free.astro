@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Kids Play for Free — Autism-Friendly Games | Neurosage Hub"
+  description="Create a free Neurosage Hub parent account and unlock the full library of autism-friendly video games designed to support regulation, focus, and social processing."
+>
+  <Header />
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="py-20" style="background:oklch(0.22 0.12 258);">
+      <div class="container">
+        <div class="max-w-2xl mx-auto text-center">
+          <p class="nsh-eyebrow mb-4 fade-up" style="color:oklch(0.67 0.13 28);">Free for Families</p>
+          <h1 class="nsh-heading-display mb-6 fade-up" style="color:white;">
+            Let Your Child Play.<br>Know It's Actually Helping.
+          </h1>
+          <p class="nsh-body-lg mb-8 fade-up" style="color:rgba(255,255,255,0.8); max-width:30rem; margin-left:auto; margin-right:auto;">
+            Your free Neurosage Hub parent account includes the full library of video games designed specifically for autistic children — at no extra cost, no separate download.
+          </p>
+          <div class="fade-up">
+            <a
+              href="https://app.neurosagehub.com/signup"
+              class="nsh-btn-cta"
+              style="font-size:1.0625rem; padding:1rem 2.25rem;"
+            >
+              Create Your Free Account
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <p class="mt-4 text-sm" style="color:rgba(255,255,255,0.4); font-family:'DM Sans',sans-serif;">
+              No credit card required · No commitment · Cancel any time
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHAT'S INCLUDED ===== -->
+    <section class="py-20" style="background:white;">
+      <div class="container">
+        <div class="max-w-2xl mx-auto text-center mb-14">
+          <p class="nsh-eyebrow mb-4 fade-up">What You Get</p>
+          <h2 class="nsh-heading-2 mb-4 fade-up">Everything included. Nothing hidden.</h2>
+          <p class="nsh-body fade-up">
+            When you create a free parent account, the full game library is already there. No unlocking, no upsell — just log in and let your child play.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          {[
+            {
+              icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="3"/><path d="M8 12h.01M12 10v4M10 12h4"/></svg>`,
+              title: 'Full Game Library',
+              desc: 'Access every game in the Neurosage Hub collection — games built around regulation, sensory processing, and focused attention.',
+            },
+            {
+              icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 6v6l4 2"/></svg>`,
+              title: 'Bedtime & Morning Routines',
+              desc: 'Use games as a calm-down tool before bed or a brain-stimulation warm-up to start the morning — integrated into your daily home routine.',
+            },
+            {
+              icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,
+              title: 'Progress Visible to Your Practitioner',
+              desc: 'If your child works with a Neurosage Hub practitioner, they can see usage logs — keeping everyone aligned between visits.',
+            },
+          ].map(({ icon, title, desc }, i) => (
+            <div class="nsh-card p-7 fade-up" style={`transition-delay:${i * 80}ms;`}>
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:oklch(0.95 0.04 258); color:oklch(0.46 0.22 258);">
+                <Fragment set:html={icon} />
+              </div>
+              <h3 class="nsh-heading-3 mb-3">{title}</h3>
+              <p class="nsh-body">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DR. KYLE CREDIBILITY ===== -->
+    <section class="py-16" style="background:oklch(0.97 0.02 258);">
+      <div class="container">
+        <div class="max-w-3xl mx-auto">
+          <div class="nsh-card p-8 md:p-10 fade-up">
+            <p class="nsh-eyebrow mb-4" style="color:oklch(0.67 0.13 28);">13 Years in the Making</p>
+            <blockquote class="mb-5" style="border-left:3px solid oklch(0.67 0.13 28); padding:0.75rem 1.25rem; background:oklch(0.97 0.02 258); border-radius:0 0.5rem 0.5rem 0;">
+              <p style="font-family:'DM Sans',sans-serif; font-size:1.0625rem; color:oklch(0.22 0.12 258); font-style:italic; line-height:1.65;">
+                "How do we make the games these kids are already attracted to into a therapy tool?"
+              </p>
+              <footer class="mt-2 text-sm font-semibold" style="font-family:'DM Sans',sans-serif; color:oklch(0.55 0.04 258);">— Dr. Kyle</footer>
+            </blockquote>
+            <p class="nsh-body mb-4">
+              While most people were telling parents to limit screen time, Dr. Kyle was researching a different question. Over 13 years of clinical application, he refined video games as a structured therapeutic tool — using them in clinic as a session start, warm-up, calm-down, and grounding activity.
+            </p>
+            <p class="nsh-body mb-6">
+              Kids started looking forward to clinic. Games became rewards, incentives, and entry points into more demanding therapeutic work. And now that same tool is available to families at home — free with every parent account.
+            </p>
+            <a href="/podcast" class="inline-flex items-center gap-2 text-sm font-semibold" style="color:oklch(0.46 0.22 258); font-family:'DM Sans',sans-serif;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="oklch(0.46 0.22 258)"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+              Hear Dr. Kyle on the podcast
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SIGN UP CTA ===== -->
+    <section class="py-20 relative overflow-hidden">
+      <div class="absolute inset-0" style="background:linear-gradient(135deg, oklch(0.46 0.22 258) 0%, oklch(0.38 0.20 265) 100%);"></div>
+      <div class="container relative z-10">
+        <div class="max-w-xl mx-auto text-center">
+          <h2 class="nsh-heading-2 mb-4 fade-up" style="color:white;">Create your free account today.</h2>
+          <p class="nsh-body-lg mb-8 fade-up" style="color:rgba(255,255,255,0.8);">
+            The game library is already there. Just sign up and let your child play.
+          </p>
+          <a
+            href="https://app.neurosagehub.com/signup"
+            class="nsh-btn-cta fade-up"
+            style="font-size:1.0625rem; padding:1rem 2.25rem;"
+          >
+            Kids Play for Free
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <p class="mt-4 text-sm fade-up" style="color:rgba(255,255,255,0.4); font-family:'DM Sans',sans-serif;">
+            No credit card · No commitment · Free forever for families
+          </p>
+          <div class="mt-8 fade-up">
+            <a href="/games" class="text-sm" style="color:rgba(255,255,255,0.5); font-family:'DM Sans',sans-serif; text-decoration:underline; text-underline-offset:3px;">
+              Learn more about the game library →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</BaseLayout>

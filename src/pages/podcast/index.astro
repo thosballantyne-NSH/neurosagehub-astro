@@ -2,19 +2,250 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+
+const episodes = [
+  {
+    title: 'The Surprising Connection Between Autism and Video Games',
+    desc: 'What if video games could do more than entertain? Dr. Kyle shares how a speech therapist\'s question sparked 13+ years of research into video games as a therapeutic tool.',
+    id:   'a49f84bd-2210-40c9-8902-92e8c979f9c1',
+  },
+  {
+    title: '"Their Whole Life Becomes Therapy" — Dr. Kyle Daigle on Autism Burnout & Family Overwhelm',
+    desc: 'At what point does a child get to just be a kid again? Thomas Ballantyne and Dr. Kyle Daigle discuss therapy fatigue, nervous system development, and the need for better collaboration between practitioners.',
+    id:   'b558b7cd-c52f-4107-88a9-f39de1015139',
+  },
+  {
+    title: 'What Parents Notice Before an Autism Diagnosis',
+    desc: 'Dr. Kyle Daigle joins an honest conversation about what parents often notice before a diagnosis — early signs, sensory issues, and the importance of trusting your intuition.',
+    id:   'c53e5036-5eb5-4c92-adea-40224019f681',
+  },
+  {
+    title: 'Why Early Identification Matters in Autism Care',
+    desc: 'How early is "early enough"? Ashley Tamayo shares insights on developmental milestones, neuroplasticity, and why waitlists and access to care are becoming such a challenge for families.',
+    id:   'aaf09496-72c5-4368-a60e-34028fcd5c60',
+  },
+  {
+    title: 'Navigating School Support and IEPs in Autism Care',
+    desc: 'What is an IEP and do you need a diagnosis to get one? Ashley Tamayo shares both professional and personal perspective on how schools, parents, and practitioners work together.',
+    id:   '2e5c5b22-70f5-4cdd-b8b9-63a32235f238',
+  },
+  {
+    title: 'Autism Assessments: What Actually Matters (and What Doesn\'t)',
+    desc: 'Ashley Tamayo breaks down the most common autism assessments, the difference between a screening and a formal diagnosis, and why patience during the diagnostic process matters.',
+    id:   'c7a00c7d-1f10-4c5d-819d-404f3fbc1e5b',
+  },
+  {
+    title: 'What Progress Really Looks Like in Autism Care (It\'s Not What You Expect)',
+    desc: 'Progress in autism care is not always obvious or linear. Ashley Tamayo shares a grounded perspective on how progress unfolds — from communication milestones to behavioral shifts.',
+    id:   '74c24def-00b5-4c46-b04e-8d288a54e0ac',
+  },
+  {
+    title: 'Guiding Families Between Visits: Where Progress Happens',
+    desc: 'What happens between therapy sessions matters more than most people realize. This episode explores how practitioners can support families outside the clinic, where real-life progress takes place.',
+    id:   'a2f42367-7969-4fcc-8bb9-3e862405b906',
+  },
+  {
+    title: 'First Steps After an Autism Diagnosis (Don\'t Skip the Fundamentals)',
+    desc: 'After a diagnosis, most families feel the urge to do everything immediately. But that instinct leads to overwhelm. This episode is about where to actually start.',
+    id:   'd355a5b4-bd6e-42a6-abce-a86ccbb695e4',
+  },
+  {
+    title: 'What to Do When Parents Are in Denial About Autism',
+    desc: 'Denial is often one of the first responses when a parent faces the possibility of an autism diagnosis. How a practitioner responds in that moment can shape everything that comes next.',
+    id:   'f34091d0-568b-4c3f-ad72-9b69182b3fab',
+  },
+  {
+    title: 'How to Tell a Parent Their Child May Be Autistic (The Hardest Conversation)',
+    desc: 'One of the most important and difficult moments in autism care. Ashley Tamayo shares what it means to navigate that conversation with clarity, compassion, and responsibility.',
+    id:   '39493284-f5da-4373-abc5-e6808f26f414',
+  },
+  {
+    title: 'Choosing the Right Autism Practitioner Without the Overwhelm',
+    desc: 'When a parent first suspects autism, one of the first questions is: where do I go, and who do I trust? Ashley Tamayo shares how to find the right practitioner without getting lost.',
+    id:   '4c7ee200-1ff2-4807-acc7-439076298ea0',
+  },
+  {
+    title: 'Early Signs of Autism: What Parents, Practitioners, and Educators Should Look For',
+    desc: 'What are the early signs of autism, and how can parents recognize them without jumping to fear? Ashley Tamayo and Justin Barton explore early indicators and how to approach them thoughtfully.',
+    id:   'bdd20d3f-2a06-44a4-b8be-5d215b469840',
+  },
+];
 ---
 
 <BaseLayout
-  title="Podcast | NeurosageHub"
-  description="Listen to the NeurosageHub podcast — conversations with researchers and practitioners at the intersection of neuroscience and everyday performance."
+  title="Practitioner Perspectives in Autism Care — Podcast | Neurosage Hub"
+  description="Real conversations between practitioners and families about what autism care actually looks like. Hosted by Justin Barton and Thomas Ballantyne from Neurosage Hub."
 >
   <Header />
-  <main class="container-wide py-20">
-    <h1 class="text-4xl font-bold text-gray-900 mb-4">Podcast</h1>
-    <p class="text-xl text-gray-500 max-w-2xl">
-      Deep conversations with scientists, practitioners, and peak performers.
-    </p>
-    <!-- Episode list goes here -->
+
+  <main>
+
+    <!-- ===== PODCAST HERO ===== -->
+    <section class="py-16" style="background:oklch(0.97 0.02 258);">
+      <div class="container">
+        <div class="flex flex-col md:flex-row items-start md:items-center gap-8 max-w-4xl">
+
+          <img
+            src="/practitioner-perspectives.webp"
+            alt="Practitioner Perspectives in Autism Care podcast cover"
+            class="w-36 h-36 rounded-2xl flex-shrink-0"
+            style="box-shadow:0 8px 32px oklch(0.22 0.12 258 / 0.15);"
+          />
+
+          <div>
+            <p class="nsh-eyebrow mb-2 fade-up" style="color:oklch(0.67 0.13 28);">Podcast</p>
+            <h1 class="nsh-heading-2 mb-3 fade-up">Practitioner Perspectives<br>in Autism Care</h1>
+            <p class="nsh-body mb-5 fade-up" style="max-width:36rem;">
+              Real conversations about what autism care actually looks like — from assessments and school support to family overwhelm and what progress really means. Hosted by Justin Barton and Thomas Ballantyne.
+            </p>
+            <div class="flex flex-wrap items-center gap-3 fade-up">
+              <a
+                href="https://open.spotify.com/show/3AkgD8H7t6uPww4buFprla"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all"
+                style="background:#1DB954; color:white; font-family:'DM Sans',sans-serif;"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                Listen on Spotify
+              </a>
+              <a
+                href="https://feeds.captivate.fm/practitioner"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all"
+                style="background:oklch(0.46 0.22 258); color:white; font-family:'DM Sans',sans-serif;"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+                RSS Feed
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EPISODE LIST ===== -->
+    <section class="py-16" style="background:white;">
+      <div class="container">
+        <div class="max-w-3xl">
+
+          <p class="nsh-eyebrow mb-6 fade-up">{episodes.length} Episodes</p>
+
+          <div id="podcast-all-episodes">
+            {episodes.map(({ title, desc, id }, i) => {
+              const src = `https://episodes.captivate.fm/episode/${id}.mp3`;
+              return (
+                <div
+                  class="nsh-podcast-card fade-up"
+                  style={`border-bottom:1px solid oklch(0.90 0.03 258); ${i === 0 ? 'border-top:1px solid oklch(0.90 0.03 258);' : ''} transition-delay:${Math.min(i,4) * 40}ms; padding:1.25rem 0; cursor:pointer;`}
+                >
+                  <audio src={src} preload="none"></audio>
+
+                  <div class="flex items-start gap-4">
+                    <!-- Play button -->
+                    <div
+                      class="nsh-podcast-play w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 transition-all"
+                      style="background:oklch(0.46 0.22 258);"
+                    >
+                      <svg class="icon-play" width="14" height="14" viewBox="0 0 24 24" fill="white"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+                      <svg class="icon-pause hidden" width="14" height="14" viewBox="0 0 24 24" fill="white"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                    </div>
+
+                    <!-- Info -->
+                    <div class="flex-1 min-w-0">
+                      <p class="font-semibold mb-1" style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:oklch(0.22 0.12 258); line-height:1.4;">{title}</p>
+                      <p class="episode-status text-xs mb-2" style="color:oklch(0.55 0.04 258); font-family:'DM Sans',sans-serif;">Tap to play</p>
+                      <p style="font-family:'DM Sans',sans-serif; font-size:0.875rem; color:oklch(0.45 0.05 258); line-height:1.6;">{desc}</p>
+                    </div>
+                  </div>
+
+                  <!-- Progress bar (hidden until playing) -->
+                  <div class="episode-progress hidden mt-3 ml-15" style="margin-left:3.75rem;">
+                    <div class="w-full h-1 rounded-full" style="background:oklch(0.90 0.03 258);">
+                      <div class="episode-bar h-1 rounded-full transition-all" style="background:oklch(0.46 0.22 258); width:0%;"></div>
+                    </div>
+                  </div>
+
+                </div>
+              );
+            })}
+          </div>
+
+        </div>
+      </div>
+    </section>
+
   </main>
+
   <Footer />
 </BaseLayout>
+
+<script>
+  function initPodcastPlayer(containerId: string) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    container.querySelectorAll('.nsh-podcast-card').forEach((card) => {
+      const audio    = card.querySelector('audio') as HTMLAudioElement | null;
+      if (!audio) return;
+
+      const playIcon   = card.querySelector('.icon-play');
+      const pauseIcon  = card.querySelector('.icon-pause');
+      const playBtn    = card.querySelector('.nsh-podcast-play') as HTMLElement | null;
+      const statusEl   = card.querySelector('.episode-status');
+      const progressWrap = card.querySelector('.episode-progress');
+      const progressBar  = card.querySelector('.episode-bar') as HTMLElement | null;
+
+      card.addEventListener('click', () => {
+        // Pause all other players across the whole page
+        document.querySelectorAll('.nsh-podcast-card').forEach((other) => {
+          if (other === card) return;
+          const otherAudio = other.querySelector('audio') as HTMLAudioElement | null;
+          if (otherAudio && !otherAudio.paused) {
+            otherAudio.pause();
+            other.querySelector('.icon-play')?.classList.remove('hidden');
+            other.querySelector('.icon-pause')?.classList.add('hidden');
+            (other.querySelector('.nsh-podcast-play') as HTMLElement | null)?.style.setProperty('background', 'oklch(0.46 0.22 258)');
+            other.querySelector('.episode-progress')?.classList.add('hidden');
+          }
+        });
+
+        if (audio.paused) {
+          audio.play();
+          playIcon?.classList.add('hidden');
+          pauseIcon?.classList.remove('hidden');
+          playBtn?.style.setProperty('background', 'oklch(0.55 0.13 195)');
+          progressWrap?.classList.remove('hidden');
+        } else {
+          audio.pause();
+          playIcon?.classList.remove('hidden');
+          pauseIcon?.classList.add('hidden');
+          playBtn?.style.setProperty('background', 'oklch(0.46 0.22 258)');
+        }
+      });
+
+      audio.addEventListener('timeupdate', () => {
+        const cur = Math.floor(audio.currentTime);
+        const tot = Math.floor(audio.duration) || 0;
+        if (statusEl && tot > 0) {
+          const fmt = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+          statusEl.textContent = `${fmt(cur)} / ${fmt(tot)}`;
+          if (progressBar) progressBar.style.width = `${(audio.currentTime / audio.duration) * 100}%`;
+        }
+      });
+
+      audio.addEventListener('ended', () => {
+        playIcon?.classList.remove('hidden');
+        pauseIcon?.classList.add('hidden');
+        playBtn?.style.setProperty('background', 'oklch(0.46 0.22 258)');
+        if (statusEl) statusEl.textContent = 'Tap to play';
+        if (progressBar) progressBar.style.width = '0%';
+        progressWrap?.classList.add('hidden');
+      });
+    });
+  }
+
+  initPodcastPlayer('podcast-all-episodes');
+</script>
