@@ -81,7 +81,7 @@ const episodes = [
   <main>
 
     <!-- ===== PODCAST HERO ===== -->
-    <section class="py-16" style="background:oklch(0.97 0.02 258);">
+    <section class="py-16" style="background:#F7F2EB;">
       <div class="container">
         <div class="flex flex-col md:flex-row items-start md:items-center gap-8 max-w-4xl">
 
@@ -89,11 +89,11 @@ const episodes = [
             src="/practitioner-perspectives.webp"
             alt="Practitioner Perspectives in Autism Care podcast cover"
             class="w-36 h-36 rounded-2xl flex-shrink-0"
-            style="box-shadow:0 8px 32px oklch(0.22 0.12 258 / 0.15);"
+            style="box-shadow:0 8px 32px rgba(8,36,56,0.15);"
           />
 
           <div>
-            <p class="nsh-eyebrow mb-2 fade-up" style="color:oklch(0.67 0.13 28);">Podcast</p>
+            <p class="nsh-eyebrow mb-2 fade-up" style="color:#D8896A;">Podcast</p>
             <h1 class="nsh-heading-2 mb-3 fade-up">Practitioner Perspectives<br>in Autism Care</h1>
             <p class="nsh-body mb-5 fade-up" style="max-width:36rem;">
               Real conversations about what autism care actually looks like — from assessments and school support to family overwhelm and what progress really means. Hosted by Justin Barton and Thomas Ballantyne.
@@ -114,7 +114,7 @@ const episodes = [
                 target="_blank"
                 rel="noopener"
                 class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all"
-                style="background:oklch(0.46 0.22 258); color:white; font-family:'DM Sans',sans-serif;"
+                style="background:#123D5A; color:white; font-family:'DM Sans',sans-serif;"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
                 RSS Feed
@@ -139,7 +139,7 @@ const episodes = [
               return (
                 <div
                   class="nsh-podcast-card fade-up"
-                  style={`border-bottom:1px solid oklch(0.90 0.03 258); ${i === 0 ? 'border-top:1px solid oklch(0.90 0.03 258);' : ''} transition-delay:${Math.min(i,4) * 40}ms; padding:1.25rem 0; cursor:pointer;`}
+                  style={`border-bottom:1px solid #ddd9d2; ${i === 0 ? 'border-top:1px solid #ddd9d2;' : ''} transition-delay:${Math.min(i,4) * 40}ms; padding:1.25rem 0; cursor:pointer;`}
                 >
                   <audio src={src} preload="none"></audio>
 
@@ -147,7 +147,7 @@ const episodes = [
                     <!-- Play button -->
                     <div
                       class="nsh-podcast-play w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 transition-all"
-                      style="background:oklch(0.46 0.22 258);"
+                      style="background:#123D5A;"
                     >
                       <svg class="icon-play" width="14" height="14" viewBox="0 0 24 24" fill="white"><polygon points="6 3 20 12 6 21 6 3"/></svg>
                       <svg class="icon-pause hidden" width="14" height="14" viewBox="0 0 24 24" fill="white"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
@@ -155,16 +155,16 @@ const episodes = [
 
                     <!-- Info -->
                     <div class="flex-1 min-w-0">
-                      <p class="font-semibold mb-1" style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:oklch(0.22 0.12 258); line-height:1.4;">{title}</p>
-                      <p class="episode-status text-xs mb-2" style="color:oklch(0.55 0.04 258); font-family:'DM Sans',sans-serif;">Tap to play</p>
-                      <p style="font-family:'DM Sans',sans-serif; font-size:0.875rem; color:oklch(0.45 0.05 258); line-height:1.6;">{desc}</p>
+                      <p class="font-semibold mb-1" style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; line-height:1.4;">{title}</p>
+                      <p class="episode-status text-xs mb-2" style="color:#5F6975; font-family:'DM Sans',sans-serif;">Tap to play</p>
+                      <p style="font-family:'DM Sans',sans-serif; font-size:0.875rem; color:#3d4f5c; line-height:1.6;">{desc}</p>
                     </div>
                   </div>
 
                   <!-- Progress bar (hidden until playing) -->
                   <div class="episode-progress hidden mt-3 ml-15" style="margin-left:3.75rem;">
-                    <div class="w-full h-1 rounded-full" style="background:oklch(0.90 0.03 258);">
-                      <div class="episode-bar h-1 rounded-full transition-all" style="background:oklch(0.46 0.22 258); width:0%;"></div>
+                    <div class="w-full h-1 rounded-full" style="background:#ddd9d2;">
+                      <div class="episode-bar h-1 rounded-full transition-all" style="background:#123D5A; width:0%;"></div>
                     </div>
                   </div>
 
@@ -207,7 +207,7 @@ const episodes = [
             otherAudio.pause();
             other.querySelector('.icon-play')?.classList.remove('hidden');
             other.querySelector('.icon-pause')?.classList.add('hidden');
-            (other.querySelector('.nsh-podcast-play') as HTMLElement | null)?.style.setProperty('background', 'oklch(0.46 0.22 258)');
+            (other.querySelector('.nsh-podcast-play') as HTMLElement | null)?.style.setProperty('background', '#123D5A');
             other.querySelector('.episode-progress')?.classList.add('hidden');
           }
         });
@@ -216,13 +216,13 @@ const episodes = [
           audio.play();
           playIcon?.classList.add('hidden');
           pauseIcon?.classList.remove('hidden');
-          playBtn?.style.setProperty('background', 'oklch(0.55 0.13 195)');
+          playBtn?.style.setProperty('background', '#7B9E8B');
           progressWrap?.classList.remove('hidden');
         } else {
           audio.pause();
           playIcon?.classList.remove('hidden');
           pauseIcon?.classList.add('hidden');
-          playBtn?.style.setProperty('background', 'oklch(0.46 0.22 258)');
+          playBtn?.style.setProperty('background', '#123D5A');
         }
       });
 
@@ -239,7 +239,7 @@ const episodes = [
       audio.addEventListener('ended', () => {
         playIcon?.classList.remove('hidden');
         pauseIcon?.classList.add('hidden');
-        playBtn?.style.setProperty('background', 'oklch(0.46 0.22 258)');
+        playBtn?.style.setProperty('background', '#123D5A');
         if (statusEl) statusEl.textContent = 'Tap to play';
         if (progressBar) progressBar.style.width = '0%';
         progressWrap?.classList.add('hidden');

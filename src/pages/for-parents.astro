@@ -6,8 +6,8 @@ import Footer from '../components/Footer.astro';
 const pathways = [
   {
     name: 'ASD Essentials',
-    color: 'oklch(0.46 0.22 258)',
-    colorBg: 'oklch(0.95 0.04 258)',
+    color: '#123D5A',
+    colorBg: '#deeae5',
     icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44L7 19H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2.5A2.5 2.5 0 0 1 9.5 2z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44L17 19h2a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2.5A2.5 2.5 0 0 0 14.5 2z"/></svg>`,
     quote: "I need to understand what is happening and where to begin.",
     desc: "A foundational pathway for parents who are newly navigating autism or want a clearer understanding of the brain-body model behind their child's needs.",
@@ -23,8 +23,8 @@ const pathways = [
   },
   {
     name: 'Sensory Regulation',
-    color: 'oklch(0.40 0.16 240)',
-    colorBg: 'oklch(0.93 0.05 240)',
+    color: '#7B9E8B',
+    colorBg: '#eaf5f0',
     icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`,
     quote: "My child melts down, seeks input, avoids input, or struggles with transitions.",
     desc: "Learn to identify your child's sensory profile, understand triggers, and build calming routines that work in real home life.",
@@ -40,8 +40,8 @@ const pathways = [
   },
   {
     name: 'Home-Based Support',
-    color: 'oklch(0.55 0.12 28)',
-    colorBg: 'oklch(0.95 0.05 28)',
+    color: '#D8896A',
+    colorBg: '#fdf0ea',
     icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
     quote: "I want a practical daily plan I can follow.",
     desc: "A step-by-step daily framework with morning activation, after-school resets, meal routines, and evening calm-down sequences.",
@@ -57,8 +57,8 @@ const pathways = [
   },
   {
     name: 'Sleep & Regulation',
-    color: 'oklch(0.42 0.10 220)',
-    colorBg: 'oklch(0.93 0.04 220)',
+    color: '#4F7563',
+    colorBg: '#eaf2ed',
     icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`,
     quote: "Sleep, mood, and transitions are affecting our whole family.",
     desc: "Support your child's circadian rhythm, evening regulation, and sleep readiness through gentle, science-informed routines.",
@@ -74,8 +74,8 @@ const pathways = [
   },
   {
     name: 'Communication Readiness',
-    color: 'oklch(0.52 0.10 55)',
-    colorBg: 'oklch(0.95 0.04 55)',
+    color: '#B8944A',
+    colorBg: '#faf5e4',
     icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
     quote: "I want to support connection, language, and engagement at home.",
     desc: "Practical strategies for supporting communication, play-based engagement, and language readiness through daily home interactions.",
@@ -91,8 +91,8 @@ const pathways = [
   },
   {
     name: 'Movement & Reflexes',
-    color: 'oklch(0.45 0.10 155)',
-    colorBg: 'oklch(0.93 0.05 155)',
+    color: '#082438',
+    colorBg: '#e8edf0',
     icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M9.5 8.5L7 22"/><path d="M14.5 8.5L17 22"/><path d="M7 13h10"/></svg>`,
     quote: "My child struggles with coordination, posture, focus, or developmental foundations.",
     desc: "Understand primitive reflexes, support reflex integration, and use movement-based routines to support attention, coordination, and learning readiness.",
@@ -120,12 +120,12 @@ const pathways = [
     <section class="py-16 lg:py-20" style="background:white;">
       <div class="container">
         <div class="max-w-2xl">
-          <p class="nsh-eyebrow mb-4 fade-up" style="color:oklch(0.67 0.13 28);">For Parents</p>
-          <h1 class="fade-up mb-5" style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(2.25rem, 5vw, 3.5rem); line-height:1.1; color:oklch(0.22 0.12 258);">
+          <p class="nsh-eyebrow mb-4 fade-up" style="color:#D8896A;">For Parents</p>
+          <h1 class="fade-up mb-5" style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(2.25rem, 5vw, 3.5rem); line-height:1.1; color:#082438;">
             Regulation before learning.<br>Movement before cognition.
           </h1>
-          <div class="mb-6" style="width:3rem; height:3px; background:oklch(0.67 0.13 28); border-radius:2px;"></div>
-          <p class="nsh-body-lg mb-8 fade-up" style="color:oklch(0.40 0.05 258); max-width:34rem;">
+          <div class="mb-6" style="width:3rem; height:3px; background:#D8896A; border-radius:2px;"></div>
+          <p class="nsh-body-lg mb-8 fade-up" style="color:#2d3f4c; max-width:34rem;">
             Every child's path is different — but the steps of neurological development are universal. We start where your child is today and build from there. The pyramid below shows how each layer creates the foundation for the next.
           </p>
           <div class="flex flex-wrap gap-4 fade-up">
@@ -140,18 +140,18 @@ const pathways = [
     </section>
 
     <!-- ===== FOUNDATION-FIRST PYRAMID ===== -->
-    <section class="py-16 lg:py-20" style="background:oklch(0.97 0.02 258);">
+    <section class="py-16 lg:py-20" style="background:#F7F2EB;">
       <div class="container">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           <!-- Left: copy -->
           <div class="fade-up">
-            <p class="nsh-eyebrow mb-4" style="color:oklch(0.46 0.22 258);">The Foundation-First Model</p>
-            <h2 class="nsh-heading-2 mb-5" style="color:oklch(0.22 0.12 258);">Development builds from the ground up.</h2>
-            <p class="nsh-body-lg mb-5" style="color:oklch(0.40 0.05 258);">
+            <p class="nsh-eyebrow mb-4" style="color:#123D5A;">The Foundation-First Model</p>
+            <h2 class="nsh-heading-2 mb-5" style="color:#082438;">Development builds from the ground up.</h2>
+            <p class="nsh-body-lg mb-5" style="color:#2d3f4c;">
               A child's development is built from the bottom up. Sensory processing, movement, primitive reflex integration, sleep, nutrition, and emotional safety all create the foundation for higher-level skills like attention, communication, learning, and social connection.
             </p>
-            <p class="nsh-body mb-8" style="color:oklch(0.45 0.05 258);">
+            <p class="nsh-body mb-8" style="color:#3d4f5c;">
               Neurosage Hub turns that foundation-first model into simple education, practical home routines, and progress tracking parents can actually use — without needing to become a therapist.
             </p>
             <a href="#pathways" class="nsh-btn-cta" style="font-size:1rem; padding:0.875rem 1.75rem;">
@@ -162,11 +162,11 @@ const pathways = [
 
           <!-- Right: pyramid SVG -->
           <div class="fade-up flex justify-center" style="transition-delay:80ms;">
-            <div class="w-full max-w-sm rounded-2xl p-8" style="background:oklch(0.95 0.03 60); box-shadow:0 8px 40px oklch(0.22 0.12 258 / 0.08);">
+            <div class="w-full max-w-sm rounded-2xl p-8" style="background:#F7F2EB; box-shadow:0 8px 40px rgba(8,36,56,0.08);">
               <svg viewBox="0 0 340 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Neurodevelopmental pyramid: from Sensory & Regulation at the base to Learning & Cognition at the top">
 
                 <!-- Tier 1 top: Learning & Cognition -->
-                <polygon points="150,8 190,8 220,88 120,88" fill="#E07060" />
+                <polygon points="150,8 190,8 220,88 120,88" fill="#D8896A" />
                 <!-- icon: brain outline (simplified) -->
                 <g transform="translate(159,28)" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round">
                   <path d="M11 2.5C9.3 2.5 8 3.8 8 5.5v.2C6.3 6.2 5 7.6 5 9.3c0 1 .4 1.9 1.1 2.5C5.4 12.4 5 13.4 5 14.5c0 2 1.3 3.7 3.2 4.3V20h7.6v-1.2c1.9-.6 3.2-2.3 3.2-4.3 0-1.1-.4-2.1-1.1-2.7.7-.6 1.1-1.5 1.1-2.5 0-1.7-1.3-3.1-3-3.6v-.2c0-1.7-1.3-3-3-3z"/>
@@ -176,7 +176,7 @@ const pathways = [
                 <text x="170" y="84" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="white">Cognition</text>
 
                 <!-- Tier 2: Communication & Connection -->
-                <polygon points="120,92 220,92 250,172 90,172" fill="#D4A97A" />
+                <polygon points="120,92 220,92 250,172 90,172" fill="#E8C98F" />
                 <!-- icon: two people -->
                 <g transform="translate(151,104)" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round">
                   <circle cx="7" cy="5" r="3"/>
@@ -189,7 +189,7 @@ const pathways = [
                 <text x="170" y="161" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="white">Connection</text>
 
                 <!-- Tier 3: Sleep & Nutrition -->
-                <polygon points="90,176 250,176 280,256 60,256" fill="#8EC5C0" />
+                <polygon points="90,176 250,176 280,256 60,256" fill="#7B9E8B" />
                 <!-- icon: moon + bowl (simplified as moon) -->
                 <g transform="translate(152,188)" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round">
                   <path d="M18 12.5A8 8 0 1 1 9.5 4a6 6 0 0 0 8.5 8.5z"/>
@@ -199,7 +199,7 @@ const pathways = [
                 <text x="170" y="245" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="white">Nutrition</text>
 
                 <!-- Tier 4: Movement & Reflexes -->
-                <polygon points="60,260 280,260 310,340 30,340" fill="#90AF8C" />
+                <polygon points="60,260 280,260 310,340 30,340" fill="#4F7563" />
                 <!-- icon: figure crawling/moving -->
                 <g transform="translate(150,272)" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round">
                   <circle cx="16" cy="4" r="2.5"/>
@@ -212,7 +212,7 @@ const pathways = [
                 <text x="170" y="327" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="white">Reflexes</text>
 
                 <!-- Tier 5 base: Sensory & Regulation -->
-                <polygon points="30,344 310,344 340,416 0,416" fill="#3B7BAA" />
+                <polygon points="30,344 310,344 340,416 0,416" fill="#082438" />
                 <!-- icon: wave/signal (sensory) -->
                 <g transform="translate(147,354)" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round">
                   <path d="M2 12c1.5-3 3-4.5 4.5-4.5S9.5 9 11 9s2.5-1.5 4-1.5 3 1.5 4.5 1.5"/>
@@ -233,37 +233,37 @@ const pathways = [
       <div class="container">
 
         <div class="max-w-2xl mx-auto text-center mb-14">
-          <p class="nsh-eyebrow mb-3 fade-up" style="color:oklch(0.67 0.13 28);">Guided Learning Journeys</p>
-          <h2 class="nsh-heading-2 mb-4 fade-up" style="color:oklch(0.22 0.12 258);">Find the pathway that fits your child's needs.</h2>
-          <p class="nsh-body fade-up" style="color:oklch(0.45 0.05 258);">Each pathway is a structured learning journey — not a random course library. Start where your child is right now and build from there. Below are the most common starting points.</p>
+          <p class="nsh-eyebrow mb-3 fade-up" style="color:#D8896A;">Guided Learning Journeys</p>
+          <h2 class="nsh-heading-2 mb-4 fade-up" style="color:#082438;">Find the pathway that fits your child's needs.</h2>
+          <p class="nsh-body fade-up" style="color:#3d4f5c;">Each pathway is a structured learning journey — not a random course library. Start where your child is right now and build from there. Below are the most common starting points.</p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {pathways.map(({ name, color, colorBg, icon, quote, desc, learn, cta }, i) => (
-            <div class="rounded-2xl overflow-hidden fade-up" style={`background:white; border:1px solid oklch(0.90 0.03 258); box-shadow:0 4px 24px oklch(0.22 0.12 258 / 0.05); transition-delay:${i * 60}ms;`}>
+            <div class="rounded-2xl overflow-hidden fade-up" style={`background:white; border:1px solid #ddd9d2; box-shadow:0 4px 24px rgba(8,36,56,0.05); transition-delay:${i * 60}ms;`}>
 
               <!-- Card top -->
-              <div class="px-7 pt-6 pb-5" style={`border-bottom:1px solid oklch(0.93 0.02 258);`}>
+              <div class="px-7 pt-6 pb-5" style={`border-bottom:1px solid #e5e1da;`}>
                 <div class="flex items-start gap-4 mb-4">
                   <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style={`background:${colorBg}; color:${color};`}>
                     <Fragment set:html={icon} />
                   </div>
                   <div>
                     <p class="nsh-eyebrow mb-1" style={`color:${color}; font-size:0.65rem;`}>{name}</p>
-                    <p class="text-sm italic" style={`font-family:'DM Sans',sans-serif; color:oklch(0.40 0.06 258); line-height:1.5;`}>"{quote}"</p>
+                    <p class="text-sm italic" style={`font-family:'DM Sans',sans-serif; color:#2d3f4c; line-height:1.5;`}>"{quote}"</p>
                   </div>
                 </div>
-                <p class="text-sm" style="font-family:'DM Sans',sans-serif; color:oklch(0.45 0.05 258); line-height:1.65;">{desc}</p>
+                <p class="text-sm" style="font-family:'DM Sans',sans-serif; color:#3d4f5c; line-height:1.65;">{desc}</p>
               </div>
 
               <!-- What you'll learn -->
               <div class="px-7 py-5">
-                <p class="text-xs font-bold mb-3" style="font-family:'DM Sans',sans-serif; color:oklch(0.55 0.04 258); letter-spacing:0.08em; text-transform:uppercase;">What you'll learn</p>
+                <p class="text-xs font-bold mb-3" style="font-family:'DM Sans',sans-serif; color:#5F6975; letter-spacing:0.08em; text-transform:uppercase;">What you'll learn</p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 mb-5">
                   {learn.map((item) => (
                     <div class="flex items-start gap-2">
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={color} stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
-                      <span class="text-xs" style="font-family:'DM Sans',sans-serif; color:oklch(0.38 0.05 258); line-height:1.5;">{item}</span>
+                      <span class="text-xs" style="font-family:'DM Sans',sans-serif; color:#3d4f5c; line-height:1.5;">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -281,7 +281,7 @@ const pathways = [
     </section>
 
     <!-- ===== BOTTOM CTA ===== -->
-    <section class="py-16" style="background:oklch(0.22 0.12 258);">
+    <section class="py-16" style="background:#082438;">
       <div class="container max-w-2xl mx-auto text-center fade-up">
         <h2 class="nsh-heading-2 mb-4" style="color:white;">Not sure which pathway to start with?</h2>
         <p class="nsh-body mb-8" style="color:rgba(255,255,255,0.65);">Take the free Parent Pathway Quiz and we'll recommend the best starting point based on your child's current needs.</p>
@@ -296,7 +296,7 @@ const pathways = [
     </section>
 
     <!-- ===== TAGLINE ===== -->
-    <div style="background:oklch(0.46 0.22 258); padding:1.25rem 0;">
+    <div style="background:#123D5A; padding:1.25rem 0;">
       <div class="container flex items-center gap-4">
         <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(255,255,255,0.15);">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>

@@ -1,10 +1,11 @@
 /*
  * Neurosage Hub — Global Design System
- * Brand-aligned palette — logo royal blue + clean white
- * - White background
- * - Royal blue primary:  oklch(0.46 0.22 258)  ← logo blue
- * - Teal accent:         oklch(0.55 0.13 195)
- * - Coral CTA:           oklch(0.67 0.13 28)
+ * Brand palette — Navy, Sage, Coral, Cream
+ * - Honor Navy:      #082438  ← dark sections, headings
+ * - Primary Navy:    #123D5A  ← nav, buttons, links
+ * - Evergreen Sage:  #7B9E8B  ← accents, eyebrows
+ * - Hearth Clay:     #D8896A  ← CTA buttons, highlights
+ * - Soft Linen:      #F7F2EB  ← light section backgrounds
  * - Typography: DM Sans throughout for clarity
  */
 
@@ -14,18 +15,31 @@
 
 /* ===== CSS TOKENS ===== */
 :root {
+  --nsh-navy:         #082438;
+  --nsh-navy-mid:     #123D5A;
+  --nsh-navy-card:    #0d2d42;
+  --nsh-navy-border:  #1a3d52;
+  --nsh-sage:         #7B9E8B;
+  --nsh-sage-dark:    #4F7563;
+  --nsh-sage-light:   #deeae5;
+  --nsh-coral:        #D8896A;
+  --nsh-coral-dark:   #b8694a;
+  --nsh-coral-light:  #fdf0ea;
+  --nsh-linen:        #F7F2EB;
+  --nsh-linen-dark:   #e5e1da;
+  --nsh-border:       #ddd9d2;
+  --nsh-warm-text:    #1F2A33;
+  --nsh-muted-text:   #5F6975;
+  --nsh-honey:        #E8C98F;
+
+  /* Legacy aliases kept for compatibility */
   --nsh-ivory:        white;
-  --nsh-ivory-mist:   oklch(0.97 0.02 258);
-  --nsh-blue-deep:    oklch(0.22 0.12 258);
-  --nsh-blue-primary: oklch(0.46 0.22 258);
-  --nsh-blue-light:   oklch(0.95 0.04 258);
-  --nsh-teal:         oklch(0.55 0.13 195);
-  --nsh-teal-dark:    oklch(0.40 0.12 195);
-  --nsh-coral:        oklch(0.67 0.13 28);
-  --nsh-coral-dark:   oklch(0.55 0.12 28);
-  --nsh-warm-text:    oklch(0.28 0.06 258);
-  --nsh-muted-text:   oklch(0.50 0.04 258);
-  --nsh-border:       oklch(0.90 0.03 258);
+  --nsh-ivory-mist:   #F7F2EB;
+  --nsh-blue-deep:    #082438;
+  --nsh-blue-primary: #123D5A;
+  --nsh-blue-light:   #deeae5;
+  --nsh-teal:         #7B9E8B;
+  --nsh-teal-dark:    #4F7563;
 }
 
 /* ===== BASE ===== */
@@ -34,7 +48,7 @@
 
   body {
     background: white;
-    color: var(--nsh-blue-deep);
+    color: var(--nsh-navy);
     font-family: 'DM Sans', system-ui, sans-serif;
     font-size: 1rem;
     line-height: 1.65;
@@ -45,7 +59,7 @@
     font-family: 'DM Sans', system-ui, sans-serif;
     font-weight: 700;
     line-height: 1.15;
-    color: oklch(0.22 0.12 258);
+    color: #082438;
   }
 }
 
@@ -70,7 +84,7 @@
     font-weight: 800;
     font-size: clamp(2.25rem, 5vw, 3.5rem);
     line-height: 1.08;
-    color: oklch(0.22 0.12 258);
+    color: #082438;
     letter-spacing: -0.02em;
   }
   .nsh-heading-2 {
@@ -78,7 +92,7 @@
     font-weight: 700;
     font-size: clamp(1.75rem, 3.5vw, 2.5rem);
     line-height: 1.12;
-    color: oklch(0.22 0.12 258);
+    color: #082438;
     letter-spacing: -0.015em;
   }
   .nsh-heading-3 {
@@ -86,7 +100,7 @@
     font-weight: 700;
     font-size: 1.25rem;
     line-height: 1.3;
-    color: oklch(0.22 0.12 258);
+    color: #082438;
   }
   .nsh-eyebrow {
     font-family: 'DM Sans', sans-serif;
@@ -94,20 +108,20 @@
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--nsh-teal);
+    color: var(--nsh-sage);
     display: inline-block;
   }
   .nsh-body-lg {
     font-family: 'DM Sans', sans-serif;
     font-size: 1.125rem;
     line-height: 1.7;
-    color: oklch(0.40 0.05 258);
+    color: #2d3f4c;
   }
   .nsh-body {
     font-family: 'DM Sans', sans-serif;
     font-size: 1rem;
     line-height: 1.7;
-    color: oklch(0.50 0.04 258);
+    color: #5F6975;
   }
 
   /* ── Buttons ── */
@@ -115,7 +129,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: var(--nsh-blue-primary);
+    background: var(--nsh-navy-mid);
     color: white;
     font-family: 'DM Sans', sans-serif;
     font-weight: 700;
@@ -125,13 +139,13 @@
     border: none;
     text-decoration: none;
     transition: all 160ms ease;
-    box-shadow: 0 4px 16px oklch(0.46 0.22 258 / 0.3);
+    box-shadow: 0 4px 16px rgba(18,61,90,0.3);
     white-space: nowrap;
     cursor: pointer;
   }
   .nsh-btn-primary:hover {
-    background: oklch(0.38 0.22 258);
-    box-shadow: 0 6px 24px oklch(0.46 0.22 258 / 0.4);
+    background: #0e2f48;
+    box-shadow: 0 6px 24px rgba(18,61,90,0.4);
     transform: translateY(-1px);
   }
   .nsh-btn-cta {
@@ -148,13 +162,13 @@
     border: none;
     text-decoration: none;
     transition: all 160ms ease;
-    box-shadow: 0 4px 16px oklch(0.67 0.13 28 / 0.3);
+    box-shadow: 0 4px 16px rgba(216,137,106,0.3);
     white-space: nowrap;
     cursor: pointer;
   }
   .nsh-btn-cta:hover {
     background: var(--nsh-coral-dark);
-    box-shadow: 0 6px 24px oklch(0.67 0.13 28 / 0.4);
+    box-shadow: 0 6px 24px rgba(216,137,106,0.4);
     transform: translateY(-1px);
   }
   .nsh-btn-secondary {
@@ -162,21 +176,21 @@
     align-items: center;
     gap: 0.5rem;
     background: transparent;
-    color: var(--nsh-blue-primary);
+    color: var(--nsh-navy-mid);
     font-family: 'DM Sans', sans-serif;
     font-weight: 600;
     font-size: 1rem;
     padding: 0.875rem 1.75rem;
     border-radius: 0.5rem;
-    border: 1.5px solid oklch(0.46 0.22 258 / 0.4);
+    border: 1.5px solid rgba(18,61,90,0.4);
     text-decoration: none;
     transition: all 160ms ease;
     white-space: nowrap;
     cursor: pointer;
   }
   .nsh-btn-secondary:hover {
-    background: var(--nsh-blue-light);
-    border-color: var(--nsh-blue-primary);
+    background: var(--nsh-sage-light);
+    border-color: var(--nsh-navy-mid);
   }
 
   /* ── Cards ── */
@@ -184,23 +198,23 @@
     background: white;
     border-radius: 1rem;
     border: 1px solid var(--nsh-border);
-    box-shadow: 0 2px 12px oklch(0.22 0.12 258 / 0.05);
+    box-shadow: 0 2px 12px rgba(8,36,56,0.05);
     transition: box-shadow 200ms ease, transform 200ms ease;
   }
   .nsh-card:hover {
-    box-shadow: 0 8px 32px oklch(0.22 0.12 258 / 0.1);
+    box-shadow: 0 8px 32px rgba(8,36,56,0.10);
     transform: translateY(-2px);
   }
   .nsh-protocol-card {
-    background: oklch(0.97 0.02 258);
+    background: #F7F2EB;
     border-radius: 0.75rem;
     border: 1px solid var(--nsh-border);
     padding: 1.25rem 1.5rem;
     transition: all 160ms ease;
   }
   .nsh-protocol-card:hover {
-    border-color: oklch(0.55 0.13 195 / 0.5);
-    background: oklch(0.95 0.04 258);
+    border-color: rgba(123,158,139,0.5);
+    background: #deeae5;
   }
 
   /* ── Pills / Tags ── */
@@ -216,24 +230,24 @@
     white-space: nowrap;
   }
   .nsh-pill-blue {
-    background: oklch(0.46 0.22 258 / 0.1);
-    color: var(--nsh-blue-primary);
+    background: rgba(18,61,90,0.10);
+    color: var(--nsh-navy-mid);
   }
   .nsh-pill-teal {
-    background: oklch(0.55 0.13 195 / 0.12);
-    color: var(--nsh-teal-dark);
+    background: rgba(123,158,139,0.12);
+    color: var(--nsh-sage-dark);
   }
   /* keep old class name for compatibility */
   .nsh-pill-sage {
-    background: oklch(0.46 0.22 258 / 0.08);
-    color: var(--nsh-blue-primary);
+    background: rgba(18,61,90,0.08);
+    color: var(--nsh-navy-mid);
   }
 
   /* ── Section backgrounds ── */
   .nsh-section-ivory { background: white; }
-  .nsh-section-mist  { background: oklch(0.97 0.02 258); }
+  .nsh-section-mist  { background: #F7F2EB; }
   .nsh-section-white { background: white; }
-  .nsh-section-dark  { background: oklch(0.22 0.12 258); }
+  .nsh-section-dark  { background: #082438; }
 
   /* ── Divider ── */
   .nsh-divider {

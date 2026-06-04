@@ -13,18 +13,18 @@ const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663645323174/cAF6S
   <Header />
 
   <main>
-    <section class="relative min-h-screen" style="background:oklch(0.97 0.02 258);">
+    <section class="relative min-h-screen" style="background:#f9f7f4;">
       <div class="container py-12 lg:py-16">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 
           <!-- Left: copy -->
           <div class="lg:col-span-5">
-            <p class="nsh-eyebrow mb-4 fade-up" style="color:oklch(0.67 0.13 28);">For Parents Navigating Autism</p>
-            <h1 class="nsh-heading-display mb-4 fade-up" style="color:oklch(0.22 0.12 258);">
+            <p class="nsh-eyebrow mb-4 fade-up" style="color:#D8896A;">For Parents Navigating Autism</p>
+            <h1 class="nsh-heading-display mb-4 fade-up" style="color:#082438;">
               Overwhelmed by autism and don't know where to start?
             </h1>
-            <div class="mb-6" style="width:3rem; height:3px; background:oklch(0.67 0.13 28); border-radius:2px;"></div>
-            <p class="nsh-body-lg mb-8 fade-up" style="color:oklch(0.35 0.06 258);">
+            <div class="mb-6" style="width:3rem; height:3px; background:#D8896A; border-radius:2px;"></div>
+            <p class="nsh-body-lg mb-8 fade-up" style="color:#123D5A;">
               Neurosage Hub helps families find clarity through structured pathways, educational tools, and trusted guidance.
             </p>
 
@@ -37,23 +37,23 @@ const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663645323174/cAF6S
                 { num: 4, icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`, label: 'Connect With Help' },
               ].map(({ icon, label }) => (
                 <div class="flex items-center gap-4">
-                  <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:oklch(0.46 0.22 258);">
+                  <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:#123D5A;">
                     <Fragment set:html={icon} />
                   </div>
-                  <p class="font-semibold text-sm" style="font-family:'DM Sans',sans-serif; color:oklch(0.22 0.12 258);">{label}</p>
+                  <p class="font-semibold text-sm" style="font-family:'DM Sans',sans-serif; color:#082438;">{label}</p>
                 </div>
               ))}
             </div>
 
             <!-- Trust statement -->
-            <div class="flex items-start gap-3 p-4 rounded-xl fade-up" style="background:white; border:1px solid oklch(0.90 0.03 258);">
-              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background:oklch(0.67 0.13 28 / 0.1);">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="oklch(0.55 0.12 28)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div class="flex items-start gap-3 p-4 rounded-xl fade-up" style="background:white; border:1px solid #deeae5;">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background:rgba(216,137,106,0.1);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D8896A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
               <div>
-                <p class="font-bold text-sm mb-0.5" style="font-family:'DM Sans',sans-serif; color:oklch(0.22 0.12 258);">No hype. No miracle cures.</p>
-                <p class="text-sm" style="font-family:'DM Sans',sans-serif; color:oklch(0.45 0.05 258); line-height:1.6;">
-                  Just proven, structured guidance designed to help families take the <strong style="color:oklch(0.46 0.22 258);">next right step.</strong>
+                <p class="font-bold text-sm mb-0.5" style="font-family:'DM Sans',sans-serif; color:#082438;">No hype. No miracle cures.</p>
+                <p class="text-sm" style="font-family:'DM Sans',sans-serif; color:#3d5a6e; line-height:1.6;">
+                  Just proven, structured guidance designed to help families take the <strong style="color:#123D5A;">next right step.</strong>
                 </p>
               </div>
             </div>
@@ -65,24 +65,24 @@ const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663645323174/cAF6S
               src={HERO_IMG}
               alt="Parent and child hugging"
               class="w-full h-full object-cover rounded-2xl"
-              style="min-height:520px; box-shadow:0 16px 48px oklch(0.22 0.12 258 / 0.12);"
+              style="min-height:520px; box-shadow:0 16px 48px rgba(8,36,56,0.12);"
               loading="eager"
             />
           </div>
 
           <!-- Right: sign-up card -->
           <div class="lg:col-span-3 fade-up" style="transition-delay:160ms;">
-            <div class="rounded-2xl p-7" style="background:white; box-shadow:0 8px 40px oklch(0.22 0.12 258 / 0.10); border:1px solid oklch(0.93 0.03 258);">
+            <div class="rounded-2xl p-7" style="background:white; box-shadow:0 8px 40px rgba(8,36,56,0.10); border:1px solid #ddd9d2;">
 
               <!-- Logo mark -->
               <div class="flex justify-center mb-5">
                 <img src="/logo-blue.png" alt="Neurosage Hub" class="h-10 w-auto" />
               </div>
 
-              <h2 class="text-center font-bold mb-1" style="font-family:'DM Sans',sans-serif; font-size:1.25rem; color:oklch(0.22 0.12 258);">
+              <h2 class="text-center font-bold mb-1" style="font-family:'DM Sans',sans-serif; font-size:1.25rem; color:#082438;">
                 Start Your Free<br>Parent Account
               </h2>
-              <div class="mx-auto mb-6" style="width:2.5rem; height:3px; background:oklch(0.67 0.13 28); border-radius:2px;"></div>
+              <div class="mx-auto mb-6" style="width:2.5rem; height:3px; background:#D8896A; border-radius:2px;"></div>
 
               <!-- CTA — links directly to app signup -->
               <a
@@ -94,22 +94,22 @@ const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663645323174/cAF6S
               </a>
 
               <!-- Trust badges -->
-              <div class="grid grid-cols-3 gap-2 pt-4" style="border-top:1px solid oklch(0.93 0.03 258);">
+              <div class="grid grid-cols-3 gap-2 pt-4" style="border-top:1px solid #ddd9d2;">
                 {[
-                  { icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="oklch(0.46 0.22 258)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`, label: 'Secure Platform' },
-                  { icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="oklch(0.46 0.22 258)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`, label: 'No Diagnosis Required' },
-                  { icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="oklch(0.46 0.22 258)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`, label: 'Start Today' },
+                  { icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#123D5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`, label: 'Secure Platform' },
+                  { icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#123D5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`, label: 'No Diagnosis Required' },
+                  { icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#123D5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`, label: 'Start Today' },
                 ].map(({ icon, label }) => (
                   <div class="flex flex-col items-center gap-1.5 text-center">
                     <Fragment set:html={icon} />
-                    <span style="font-family:'DM Sans',sans-serif; font-size:0.7rem; color:oklch(0.50 0.04 258); line-height:1.3;">{label}</span>
+                    <span style="font-family:'DM Sans',sans-serif; font-size:0.7rem; color:#5F6975; line-height:1.3;">{label}</span>
                   </div>
                 ))}
               </div>
 
-              <p class="text-center mt-4 text-xs" style="font-family:'DM Sans',sans-serif; color:oklch(0.60 0.04 258);">
+              <p class="text-center mt-4 text-xs" style="font-family:'DM Sans',sans-serif; color:#5F6975;">
                 Already have an account?
-                <a href="https://app.neurosagehub.com/login" style="color:oklch(0.46 0.22 258); font-weight:600;"> Log in</a>
+                <a href="https://app.neurosagehub.com/login" style="color:#123D5A; font-weight:600;"> Log in</a>
               </p>
             </div>
           </div>
@@ -118,7 +118,7 @@ const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663645323174/cAF6S
       </div>
 
       <!-- Bottom tagline wave -->
-      <div style="background:oklch(0.46 0.22 258); padding:1.25rem 0; margin-top:2rem;">
+      <div style="background:#123D5A; padding:1.25rem 0; margin-top:2rem;">
         <div class="container">
           <div class="flex items-center gap-4">
             <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(255,255,255,0.15);">
