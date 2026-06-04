@@ -1,11 +1,14 @@
 /*
  * Neurosage Hub — Global Design System
- * Brand palette — Navy, Sage, Coral, Cream
+ * Official Brand Palette:
  * - Honor Navy:      #082438  ← dark sections, headings
- * - Primary Navy:    #123D5A  ← nav, buttons, links
- * - Evergreen Sage:  #7B9E8B  ← accents, eyebrows
+ * - Evergreen Sage:  #7B9E8B  ← accents, eyebrows, section tints
  * - Hearth Clay:     #D8896A  ← CTA buttons, highlights
- * - Soft Linen:      #F7F2EB  ← light section backgrounds
+ * - River Stone:     #5F6975  ← muted/secondary text
+ * - Lavender Fog:    #B9B3D9  ← accent sections, pill tags, variety
+ * - Honey Wheat:     #E8C98F  ← warm accents, stars, highlights
+ * - Soft Linen:      #F7F2EB  ← light section backgrounds (use sparingly)
+ * - Forest Path:     #4F7563  ← dark sage, deep accents
  * - Typography: DM Sans throughout for clarity
  */
 
@@ -31,6 +34,9 @@
   --nsh-warm-text:    #1F2A33;
   --nsh-muted-text:   #5F6975;
   --nsh-honey:        #E8C98F;
+  --nsh-lavender:     #B9B3D9;
+  --nsh-lavender-light: #edeaf7;
+  --nsh-river-stone:  #5F6975;
 
   /* Legacy aliases kept for compatibility */
   --nsh-ivory:        white;

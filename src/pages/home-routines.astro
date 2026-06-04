@@ -170,7 +170,7 @@ const routines = [
     </section>
 
     <!-- ===== ROUTINE LIBRARY ===== -->
-    <section id="routines" class="py-16" style="background:#F7F2EB;">
+    <section id="routines" class="py-16" style="background:white;">
       <div class="container">
 
         <div class="max-w-2xl mx-auto text-center mb-12">
@@ -187,12 +187,12 @@ const routines = [
               <div class="px-7 pt-6 pb-5" style="border-bottom:1px solid #e5e1da;">
                 <div class="flex items-start gap-4">
                   <!-- Routine icon -->
-                  <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={`background:${iconBg};`}>
+                  <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(8,36,56,0.06);">
                     <Fragment set:html={icon} />
                   </div>
                   <div class="flex-1 min-w-0">
                     <div class="flex items-center gap-3 mb-2">
-                      <span class="text-xs font-bold px-3 py-1 rounded-full" style={`font-family:'DM Sans',sans-serif; background:${tagBg}; color:${tagColor}; letter-spacing:0.04em; text-transform:uppercase;`}>{tag}</span>
+                      <span class="text-xs font-bold px-3 py-1 rounded-full" style={`font-family:'DM Sans',sans-serif; background:rgba(8,36,56,0.05); color:${tagColor}; letter-spacing:0.04em; text-transform:uppercase;`}>{tag}</span>
                       <div class="flex items-center gap-1.5" style="color:#5F6975;">
                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                         <span style="font-family:'DM Sans',sans-serif; font-size:0.8125rem;">{time}</span>
@@ -210,12 +210,12 @@ const routines = [
               </div>
               <div>
                 {steps.map(({ num, label, duration, detail }, si) => (
-                  <div class="flex items-start gap-4 px-7 py-4" style={`border-top:1px solid #e5e1da; background:${si % 2 === 0 ? 'white' : '#faf8f5'};`}>
-                    <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold" style={`background:${tagBg}; color:${tagColor}; font-family:'DM Sans',sans-serif;`}>{num}</div>
+                  <div class="flex items-start gap-4 px-7 py-4" style="border-top:1px solid #e5e1da; background:white;">
+                    <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold" style="background:#082438; color:white; font-family:'DM Sans',sans-serif;">{num}</div>
                     <div class="flex-1 min-w-0 pt-0.5">
                       <div class="flex items-center gap-2.5 flex-wrap mb-1">
                         <span class="font-semibold text-sm" style="font-family:'DM Sans',sans-serif; color:#082438;">{label}</span>
-                        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full" style={`font-family:'DM Sans',sans-serif; background:${tagBg}; color:${tagColor};`}>{duration}</span>
+                        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full" style="font-family:'DM Sans',sans-serif; background:#F7F2EB; color:#5F6975;">{duration}</span>
                       </div>
                       <p class="text-xs" style="font-family:'DM Sans',sans-serif; color:#5F6975; line-height:1.55;">{detail}</p>
                     </div>
@@ -224,9 +224,9 @@ const routines = [
               </div>
 
               <!-- Benefit -->
-              <div class="mx-7 my-5 flex items-center gap-2.5 px-4 py-3 rounded-xl" style={`background:${tagBg};`}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={tagColor} stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                <p class="text-sm font-semibold" style={`font-family:'DM Sans',sans-serif; color:${tagColor};`}>{benefit}</p>
+              <div class="mx-7 my-5 flex items-center gap-2.5 px-4 py-3 rounded-xl" style="background:rgba(123,158,139,0.12);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4F7563" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <p class="text-sm font-semibold" style="font-family:'DM Sans',sans-serif; color:#4F7563;">{benefit}</p>
               </div>
 
             </div>
