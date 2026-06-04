@@ -178,7 +178,7 @@ const workbookIncludes = [
 
         <div class="space-y-20">
           {routines.map(({ tag, time, title, quote, desc, img, imgAlt, steps, accent, accentLight }, i) => (
-            <div class={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
+            <div class={`flex flex-col gap-12 items-center ${i % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
 
               <!-- Image -->
               <div class="fade-up" style={`transition-delay:${i * 40}ms;`}>
