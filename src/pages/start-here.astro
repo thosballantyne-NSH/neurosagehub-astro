@@ -18,56 +18,46 @@ const EVA_EMBED_SRC = ""; // e.g. "https://cdn.yourplatform.com/widget/eva.js"
   <main>
 
     <!-- ===== EVA SECTION ===== -->
-    <section class="py-16" style="background:oklch(0.22 0.12 258);">
+    <section class="py-14" style="background:oklch(0.22 0.12 258);">
       <div class="container">
-        <div class="max-w-3xl mx-auto text-center mb-10">
-          <p class="nsh-eyebrow mb-3 fade-up" style="color:oklch(0.75 0.12 195);">Meet Eva</p>
-          <h1 class="nsh-heading-2 mb-4 fade-up" style="color:white;">
-            Not sure where to start?<br>Ask Eva anything.
+        <div class="max-w-xl mx-auto text-center">
+
+          <h1 class="fade-up mb-2" style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.75rem, 4vw, 2.5rem); color:white; line-height:1.15;">
+            Where would you like to start?
           </h1>
-          <p class="nsh-body-lg fade-up" style="color:rgba(255,255,255,0.72); max-width:28rem; margin:0 auto;">
-            Share what challenge you'd like to tackle and Eva will help you find your structured next steps.
+          <p class="fade-up mb-8" style="font-family:'DM Sans',sans-serif; font-size:1rem; color:rgba(255,255,255,0.55);">
+            Tell Eva what's going on and she'll point you to your best next step.
           </p>
-        </div>
 
-        <!-- Eva embed container -->
-        <div class="max-w-3xl mx-auto fade-up">
-          {EVA_EMBED_SRC ? (
-            <!-- Live Eva embed — swap in script or iframe here -->
-            <div id="eva-widget" style="min-height:480px; border-radius:1.25rem; overflow:hidden;"></div>
-          ) : (
-            <!-- Placeholder until Eva embed is connected -->
-            <div
-              class="rounded-2xl flex flex-col items-center justify-center gap-5 text-center"
-              style="background:oklch(0.28 0.10 258); border:1px solid oklch(0.35 0.10 258); min-height:380px; padding:3rem 2rem;"
-            >
-              <!-- Eva avatar -->
-              <div class="w-20 h-20 rounded-full flex items-center justify-center" style="background:oklch(0.46 0.22 258);">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2a10 10 0 1 0 10 10"/>
-                  <path d="M12 6v6l4 2"/>
-                  <circle cx="19" cy="5" r="3" fill="oklch(0.67 0.13 28)" stroke="none"/>
-                </svg>
-              </div>
-              <div>
-                <p class="font-bold text-lg mb-2" style="font-family:'DM Sans',sans-serif; color:white;">Eva is ready to help</p>
-                <p class="text-sm mb-1" style="font-family:'DM Sans',sans-serif; color:rgba(255,255,255,0.5);">What challenge would you like to tackle?</p>
-                <p class="text-xs mt-4" style="font-family:'DM Sans',sans-serif; color:rgba(255,255,255,0.25);">Eva embed — connect widget to activate</p>
-              </div>
-              <!-- Fake input bar for visual -->
-              <div class="w-full max-w-lg flex items-center gap-3 px-5 py-3.5 rounded-xl" style="background:oklch(0.32 0.09 258); border:1px solid oklch(0.40 0.09 258);">
-                <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:rgba(255,255,255,0.3); flex:1; text-align:left;">Ask Eva a question...</span>
-                <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:oklch(0.46 0.22 258);">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          <!-- Eva embed container -->
+          <div class="fade-up">
+            {EVA_EMBED_SRC ? (
+              <div id="eva-widget" style="min-height:420px; border-radius:1.25rem; overflow:hidden;"></div>
+            ) : (
+              <!-- Placeholder until Eva embed is connected -->
+              <div
+                class="rounded-2xl"
+                style="background:oklch(0.28 0.10 258); border:1px solid oklch(0.35 0.10 258); padding:1.5rem;"
+              >
+                <div class="flex items-center gap-3 px-5 py-4 rounded-xl" style="background:oklch(0.32 0.09 258); border:1px solid oklch(0.40 0.09 258);">
+                  <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:oklch(0.46 0.22 258);">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                  </div>
+                  <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:rgba(255,255,255,0.28); flex:1; text-align:left;">What challenge would you like to solve?</span>
+                  <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:oklch(0.46 0.22 258);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </div>
                 </div>
+                <p class="mt-3 text-xs" style="font-family:'DM Sans',sans-serif; color:rgba(255,255,255,0.18);">Eva embed — connect widget to activate</p>
               </div>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
 
-        <p class="text-center mt-6 text-sm fade-up" style="color:rgba(255,255,255,0.3); font-family:'DM Sans',sans-serif;">
-          Eva is an AI mentor. She provides educational guidance, not medical advice.
-        </p>
+          <p class="mt-5 text-xs fade-up" style="color:rgba(255,255,255,0.25); font-family:'DM Sans',sans-serif;">
+            Eva provides educational guidance, not medical advice.
+          </p>
+
+        </div>
       </div>
     </section>
 
@@ -172,6 +162,75 @@ const EVA_EMBED_SRC = ""; // e.g. "https://cdn.yourplatform.com/widget/eva.js"
                 Already have an account?
                 <a href="https://app.neurosagehub.com/login" style="color:oklch(0.46 0.22 258); font-weight:600;"> Log in</a>
               </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== RESOURCES ===== -->
+    <section class="py-16" style="background:white;">
+      <div class="container">
+        <div class="max-w-2xl mx-auto text-center mb-10">
+          <p class="nsh-eyebrow mb-3 fade-up" style="color:oklch(0.67 0.13 28);">Explore Resources</p>
+          <h2 class="nsh-heading-2 fade-up" style="color:oklch(0.22 0.12 258);">Start with what matters most to you.</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+          <!-- Video Games -->
+          <div class="nsh-card p-6 flex flex-col fade-up" style="transition-delay:0ms;">
+            <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-5 flex-shrink-0" style="background:oklch(0.95 0.04 258); color:oklch(0.46 0.22 258);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="3"/><path d="M8 12h.01M12 10v4M10 12h4"/></svg>
+            </div>
+            <p class="nsh-eyebrow mb-2" style="color:oklch(0.46 0.22 258); font-size:0.65rem;">Featured</p>
+            <h3 class="nsh-heading-3 mb-2">Therapeutic Video Games</h3>
+            <p class="nsh-body flex-1" style="font-size:0.9rem;">13 years of research turned into games that support regulation, social processing, and focus — built for autistic kids.</p>
+            <div class="mt-5 flex flex-col gap-2">
+              <a href="/games/play-free" class="nsh-btn-cta justify-center" style="font-size:0.875rem; padding:0.625rem 1rem;">
+                Free Inside the Hub
+              </a>
+              <a href="/games" style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; color:oklch(0.46 0.22 258); font-weight:600; text-align:center; text-decoration:none;">Learn more →</a>
+            </div>
+          </div>
+
+          <!-- Handling Meltdowns -->
+          <div class="nsh-card p-6 flex flex-col fade-up" style="transition-delay:70ms;">
+            <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-5 flex-shrink-0" style="background:oklch(0.97 0.03 28); color:oklch(0.55 0.12 28);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+            </div>
+            <p class="nsh-eyebrow mb-2" style="color:oklch(0.67 0.13 28); font-size:0.65rem;">Guide</p>
+            <h3 class="nsh-heading-3 mb-2">Handling Meltdowns</h3>
+            <p class="nsh-body flex-1" style="font-size:0.9rem;">What's really happening during a meltdown — and what actually helps. Practical strategies for in-the-moment and prevention.</p>
+            <div class="mt-5">
+              <a href="/resources/handling-meltdowns" class="nsh-btn-secondary w-full justify-center" style="font-size:0.875rem; padding:0.625rem 1rem;">Read the Guide</a>
+            </div>
+          </div>
+
+          <!-- Understanding Diagnosis -->
+          <div class="nsh-card p-6 flex flex-col fade-up" style="transition-delay:140ms;">
+            <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-5 flex-shrink-0" style="background:oklch(0.95 0.04 258); color:oklch(0.46 0.22 258);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <p class="nsh-eyebrow mb-2" style="color:oklch(0.46 0.22 258); font-size:0.65rem;">Guide</p>
+            <h3 class="nsh-heading-3 mb-2">Understanding Diagnosis</h3>
+            <p class="nsh-body flex-1" style="font-size:0.9rem;">What the assessment process looks like, what the results mean, and how to use a diagnosis as a starting point — not a label.</p>
+            <div class="mt-5">
+              <a href="/resources/understanding-diagnosis" class="nsh-btn-secondary w-full justify-center" style="font-size:0.875rem; padding:0.625rem 1rem;">Read the Guide</a>
+            </div>
+          </div>
+
+          <!-- Why Diet Matters -->
+          <div class="nsh-card p-6 flex flex-col fade-up" style="transition-delay:210ms;">
+            <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-5 flex-shrink-0" style="background:oklch(0.97 0.03 28); color:oklch(0.55 0.12 28);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 8v4l3 3"/><path d="M9.5 9.5c.5-1.5 2-2.5 3.5-2"/></svg>
+            </div>
+            <p class="nsh-eyebrow mb-2" style="color:oklch(0.67 0.13 28); font-size:0.65rem;">Guide</p>
+            <h3 class="nsh-heading-3 mb-2">Why Diet Matters</h3>
+            <p class="nsh-body flex-1" style="font-size:0.9rem;">The gut-brain connection, sensory food challenges, and dietary approaches that have shown real impact for autistic children.</p>
+            <div class="mt-5">
+              <a href="/resources/why-diet-matters" class="nsh-btn-secondary w-full justify-center" style="font-size:0.875rem; padding:0.625rem 1rem;">Read the Guide</a>
             </div>
           </div>
 
