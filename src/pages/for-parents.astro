@@ -119,21 +119,33 @@ const pathways = [
     <!-- ===== HERO ===== -->
     <section class="py-16 lg:py-20" style="background:white;">
       <div class="container">
-        <div class="max-w-2xl">
-          <p class="nsh-eyebrow mb-4 fade-up" style="color:#D8896A;">For Parents</p>
-          <h1 class="fade-up mb-5" style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(2.25rem, 5vw, 3.5rem); line-height:1.1; color:#082438;">
-            Regulation before learning.<br>Movement before cognition.
-          </h1>
-          <div class="mb-6" style="width:3rem; height:3px; background:#D8896A; border-radius:2px;"></div>
-          <p class="nsh-body-lg mb-8 fade-up" style="color:#2d3f4c; max-width:34rem;">
-            Every child's path is different — but the steps of neurological development are universal. We start where your child is today and build from there. The pyramid below shows how each layer creates the foundation for the next.
-          </p>
-          <div class="flex flex-wrap gap-4 fade-up">
-            <a href="#pathways" class="nsh-btn-cta" style="font-size:1rem; padding:0.9rem 1.75rem;">
-              Explore Pathways
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-            <a href="https://app.neurosagehub.com/signup" class="nsh-btn-secondary" style="font-size:1rem; padding:0.9rem 1.5rem;">Start Free</a>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <!-- Left: copy -->
+          <div>
+            <p class="nsh-eyebrow mb-4 fade-up" style="color:#D8896A;">For Parents</p>
+            <h1 class="fade-up mb-5" style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(2.25rem, 5vw, 3.5rem); line-height:1.1; color:#082438;">
+              Regulation before learning.<br>Movement before cognition.
+            </h1>
+            <div class="mb-6" style="width:3rem; height:3px; background:#D8896A; border-radius:2px;"></div>
+            <p class="nsh-body-lg mb-8 fade-up" style="color:#2d3f4c; max-width:34rem;">
+              Every child's path is different — but the steps of neurological development are universal. We start where your child is today and build from there. The pyramid below shows how each layer creates the foundation for the next.
+            </p>
+            <div class="flex flex-wrap gap-4 fade-up">
+              <a href="#pathways" class="nsh-btn-cta" style="font-size:1rem; padding:0.9rem 1.75rem;">
+                Explore Pathways
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+              <a href="https://app.neurosagehub.com/signup" class="nsh-btn-secondary" style="font-size:1rem; padding:0.9rem 1.5rem;">Start Free</a>
+            </div>
+          </div>
+          <!-- Right: hero image -->
+          <div class="fade-up hidden lg:block" style="transition-delay:80ms;">
+            <img
+              src="/hero-parents.png"
+              alt="Mother hugging child warmly at home"
+              class="w-full rounded-2xl object-cover"
+              style="max-height:520px; object-position:center top; box-shadow:0 12px 40px rgba(8,36,56,0.10);"
+            />
           </div>
         </div>
       </div>
