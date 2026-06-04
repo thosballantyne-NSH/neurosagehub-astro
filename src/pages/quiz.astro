@@ -1,0 +1,668 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Autism Pathways Quiz | Neurosage Hub"
+  description="Answer 7 short questions to discover which learning pathway is right for your family. Free personalised recommendations from Neurosage Hub."
+>
+  <Header />
+
+  <main id="quiz-main" style="min-height:80vh; background:white;">
+
+    <!-- ===== QUIZ WRAPPER ===== -->
+    <div class="container" style="max-width:720px; padding-top:3rem; padding-bottom:4rem;">
+
+      <!-- Progress bar (hidden on intro screens) -->
+      <div id="quiz-progress-wrap" class="mb-8 hidden">
+        <div class="flex items-center justify-between mb-2">
+          <span id="quiz-progress-label" style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; font-weight:600; color:#5F6975;">Question 1 of 7</span>
+          <span id="quiz-progress-pct" style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; color:#5F6975;">14%</span>
+        </div>
+        <div style="height:6px; background:#ddd9d2; border-radius:100px; overflow:hidden;">
+          <div id="quiz-progress-bar" style="height:100%; background:#D8896A; border-radius:100px; width:14%; transition:width 400ms ease;"></div>
+        </div>
+      </div>
+
+      <!-- ============================= -->
+      <!-- SCREEN 0: EMOTIONAL INTRO     -->
+      <!-- ============================= -->
+      <div id="screen-0" class="quiz-screen">
+        <div class="text-center">
+          <!-- Icon -->
+          <div class="mx-auto mb-6 flex items-center justify-center" style="width:72px; height:72px; background:#edeaf7; border-radius:50%;">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#B9B3D9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+
+          <p class="nsh-eyebrow mb-4" style="color:#D8896A;">Autism Pathways Quiz</p>
+          <h1 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(2rem,5vw,2.875rem); line-height:1.1; color:#082438; margin-bottom:1.25rem;">
+            You're doing the right thing<br/>by being here.
+          </h1>
+
+          <p class="nsh-body-lg mb-4" style="max-width:38rem; margin-left:auto; margin-right:auto; color:#2d3f4c;">
+            Parenting a child with autism is one of the most demanding — and most loving — things a person can do. There is no manual. There is no single right answer. And most days, it can feel like you're figuring it out completely alone.
+          </p>
+          <p class="nsh-body-lg mb-8" style="max-width:38rem; margin-left:auto; margin-right:auto; color:#2d3f4c;">
+            This quiz takes less than 3 minutes. It helps us understand where your family is right now — so we can point you to the resources, routines, and support that will actually make a difference.
+          </p>
+
+          <button
+            onclick="goToScreen(1)"
+            class="nsh-btn-cta"
+            style="font-size:1.0625rem; padding:1rem 2.5rem;"
+          >
+            Start the Quiz — It's Free
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+
+          <p style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; color:#5F6975; margin-top:1rem;">No credit card · No pressure · 7 short questions</p>
+        </div>
+      </div>
+
+      <!-- ============================= -->
+      <!-- SCREEN 1–7: QUESTIONS         -->
+      <!-- ============================= -->
+
+      <!-- Q1: Where are you in the journey? -->
+      <div id="screen-1" class="quiz-screen hidden">
+        <p class="nsh-eyebrow mb-3" style="color:#7B9E8B;">Question 1 of 7</p>
+        <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.5rem,3.5vw,2rem); line-height:1.15; color:#082438; margin-bottom:0.75rem;">
+          Where are you right now in your family's autism journey?
+        </h2>
+        <p class="nsh-body mb-6">Choose the option that feels most true today.</p>
+        <div class="quiz-options space-y-3" data-q="1">
+          <button class="quiz-option" data-value="new" onclick="selectOption(this)">
+            <span class="quiz-option-letter">A</span>
+            <span>We just received a diagnosis — we're brand new to all of this and don't know where to start</span>
+          </button>
+          <button class="quiz-option" data-value="established-lost" onclick="selectOption(this)">
+            <span class="quiz-option-letter">B</span>
+            <span>We've had the diagnosis for a while but still feel lost, overwhelmed, or unsure of next steps</span>
+          </button>
+          <button class="quiz-option" data-value="managing" onclick="selectOption(this)">
+            <span class="quiz-option-letter">C</span>
+            <span>We're managing day-to-day but I know we could be doing more to support my child</span>
+          </button>
+          <button class="quiz-option" data-value="thriving" onclick="selectOption(this)">
+            <span class="quiz-option-letter">D</span>
+            <span>We have good routines in place — I want to deepen my knowledge and keep building on what's working</span>
+          </button>
+        </div>
+        <div class="quiz-nav mt-8 flex items-center justify-between">
+          <button onclick="goToScreen(0)" class="nsh-btn-secondary" style="padding:0.625rem 1.25rem; font-size:0.9375rem;">← Back</button>
+          <button id="next-1" onclick="goToScreen(2)" class="nsh-btn-cta disabled-btn" disabled style="padding:0.625rem 1.5rem; font-size:0.9375rem;">Next →</button>
+        </div>
+      </div>
+
+      <!-- Q2: Biggest daily challenge -->
+      <div id="screen-2" class="quiz-screen hidden">
+        <p class="nsh-eyebrow mb-3" style="color:#7B9E8B;">Question 2 of 7</p>
+        <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.5rem,3.5vw,2rem); line-height:1.15; color:#082438; margin-bottom:0.75rem;">
+          What's your family's biggest daily challenge right now?
+        </h2>
+        <p class="nsh-body mb-6">Pick the one that causes the most stress in your household.</p>
+        <div class="quiz-options space-y-3" data-q="2">
+          <button class="quiz-option" data-value="sensory" onclick="selectOption(this)">
+            <span class="quiz-option-letter">A</span>
+            <span>Meltdowns, sensory overload, or emotional dysregulation — the big moments that derail everything</span>
+          </button>
+          <button class="quiz-option" data-value="sleep" onclick="selectOption(this)">
+            <span class="quiz-option-letter">B</span>
+            <span>Sleep — bedtime battles, night waking, or chronic exhaustion for the whole family</span>
+          </button>
+          <button class="quiz-option" data-value="communication" onclick="selectOption(this)">
+            <span class="quiz-option-letter">C</span>
+            <span>Communication and connection — getting through to my child or supporting their language</span>
+          </button>
+          <button class="quiz-option" data-value="routines" onclick="selectOption(this)">
+            <span class="quiz-option-letter">D</span>
+            <span>Routines and transitions — mornings, after school, meals, and moving between activities</span>
+          </button>
+          <button class="quiz-option" data-value="understanding" onclick="selectOption(this)">
+            <span class="quiz-option-letter">E</span>
+            <span>Understanding my child's diagnosis — why they do what they do and what's actually happening</span>
+          </button>
+        </div>
+        <div class="quiz-nav mt-8 flex items-center justify-between">
+          <button onclick="goToScreen(1)" class="nsh-btn-secondary" style="padding:0.625rem 1.25rem; font-size:0.9375rem;">← Back</button>
+          <button id="next-2" onclick="goToScreen(3)" class="nsh-btn-cta disabled-btn" disabled style="padding:0.625rem 1.5rem; font-size:0.9375rem;">Next →</button>
+        </div>
+      </div>
+
+      <!-- Q3: Sensory -->
+      <div id="screen-3" class="quiz-screen hidden">
+        <p class="nsh-eyebrow mb-3" style="color:#7B9E8B;">Question 3 of 7</p>
+        <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.5rem,3.5vw,2rem); line-height:1.15; color:#082438; margin-bottom:0.75rem;">
+          How would you describe your child's relationship with sensory input?
+        </h2>
+        <p class="nsh-body mb-6">Think about sounds, touch, crowds, textures, and movement.</p>
+        <div class="quiz-options space-y-3" data-q="3">
+          <button class="quiz-option" data-value="overwhelmed" onclick="selectOption(this)">
+            <span class="quiz-option-letter">A</span>
+            <span>Easily overwhelmed — everyday sounds, touch, or environments cause distress or shutdown</span>
+          </button>
+          <button class="quiz-option" data-value="seeking" onclick="selectOption(this)">
+            <span class="quiz-option-letter">B</span>
+            <span>Constantly seeking input — my child can't stop moving, touching, spinning, or crashing</span>
+          </button>
+          <button class="quiz-option" data-value="mixed" onclick="selectOption(this)">
+            <span class="quiz-option-letter">C</span>
+            <span>Mixed — sometimes overwhelmed, sometimes seeking, depending on the day</span>
+          </button>
+          <button class="quiz-option" data-value="mild" onclick="selectOption(this)">
+            <span class="quiz-option-letter">D</span>
+            <span>Mild sensory differences — present but manageable, not our main challenge</span>
+          </button>
+        </div>
+        <div class="quiz-nav mt-8 flex items-center justify-between">
+          <button onclick="goToScreen(2)" class="nsh-btn-secondary" style="padding:0.625rem 1.25rem; font-size:0.9375rem;">← Back</button>
+          <button id="next-3" onclick="goToScreen(4)" class="nsh-btn-cta disabled-btn" disabled style="padding:0.625rem 1.5rem; font-size:0.9375rem;">Next →</button>
+        </div>
+      </div>
+
+      <!-- Q4: Sleep -->
+      <div id="screen-4" class="quiz-screen hidden">
+        <p class="nsh-eyebrow mb-3" style="color:#7B9E8B;">Question 4 of 7</p>
+        <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.5rem,3.5vw,2rem); line-height:1.15; color:#082438; margin-bottom:0.75rem;">
+          How is sleep affecting your family right now?
+        </h2>
+        <p class="nsh-body mb-6">Be honest — sleep deprivation affects everything else.</p>
+        <div class="quiz-options space-y-3" data-q="4">
+          <button class="quiz-option" data-value="serious" onclick="selectOption(this)">
+            <span class="quiz-option-letter">A</span>
+            <span>Serious ongoing problem — my child rarely sleeps well and it's affecting the whole family</span>
+          </button>
+          <button class="quiz-option" data-value="variable" onclick="selectOption(this)">
+            <span class="quiz-option-letter">B</span>
+            <span>Variable — some nights are fine, others are really hard, and I can't predict which it'll be</span>
+          </button>
+          <button class="quiz-option" data-value="improving" onclick="selectOption(this)">
+            <span class="quiz-option-letter">C</span>
+            <span>Getting better — we've made some progress but there's still room to improve</span>
+          </button>
+          <button class="quiz-option" data-value="okay" onclick="selectOption(this)">
+            <span class="quiz-option-letter">D</span>
+            <span>Mostly okay — sleep isn't a major concern for our family right now</span>
+          </button>
+        </div>
+        <div class="quiz-nav mt-8 flex items-center justify-between">
+          <button onclick="goToScreen(3)" class="nsh-btn-secondary" style="padding:0.625rem 1.25rem; font-size:0.9375rem;">← Back</button>
+          <button id="next-4" onclick="goToScreen(5)" class="nsh-btn-cta disabled-btn" disabled style="padding:0.625rem 1.5rem; font-size:0.9375rem;">Next →</button>
+        </div>
+      </div>
+
+      <!-- Q5: Communication -->
+      <div id="screen-5" class="quiz-screen hidden">
+        <p class="nsh-eyebrow mb-3" style="color:#7B9E8B;">Question 5 of 7</p>
+        <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.5rem,3.5vw,2rem); line-height:1.15; color:#082438; margin-bottom:0.75rem;">
+          When it comes to communication and connection, what's your situation?
+        </h2>
+        <p class="nsh-body mb-6">Think about language, emotional expression, and how you connect day-to-day.</p>
+        <div class="quiz-options space-y-3" data-q="5">
+          <button class="quiz-option" data-value="limited-verbal" onclick="selectOption(this)">
+            <span class="quiz-option-letter">A</span>
+            <span>My child has limited verbal communication — I want to understand how to support language development</span>
+          </button>
+          <button class="quiz-option" data-value="speaks-struggles" onclick="selectOption(this)">
+            <span class="quiz-option-letter">B</span>
+            <span>My child speaks but struggles to connect emotionally or express what they're feeling inside</span>
+          </button>
+          <button class="quiz-option" data-value="connect-more" onclick="selectOption(this)">
+            <span class="quiz-option-letter">C</span>
+            <span>Communication is okay but I want to deepen how we connect and understand each other</span>
+          </button>
+          <button class="quiz-option" data-value="strength" onclick="selectOption(this)">
+            <span class="quiz-option-letter">D</span>
+            <span>Communication is a relative strength — this isn't our primary area of focus right now</span>
+          </button>
+        </div>
+        <div class="quiz-nav mt-8 flex items-center justify-between">
+          <button onclick="goToScreen(4)" class="nsh-btn-secondary" style="padding:0.625rem 1.25rem; font-size:0.9375rem;">← Back</button>
+          <button id="next-5" onclick="goToScreen(6)" class="nsh-btn-cta disabled-btn" disabled style="padding:0.625rem 1.5rem; font-size:0.9375rem;">Next →</button>
+        </div>
+      </div>
+
+      <!-- Q6: Practitioner support -->
+      <div id="screen-6" class="quiz-screen hidden">
+        <p class="nsh-eyebrow mb-3" style="color:#7B9E8B;">Question 6 of 7</p>
+        <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.5rem,3.5vw,2rem); line-height:1.15; color:#082438; margin-bottom:0.75rem;">
+          How supported do you feel between therapy or clinic appointments?
+        </h2>
+        <p class="nsh-body mb-6">Think about the days when there's no appointment — what happens to the work?</p>
+        <div class="quiz-options space-y-3" data-q="6">
+          <button class="quiz-option" data-value="very-alone" onclick="selectOption(this)">
+            <span class="quiz-option-letter">A</span>
+            <span>Very alone — I leave appointments with good intentions but struggle to follow through at home</span>
+          </button>
+          <button class="quiz-option" data-value="somewhat" onclick="selectOption(this)">
+            <span class="quiz-option-letter">B</span>
+            <span>Somewhat supported — I try to reinforce what we cover in sessions, but it's inconsistent</span>
+          </button>
+          <button class="quiz-option" data-value="mostly" onclick="selectOption(this)">
+            <span class="quiz-option-letter">C</span>
+            <span>Mostly okay — I've built my own system but I know it could be more structured</span>
+          </button>
+          <button class="quiz-option" data-value="no-practitioners" onclick="selectOption(this)">
+            <span class="quiz-option-letter">D</span>
+            <span>We don't have regular practitioner support right now — home is all we have</span>
+          </button>
+        </div>
+        <div class="quiz-nav mt-8 flex items-center justify-between">
+          <button onclick="goToScreen(5)" class="nsh-btn-secondary" style="padding:0.625rem 1.25rem; font-size:0.9375rem;">← Back</button>
+          <button id="next-6" onclick="goToScreen(7)" class="nsh-btn-cta disabled-btn" disabled style="padding:0.625rem 1.5rem; font-size:0.9375rem;">Next →</button>
+        </div>
+      </div>
+
+      <!-- Q7: What would make the biggest difference? -->
+      <div id="screen-7" class="quiz-screen hidden">
+        <p class="nsh-eyebrow mb-3" style="color:#7B9E8B;">Question 7 of 7</p>
+        <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.5rem,3.5vw,2rem); line-height:1.15; color:#082438; margin-bottom:0.75rem;">
+          If you could wave a wand — what would make the biggest difference for your family?
+        </h2>
+        <p class="nsh-body mb-6">Pick the one that would change things the most.</p>
+        <div class="quiz-options space-y-3" data-q="7">
+          <button class="quiz-option" data-value="understand" onclick="selectOption(this)">
+            <span class="quiz-option-letter">A</span>
+            <span>Understanding why my child does what they do — the neuroscience behind their behaviour</span>
+          </button>
+          <button class="quiz-option" data-value="meltdowns" onclick="selectOption(this)">
+            <span class="quiz-option-letter">B</span>
+            <span>Practical tools for managing the hard moments — meltdowns, shutdowns, and sensory overload</span>
+          </button>
+          <button class="quiz-option" data-value="daily-plan" onclick="selectOption(this)">
+            <span class="quiz-option-letter">C</span>
+            <span>A daily plan that actually works — mornings, after school, meals, and bedtime in order</span>
+          </button>
+          <button class="quiz-option" data-value="sleep-regulation" onclick="selectOption(this)">
+            <span class="quiz-option-letter">D</span>
+            <span>Better sleep and emotional regulation — a calmer, more predictable child (and more sleep for me)</span>
+          </button>
+          <button class="quiz-option" data-value="connection" onclick="selectOption(this)">
+            <span class="quiz-option-letter">E</span>
+            <span>Deeper connection and communication — feeling like I truly understand and reach my child</span>
+          </button>
+        </div>
+        <div class="quiz-nav mt-8 flex items-center justify-between">
+          <button onclick="goToScreen(6)" class="nsh-btn-secondary" style="padding:0.625rem 1.25rem; font-size:0.9375rem;">← Back</button>
+          <button id="next-7" onclick="goToScreen(8)" class="nsh-btn-cta disabled-btn" disabled style="padding:0.625rem 1.5rem; font-size:0.9375rem;">See My Results →</button>
+        </div>
+      </div>
+
+      <!-- ============================= -->
+      <!-- SCREEN 8: LEAD CAPTURE        -->
+      <!-- ============================= -->
+      <div id="screen-8" class="quiz-screen hidden">
+        <div class="text-center mb-8">
+          <div class="mx-auto mb-5 flex items-center justify-center" style="width:64px; height:64px; background:#deeae5; border-radius:50%;">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4F7563" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <p class="nsh-eyebrow mb-3" style="color:#7B9E8B;">Almost there</p>
+          <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.5rem,3.5vw,2.25rem); line-height:1.1; color:#082438; margin-bottom:0.75rem;">
+            Your personalised pathway is ready.
+          </h2>
+          <p class="nsh-body" style="max-width:34rem; margin:0 auto;">
+            Enter your name and email and we'll show you your results — plus a personalised roadmap for where to start on Neurosage Hub.
+          </p>
+        </div>
+
+        <div class="rounded-2xl p-7 lg:p-9" style="background:white; border:1px solid #ddd9d2; box-shadow:0 4px 32px rgba(8,36,56,0.07);">
+          <form id="quiz-lead-form" novalidate>
+            <div class="space-y-4">
+              <div>
+                <label for="quiz-first-name" style="font-family:'DM Sans',sans-serif; font-size:0.875rem; font-weight:600; color:#082438; display:block; margin-bottom:0.375rem;">First name</label>
+                <input
+                  type="text"
+                  id="quiz-first-name"
+                  name="firstName"
+                  placeholder="Your first name"
+                  required
+                  style="width:100%; padding:0.75rem 1rem; border-radius:0.625rem; border:1.5px solid #ddd9d2; font-family:'DM Sans',sans-serif; font-size:1rem; color:#082438; outline:none; transition:border-color 200ms ease; box-sizing:border-box;"
+                  onfocus="this.style.borderColor='#7B9E8B'"
+                  onblur="this.style.borderColor='#ddd9d2'"
+                />
+              </div>
+              <div>
+                <label for="quiz-email" style="font-family:'DM Sans',sans-serif; font-size:0.875rem; font-weight:600; color:#082438; display:block; margin-bottom:0.375rem;">Email address</label>
+                <input
+                  type="email"
+                  id="quiz-email"
+                  name="email"
+                  placeholder="you@example.com"
+                  required
+                  style="width:100%; padding:0.75rem 1rem; border-radius:0.625rem; border:1.5px solid #ddd9d2; font-family:'DM Sans',sans-serif; font-size:1rem; color:#082438; outline:none; transition:border-color 200ms ease; box-sizing:border-box;"
+                  onfocus="this.style.borderColor='#7B9E8B'"
+                  onblur="this.style.borderColor='#ddd9d2'"
+                />
+                <p id="quiz-email-error" style="font-family:'DM Sans',sans-serif; font-size:0.75rem; color:#D8896A; margin-top:0.375rem; display:none;">Please enter a valid email address.</p>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              class="nsh-btn-cta w-full justify-center mt-6"
+              style="font-size:1rem; padding:0.9375rem;"
+            >
+              Show Me My Results
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+
+            <p style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; color:#5F6975; text-align:center; margin-top:1rem;">
+              We respect your privacy. No spam, ever.
+            </p>
+          </form>
+        </div>
+
+        <div class="mt-4">
+          <button onclick="goToScreen(7)" style="font-family:'DM Sans',sans-serif; font-size:0.875rem; color:#5F6975; background:none; border:none; cursor:pointer;">← Change my answers</button>
+        </div>
+      </div>
+
+      <!-- ============================= -->
+      <!-- SCREEN 9: THANK YOU + RESULTS -->
+      <!-- ============================= -->
+      <div id="screen-9" class="quiz-screen hidden">
+
+        <!-- Personalised greeting -->
+        <div class="text-center mb-10">
+          <div class="mx-auto mb-5 flex items-center justify-center" style="width:72px; height:72px; background:#F7F2EB; border-radius:50%; border:3px solid #E8C98F;">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#E8C98F" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <p class="nsh-eyebrow mb-3" style="color:#D8896A;">Your Results Are In</p>
+          <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.75rem,4vw,2.5rem); line-height:1.1; color:#082438; margin-bottom:1rem;">
+            Thank you, <span id="result-name">there</span>.
+          </h2>
+          <p class="nsh-body-lg" style="max-width:38rem; margin:0 auto; color:#2d3f4c;">
+            Based on your answers, we've identified the starting point that will have the greatest impact for your family. Here's where we recommend you begin.
+          </p>
+        </div>
+
+        <!-- Primary pathway recommendation -->
+        <div id="result-card" class="rounded-2xl p-8 mb-6" style="border:2px solid #deeae5; background:#ebf3f8;">
+          <p class="nsh-eyebrow mb-3" style="color:#123D5A;">Your Starting Pathway</p>
+          <h3 id="result-pathway-name" class="nsh-heading-2 mb-3" style="color:#082438;"></h3>
+          <p id="result-pathway-desc" class="nsh-body-lg mb-6" style="color:#2d3f4c;"></p>
+          <a href="/start-here" class="nsh-btn-primary">
+            Start This Pathway Free
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <!-- Secondary recommendations -->
+        <div class="mb-8">
+          <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; font-weight:600; color:#082438; margin-bottom:1rem;">You may also find these helpful:</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <a href="/home-routines" class="nsh-card p-5 no-underline">
+              <p style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.9375rem; color:#082438; margin-bottom:0.25rem;">Home Routines Library</p>
+              <p style="font-family:'DM Sans',sans-serif; font-size:0.875rem; color:#5F6975;">Morning, afternoon & evening protocols for autistic children</p>
+            </a>
+            <a href="/for-parents" class="nsh-card p-5 no-underline">
+              <p style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.9375rem; color:#082438; margin-bottom:0.25rem;">For Parents</p>
+              <p style="font-family:'DM Sans',sans-serif; font-size:0.875rem; color:#5F6975;">Explore all five learning pathways and what's inside each one</p>
+            </a>
+          </div>
+        </div>
+
+        <!-- CTA block -->
+        <div class="rounded-2xl p-7 text-center" style="background:#082438;">
+          <p class="nsh-eyebrow mb-3" style="color:#E8C98F;">Ready to go deeper?</p>
+          <h3 style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:1.375rem; color:white; margin-bottom:0.75rem;">Get full access to Neurosage Hub — free to start.</h3>
+          <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:rgba(255,255,255,0.7); margin-bottom:1.5rem;">Video content, home routines, therapeutic games, and your own progress tracker. Built specifically for families like yours.</p>
+          <a href="/start-here" class="nsh-btn-cta" style="font-size:1rem; padding:0.9375rem 2rem;">
+            Create Your Free Account
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /container -->
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<!-- ===== STYLES ===== -->
+<style>
+  .quiz-screen { animation: fadeSlide 360ms ease forwards; }
+  .quiz-screen.hidden { display: none; }
+
+  @keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .quiz-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+    text-align: left;
+    padding: 1rem 1.25rem;
+    border-radius: 0.75rem;
+    border: 1.5px solid #ddd9d2;
+    background: white;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9375rem;
+    color: #082438;
+    line-height: 1.5;
+    transition: all 160ms ease;
+  }
+  .quiz-option:hover {
+    border-color: #7B9E8B;
+    background: #f7faf8;
+  }
+  .quiz-option.selected {
+    border-color: #123D5A;
+    background: #ebf3f8;
+  }
+  .quiz-option-letter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    border-radius: 50%;
+    background: #F7F2EB;
+    color: #123D5A;
+    font-weight: 700;
+    font-size: 0.8125rem;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 160ms ease;
+  }
+  .quiz-option.selected .quiz-option-letter {
+    background: #123D5A;
+    color: white;
+  }
+
+  .disabled-btn {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  .disabled-btn:not([disabled]) {
+    opacity: 1;
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
+  .nsh-card {
+    text-decoration: none;
+    display: block;
+  }
+</style>
+
+<!-- ===== QUIZ LOGIC ===== -->
+<script>
+  // State
+  const answers: Record<number, string> = {};
+  let userName = '';
+
+  // Pathway definitions
+  const pathways: Record<string, { name: string; desc: string }> = {
+    essentials: {
+      name: 'ASD Essentials',
+      desc: "You're at the beginning of understanding your child's autism — or you want to go back to basics and build a stronger foundation. This pathway gives you the neuroscience behind behaviour, explains the brain-body model, and helps you see your child's world more clearly. It's the best place to start.",
+    },
+    sensory: {
+      name: 'Sensory Regulation',
+      desc: "Sensory processing is at the heart of your child's daily challenges. This pathway helps you identify your child's sensory profile, understand what triggers distress or seeking behaviour, and build calming routines that actually work at home — in real life, not just in a therapy room.",
+    },
+    home: {
+      name: 'Home-Based Support',
+      desc: "What happens between appointments matters just as much as the appointments themselves. This pathway gives you a step-by-step daily framework — morning activation sequences, after-school resets, meal strategies, and evening calm-down protocols — built for families like yours.",
+    },
+    sleep: {
+      name: 'Sleep & Regulation',
+      desc: "Poor sleep affects everything: behaviour, learning, mood, and your family's wellbeing. This pathway supports your child's circadian rhythm, evening regulation, and sleep readiness through gentle, science-informed routines — so that your whole family can rest.",
+    },
+    communication: {
+      name: 'Communication Readiness',
+      desc: "Connection is at the centre of everything. This pathway gives you practical strategies for supporting communication, play-based engagement, and language readiness through your daily home interactions — whether your child is pre-verbal, developing language, or verbal but struggling to connect.",
+    },
+  };
+
+  function computePathway(): string {
+    // Simple scoring: weight answers toward pathway recommendations
+    const scores: Record<string, number> = {
+      essentials: 0, sensory: 0, home: 0, sleep: 0, communication: 0,
+    };
+
+    const a = answers;
+
+    // Q1: Journey stage
+    if (a[1] === 'new' || a[1] === 'established-lost') scores.essentials += 2;
+    if (a[1] === 'managing') { scores.home += 1; scores.sensory += 1; }
+
+    // Q2: Biggest challenge
+    if (a[2] === 'sensory')        scores.sensory       += 3;
+    if (a[2] === 'sleep')          scores.sleep         += 3;
+    if (a[2] === 'communication')  scores.communication += 3;
+    if (a[2] === 'routines')       scores.home          += 3;
+    if (a[2] === 'understanding')  scores.essentials    += 3;
+
+    // Q3: Sensory profile
+    if (a[3] === 'overwhelmed' || a[3] === 'seeking' || a[3] === 'mixed') scores.sensory += 2;
+
+    // Q4: Sleep
+    if (a[4] === 'serious' || a[4] === 'variable') scores.sleep += 2;
+
+    // Q5: Communication
+    if (a[5] === 'limited-verbal' || a[5] === 'speaks-struggles') scores.communication += 2;
+    if (a[5] === 'connect-more') { scores.communication += 1; scores.essentials += 1; }
+
+    // Q6: Support gap
+    if (a[6] === 'very-alone' || a[6] === 'no-practitioners') scores.home += 1;
+
+    // Q7: Biggest wish
+    if (a[7] === 'understand')       scores.essentials    += 3;
+    if (a[7] === 'meltdowns')        scores.sensory       += 3;
+    if (a[7] === 'daily-plan')       scores.home          += 3;
+    if (a[7] === 'sleep-regulation') scores.sleep         += 3;
+    if (a[7] === 'connection')       scores.communication += 3;
+
+    // Find highest score
+    return Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0];
+  }
+
+  function goToScreen(n: number) {
+    // Hide all
+    document.querySelectorAll('.quiz-screen').forEach(el => el.classList.add('hidden'));
+
+    // Show target
+    const target = document.getElementById(`screen-${n}`);
+    if (target) {
+      target.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Progress bar
+    const progressWrap = document.getElementById('quiz-progress-wrap');
+    const progressBar  = document.getElementById('quiz-progress-bar');
+    const progressLabel = document.getElementById('quiz-progress-label');
+    const progressPct  = document.getElementById('quiz-progress-pct');
+
+    if (n >= 1 && n <= 7 && progressWrap && progressBar && progressLabel && progressPct) {
+      progressWrap.classList.remove('hidden');
+      const pct = Math.round((n / 7) * 100);
+      progressBar.style.width = `${pct}%`;
+      progressLabel.textContent = `Question ${n} of 7`;
+      progressPct.textContent = `${pct}%`;
+    } else if (progressWrap) {
+      progressWrap.classList.add('hidden');
+    }
+  }
+
+  function selectOption(btn: HTMLButtonElement) {
+    // Deselect siblings
+    const group = btn.closest('.quiz-options');
+    if (!group) return;
+    group.querySelectorAll('.quiz-option').forEach(el => el.classList.remove('selected'));
+
+    // Select this
+    btn.classList.add('selected');
+
+    // Store answer
+    const qNum = parseInt(group.getAttribute('data-q') || '0');
+    answers[qNum] = btn.getAttribute('data-value') || '';
+
+    // Enable next button
+    const nextBtn = document.getElementById(`next-${qNum}`) as HTMLButtonElement | null;
+    if (nextBtn) {
+      nextBtn.disabled = false;
+      nextBtn.classList.remove('disabled-btn');
+    }
+  }
+
+  // Lead form submission
+  document.getElementById('quiz-lead-form')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const firstNameInput = document.getElementById('quiz-first-name') as HTMLInputElement;
+    const emailInput     = document.getElementById('quiz-email') as HTMLInputElement;
+    const emailError     = document.getElementById('quiz-email-error');
+
+    const firstName = firstNameInput.value.trim();
+    const email     = emailInput.value.trim();
+
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      if (emailError) emailError.style.display = 'block';
+      emailInput.style.borderColor = '#D8896A';
+      return;
+    }
+    if (emailError) emailError.style.display = 'none';
+
+    userName = firstName || 'there';
+
+    // Compute pathway
+    const pathway = computePathway();
+    const p = pathways[pathway];
+
+    // Populate results
+    const resultName         = document.getElementById('result-name');
+    const resultPathwayName  = document.getElementById('result-pathway-name');
+    const resultPathwayDesc  = document.getElementById('result-pathway-desc');
+
+    if (resultName)        resultName.textContent        = firstName || 'there';
+    if (resultPathwayName) resultPathwayName.textContent = p.name;
+    if (resultPathwayDesc) resultPathwayDesc.textContent = p.desc;
+
+    // Send to console (wire up to your email platform here)
+    console.log('Quiz lead:', { firstName, email, answers, pathway });
+
+    // Navigate to results
+    goToScreen(9);
+  });
+
+  // Initialise
+  goToScreen(0);
+</script>

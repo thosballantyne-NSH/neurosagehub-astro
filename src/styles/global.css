@@ -37,6 +37,7 @@
   --nsh-lavender:     #B9B3D9;
   --nsh-lavender-light: #edeaf7;
   --nsh-river-stone:  #5F6975;
+  --nsh-blue-tint:    #ebf3f8;
 
   /* Legacy aliases kept for compatibility */
   --nsh-ivory:        white;
@@ -252,6 +253,7 @@
   /* ── Section backgrounds ── */
   .nsh-section-ivory { background: white; }
   .nsh-section-mist  { background: #F7F2EB; }
+  .nsh-section-blue  { background: #ebf3f8; }
   .nsh-section-white { background: white; }
   .nsh-section-dark  { background: #082438; }
 
