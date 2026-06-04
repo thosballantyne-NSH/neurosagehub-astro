@@ -3,127 +3,133 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-// ➜ Replace with actual brand photography when available
-const IMG_HERO    = "https://images.unsplash.com/photo-1549476464-37392f717541?w=900&q=80&auto=format&fit=crop"; // parent + child morning
-const IMG_MORNING = "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80&auto=format&fit=crop"; // kitchen morning
-const IMG_AFTER   = "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80&auto=format&fit=crop"; // child activity
-const IMG_EVENING = "https://images.unsplash.com/photo-1471708374482-5e694a9e46e0?w=800&q=80&auto=format&fit=crop"; // evening calm
+// ➜ Replace with actual NSH brand photo — mom + child with visual schedule/checklist on fridge or table
+const IMG_HERO = "https://images.unsplash.com/photo-1588776814546-ec7e2b3a5f7c?w=900&q=80&auto=format&fit=crop";
+
+const principles = [
+  { title: 'Regulation before learning', desc: 'A dysregulated nervous system cannot learn effectively.' },
+  { title: 'Movement before cognition', desc: 'Physical movement primes the brain for cognitive tasks.' },
+  { title: 'Consistency over intensity', desc: 'Daily 10-minute routines outperform weekly 60-minute sessions.' },
+  { title: 'Small wins build momentum', desc: 'Progress in neurodevelopment is cumulative. Every win matters.' },
+];
 
 const routines = [
   {
     tag: 'Morning',
-    time: '10 min',
-    title: 'Brain-Body Activation',
-    quote: 'Start the nervous system before the day starts them.',
-    desc: 'A 10-minute brain-body sequence that wakes up the sensory system, builds bilateral coordination, and prepares your child for transitions — before school stress kicks in.',
-    img: IMG_MORNING,
-    imgAlt: 'Parent and child doing morning movement routine',
+    tagColor: 'oklch(0.46 0.22 258)',
+    tagBg: 'oklch(0.93 0.05 258)',
+    time: '10–15 min',
+    title: 'Morning Brain-Body Activation',
+    desc: 'Prepare the nervous system for the day with movement, vestibular input, and bilateral coordination.',
     steps: [
-      { label: 'Cross-crawl march', detail: '2 min — wakes up both brain hemispheres' },
-      { label: 'Balance or line walking', detail: '2 min — vestibular input and focus' },
-      { label: 'Spinning or swinging', detail: '2 min — regulating sensory input' },
-      { label: 'Deep pressure squeeze', detail: '2 min — proprioceptive grounding' },
-      { label: 'Breathing + transition preview', detail: '2 min — calm the anticipation anxiety' },
+      { num: 1, label: 'Cross-Crawl March', duration: '2 min', detail: 'Alternate knee-to-elbow, slow and rhythmic.' },
+      { num: 2, label: 'Balance Board or Wobble Cushion', duration: '2 min', detail: 'Eyes open, then eyes closed if safe.' },
+      { num: 3, label: 'Wall Push-Ups (Proprioception)', duration: '1 min', detail: 'Slow, firm pressure into the wall.' },
+      { num: 4, label: 'Jumping Jacks or Trampoline', duration: '2 min', detail: 'Alerting vestibular input.' },
+      { num: 5, label: 'Deep Breathing Together', duration: '2 min', detail: '4-count inhale, 6-count exhale.' },
     ],
-    accent: 'oklch(0.46 0.22 258)',
-    accentLight: 'oklch(0.95 0.04 258)',
+    benefit: 'Reduces morning meltdowns and improves school readiness',
   },
   {
     tag: 'After School',
-    time: '8 min',
-    title: 'Sensory Reset Protocol',
-    quote: 'School is a sensory marathon. Give them a finish line.',
-    desc: "After six hours of holding it together, your child's nervous system is maxed out. This reset sequence uses heavy work, deep pressure, and oral sensory input to bring the body back to baseline.",
-    img: IMG_AFTER,
-    imgAlt: 'Child doing calming activity after school',
+    tagColor: 'oklch(0.55 0.12 28)',
+    tagBg: 'oklch(0.95 0.05 28)',
+    time: '8–10 min',
+    title: 'After-School Sensory Reset',
+    desc: 'Help your child decompress and transition from the sensory demands of school to the safety of home.',
     steps: [
-      { label: 'Heavy work activity', detail: '2 min — carry books, push/pull against resistance' },
-      { label: 'Deep pressure or weighted blanket', detail: '2 min — proprioceptive discharge' },
-      { label: 'Quiet sensory bin or fidget', detail: '2 min — low-demand decompression' },
-      { label: 'Crunchy or chewy snack', detail: '2 min — oral input for regulation' },
+      { num: 1, label: 'Proprioceptive Input (Heavy Work)', duration: '2 min', detail: 'Carry books, push a laundry basket, or do wall push-ups.' },
+      { num: 2, label: 'Calming Sensory Bin', duration: '2 min', detail: 'Sand, rice, or kinetic sand for tactile grounding.' },
+      { num: 3, label: 'Quiet Corner / Cozy Space', duration: '2 min', detail: 'Weighted blanket, dim light, no demands.' },
+      { num: 4, label: 'Snack with Crunchy or Chewy Foods', duration: '2 min', detail: 'Oral motor input supports regulation.' },
     ],
-    accent: 'oklch(0.67 0.13 28)',
-    accentLight: 'oklch(0.97 0.03 28)',
+    benefit: 'Reduces after-school meltdowns and emotional overwhelm',
+  },
+  {
+    tag: 'Movement Break',
+    tagColor: 'oklch(0.46 0.22 258)',
+    tagBg: 'oklch(0.93 0.05 258)',
+    time: '5 min',
+    title: 'Focus & Regulation Movement Break',
+    desc: 'A quick mid-day reset to restore attention, reduce dysregulation, and prepare for learning or transitions.',
+    steps: [
+      { num: 1, label: 'Animal Walks', duration: '1 min', detail: 'Bear crawl, crab walk, or frog jumps.' },
+      { num: 2, label: 'Cross-Body Movements', duration: '1 min', detail: 'Touch opposite elbow to knee, alternating.' },
+      { num: 3, label: 'Spinning or Rolling (if tolerated)', duration: '1 min', detail: 'Vestibular input — observe response carefully.' },
+      { num: 4, label: 'Slow Breathing Reset', duration: '1 min', detail: 'Breathe out longer than in.' },
+    ],
+    benefit: 'Improves focus and reduces dysregulation mid-day',
+  },
+  {
+    tag: 'Daily',
+    tagColor: 'oklch(0.40 0.14 170)',
+    tagBg: 'oklch(0.93 0.06 170)',
+    time: '10 min',
+    title: 'Primitive Reflex Integration',
+    desc: 'Gentle, play-based movements to support the integration of retained primitive reflexes. Always coordinate with your OT.',
+    steps: [
+      { num: 1, label: 'Rocking on Hands and Knees', duration: '2 min', detail: 'Supports STNR integration.' },
+      { num: 2, label: 'Rolling Side to Side', duration: '2 min', detail: 'Supports Moro reflex integration.' },
+      { num: 3, label: 'Tummy Time Activities', duration: '2 min', detail: 'Supports ATNR and spinal Galant.' },
+      { num: 4, label: 'Cross-Crawl on Floor', duration: '2 min', detail: 'Bilateral coordination and midline crossing.' },
+    ],
+    benefit: 'Supports focus, coordination, and emotional regulation over time',
   },
   {
     tag: 'Evening',
-    time: '12 min',
-    title: 'Calm-Down & Sleep Readiness',
-    quote: "Sleep doesn't start at bedtime. It starts an hour before.",
-    desc: "Support your child's circadian rhythm and nervous system wind-down with a predictable evening sequence. Dim lights, slow movement, and sensory grounding signal that the day is over — safely.",
-    img: IMG_EVENING,
-    imgAlt: 'Parent and child in calm evening routine',
+    tagColor: 'oklch(0.35 0.10 260)',
+    tagBg: 'oklch(0.92 0.04 260)',
+    time: '12–15 min',
+    title: 'Evening Calm-Down Routine',
+    desc: 'Wind down the nervous system and prepare for sleep readiness through gentle sensory and breathing activities.',
     steps: [
-      { label: 'Dim lights, reduce screen stimulation', detail: 'Ongoing — melatonin signal begins' },
-      { label: 'Slow rhythmic rocking or swinging', detail: '3 min — vestibular calming' },
-      { label: 'Deep pressure massage or brushing', detail: '3 min — proprioceptive wind-down' },
-      { label: 'Belly breathing together', detail: '3 min — activates parasympathetic system' },
-      { label: 'Visual schedule review', detail: '3 min — predictability reduces bedtime anxiety' },
+      { num: 1, label: 'Dim Lights and Reduce Screens', duration: 'ongoing', detail: 'Begin 60 minutes before bed.' },
+      { num: 2, label: 'Warm Bath or Shower', duration: '5 min', detail: 'Proprioceptive and thermal calming.' },
+      { num: 3, label: 'Deep Pressure Massage', duration: '3 min', detail: 'Firm strokes on arms, legs, and back.' },
+      { num: 4, label: 'Breathing or Visualization', duration: '2 min', detail: 'Guided imagery or slow breathing together.' },
     ],
-    accent: 'oklch(0.46 0.22 258)',
-    accentLight: 'oklch(0.95 0.04 258)',
+    benefit: 'Improves sleep onset and reduces bedtime resistance',
   },
-];
-
-const workbookIncludes = [
-  { icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`, label: 'Morning, afternoon & evening protocol cards' },
-  { icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`, label: 'Sensory trigger log and observation sheets' },
-  { icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`, label: 'Weekly progress tracker and journaling prompts' },
-  { icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 8v4l3 3"/></svg>`, label: 'Meal and nutrition strategy guide' },
-  { icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`, label: 'Parent self-regulation check-in (co-regulation starts with you)' },
-  { icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`, label: 'Bedtime visual schedule template (print-ready)' },
 ];
 ---
 
 <BaseLayout
   title="Home Routines for Autism Families | Neurosage Hub"
-  description="Simple, science-backed home routines for autism families — morning brain-body activation, after-school sensory resets, and evening calm-down sequences. Download the free workbook."
+  description="Five practitioner-informed home routines for autism families — morning activation, sensory resets, movement breaks, reflex integration, and evening calm-down. Free workbook download."
 >
   <Header />
   <main>
 
-    <!-- ===== HERO ===== -->
-    <section class="py-16 lg:py-20" style="background:white;">
+    <!-- ===== HERO + DOWNLOAD ===== -->
+    <section class="py-14 lg:py-16" style="background:white;">
       <div class="container">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
 
-          <!-- Left: copy -->
           <div>
             <p class="nsh-eyebrow mb-4 fade-up" style="color:oklch(0.67 0.13 28);">Home-Based Support</p>
-            <h1 class="fade-up mb-4" style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(2.25rem, 5vw, 3.5rem); line-height:1.1; color:oklch(0.22 0.12 258);">
+            <h1 class="fade-up mb-4" style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(2rem, 4.5vw, 3.25rem); line-height:1.1; color:oklch(0.22 0.12 258);">
               A daily routine your family can actually follow.
             </h1>
-            <div class="mb-6" style="width:3rem; height:3px; background:oklch(0.67 0.13 28); border-radius:2px;"></div>
-            <p class="nsh-body-lg mb-8 fade-up" style="color:oklch(0.35 0.06 258); max-width:30rem;">
-              Morning activation, after-school sensory resets, and evening calm-down sequences — built around the brain-body science your child needs, in 10 minutes or less.
+            <div class="mb-5" style="width:3rem; height:3px; background:oklch(0.67 0.13 28); border-radius:2px;"></div>
+            <p class="nsh-body-lg mb-8 fade-up" style="color:oklch(0.40 0.05 258); max-width:28rem;">
+              Five practitioner-informed routines — morning to evening — each under 15 minutes and designed for real family life.
             </p>
-
             <div class="flex flex-wrap gap-4 fade-up">
-              <button
-                id="download-cta-hero"
-                class="nsh-btn-cta"
-                style="font-size:1rem; padding:0.9rem 1.75rem;"
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <button id="download-cta-hero" class="nsh-btn-cta" style="font-size:1rem; padding:0.875rem 1.75rem;">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                 Download Home Routines Workbook
               </button>
-              <a href="#routines" class="nsh-btn-secondary" style="font-size:1rem; padding:0.9rem 1.75rem;">
-                See the Routines
-              </a>
+              <a href="#routines" class="nsh-btn-secondary" style="font-size:1rem; padding:0.875rem 1.5rem;">See the Routines</a>
             </div>
-
-            <p class="mt-4 text-sm fade-up" style="font-family:'DM Sans',sans-serif; color:oklch(0.60 0.04 258);">
-              Free — no credit card required.
-            </p>
+            <p class="mt-3 text-sm fade-up" style="font-family:'DM Sans',sans-serif; color:oklch(0.62 0.04 258);">Free — no credit card required.</p>
           </div>
 
-          <!-- Right: image -->
-          <div class="fade-up" style="transition-delay:100ms;">
+          <div class="fade-up" style="transition-delay:80ms;">
             <img
               src={IMG_HERO}
-              alt="Parent and child doing a morning routine together"
+              alt="Mom and child with visual routine schedule on the table"
               class="w-full rounded-2xl object-cover"
-              style="min-height:420px; max-height:520px; box-shadow:0 16px 48px oklch(0.22 0.12 258 / 0.12);"
+              style="min-height:380px; max-height:480px; object-position:center top; box-shadow:0 12px 40px oklch(0.22 0.12 258 / 0.10);"
               loading="eager"
             />
           </div>
@@ -132,192 +138,140 @@ const workbookIncludes = [
       </div>
     </section>
 
-    <!-- ===== WHY ROUTINES WORK ===== -->
-    <section class="py-16" style="background:oklch(0.97 0.02 258);">
-      <div class="container">
-        <div class="max-w-2xl mx-auto text-center mb-12">
-          <p class="nsh-eyebrow mb-3 fade-up" style="color:oklch(0.67 0.13 28);">The Science</p>
-          <h2 class="nsh-heading-2 mb-4 fade-up" style="color:oklch(0.22 0.12 258);">Why structure isn't rigid — it's regulating.</h2>
-          <p class="nsh-body fade-up" style="color:oklch(0.45 0.05 258);">Autistic nervous systems thrive on predictability. The right routine doesn't limit your child — it gives their brain the safety it needs to grow.</p>
-        </div>
+    <!-- ===== TRUST BAR ===== -->
+    <div style="background:oklch(0.96 0.03 258); border-top:1px solid oklch(0.90 0.03 258); border-bottom:1px solid oklch(0.90 0.03 258); padding:0.875rem 0;">
+      <div class="container flex items-center justify-center gap-2.5">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="oklch(0.46 0.22 258)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; font-weight:600; color:oklch(0.30 0.07 258);">All routines are practitioner-informed and parent-implementable</p>
+      </div>
+    </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[
-            {
-              stat: '78%',
-              label: 'of autism families report reduced meltdowns with consistent daily routines',
-              accent: 'oklch(0.46 0.22 258)',
-            },
-            {
-              stat: '10 min',
-              label: 'is all it takes — each routine is designed for real family mornings and evenings',
-              accent: 'oklch(0.67 0.13 28)',
-            },
-            {
-              stat: '3 anchors',
-              label: 'morning, after school, and evening — the three highest-impact points in any day',
-              accent: 'oklch(0.46 0.22 258)',
-            },
-          ].map(({ stat, label, accent }, i) => (
-            <div class="nsh-card p-8 text-center fade-up" style={`transition-delay:${i * 70}ms;`}>
-              <div class="text-4xl font-bold mb-3" style={`font-family:'DM Sans',sans-serif; color:${accent};`}>{stat}</div>
-              <p class="nsh-body" style="font-size:0.9375rem; color:oklch(0.40 0.05 258);">{label}</p>
+    <!-- ===== PRINCIPLES ===== -->
+    <section class="py-12" style="background:oklch(0.22 0.12 258);">
+      <div class="container">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {principles.map(({ title, desc }, i) => (
+            <div class="p-6 rounded-xl fade-up" style={`background:oklch(0.28 0.10 258); border:1px solid oklch(0.33 0.10 258); transition-delay:${i * 60}ms;`}>
+              <p class="font-bold mb-2" style="font-family:'DM Sans',sans-serif; font-size:1rem; color:white;">{title}</p>
+              <p class="text-sm" style="font-family:'DM Sans',sans-serif; color:rgba(255,255,255,0.60); line-height:1.6;">{desc}</p>
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- ===== THE THREE ROUTINES ===== -->
-    <section id="routines" class="py-20" style="background:white;">
+    <!-- ===== ROUTINE LIBRARY ===== -->
+    <section id="routines" class="py-16" style="background:oklch(0.97 0.02 258);">
       <div class="container">
-        <div class="max-w-2xl mx-auto text-center mb-16">
-          <p class="nsh-eyebrow mb-3 fade-up" style="color:oklch(0.67 0.13 28);">The Three Daily Anchors</p>
-          <h2 class="nsh-heading-2 fade-up" style="color:oklch(0.22 0.12 258);">Every day has three high-impact moments.</h2>
+
+        <div class="max-w-2xl mx-auto text-center mb-12">
+          <p class="nsh-eyebrow mb-3 fade-up" style="color:oklch(0.67 0.13 28);">The Routine Library</p>
+          <h2 class="nsh-heading-2 mb-4 fade-up" style="color:oklch(0.22 0.12 258);">Five foundational home routines.</h2>
+          <p class="nsh-body fade-up" style="color:oklch(0.45 0.05 258);">Each routine is designed to be done at home, in real life, with real families. Start with one. Build from there.</p>
         </div>
 
-        <div class="space-y-20">
-          {routines.map(({ tag, time, title, quote, desc, img, imgAlt, steps, accent, accentLight }, i) => (
-            <div class={`flex flex-col gap-12 items-center ${i % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
+        <div class="space-y-6 max-w-3xl mx-auto">
+          {routines.map(({ tag, tagColor, tagBg, time, title, desc, steps, benefit }, i) => (
+            <div class="rounded-2xl overflow-hidden fade-up" style={`background:white; border:1px solid oklch(0.90 0.03 258); box-shadow:0 4px 24px oklch(0.22 0.12 258 / 0.06); transition-delay:${i * 60}ms;`}>
 
-              <!-- Image -->
-              <div class="fade-up" style={`transition-delay:${i * 40}ms;`}>
-                <img
-                  src={img}
-                  alt={imgAlt}
-                  class="w-full rounded-2xl object-cover"
-                  style="min-height:380px; max-height:460px; box-shadow:0 12px 40px oklch(0.22 0.12 258 / 0.10);"
-                  loading="lazy"
-                />
+              <!-- Card header -->
+              <div class="px-7 pt-6 pb-5" style={`border-bottom:1px solid oklch(0.93 0.02 258);`}>
+                <div class="flex items-center gap-3 mb-3">
+                  <span class="text-xs font-bold px-3 py-1 rounded-full" style={`font-family:'DM Sans',sans-serif; background:${tagBg}; color:${tagColor}; letter-spacing:0.04em; text-transform:uppercase;`}>{tag}</span>
+                  <div class="flex items-center gap-1.5" style={`color:oklch(0.55 0.04 258);`}>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span style="font-family:'DM Sans',sans-serif; font-size:0.8125rem;">{time}</span>
+                  </div>
+                </div>
+                <h3 class="font-bold mb-2" style="font-family:'DM Sans',sans-serif; font-size:1.25rem; color:oklch(0.22 0.12 258);">{title}</h3>
+                <p class="text-sm" style="font-family:'DM Sans',sans-serif; color:oklch(0.48 0.05 258); line-height:1.6;">{desc}</p>
               </div>
 
-              <!-- Content -->
-              <div class="fade-up" style={`transition-delay:${i * 40 + 60}ms;`}>
-                <div class="flex items-center gap-3 mb-4">
-                  <span class="nsh-eyebrow" style={`color:${accent};`}>{tag}</span>
-                  <span class="text-xs font-semibold px-2.5 py-1 rounded-full" style={`font-family:'DM Sans',sans-serif; background:${accentLight}; color:${accent};`}>{time}</span>
-                </div>
-                <h3 class="nsh-heading-2 mb-3" style="color:oklch(0.22 0.12 258);">{title}</h3>
-                <p class="mb-3 italic" style={`font-family:'DM Sans',sans-serif; font-size:1rem; color:${accent}; font-style:italic;`}>"{quote}"</p>
-                <p class="nsh-body mb-6" style="color:oklch(0.40 0.05 258);">{desc}</p>
-
+              <!-- Steps -->
+              <div class="px-7 py-5">
+                <p class="text-xs font-bold mb-4" style="font-family:'DM Sans',sans-serif; color:oklch(0.55 0.04 258); letter-spacing:0.08em; text-transform:uppercase;">Step-by-Step</p>
                 <div class="space-y-3">
-                  {steps.map(({ label, detail }, si) => (
-                    <div class="flex items-start gap-4 p-3.5 rounded-xl" style={`background:${accentLight};`}>
-                      <div class="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold" style={`background:${accent}; color:white; font-family:'DM Sans',sans-serif;`}>{si + 1}</div>
-                      <div>
-                        <p class="font-semibold text-sm" style={`font-family:'DM Sans',sans-serif; color:oklch(0.22 0.12 258);`}>{label}</p>
-                        <p class="text-xs mt-0.5" style="font-family:'DM Sans',sans-serif; color:oklch(0.50 0.04 258);">{detail}</p>
+                  {steps.map(({ num, label, duration, detail }) => (
+                    <div class="flex items-start gap-4">
+                      <div class="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5" style={`background:${tagBg}; color:${tagColor}; font-family:'DM Sans',sans-serif;`}>{num}</div>
+                      <div class="flex-1 min-w-0">
+                        <div class="flex items-baseline gap-2 flex-wrap">
+                          <span class="font-semibold text-sm" style="font-family:'DM Sans',sans-serif; color:oklch(0.22 0.12 258);">{label}</span>
+                          <span class="text-xs font-medium px-2 py-0.5 rounded-full flex-shrink-0" style={`font-family:'DM Sans',sans-serif; background:${tagBg}; color:${tagColor};`}>{duration}</span>
+                        </div>
+                        <p class="text-xs mt-0.5" style="font-family:'DM Sans',sans-serif; color:oklch(0.55 0.04 258); line-height:1.5;">{detail}</p>
                       </div>
                     </div>
                   ))}
                 </div>
+
+                <!-- Benefit -->
+                <div class="mt-5 flex items-center gap-2.5 px-4 py-3 rounded-xl" style={`background:${tagBg};`}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={tagColor} stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <p class="text-sm font-semibold" style={`font-family:'DM Sans',sans-serif; color:${tagColor};`}>{benefit}</p>
+                </div>
               </div>
 
             </div>
           ))}
         </div>
+
+        <!-- Disclaimer -->
+        <p class="text-center mt-10 text-sm max-w-2xl mx-auto" style="font-family:'DM Sans',sans-serif; color:oklch(0.60 0.03 258); line-height:1.7;">
+          These routines are for educational purposes only. Always consult your child's occupational therapist, physician, or care team before beginning new activities.
+        </p>
+
       </div>
     </section>
 
-    <!-- ===== WORKBOOK CTA BAND ===== -->
+    <!-- ===== DOWNLOAD BAND ===== -->
     <section class="py-16" style="background:oklch(0.22 0.12 258);">
       <div class="container">
-        <div class="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div class="max-w-3xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div class="fade-up">
             <p class="nsh-eyebrow mb-3" style="color:oklch(0.75 0.12 195);">Free Download</p>
-            <h2 class="nsh-heading-2 mb-4" style="color:white;">Get the full workbook — not just the overview.</h2>
-            <p class="nsh-body" style="color:rgba(255,255,255,0.65);">
-              The Home Routines Workbook includes printable protocol cards, a sensory trigger log, weekly progress tracker, meal strategy guide, and a print-ready bedtime visual schedule.
-            </p>
+            <h2 class="nsh-heading-2 mb-4" style="color:white;">Get the full workbook — protocol cards, logs, and trackers.</h2>
+            <p class="nsh-body" style="color:rgba(255,255,255,0.60);">Printable protocol cards for every routine, a sensory trigger log, weekly tracker, meal strategy guide, and a print-ready bedtime visual schedule.</p>
           </div>
           <div class="fade-up" style="transition-delay:80ms;">
             <div class="rounded-2xl p-6" style="background:oklch(0.28 0.10 258); border:1px solid oklch(0.35 0.10 258);">
-              <p class="font-bold text-white mb-1" style="font-family:'DM Sans',sans-serif; font-size:1.0625rem;">What's inside:</p>
-              <div class="space-y-3 my-4">
-                {workbookIncludes.map(({ icon, label }) => (
-                  <div class="flex items-start gap-3">
-                    <div style="color:oklch(0.75 0.12 195); flex-shrink:0; margin-top:2px;">
-                      <Fragment set:html={icon} />
-                    </div>
-                    <p class="text-sm" style="font-family:'DM Sans',sans-serif; color:rgba(255,255,255,0.75);">{label}</p>
+              <div class="space-y-3 mb-5">
+                {[
+                  'Morning, afternoon & evening protocol cards',
+                  'Sensory trigger log and observation sheets',
+                  'Weekly progress tracker and journaling prompts',
+                  'Meal and nutrition strategy guide',
+                  'Print-ready bedtime visual schedule template',
+                ].map((item) => (
+                  <div class="flex items-start gap-2.5">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="oklch(0.75 0.12 195)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
+                    <p class="text-sm" style="font-family:'DM Sans',sans-serif; color:rgba(255,255,255,0.72);">{item}</p>
                   </div>
                 ))}
               </div>
-              <button
-                id="download-cta-band"
-                class="nsh-btn-cta w-full justify-center mt-5"
-                style="font-size:1rem; padding:0.9rem;"
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <button id="download-cta-band" class="nsh-btn-cta w-full justify-center" style="font-size:1rem; padding:0.875rem;">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                 Download Free Workbook
               </button>
-              <p class="text-center text-xs mt-3" style="font-family:'DM Sans',sans-serif; color:rgba(255,255,255,0.30);">Enter your email — we'll send it instantly.</p>
+              <p class="text-center text-xs mt-3" style="font-family:'DM Sans',sans-serif; color:rgba(255,255,255,0.28);">Enter your email — we'll send it instantly.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== CONSISTENCY SECTION ===== -->
-    <section class="py-20" style="background:oklch(0.97 0.02 258);">
-      <div class="container">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div class="fade-up">
-            <p class="nsh-eyebrow mb-4" style="color:oklch(0.46 0.22 258);">From the Home-Based Support Pathway</p>
-            <h2 class="nsh-heading-2 mb-4" style="color:oklch(0.22 0.12 258);">Building consistency without burnout.</h2>
-            <p class="nsh-body-lg mb-6" style="color:oklch(0.40 0.05 258);">
-              The hardest part of home routines isn't learning them — it's maintaining them when life is hard. The Home-Based Support pathway inside the Hub walks you through exactly that.
-            </p>
-            <div class="space-y-4 mb-8">
-              {[
-                'Start with one routine, not all three at once',
-                'Use visual schedules your child helps build',
-                'Track what works with weekly check-ins',
-                'Adjust as your child\'s needs change — not yours',
-              ].map((point) => (
-                <div class="flex items-start gap-3">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="oklch(0.67 0.13 28)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                  <p class="text-sm font-medium" style="font-family:'DM Sans',sans-serif; color:oklch(0.30 0.05 258);">{point}</p>
-                </div>
-              ))}
-            </div>
-            <a href="https://app.neurosagehub.com/signup" class="nsh-btn-cta" style="font-size:1rem; padding:0.875rem 1.75rem;">
-              Start the Pathway Free
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-          </div>
-
-          <!-- Pathway card -->
-          <div class="fade-up" style="transition-delay:100ms;">
-            <div class="rounded-2xl p-8" style="background:white; border:1px solid oklch(0.90 0.03 258); box-shadow:0 8px 40px oklch(0.22 0.12 258 / 0.08);">
-              <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:oklch(0.97 0.03 28);">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="oklch(0.55 0.12 28)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              </div>
-              <p class="nsh-eyebrow mb-2" style="color:oklch(0.67 0.13 28); font-size:0.65rem;">Pathway Inside the Hub</p>
-              <h3 class="nsh-heading-3 mb-2">Home-Based Support</h3>
-              <p class="text-sm italic mb-4" style="font-family:'DM Sans',sans-serif; color:oklch(0.50 0.05 258);">"I want a practical daily plan I can follow."</p>
-              <p class="nsh-body mb-5" style="font-size:0.9375rem; color:oklch(0.45 0.05 258);">A step-by-step daily framework with morning activation, after-school resets, meal routines, and evening calm-down sequences.</p>
-              <div class="space-y-2 mb-6">
-                {[
-                  'Morning brain-body activation routine',
-                  'After-school sensory reset protocol',
-                  'Meal and nutrition support strategies',
-                  'Evening calm-down and sleep readiness',
-                  'Weekly progress tracking and journaling',
-                  'Building consistency without burnout',
-                ].map((item) => (
-                  <div class="flex items-center gap-2.5">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="oklch(0.67 0.13 28)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span class="text-sm" style="font-family:'DM Sans',sans-serif; color:oklch(0.35 0.05 258);">{item}</span>
-                  </div>
-                ))}
-              </div>
-              <a href="https://app.neurosagehub.com/signup" class="nsh-btn-secondary w-full justify-center" style="font-size:0.9rem;">
-                Start Free — No Diagnosis Required
-              </a>
-            </div>
-          </div>
+    <!-- ===== BOTTOM CTA ===== -->
+    <section class="py-16" style="background:white;">
+      <div class="container max-w-2xl mx-auto text-center">
+        <p class="nsh-eyebrow mb-3 fade-up" style="color:oklch(0.67 0.13 28);">Get Your Personalised Routine Plan</p>
+        <h2 class="nsh-heading-2 mb-4 fade-up" style="color:oklch(0.22 0.12 258);">Start with the right routine for your child.</h2>
+        <p class="nsh-body mb-8 fade-up" style="color:oklch(0.45 0.05 258);">Take the free Parent Pathway Quiz to get a personalised routine recommendation based on your child's specific needs and developmental stage.</p>
+        <div class="flex flex-wrap justify-center gap-4 fade-up">
+          <a href="https://app.neurosagehub.com/signup" class="nsh-btn-cta" style="font-size:1rem; padding:0.9rem 1.75rem;">
+            Take the Pathway Quiz
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="https://app.neurosagehub.com/signup" class="nsh-btn-secondary" style="font-size:1rem; padding:0.9rem 1.5rem;">Sign Up Free</a>
         </div>
       </div>
     </section>
@@ -338,150 +292,92 @@ const workbookIncludes = [
   <Footer />
 
   <!-- ===== EMAIL GATE MODAL ===== -->
-<div
-  id="workbook-modal"
-  class="fixed inset-0 z-[100] flex items-center justify-center p-4"
-  style="display:none !important; background:rgba(0,0,0,0.55); backdrop-filter:blur(4px);"
-  aria-modal="true"
-  role="dialog"
->
   <div
-    class="w-full max-w-md rounded-2xl p-8 relative"
-    style="background:white; box-shadow:0 24px 64px rgba(0,0,0,0.20);"
+    id="workbook-modal"
+    class="fixed inset-0 z-50 flex items-center justify-center p-4"
+    style="display:none; background:rgba(0,0,0,0.55); backdrop-filter:blur(4px);"
+    aria-modal="true"
+    role="dialog"
   >
-    <!-- Close -->
-    <button
-      id="modal-close"
-      class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full"
-      style="background:oklch(0.95 0.02 258); color:oklch(0.45 0.04 258);"
-      aria-label="Close"
-    >
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
-
-    <!-- Icon -->
-    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5" style="background:oklch(0.97 0.03 28);">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="oklch(0.55 0.12 28)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-    </div>
-
-    <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:1.375rem; color:oklch(0.22 0.12 258); margin-bottom:0.375rem;">
-      Home Routines Workbook
-    </h2>
-    <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:oklch(0.50 0.05 258); margin-bottom:1.5rem; line-height:1.6;">
-      Enter your email and we'll send the workbook straight to your inbox — free.
-    </p>
-
-    <!-- Form -->
-    <form id="workbook-form" novalidate>
-      <label for="modal-email" style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; font-weight:600; color:oklch(0.30 0.05 258); display:block; margin-bottom:0.5rem;">
-        Your email address
-      </label>
-      <input
-        type="email"
-        id="modal-email"
-        name="email"
-        placeholder="you@example.com"
-        required
-        class="w-full px-4 py-3 rounded-xl text-sm mb-1"
-        style="font-family:'DM Sans',sans-serif; border:1.5px solid oklch(0.88 0.03 258); color:oklch(0.22 0.12 258); outline:none; transition:border-color 0.2s;"
-        onfocus="this.style.borderColor='oklch(0.46 0.22 258)'"
-        onblur="this.style.borderColor='oklch(0.88 0.03 258)'"
-      />
-      <p id="modal-error" style="font-family:'DM Sans',sans-serif; font-size:0.75rem; color:oklch(0.55 0.18 25); margin-bottom:0.75rem; display:none;">
-        Please enter a valid email address.
-      </p>
-      <button
-        type="submit"
-        class="nsh-btn-cta w-full justify-center mt-3"
-        style="font-size:1rem; padding:0.875rem;"
-      >
-        Send Me the Workbook
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    <div class="w-full max-w-md rounded-2xl p-8 relative" style="background:white; box-shadow:0 24px 64px rgba(0,0,0,0.20);">
+      <button id="modal-close" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full" style="background:oklch(0.95 0.02 258); color:oklch(0.45 0.04 258);" aria-label="Close">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
-    </form>
-
-    <!-- Success state (hidden by default) -->
-    <div id="modal-success" style="display:none; text-align:center; padding:1rem 0;">
-      <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style="background:oklch(0.93 0.08 145);">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="oklch(0.45 0.14 145)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5" style="background:oklch(0.97 0.03 28);">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="oklch(0.55 0.12 28)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       </div>
-      <p class="font-bold mb-2" style="font-family:'DM Sans',sans-serif; font-size:1.125rem; color:oklch(0.22 0.12 258);">Check your inbox!</p>
-      <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:oklch(0.50 0.05 258);">The workbook is on its way. While you wait — your free Hub account is ready to create.</p>
-      <a href="https://app.neurosagehub.com/signup" class="nsh-btn-cta inline-flex mt-5" style="font-size:0.9375rem; padding:0.75rem 1.5rem;">
-        Start Your Free Account
-      </a>
+      <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:1.375rem; color:oklch(0.22 0.12 258); margin-bottom:0.375rem;">Home Routines Workbook</h2>
+      <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:oklch(0.50 0.05 258); margin-bottom:1.5rem; line-height:1.6;">Enter your email and we'll send the workbook straight to your inbox — free.</p>
+      <form id="workbook-form" novalidate>
+        <label for="modal-email" style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; font-weight:600; color:oklch(0.30 0.05 258); display:block; margin-bottom:0.5rem;">Your email address</label>
+        <input type="email" id="modal-email" name="email" placeholder="you@example.com" required class="w-full px-4 py-3 rounded-xl text-sm mb-1" style="font-family:'DM Sans',sans-serif; border:1.5px solid oklch(0.88 0.03 258); color:oklch(0.22 0.12 258); outline:none;" />
+        <p id="modal-error" style="font-family:'DM Sans',sans-serif; font-size:0.75rem; color:oklch(0.55 0.18 25); margin-bottom:0.75rem; display:none;">Please enter a valid email address.</p>
+        <button type="submit" class="nsh-btn-cta w-full justify-center mt-3" style="font-size:1rem; padding:0.875rem;">
+          Send Me the Workbook
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </form>
+      <div id="modal-success" style="display:none; text-align:center; padding:1rem 0;">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style="background:oklch(0.93 0.08 145);">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="oklch(0.45 0.14 145)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <p class="font-bold mb-2" style="font-family:'DM Sans',sans-serif; font-size:1.125rem; color:oklch(0.22 0.12 258);">Check your inbox!</p>
+        <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:oklch(0.50 0.05 258);">The workbook is on its way. While you wait — your free Hub account is ready.</p>
+        <a href="https://app.neurosagehub.com/signup" class="nsh-btn-cta inline-flex mt-5" style="font-size:0.9375rem; padding:0.75rem 1.5rem;">Start Your Free Account</a>
+      </div>
+      <p class="text-center mt-4 text-xs" style="font-family:'DM Sans',sans-serif; color:oklch(0.65 0.03 258);">No spam, ever. Unsubscribe any time.</p>
     </div>
-
-    <p class="text-center mt-4 text-xs" style="font-family:'DM Sans',sans-serif; color:oklch(0.65 0.03 258);">
-      No spam, ever. Unsubscribe any time.
-    </p>
   </div>
-</div>
 
-<script>
-  // ---- Modal open/close ----
-  const modal    = document.getElementById('workbook-modal') as HTMLElement;
-  const closeBtn = document.getElementById('modal-close');
-  const form     = document.getElementById('workbook-form') as HTMLFormElement;
-  const success  = document.getElementById('modal-success');
-  const errorMsg = document.getElementById('modal-error');
+  <script>
+    const modal    = document.getElementById('workbook-modal');
+    const closeBtn = document.getElementById('modal-close');
+    const form     = document.getElementById('workbook-form');
+    const success  = document.getElementById('modal-success');
+    const errorMsg = document.getElementById('modal-error');
 
-  function openModal() {
-    modal.style.removeProperty('display');
-    document.body.style.overflow = 'hidden';
-    setTimeout(() => {
-      (document.getElementById('modal-email') as HTMLInputElement)?.focus();
-    }, 50);
-  }
-  function closeModal() {
-    modal.style.display = 'none';
-    document.body.style.overflow = '';
-  }
-
-  document.getElementById('download-cta-hero')?.addEventListener('click', openModal);
-  document.getElementById('download-cta-band')?.addEventListener('click', openModal);
-  closeBtn?.addEventListener('click', closeModal);
-  modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
-
-  // ---- Form submit ----
-  // ➜ Wire to your email platform (ConvertKit, Mailchimp, CampusAdmin, etc.)
-  //   Replace the fetch() block below with your API call.
-  //   The download link should point to /downloads/home-routines-workbook.pdf
-  form?.addEventListener('submit', async (e: Event) => {
-    e.preventDefault();
-    const emailInput = document.getElementById('modal-email') as HTMLInputElement;
-    const email = emailInput?.value.trim() ?? '';
-    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-    if (!emailValid) {
-      errorMsg!.style.display = 'block';
-      emailInput?.focus();
-      return;
+    function openModal() {
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => document.getElementById('modal-email')?.focus(), 50);
     }
-    errorMsg!.style.display = 'none';
+    function closeModal() {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
 
-    // ➜ TODO: POST to your email capture endpoint here
-    // await fetch('/api/subscribe', { method: 'POST', body: JSON.stringify({ email }) });
+    document.getElementById('download-cta-hero')?.addEventListener('click', openModal);
+    document.getElementById('download-cta-band')?.addEventListener('click', openModal);
+    closeBtn?.addEventListener('click', closeModal);
+    modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
-    // Trigger PDF download
-    const link = document.createElement('a');
-    link.href = '/downloads/home-routines-workbook.pdf';
-    link.download = 'Home-Routines-Workbook-NeurosageHub.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const emailInput = document.getElementById('modal-email');
+      const email = emailInput?.value.trim() ?? '';
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errorMsg.style.display = 'block';
+        emailInput?.focus();
+        return;
+      }
+      errorMsg.style.display = 'none';
+      // ➜ TODO: POST email to your capture endpoint (ConvertKit, Mailchimp, etc.)
+      const link = document.createElement('a');
+      link.href = '/downloads/home-routines-workbook.pdf';
+      link.download = 'Home-Routines-Workbook-NeurosageHub.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      form.style.display = 'none';
+      success.style.display = 'block';
+    });
 
-    // Show success state
-    form.style.display = 'none';
-    success!.style.display = 'block';
-  });
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
+    );
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
 
-  // ---- Fade-up observer ----
-  const observer = new IntersectionObserver(
-    (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-    { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
-  );
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-</script>
 </BaseLayout>
