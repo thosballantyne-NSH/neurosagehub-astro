@@ -1,14 +1,14 @@
 /*
  * Neurosage Hub — Global Design System
- * Official Brand Palette:
- * - Honor Navy:      #082438  ← dark sections, headings
- * - Evergreen Sage:  #7B9E8B  ← accents, eyebrows, section tints
- * - Hearth Clay:     #D8896A  ← CTA buttons, highlights
- * - River Stone:     #5F6975  ← muted/secondary text
- * - Lavender Fog:    #B9B3D9  ← accent sections, pill tags, variety
- * - Honey Wheat:     #E8C98F  ← warm accents, stars, highlights
- * - Soft Linen:      #F7F2EB  ← light section backgrounds (use sparingly)
- * - Forest Path:     #4F7563  ← dark sage, deep accents
+ * Blue-Forward Brand Palette:
+ * - Harbor Navy:     #082438  ← Primary Dark · Hero · Footer
+ * - Deep Slate Blue: #1A4A6B  ← Primary Blue · Nav · Dark Surfaces
+ * - Coastal Blue:    #2E6E8E  ← Secondary Blue · Section Headers · Links
+ * - Evergreen Sage:  #7B9E8B  ← Green Accent · Chips · Wellness
+ * - Morning Sky:     #E4EFF6  ← Light Blue Tint · Backgrounds
+ * - Hearth Clay:     #D8896A  ← CTA Buttons · Active States
+ * - Honey Wheat:     #E8C98F  ← Warm Highlight · Sparingly
+ * - Soft Linen:      #F7F2EB  ← Page Background · Cards
  * - Typography: DM Sans throughout for clarity
  */
 
@@ -18,32 +18,44 @@
 
 /* ===== CSS TOKENS ===== */
 :root {
-  --nsh-navy:         #082438;
-  --nsh-navy-mid:     #123D5A;
-  --nsh-navy-card:    #0d2d42;
-  --nsh-navy-border:  #1a3d52;
+  /* ── Blues ── */
+  --nsh-navy:         #082438;   /* Harbor Navy — hero, footer, dark bg */
+  --nsh-slate:        #1A4A6B;   /* Deep Slate Blue — nav, dark surfaces */
+  --nsh-coastal:      #2E6E8E;   /* Coastal Blue — headers, links, buttons */
+  --nsh-sky:          #E4EFF6;   /* Morning Sky — light bg, tints */
+
+  /* ── Greens / Sage ── */
   --nsh-sage:         #7B9E8B;
   --nsh-sage-dark:    #4F7563;
   --nsh-sage-light:   #deeae5;
-  --nsh-coral:        #D8896A;
+
+  /* ── Warm ── */
+  --nsh-coral:        #D8896A;   /* Hearth Clay — primary CTA */
   --nsh-coral-dark:   #b8694a;
   --nsh-coral-light:  #fdf0ea;
-  --nsh-linen:        #F7F2EB;
+  --nsh-honey:        #E8C98F;   /* Honey Wheat — sparingly */
+
+  /* ── Neutrals ── */
+  --nsh-linen:        #F7F2EB;   /* Soft Linen — page bg, cards */
   --nsh-linen-dark:   #e5e1da;
   --nsh-border:       #ddd9d2;
   --nsh-warm-text:    #1F2A33;
   --nsh-muted-text:   #5F6975;
-  --nsh-honey:        #E8C98F;
+
+  /* ── Accent ── */
   --nsh-lavender:     #B9B3D9;
   --nsh-lavender-light: #edeaf7;
-  --nsh-river-stone:  #5F6975;
-  --nsh-blue-tint:    #ebf3f8;
 
-  /* Legacy aliases kept for compatibility */
+  /* ── Legacy aliases for backward-compat ── */
+  --nsh-navy-mid:     #1A4A6B;   /* was #123D5A → Deep Slate Blue */
+  --nsh-navy-card:    #0f3450;
+  --nsh-navy-border:  #1e4568;
+  --nsh-blue-tint:    #E4EFF6;   /* was #ebf3f8 → Morning Sky */
+  --nsh-river-stone:  #5F6975;
   --nsh-ivory:        white;
   --nsh-ivory-mist:   #F7F2EB;
   --nsh-blue-deep:    #082438;
-  --nsh-blue-primary: #123D5A;
+  --nsh-blue-primary: #1A4A6B;
   --nsh-blue-light:   #deeae5;
   --nsh-teal:         #7B9E8B;
   --nsh-teal-dark:    #4F7563;
@@ -136,7 +148,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: var(--nsh-navy-mid);
+    background: var(--nsh-coastal);
     color: white;
     font-family: 'DM Sans', sans-serif;
     font-weight: 700;
@@ -146,13 +158,13 @@
     border: none;
     text-decoration: none;
     transition: all 160ms ease;
-    box-shadow: 0 4px 16px rgba(18,61,90,0.3);
+    box-shadow: 0 4px 16px rgba(46,110,142,0.30);
     white-space: nowrap;
     cursor: pointer;
   }
   .nsh-btn-primary:hover {
-    background: #0e2f48;
-    box-shadow: 0 6px 24px rgba(18,61,90,0.4);
+    background: var(--nsh-slate);
+    box-shadow: 0 6px 24px rgba(46,110,142,0.45);
     transform: translateY(-1px);
   }
   .nsh-btn-cta {
@@ -183,21 +195,21 @@
     align-items: center;
     gap: 0.5rem;
     background: transparent;
-    color: var(--nsh-navy-mid);
+    color: var(--nsh-coastal);
     font-family: 'DM Sans', sans-serif;
     font-weight: 600;
     font-size: 1rem;
     padding: 0.875rem 1.75rem;
     border-radius: 0.5rem;
-    border: 1.5px solid rgba(18,61,90,0.4);
+    border: 1.5px solid rgba(46,110,142,0.45);
     text-decoration: none;
     transition: all 160ms ease;
     white-space: nowrap;
     cursor: pointer;
   }
   .nsh-btn-secondary:hover {
-    background: var(--nsh-sage-light);
-    border-color: var(--nsh-navy-mid);
+    background: var(--nsh-sky);
+    border-color: var(--nsh-coastal);
   }
 
   /* ── Cards ── */
@@ -237,8 +249,8 @@
     white-space: nowrap;
   }
   .nsh-pill-blue {
-    background: rgba(18,61,90,0.10);
-    color: var(--nsh-navy-mid);
+    background: rgba(46,110,142,0.10);
+    color: var(--nsh-coastal);
   }
   .nsh-pill-teal {
     background: rgba(123,158,139,0.12);
@@ -253,7 +265,7 @@
   /* ── Section backgrounds ── */
   .nsh-section-ivory { background: white; }
   .nsh-section-mist  { background: #F7F2EB; }
-  .nsh-section-blue  { background: #ebf3f8; }
+  .nsh-section-blue  { background: #E4EFF6; }
   .nsh-section-white { background: white; }
   .nsh-section-dark  { background: #082438; }
 

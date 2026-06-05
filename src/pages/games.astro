@@ -13,8 +13,20 @@ import Footer from '../components/Footer.astro';
   <main>
 
     <!-- ===== HERO ===== -->
-    <section class="py-20" style="background:#082438;">
-      <div class="container">
+    <section class="relative overflow-hidden" style="background:#082438; min-height:520px;">
+      <!-- Neural network graphic — decorative right panel -->
+      <div class="absolute right-0 top-0 bottom-0 hidden md:block" style="width:45%; opacity:0.55;">
+        <img
+          src="/games-neural.jpg"
+          alt=""
+          aria-hidden="true"
+          class="w-full h-full object-cover object-left"
+        />
+        <!-- fade-left overlay -->
+        <div class="absolute inset-0" style="background:linear-gradient(to right, #082438 0%, transparent 40%);"></div>
+      </div>
+
+      <div class="container relative py-20">
         <div class="max-w-2xl">
           <p class="nsh-eyebrow mb-4 fade-up" style="color:#7B9E8B;">Inside the Hub</p>
           <h1 class="nsh-heading-display mb-6 fade-up" style="color:white;">
