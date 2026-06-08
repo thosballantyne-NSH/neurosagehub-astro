@@ -2,58 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-
-const familyFeatures = [
-  'Autism Pathways Quiz',
-  'Personalised learning pathway',
-  'Structured educational modules',
-  'Home routine protocols (10–20 min/day)',
-  'Therapeutic sensory games library',
-  'Eva — AI autism mentor (24/7)',
-  'Progress tracking & logs',
-  'Practitioner-shareable progress reports',
-  'Parent community access',
-];
-
-const practitionerFeatures = [
-  'Everything in Family Plan',
-  'Dedicated practitioner portal',
-  'Assign pathways to patients',
-  'Track family compliance between visits',
-  'Custom home protocol builder',
-  'Branded parent-facing content',
-  'Progress reporting dashboard',
-  'Multi-family management',
-  'Priority onboarding support',
-];
-
-const faqs = [
-  {
-    q: 'Do I need an autism diagnosis to join?',
-    a: 'No. Many families join before or during the diagnostic process. Neurosage Hub is designed to support any family navigating neurodevelopmental challenges — diagnosed or not.',
-  },
-  {
-    q: 'Is this therapy?',
-    a: 'No. Neurosage Hub provides structured educational content and parent-support tools. We don\'t diagnose, treat, or replace the work of your practitioners. We extend it.',
-  },
-  {
-    q: 'Can I cancel anytime?',
-    a: 'Yes. There\'s no long-term commitment. You can cancel your membership at any time from your account settings.',
-  },
-  {
-    q: 'What makes Neurosage different from a course or YouTube?',
-    a: 'Structure and personalization. Rather than random videos, you get a sequenced pathway built for your child\'s specific profile — with home routines, a progress tracker, Eva for guidance, and therapeutic games, all in one place.',
-  },
-  {
-    q: 'How does the practitioner plan work?',
-    a: 'Practitioners get their own portal to manage multiple families, assign specific pathways, and track engagement between visits — without adding to their clinical workload.',
-  },
-];
 ---
 
 <BaseLayout
-  title="Pricing | Neurosage Hub"
-  description="Free to start. Built around your family. See what's included in every Neurosage Hub plan."
+  title="Family Pricing | Neurosage Hub"
+  description="Start free or unlock the full Neurosage Hub experience. Structured autism support for every family — at every stage."
 >
   <Header />
 
@@ -63,101 +16,135 @@ const faqs = [
     <section class="py-20" style="background:#082438;">
       <div class="container">
         <div class="max-w-2xl mx-auto text-center">
-          <p class="nsh-eyebrow mb-4 fade-up" style="color:#7B9E8B;">Pricing</p>
+          <p class="nsh-eyebrow mb-4 fade-up" style="color:#7B9E8B;">Family Pricing</p>
           <h1 class="fade-up mb-5" style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(2rem,5vw,3rem); color:white; line-height:1.1;">
-            More value than anything else<br>you'll find at this price.
+            Start free. Go deeper<br>when you're ready.
           </h1>
-          <p class="fade-up" style="font-family:'DM Sans',sans-serif; font-size:1.125rem; color:rgba(255,255,255,0.68); line-height:1.75; max-width:34rem; margin:0 auto;">
-            Start free. Upgrade when you're ready. No diagnosis required, no commitment, no surprise charges.
+          <p class="fade-up" style="font-family:'DM Sans',sans-serif; font-size:1.125rem; color:rgba(255,255,255,0.68); line-height:1.75; max-width:34rem; margin:0 auto 1.5rem;">
+            No diagnosis required. No pressure. Every tier gives your family real tools — unlock more as your journey grows.
           </p>
+          <a href="/pricing-practitioners" class="fade-up inline-flex items-center gap-1.5 text-sm font-semibold" style="font-family:'DM Sans',sans-serif; color:rgba(255,255,255,0.45); text-decoration:underline; text-underline-offset:3px;">
+            Looking for practitioner pricing? Click here →
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- ===== PLANS ===== -->
+    <!-- ===== PRICING CARDS ===== -->
     <section class="py-20" style="background:#F7F2EB;">
       <div class="container">
-        <div class="max-w-5xl mx-auto">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+        <div class="max-w-6xl mx-auto">
 
-            <!-- FREE TIER -->
-            <div class="rounded-2xl p-8 fade-up" style="background:white; border:2px solid #ddd9d2;">
-              <p class="nsh-eyebrow mb-3" style="color:#5F6975;">Get Started</p>
-              <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:1.5rem; color:#082438; margin-bottom:0.5rem;">Free</h2>
-              <div style="margin-bottom:1.25rem;">
-                <span style="font-family:'DM Sans',sans-serif; font-size:2.5rem; font-weight:800; color:#082438;">$0</span>
-                <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975;"> / forever</span>
+          <!-- Top row: 3 active tiers -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+
+            <!-- FREE -->
+            <div class="rounded-2xl p-8 fade-up flex flex-col" style="background:white; border:2px solid #ddd9d2;">
+              <div>
+                <p class="nsh-eyebrow mb-3" style="color:#7B9E8B;">Get Started</p>
+                <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:1.5rem; color:#082438; margin-bottom:0.375rem;">Free</h2>
+                <div style="margin-bottom:1rem;">
+                  <span style="font-family:'DM Sans',sans-serif; font-size:2.75rem; font-weight:800; color:#082438; line-height:1;">$0</span>
+                  <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975;"> forever</span>
+                </div>
+                <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975; line-height:1.65; margin-bottom:1.75rem;">
+                  Take the quiz, explore your pathway, and get started — no card, no commitment.
+                </p>
               </div>
-              <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975; line-height:1.65; margin-bottom:1.75rem;">
-                Take the quiz, explore your pathway, and see what's waiting for your family — no card required.
-              </p>
 
               <a href="/family-sign-up" class="nsh-btn-secondary w-full justify-center mb-6" style="display:flex;">
-                Start Free Today
+                Start Free
               </a>
 
-              <ul class="space-y-3">
-                {['Autism Pathways Quiz', 'Personalised pathway overview', 'Sensory games (free forever)', 'Eva AI mentor — basic access'].map((f) => (
+              <ul class="space-y-3 flex-1">
+                {[
+                  'Autism Pathways Quiz',
+                  'Personalised pathway overview',
+                  'Autism Basics course — everything you need to get started',
+                  '1 therapeutic video game',
+                  'Eva AI mentor — basic access',
+                ].map((f) => (
                   <li class="flex items-start gap-2.5">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7B9E8B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7B9E8B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
                     <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#1F2A33;">{f}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <!-- FAMILY PLAN — FEATURED -->
-            <div class="rounded-2xl p-8 fade-up relative" style="background:#082438; border:2px solid #2E6E8E; transition-delay:80ms;">
-              <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                <span style="background:#D8896A; color:white; font-family:'DM Sans',sans-serif; font-size:0.75rem; font-weight:700; letter-spacing:0.06em; padding:0.3rem 1rem; border-radius:99px; white-space:nowrap;">MOST POPULAR</span>
+            <!-- MELTDOWNS COURSE — $39 -->
+            <div class="rounded-2xl p-8 fade-up flex flex-col" style="background:white; border:2px solid #2E6E8E; transition-delay:80ms;">
+              <div>
+                <p class="nsh-eyebrow mb-3" style="color:#2E6E8E;">Single Course</p>
+                <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:1.5rem; color:#082438; margin-bottom:0.375rem;">Meltdowns</h2>
+                <div style="margin-bottom:0.375rem;">
+                  <span style="font-family:'DM Sans',sans-serif; font-size:2.75rem; font-weight:800; color:#082438; line-height:1;">$39</span>
+                  <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975;"> one-time</span>
+                </div>
+                <p style="font-family:'DM Sans',sans-serif; font-size:0.8rem; color:#7B9E8B; font-weight:600; margin-bottom:0.75rem;">3 months course access</p>
+                <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975; line-height:1.65; margin-bottom:1.75rem;">
+                  A complete course on understanding and navigating meltdowns — with clinical-grade regulation protocols built for home use.
+                </p>
               </div>
 
-              <p class="nsh-eyebrow mb-3" style="color:#7B9E8B;">Family Plan</p>
-              <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:1.5rem; color:white; margin-bottom:0.5rem;">Full Access</h2>
-              <div style="margin-bottom:0.5rem;">
-                <span style="font-family:'DM Sans',sans-serif; font-size:2.5rem; font-weight:800; color:white;">$19</span>
-                <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:rgba(255,255,255,0.5);"> / month</span>
+              <a href="/family-sign-up" class="nsh-btn-primary w-full justify-center mb-6" style="display:flex;">
+                Get This Course
+              </a>
+
+              <ul class="space-y-3 flex-1">
+                {[
+                  'Everything in Free',
+                  'Full "Understanding Meltdowns" course',
+                  'Regulation protocols library',
+                  'Printable calm-down action plans',
+                  'Sensory trigger identification guide',
+                  'Progress tracking for regulation wins',
+                ].map((f) => (
+                  <li class="flex items-start gap-2.5">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2E6E8E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#1F2A33;">{f}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- FULL ACCESS — $199 -->
+            <div class="rounded-2xl p-8 fade-up flex flex-col relative" style="background:#082438; border:2px solid #2E6E8E; transition-delay:160ms;">
+              <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                <span style="background:#D8896A; color:white; font-family:'DM Sans',sans-serif; font-size:0.75rem; font-weight:700; letter-spacing:0.06em; padding:0.3rem 1rem; border-radius:99px; white-space:nowrap;">BEST VALUE</span>
               </div>
-              <p style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; color:#7B9E8B; margin-bottom:0.75rem;">or $149/year — save 35%</p>
-              <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:rgba(255,255,255,0.65); line-height:1.65; margin-bottom:1.75rem;">
-                Everything your family needs to move from overwhelmed to consistent — one structured day at a time.
-              </p>
+
+              <div>
+                <p class="nsh-eyebrow mb-3" style="color:#7B9E8B;">Full Access</p>
+                <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:1.5rem; color:white; margin-bottom:0.375rem;">Everything</h2>
+                <div style="margin-bottom:0.375rem;">
+                  <span style="font-family:'DM Sans',sans-serif; font-size:2.75rem; font-weight:800; color:white; line-height:1;">$199</span>
+                  <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:rgba(255,255,255,0.5);"> / month</span>
+                </div>
+                <p style="font-family:'DM Sans',sans-serif; font-size:0.8rem; color:#7B9E8B; font-weight:600; margin-bottom:0.75rem;">Full access — cancel anytime</p>
+                <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:rgba(255,255,255,0.65); line-height:1.65; margin-bottom:1.75rem;">
+                  The complete Neurosage Hub experience. Every course, every protocol, every tool — your family's full support system in one place.
+                </p>
+              </div>
 
               <a href="/family-sign-up" class="nsh-btn-cta w-full justify-center mb-6" style="display:flex;">
-                Start Free — Upgrade Anytime
+                Start Full Access
               </a>
 
-              <ul class="space-y-3">
-                {familyFeatures.map((f) => (
+              <ul class="space-y-3 flex-1">
+                {[
+                  'Everything in Meltdowns Course',
+                  'All courses — complete library',
+                  'All protocols for home use',
+                  'Diet & nutrition guides (all modules)',
+                  '8 therapeutic video games — each targeting a different developmental area',
+                  'Full Eva AI mentor (24/7, unlimited)',
+                  'Progress dashboard & practitioner reports',
+                  'Parent community access',
+                ].map((f) => (
                   <li class="flex items-start gap-2.5">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7B9E8B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:rgba(255,255,255,0.82);">{f}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <!-- PRACTITIONER PLAN -->
-            <div class="rounded-2xl p-8 fade-up" style="background:white; border:2px solid #ddd9d2; transition-delay:160ms;">
-              <p class="nsh-eyebrow mb-3" style="color:#2E6E8E;">For Clinics</p>
-              <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:1.5rem; color:#082438; margin-bottom:0.5rem;">Practitioner</h2>
-              <div style="margin-bottom:0.5rem;">
-                <span style="font-family:'DM Sans',sans-serif; font-size:2rem; font-weight:800; color:#082438;">Custom</span>
-              </div>
-              <p style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; color:#5F6975; margin-bottom:0.75rem;">Priced per clinic / patient volume</p>
-              <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975; line-height:1.65; margin-bottom:1.75rem;">
-                Extend your care into every home. The clinical bridge your families have been waiting for.
-              </p>
-
-              <a href="/for-practitioners#demo" class="nsh-btn-primary w-full justify-center mb-6" style="display:flex;">
-                Book a Demo
-              </a>
-
-              <ul class="space-y-3">
-                {practitionerFeatures.map((f) => (
-                  <li class="flex items-start gap-2.5">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E6E8E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#1F2A33;">{f}</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7B9E8B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:rgba(255,255,255,0.85);">{f}</span>
                   </li>
                 ))}
               </ul>
@@ -165,63 +152,132 @@ const faqs = [
 
           </div>
 
-          <!-- Value reinforcement -->
-          <div class="mt-10 text-center fade-up">
+          <!-- PLATINUM — COMING SOON (full width) -->
+          <div class="rounded-2xl p-8 md:p-10 fade-up relative overflow-hidden" style="background:#1A4A6B; border:2px solid #2E6E8E;">
+
+            <!-- Decorative arc -->
+            <div style="position:absolute; right:-60px; top:-60px; width:260px; height:260px; border-radius:50%; border:2px solid rgba(255,255,255,0.06); pointer-events:none;"></div>
+            <div style="position:absolute; right:20px; top:20px; width:140px; height:140px; border-radius:50%; border:2px solid rgba(255,255,255,0.04); pointer-events:none;"></div>
+
+            <div class="flex flex-col md:flex-row gap-8 items-start relative">
+
+              <div class="flex-1">
+                <div class="flex items-center gap-3 mb-4">
+                  <p class="nsh-eyebrow" style="color:#E8C98F;">Platinum</p>
+                  <span style="background:rgba(232,201,143,0.15); color:#E8C98F; font-family:'DM Sans',sans-serif; font-size:0.75rem; font-weight:700; letter-spacing:0.08em; padding:0.25rem 0.875rem; border-radius:99px; border:1px solid rgba(232,201,143,0.3);">COMING SOON</span>
+                </div>
+                <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.5rem,3vw,2rem); color:white; line-height:1.2; margin-bottom:1rem;">
+                  Your family. Dr. Kyle's clinic.<br>A community that walks with you.
+                </h2>
+                <p style="font-family:'DM Sans',sans-serif; font-size:1rem; color:rgba(255,255,255,0.65); line-height:1.75; max-width:38rem;">
+                  Platinum is our highest-tier membership — designed for families who want direct access to clinical-grade tools, a certified mentor, and a private mastermind community led by Dr. Kyle and the Neurosage team.
+                </p>
+              </div>
+
+              <div class="flex-shrink-0 w-full md:w-72">
+                <ul class="space-y-3 mb-6">
+                  {[
+                    'Everything in Full Access',
+                    'Access to a Dr. Kyle-certified parent mentor',
+                    'Dr. Kyle\'s clinical tools & settings used in-clinic',
+                    'Regular virtual meet-ups with parents & the NSH team',
+                    'Private mastermind community',
+                    'Priority support & early feature access',
+                  ].map((f) => (
+                    <li class="flex items-start gap-2.5">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E8C98F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:rgba(255,255,255,0.80);">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  disabled
+                  style="width:100%; background:rgba(232,201,143,0.15); color:#E8C98F; font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.9375rem; padding:0.875rem; border-radius:0.625rem; border:1.5px solid rgba(232,201,143,0.3); cursor:not-allowed; display:flex; align-items:center; justify-content:center; gap:0.5rem;"
+                >
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  Coming Soon — Notify Me
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Reassurance row -->
+          <div class="mt-8 text-center fade-up">
             <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975;">
               🔒 Secure checkout &nbsp;·&nbsp; Cancel anytime &nbsp;·&nbsp; No diagnosis required &nbsp;·&nbsp; 7-day money-back guarantee
             </p>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- ===== WHAT YOU GET (value reinforcement) ===== -->
+    <!-- ===== WHAT EACH TIER IS FOR ===== -->
     <section class="py-20" style="background:white;">
       <div class="container">
         <div class="max-w-3xl mx-auto text-center mb-12 fade-up">
-          <p class="nsh-eyebrow mb-3" style="color:#7B9E8B;">The Real Question</p>
-          <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.75rem,4vw,2.25rem); color:#082438; line-height:1.2;">
-            What does $19 a month actually buy?
-          </h2>
+          <p class="nsh-eyebrow mb-3" style="color:#7B9E8B;">Which plan is right for you?</p>
+          <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.75rem,4vw,2.25rem); color:#082438;">Start where you are. Grow from there.</h2>
         </div>
 
-        <div class="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div class="max-w-3xl mx-auto grid grid-cols-1 gap-4">
           {[
-            { label: '1 missed therapy session', value: '$150–300', compare: true },
-            { label: 'Neurosage Hub — full month', value: '$19', compare: false },
-            { label: '1 specialist consultation', value: '$200–500', compare: true },
-            { label: 'Daily home support for your family', value: '$0.63/day', compare: false },
-          ].map(({ label, value, compare }) => (
-            <div class="rounded-2xl p-6 flex items-center justify-between fade-up" style={`background:${compare ? '#F7F2EB' : '#082438'}; border:1px solid ${compare ? '#ddd9d2' : '#1A4A6B'};`}>
-              <span style={`font-family:'DM Sans',sans-serif; font-size:0.9375rem; font-weight:500; color:${compare ? '#5F6975' : 'rgba(255,255,255,0.8)'};`}>{label}</span>
-              <span style={`font-family:'DM Sans',sans-serif; font-size:1.125rem; font-weight:800; color:${compare ? '#5F6975' : '#D8896A'};`}>{value}</span>
+            {
+              tier: 'Free',
+              color: '#7B9E8B',
+              bg: '#deeae5',
+              for: 'Families just starting to explore',
+              desc: 'You\'ve noticed something and want to understand what\'s happening. The Autism Basics course and one game give you a real foundation — no cost, no pressure.',
+            },
+            {
+              tier: 'Meltdowns — $39',
+              color: '#2E6E8E',
+              bg: '#E4EFF6',
+              for: 'Families in the thick of it right now',
+              desc: 'If meltdowns are a daily reality and you need a structured plan — not just tips — this course gives you clinical protocols you can actually use at home, today.',
+            },
+            {
+              tier: 'Full Access — $199/mo',
+              color: '#D8896A',
+              bg: '#fdf0ea',
+              for: 'Families ready for the full roadmap',
+              desc: 'You\'re committed to supporting your child\'s development systematically. Every course, protocol, diet guide, and all 8 games — your entire support ecosystem in one place.',
+            },
+            {
+              tier: 'Platinum — Coming Soon',
+              color: '#E8C98F',
+              bg: 'rgba(232,201,143,0.12)',
+              for: 'Families who want direct clinical mentorship',
+              desc: 'You want the tools Dr. Kyle actually uses in clinic, a certified mentor assigned to your family, and a community of parents walking the same path — meeting regularly with the NSH team.',
+            },
+          ].map(({ tier, color, bg, for: forWho, desc }) => (
+            <div class="rounded-2xl p-6 flex items-start gap-5 fade-up" style={`background:${bg}; border:1px solid ${color}30;`}>
+              <div style={`width:10px; min-height:100%; border-radius:99px; background:${color}; flex-shrink:0; align-self:stretch;`}></div>
+              <div>
+                <div class="flex flex-wrap items-center gap-3 mb-1">
+                  <span style={`font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.875rem; color:${color};`}>{tier}</span>
+                  <span style="font-family:'DM Sans',sans-serif; font-weight:600; font-size:0.875rem; color:#5F6975;">— {forWho}</span>
+                </div>
+                <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975; line-height:1.7;">{desc}</p>
+              </div>
             </div>
           ))}
         </div>
-
-        <p class="text-center mt-8 fade-up" style="font-family:'DM Sans',sans-serif; font-size:0.875rem; color:#5F6975; max-width:30rem; margin-left:auto; margin-right:auto; line-height:1.65;">
-          We're not replacing your practitioners. We're making everything that happens between visits count.
-        </p>
       </div>
     </section>
 
-    <!-- ===== FAQ ===== -->
-    <section class="py-20" style="background:#F7F2EB;">
+    <!-- ===== PRACTITIONER LINK ===== -->
+    <section class="py-12" style="background:#E4EFF6;">
       <div class="container">
-        <div class="max-w-2xl mx-auto">
-          <div class="text-center mb-12 fade-up">
-            <p class="nsh-eyebrow mb-3" style="color:#7B9E8B;">Questions</p>
-            <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.75rem,4vw,2.25rem); color:#082438;">Common questions answered</h2>
+        <div class="max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 fade-up">
+          <div>
+            <p style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:1rem; color:#082438; margin-bottom:0.25rem;">Are you a practitioner or clinic?</p>
+            <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975;">We have a dedicated plan built around extending your care into every home.</p>
           </div>
-
-          <div class="flex flex-col gap-0">
-            {faqs.map(({ q, a }, i) => (
-              <div class="fade-up py-6" style={`border-bottom:1px solid #ddd9d2; ${i === 0 ? 'border-top:1px solid #ddd9d2;' : ''}`}>
-                <p style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:1rem; color:#082438; margin-bottom:0.625rem;">{q}</p>
-                <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975; line-height:1.7;">{a}</p>
-              </div>
-            ))}
-          </div>
+          <a href="/pricing-practitioners" class="nsh-btn-primary" style="flex-shrink:0;">
+            Practitioner Pricing →
+          </a>
         </div>
       </div>
     </section>
@@ -230,17 +286,16 @@ const faqs = [
     <section class="py-20" style="background:#082438;">
       <div class="container">
         <div class="max-w-xl mx-auto text-center fade-up">
-          <p class="nsh-eyebrow mb-4" style="color:#7B9E8B;">Ready to Start?</p>
+          <p class="nsh-eyebrow mb-4" style="color:#7B9E8B;">Ready?</p>
           <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.75rem,4vw,2.25rem); color:white; line-height:1.2; margin-bottom:1rem;">
-            Your family's path forward<br>starts with a free quiz.
+            Start free. No card needed.
           </h2>
           <p style="font-family:'DM Sans',sans-serif; font-size:1rem; color:rgba(255,255,255,0.65); margin-bottom:2rem; line-height:1.7;">
-            3 minutes. No card required. A personalised pathway on the other side.
+            Take the quiz, get your pathway, and start making progress today.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="/quiz" class="nsh-btn-cta" style="font-size:1rem; padding:0.875rem 2rem;">
-              Take the Free Quiz
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              Take the Free Quiz →
             </a>
             <a href="/family-sign-up" class="inline-flex items-center justify-center px-7 py-3.5 rounded-xl font-semibold" style="font-family:'DM Sans',sans-serif; font-size:1rem; color:white; border:1.5px solid rgba(255,255,255,0.25); text-decoration:none;">
               Sign Up Free

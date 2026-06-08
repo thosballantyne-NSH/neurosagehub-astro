@@ -13,11 +13,15 @@ const current = Astro.url.pathname;
 const activeIndex = navLinks.findIndex(({ href }) =>
   current === href || current.startsWith(href + '/')
 );
-const displayLinks = navLinks.map((link, i) =>
-  i === activeIndex
-    ? { href: '/pricing', label: 'Pricing', isPricing: true }
-    : { ...link, isPricing: false }
-);
+const displayLinks = navLinks.map((link, i) => {
+  if (i === activeIndex) {
+    const pricingHref = current.startsWith('/for-practitioners')
+      ? '/pricing-practitioners'
+      : '/pricing';
+    return { href: pricingHref, label: 'Pricing', isPricing: true };
+  }
+  return { ...link, isPricing: false };
+});
 ---
 
 <header
