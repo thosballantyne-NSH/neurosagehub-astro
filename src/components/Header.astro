@@ -7,6 +7,17 @@ const navLinks = [
   { href: '/games',             label: 'Sensory Games' },
 ];
 const current = Astro.url.pathname;
+
+// Replace whichever nav link the visitor is currently on with Pricing.
+// That slot is redundant (they're already there) so we use it for conversion.
+const activeIndex = navLinks.findIndex(({ href }) =>
+  current === href || current.startsWith(href + '/')
+);
+const displayLinks = navLinks.map((link, i) =>
+  i === activeIndex
+    ? { href: '/pricing', label: 'Pricing', isPricing: true }
+    : { ...link, isPricing: false }
+);
 ---
 
 <header
@@ -28,7 +39,7 @@ const current = Astro.url.pathname;
         />
         <span
           id="logo-fallback"
-          style="display:none; font-family:'DM Sans',sans-serif; color:#123D5A; font-size:1.125rem; font-weight:800;"
+          style="display:none; font-family:'DM Sans',sans-serif; color:#1A4A6B; font-size:1.125rem; font-weight:800;"
         >
           Neurosage Hub
         </span>
@@ -36,11 +47,13 @@ const current = Astro.url.pathname;
 
       <!-- Desktop Nav -->
       <nav class="hidden lg:flex items-center gap-1">
-        {navLinks.map(({ href, label }) => (
+        {displayLinks.map(({ href, label, isPricing }) => (
           <a
             href={href}
             class="px-4 py-2 rounded-lg text-sm transition-all duration-200"
-            style={`font-family:'DM Sans',sans-serif; color:#1F2A33; font-weight:500;`}
+            style={isPricing
+              ? `font-family:'DM Sans',sans-serif; color:#D8896A; font-weight:700; background:rgba(216,137,106,0.08);`
+              : `font-family:'DM Sans',sans-serif; color:#1F2A33; font-weight:500;`}
           >
             {label}
           </a>
@@ -66,7 +79,7 @@ const current = Astro.url.pathname;
         <button
           id="mobile-toggle"
           class="lg:hidden p-2 rounded-lg"
-          style="color:#123D5A;"
+          style="color:#1A4A6B;"
           aria-label="Toggle menu"
         >
           <svg id="icon-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -83,11 +96,13 @@ const current = Astro.url.pathname;
     style="background:rgba(255,255,255,0.98); border-color:#ddd9d2;"
   >
     <div class="container py-4 flex flex-col gap-1">
-      {navLinks.map(({ href, label }) => (
+      {displayLinks.map(({ href, label, isPricing }) => (
         <a
           href={href}
           class="px-4 py-3 rounded-xl text-sm font-medium"
-          style="font-family:'DM Sans',sans-serif; color:#1F2A33;"
+          style={isPricing
+            ? `font-family:'DM Sans',sans-serif; color:#D8896A; font-weight:700; background:rgba(216,137,106,0.06);`
+            : `font-family:'DM Sans',sans-serif; color:#1F2A33;`}
         >
           {label}
         </a>
