@@ -54,7 +54,186 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   </head>
   <body>
     <slot />
-    <!-- EVA Chat Widget -->
-    <script src="https://beta.leadconnectorhq.com/loader.js" data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a21de9de53da97e71aef3b6" is:inline></script>
+
+    <!-- ===== EXIT INTENT POPUP ===== -->
+    <div
+      id="nsh-exit-popup"
+      style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(8,36,56,0.80); backdrop-filter:blur(5px); align-items:center; justify-content:center; padding:1rem;"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Before you go"
+    >
+      <div style="background:white; border-radius:1.5rem; max-width:440px; width:100%; padding:2.5rem 2.25rem 2rem; position:relative; box-shadow:0 32px 80px rgba(0,0,0,0.35); animation:nsh-popup-in 0.25s ease;">
+
+        <!-- Close -->
+        <button
+          id="nsh-exit-close"
+          aria-label="Close"
+          style="position:absolute; top:1rem; right:1rem; width:32px; height:32px; border-radius:50%; border:none; background:#F7F2EB; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:1.125rem; color:#5F6975; line-height:1;"
+        >✕</button>
+
+        <!-- Top accent -->
+        <div style="width:40px; height:4px; border-radius:2px; background:#D8896A; margin-bottom:1.5rem;"></div>
+
+        <p style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#D8896A; margin-bottom:0.5rem;">Before you go…</p>
+
+        <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:1.625rem; color:#082438; line-height:1.2; margin-bottom:0.875rem;">
+          Get exclusive access,<br>content &amp; free tools.
+        </h2>
+
+        <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975; line-height:1.65; margin-bottom:1.5rem;">
+          Free resources, early access to new pathways, member-only deals, and the guidance most families never find on their own. No spam — ever.
+        </p>
+
+        <form id="nsh-exit-form" novalidate>
+          <div style="margin-bottom:0.75rem;">
+            <input
+              type="email"
+              id="nsh-exit-email"
+              placeholder="Your email address"
+              required
+              autocomplete="email"
+              style="width:100%; padding:0.875rem 1rem; border:1.5px solid #ddd9d2; border-radius:0.625rem; font-family:'DM Sans',sans-serif; font-size:1rem; color:#082438; outline:none; box-sizing:border-box; transition:border-color 150ms;"
+              onfocus="this.style.borderColor='#2E6E8E'"
+              onblur="this.style.borderColor='#ddd9d2'"
+            />
+          </div>
+          <button
+            type="submit"
+            style="width:100%; background:#D8896A; color:white; font-family:'DM Sans',sans-serif; font-weight:700; font-size:1rem; padding:0.9375rem; border-radius:0.625rem; border:none; cursor:pointer; transition:background 160ms;"
+            onmouseover="this.style.background='#b8694a'"
+            onmouseout="this.style.background='#D8896A'"
+          >
+            Get Free Access →
+          </button>
+        </form>
+
+        <p style="font-family:'DM Sans',sans-serif; font-size:0.8rem; color:#5F6975; text-align:center; margin-top:1rem;">
+          No diagnosis required · No credit card · Unsubscribe anytime
+        </p>
+
+      </div>
+    </div>
+
+    <style>
+      @keyframes nsh-popup-in {
+        from { opacity: 0; transform: translateY(16px) scale(0.97); }
+        to   { opacity: 1; transform: translateY(0)    scale(1);    }
+      }
+    </style>
+
+    <!-- ===== EVA WIDGET (delayed) + EXIT POPUP LOGIC ===== -->
+    <script is:inline>
+    (function () {
+
+      /* ── Cookie helpers ── */
+      function getCookie(name) {
+        var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+        return match ? match[2] : null;
+      }
+      function setCookie(name, value, days) {
+        var expires = new Date(Date.now() + days * 864e5).toUTCString();
+        document.cookie = name + '=' + value + '; expires=' + expires + '; path=/; SameSite=Lax';
+      }
+
+      /* ── EVA Chat Widget — load after 6 seconds ── */
+      var evaLoaded = false;
+      var isReturningVisitor = !!getCookie('nsh_visitor');
+
+      setTimeout(function () {
+        if (evaLoaded) return;
+        evaLoaded = true;
+
+        // If returning visitor, inject CSS to suppress the auto-open greeting bubble
+        // before the widget script runs
+        if (isReturningVisitor) {
+          var style = document.createElement('style');
+          style.textContent = [
+            /* LeadConnectorHQ widget greeting bubble selectors (best-effort suppression) */
+            '[data-widget-id] .chat-open-btn-wrapper { pointer-events: auto !important; }',
+            '[data-widget-id] .chat-message-wrapper  { display: none !important; }',
+            '[data-widget-id] .chat-popup-wrapper     { display: none !important; }',
+          ].join('\n');
+          document.head.appendChild(style);
+        }
+
+        var s = document.createElement('script');
+        s.src = 'https://beta.leadconnectorhq.com/loader.js';
+        s.setAttribute('data-resources-url', 'https://beta.leadconnectorhq.com/chat-widget/loader.js');
+        s.setAttribute('data-widget-id', '6a21de9de53da97e71aef3b6');
+        document.body.appendChild(s);
+
+        // Mark as returning on first load
+        if (!isReturningVisitor) {
+          setCookie('nsh_visitor', '1', 365);
+        }
+      }, 6000);
+
+      /* ── Exit Intent Popup ── */
+      var popup     = document.getElementById('nsh-exit-popup');
+      var closeBtn  = document.getElementById('nsh-exit-close');
+      var form      = document.getElementById('nsh-exit-form');
+      var emailInput = document.getElementById('nsh-exit-email');
+      var popupFired = false;
+
+      // Don't show if already submitted or dismissed this session
+      var alreadySeen = !!getCookie('nsh_exit_seen');
+
+      function showPopup() {
+        if (popupFired || alreadySeen) return;
+        popupFired = true;
+        popup.style.display = 'flex';
+      }
+
+      function hidePopup() {
+        popup.style.display = 'none';
+        setCookie('nsh_exit_seen', '1', 7); // suppress for 7 days
+      }
+
+      // Desktop: cursor leaves the top of the viewport
+      document.addEventListener('mouseleave', function (e) {
+        if (e.clientY < 10) showPopup();
+      });
+
+      // Mobile: rapid upward scroll near the top (back-button intent)
+      var lastY = window.scrollY;
+      window.addEventListener('scroll', function () {
+        var y = window.scrollY;
+        if (lastY - y > 80 && y < 120) showPopup();
+        lastY = y;
+      }, { passive: true });
+
+      // Close button
+      if (closeBtn) closeBtn.addEventListener('click', hidePopup);
+
+      // Click outside the card
+      if (popup) {
+        popup.addEventListener('click', function (e) {
+          if (e.target === popup) hidePopup();
+        });
+      }
+
+      // Escape key
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && popup.style.display === 'flex') hidePopup();
+      });
+
+      // Form submit — redirect to sign-up with email pre-filled
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var email = emailInput ? emailInput.value.trim() : '';
+          if (!email || !email.includes('@')) {
+            emailInput.style.borderColor = '#c0392b';
+            return;
+          }
+          setCookie('nsh_exit_seen', '1', 30);
+          window.location.href = '/family-sign-up?email=' + encodeURIComponent(email);
+        });
+      }
+
+    })();
+    </script>
+
   </body>
 </html>

@@ -225,6 +225,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <script is:inline>
+  // Pre-fill email from exit popup handoff (?email=...)
+  var urlEmail = new URLSearchParams(window.location.search).get('email');
+  if (urlEmail) {
+    var emailField = document.getElementById('email');
+    if (emailField) emailField.value = urlEmail;
+  }
+
   document.getElementById('signup-form').addEventListener('submit', function(e) {
     e.preventDefault();
 
