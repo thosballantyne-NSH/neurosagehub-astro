@@ -4,19 +4,20 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const episodes = [
-  { title: 'The Surprising Connection Between Autism and Video Games', desc: 'What if video games could do more than entertain? Dr. Kyle shares how a speech therapist\'s question sparked 13+ years of research into video games as a therapeutic tool.' },
-  { title: '"Their Whole Life Becomes Therapy" — Autism Burnout & Family Overwhelm', desc: 'At what point does a child get to just be a kid again? Thomas Ballantyne and Dr. Kyle Daigle discuss therapy fatigue, nervous system development, and the need for better collaboration between practitioners.' },
-  { title: 'What Parents Notice Before an Autism Diagnosis', desc: 'Dr. Kyle Daigle joins an honest conversation about what parents often notice before a diagnosis — early signs, sensory issues, and the importance of trusting your intuition.' },
-  { title: 'Why Early Identification Matters in Autism Care', desc: 'How early is "early enough"? Ashley Tamayo shares insights on developmental milestones, neuroplasticity, and why waitlists are becoming such a challenge for families.' },
-  { title: 'Navigating School Support and IEPs in Autism Care', desc: 'What is an IEP and do you need a diagnosis to get one? Ashley Tamayo shares both professional and personal perspective on how schools, parents, and practitioners work together.' },
-  { title: 'Autism Assessments: What Actually Matters (and What Doesn\'t)', desc: 'Ashley Tamayo breaks down the most common autism assessments, the difference between a screening and a formal diagnosis, and why patience during the diagnostic process matters.' },
-  { title: 'What Progress Really Looks Like in Autism Care', desc: 'Progress in autism care is not always obvious or linear. Ashley Tamayo shares a grounded perspective on how progress unfolds — from communication milestones to behavioral shifts.' },
-  { title: 'Guiding Families Between Visits: Where Progress Happens', desc: 'What happens between therapy sessions matters more than most people realize. This episode explores how practitioners can support families outside the clinic.' },
-  { title: 'First Steps After an Autism Diagnosis (Don\'t Skip the Fundamentals)', desc: 'After a diagnosis, most families feel the urge to do everything immediately. But that instinct leads to overwhelm. This episode is about where to actually start.' },
-  { title: 'What to Do When Parents Are in Denial About Autism', desc: 'Denial is often one of the first responses when a parent faces the possibility of an autism diagnosis. How a practitioner responds in that moment can shape everything.' },
-  { title: 'How to Tell a Parent Their Child May Be Autistic', desc: 'One of the most important and difficult moments in autism care. Ashley Tamayo shares what it means to navigate that conversation with clarity, compassion, and responsibility.' },
-  { title: 'Choosing the Right Autism Practitioner Without the Overwhelm', desc: 'When a parent first suspects autism, one of the first questions is: where do I go, and who do I trust? Ashley Tamayo shares how to find the right practitioner.' },
-  { title: 'Early Signs of Autism: What Parents, Practitioners, and Educators Should Look For', desc: 'What are the early signs of autism, and how can parents recognise them without jumping to fear? Ashley Tamayo and Justin Barton explore early indicators thoughtfully.' },
+  { slug: 'the-surprising-connection-between-autism-and-video-games', title: 'The Surprising Connection Between Autism and Video Games', desc: 'What if video games could do more than entertain? Dr. Kyle shares how a speech therapist\'s question sparked 13+ years of research into video games as a therapeutic tool.' },
+  { slug: 'their-whole-life-becomes-therapy-dr-kyle-daigle-on-autism-burnout-family-overwhelm', title: '"Their Whole Life Becomes Therapy" | Dr. Kyle Daigle on Autism Burnout & Family Overwhelm', desc: 'At what point does a child get to just be a kid again? Thomas Ballantyne and Dr. Kyle Daigle discuss therapy fatigue, nervous system development, and the need for better practitioner collaboration.' },
+  { slug: 'what-parents-notice-before-an-autism-diagnosis-dr-kyle-daigle-on-early-signs-sensory-issues-parent-intuition', title: 'What Parents Notice Before an Autism Diagnosis', desc: 'Dr. Kyle Daigle joins an honest conversation about what parents often notice before a diagnosis — early signs, sensory issues, and the importance of trusting your intuition.' },
+  { slug: 'why-early-identification-matters-in-autism-care', title: 'Why Early Identification Matters in Autism Care', desc: 'How early is "early enough"? Ashley Tamayo shares insights on developmental milestones, neuroplasticity, and why waitlists are becoming such a challenge for families.' },
+  { slug: 'navigating-school-support-and-ieps-in-autism-care', title: 'Navigating School Support and IEPs in Autism Care', desc: 'What is an IEP and do you need a diagnosis to get one? Ashley Tamayo shares both professional and personal perspective on how schools, parents, and practitioners work together.' },
+  { slug: 'autism-assessments-what-actually-matters-and-what-doesnt', title: 'Autism Assessments: What Actually Matters (and What Doesn\'t)', desc: 'Ashley Tamayo breaks down the most common autism assessments, the difference between a screening and a formal diagnosis, and why patience during the diagnostic process matters.' },
+  { slug: 'what-progress-really-looks-like-in-autism-care-its-not-what-you-expect', title: 'What Progress Really Looks Like in Autism Care (It\'s Not What You Expect)', desc: 'Progress in autism care is not always obvious or linear. Ashley Tamayo shares a grounded perspective on how progress unfolds — from communication milestones to behavioral shifts.' },
+  { slug: 'guiding-families-between-visits-where-progress-happens-fix-therapy-gap', title: 'Guiding Families Between Visits: Where Progress Happens', desc: 'What happens between therapy sessions matters more than most people realize. This episode explores how practitioners can support families outside the clinic.' },
+  { slug: 'first-steps-after-an-autism-diagnosis-dont-skip-the-fundamentals', title: 'First Steps After an Autism Diagnosis (Don\'t Skip the Fundamentals)', desc: 'After a diagnosis, most families feel the urge to do everything immediately. But that instinct leads to overwhelm. This episode is about where to actually start.' },
+  { slug: 'what-to-do-when-parents-are-in-denial-about-autism', title: 'What to Do When Parents Are in Denial About Autism', desc: 'Denial is often one of the first responses when a parent faces the possibility of an autism diagnosis. How a practitioner responds in that moment can shape everything.' },
+  { slug: 'how-to-tell-a-parent-their-child-may-be-autistic-the-hardest-conversation', title: 'How to Tell a Parent Their Child May Be Autistic (The Hardest Conversation)', desc: 'One of the most important and difficult moments in autism care. Ashley Tamayo shares what it means to navigate that conversation with clarity, compassion, and responsibility.' },
+  { slug: 'choosing-the-right-autism-practitioner-without-the-overwhelm', title: 'Choosing the Right Autism Practitioner Without the Overwhelm', desc: 'When a parent first suspects autism, one of the first questions is: where do I go, and who do I trust? Ashley Tamayo shares how to find the right practitioner.' },
+  { slug: 'early-children-signs-for-autism', title: 'Early Signs of Autism: What Parents, Practitioners, and Educators Should Look For', desc: 'What are the early signs of autism, and how can parents recognise them without jumping to fear? Ashley Tamayo and Justin Barton explore early indicators thoughtfully.' },
+  { slug: 'why-disney-movies-trigger-meltdowns-and-how-to-de-stress-the-autistic-brain', title: 'Why Disney Movies Trigger Meltdowns (And How to De-Stress the Autistic Brain)', desc: 'Have you ever watched your child cover their ears during a movie? We unpack sensory processing and what\'s happening inside an overstimulated brain — and how to help.' },
 ];
 ---
 
@@ -88,21 +89,23 @@ const episodes = [
           </div>
 
           <div>
-            {episodes.map(({ title, desc }, i) => (
-              <div
-                class="fade-up"
-                style={`padding:1.5rem 0; border-bottom:1px solid #ddd9d2; ${i === 0 ? 'border-top:1px solid #ddd9d2;' : ''} transition-delay:${Math.min(i, 5) * 40}ms;`}
+            {episodes.map(({ slug, title, desc }, i) => (
+              <a
+                href={`/podcasts/${slug}`}
+                class="fade-up group"
+                style={`display:block; padding:1.5rem 0; border-bottom:1px solid #ddd9d2; ${i === 0 ? 'border-top:1px solid #ddd9d2;' : ''} transition-delay:${Math.min(i, 5) * 40}ms; text-decoration:none;`}
               >
                 <div class="flex items-start gap-4">
-                  <div style="width:36px; height:36px; border-radius:50%; background:#ebf3f8; flex-shrink:0; display:flex; align-items:center; justify-content:center; margin-top:2px;">
-                    <span style="font-family:'DM Sans',sans-serif; font-size:0.75rem; font-weight:700; color:#123D5A;">{i + 1}</span>
+                  <div style="width:36px; height:36px; border-radius:50%; background:#E4EFF6; flex-shrink:0; display:flex; align-items:center; justify-content:center; margin-top:2px;">
+                    <span style="font-family:'DM Sans',sans-serif; font-size:0.75rem; font-weight:700; color:#1A4A6B;">{i + 1}</span>
                   </div>
                   <div class="flex-1">
-                    <p style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:1rem; color:#082438; line-height:1.4; margin-bottom:0.375rem;">{title}</p>
+                    <p class="group-hover:underline" style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:1rem; color:#082438; line-height:1.4; margin-bottom:0.375rem;">{title}</p>
                     <p style="font-family:'DM Sans',sans-serif; font-size:0.875rem; color:#5F6975; line-height:1.65;">{desc}</p>
                   </div>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E6E8E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:4px;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
 

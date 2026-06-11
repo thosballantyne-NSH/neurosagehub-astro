@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+
+const articles = [
+  {
+    slug: 'vestibular-activities-that-calm-and-center',
+    title: 'Vestibular Activities That Calm and Center',
+    desc: 'Five vestibular activities that help regulate the nervous system — simple, effective, and accessible at home or in the clinic.',
+    readTime: '5 min',
+  },
+];
+---
+
+<BaseLayout
+  title="Sensory Processing in Autism | Neurosage Hub"
+  description="Guides on sensory processing differences in autism — understanding how autistic children experience the sensory world, and practical strategies for home and clinic."
+>
+  <Header />
+
+  <main>
+
+    <section class="py-20" style="background:#082438;">
+      <div class="container">
+        <div class="max-w-2xl mx-auto">
+          <nav class="mb-6">
+            <a href="/resources" style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; color:rgba(255,255,255,0.5); text-decoration:none;">← Resources</a>
+          </nav>
+          <p class="nsh-eyebrow mb-4 fade-up" style="color:#D8896A;">Hub 3 of 7</p>
+          <h1 class="fade-up mb-5" style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(2rem,5vw,3rem); color:white; line-height:1.1;">
+            Sensory Processing
+          </h1>
+          <p class="fade-up" style="font-family:'DM Sans',sans-serif; font-size:1.125rem; color:rgba(255,255,255,0.65); line-height:1.7; max-width:34rem;">
+            Understanding how autistic children experience the sensory world — and how to create environments and routines where they can thrive.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16" style="background:white;">
+      <div class="container">
+        <div class="max-w-3xl mx-auto">
+          <p class="nsh-eyebrow mb-8 fade-up" style="color:#7B9E8B;">{articles.length} Guide{articles.length !== 1 ? 's' : ''}</p>
+          <div>
+            {articles.map((article, i) => (
+              <a
+                href={`/resources/sensory-processing/${article.slug}`}
+                class="fade-up group"
+                style={`display:block; padding:1.5rem 0; border-bottom:1px solid #ddd9d2; ${i === 0 ? 'border-top:1px solid #ddd9d2;' : ''} text-decoration:none;`}
+              >
+                <div class="flex items-start gap-4">
+                  <div style="width:36px; height:36px; border-radius:50%; background:#E4EFF6; flex-shrink:0; display:flex; align-items:center; justify-content:center; margin-top:2px;">
+                    <span style="font-family:'DM Sans',sans-serif; font-size:0.75rem; font-weight:700; color:#1A4A6B;">{i + 1}</span>
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center gap-2 mb-1">
+                      <p class="group-hover:underline" style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:1rem; color:#082438; line-height:1.4;">{article.title}</p>
+                      <span style="font-family:'DM Sans',sans-serif; font-size:0.75rem; color:#7B9E8B; white-space:nowrap;">{article.readTime}</span>
+                    </div>
+                    <p style="font-family:'DM Sans',sans-serif; font-size:0.875rem; color:#5F6975; line-height:1.65;">{article.desc}</p>
+                  </div>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E6E8E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:4px;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </div>
+              </a>
+            ))}
+          </div>
+          <div class="mt-12 rounded-2xl p-7 text-center fade-up" style="background:#F7F2EB; border:1px solid #ddd9d2;">
+            <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975;">More sensory processing guides coming soon.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16" style="background:#082438;">
+      <div class="container">
+        <div class="max-w-xl mx-auto text-center">
+          <p class="nsh-eyebrow mb-3" style="color:#D8896A;">Neurosage Hub</p>
+          <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.5rem,3.5vw,2.125rem); color:white; margin-bottom:0.875rem; line-height:1.25;">
+            Build sensory regulation at home
+          </h2>
+          <p style="font-family:'DM Sans',sans-serif; font-size:1rem; color:rgba(255,255,255,0.65); max-width:28rem; margin:0 auto 2rem; line-height:1.7;">
+            Therapeutic games and guided activities that deliver organized sensory input — building regulation from the inside out.
+          </p>
+          <a href="/family-sign-up" style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; font-weight:700; background:#D8896A; color:white; padding:0.875rem 2rem; border-radius:9999px; text-decoration:none; display:inline-block;">
+            Get Started Free
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</BaseLayout>

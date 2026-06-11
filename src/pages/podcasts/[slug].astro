@@ -1,0 +1,354 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+export async function getStaticPaths() {
+  const episodes = [
+    {
+      slug: 'the-surprising-connection-between-autism-and-video-games',
+      title: 'The Surprising Connection Between Autism and Video Games',
+      captivateId: 'a49f84bd-2210-40c9-8902-92e8c979f9c1',
+      desc: 'What if video games could do more than entertain? In this episode, Dr. Kyle shares the story of how a speech therapist sparked a question that would shape more than 13 years of research and development: "Could we use video games as a form of therapy?"',
+      bullets: [
+        'How a speech therapist\'s question changed Dr. Kyle\'s research direction',
+        'Why autistic children are naturally drawn to video games',
+        'The science behind using games as therapeutic tools',
+        '13 years of research distilled into a practical framework',
+        'How the Neurosage Hub game library was built',
+      ],
+    },
+    {
+      slug: 'their-whole-life-becomes-therapy-dr-kyle-daigle-on-autism-burnout-family-overwhelm',
+      title: '"Their Whole Life Becomes Therapy" | Dr. Kyle Daigle on Autism Burnout & Family Overwhelm',
+      captivateId: 'b558b7cd-c52f-4107-88a9-f39de1015139',
+      desc: 'At what point does a child finally get to just be a kid again? In this episode, Thomas Ballantyne sits down with Dr. Kyle Daigle to discuss autism therapy fatigue, overwhelmed families, nervous system development, and the growing need for better collaboration between practitioners. Dr. Kyle shares deeply personal stories that shaped his mission — including watching his own mother fight to find answers for his brother.',
+      bullets: [
+        'Why autistic children often experience therapy burnout',
+        'The emotional toll autism can place on families',
+        'Why practitioner collaboration matters more than any single specialty',
+        'The "developmental pyramid" explained simply',
+        'Why education is the foundation of effective autism care',
+        'How multi-specialty care changes outcomes',
+        'The growing demand for autism-informed practitioners',
+        'The vision behind Neurosage Hub',
+      ],
+      sections: [
+        { time: '00:00', label: '"Their whole life becomes therapy"' },
+        { time: '00:45', label: 'Why Dr. Kyle shares his tools and research' },
+        { time: '01:52', label: 'Education-first autism care' },
+        { time: '02:29', label: 'The developmental pyramid' },
+        { time: '03:35', label: 'Therapy fatigue and overwhelmed families' },
+        { time: '04:25', label: 'Why practitioners must learn to "pass the baton"' },
+        { time: '06:48', label: 'Building the Neurosage Hub ecosystem' },
+        { time: '07:15', label: 'The future of practitioner collaboration' },
+        { time: '11:01', label: 'The Statue of David analogy' },
+        { time: '11:48', label: 'Thinking bigger in autism care' },
+      ],
+    },
+    {
+      slug: 'what-parents-notice-before-an-autism-diagnosis-dr-kyle-daigle-on-early-signs-sensory-issues-parent-intuition',
+      title: 'What Parents Notice Before an Autism Diagnosis | Dr. Kyle Daigle on Early Signs, Sensory Issues & Parent Intuition',
+      captivateId: 'c53e5036-5eb5-4c92-adea-40224019f681',
+      desc: '"Trust your intuition." That may be one of the most important messages a parent can hear during the autism journey. In this episode, Dr. Kyle Daigle joins an honest conversation about what parents often notice before a diagnosis ever happens.',
+      bullets: [
+        'Early developmental signs parents often notice first',
+        'The role of sensory issues before a formal diagnosis',
+        'Why parent intuition is the first and best diagnostic tool',
+        'What "gut feelings" actually mean neurologically',
+        'How to trust yourself while navigating the diagnostic process',
+      ],
+    },
+    {
+      slug: 'why-early-identification-matters-in-autism-care',
+      title: 'Why Early Identification Matters in Autism Care',
+      captivateId: 'aaf09496-72c5-4368-a60e-34028fcd5c60',
+      desc: 'Why does early identification matter in autism care? How early is "early"? Can support still help if a diagnosis happens later in childhood? And why are waitlists and access to care becoming such a challenge for families? In this episode, Ashley Tamayo shares insights on developmental milestones, neuroplasticity, treatment outcomes, and why individualised support matters at every age.',
+      bullets: [
+        'What "early identification" actually means in practice',
+        'Why developmental milestones matter — and when to take notice',
+        'How early support can improve treatment outcomes',
+        'The role neuroplasticity plays in learning and development',
+        'Why it is not necessarily "too late" for older children',
+        'The growing challenge of waitlists in autism care',
+        'How caregivers can support development at home',
+        'Why Neurosage Hub focuses on bridging the gap between visits',
+      ],
+      keyTakeaway: 'Early identification can help improve outcomes, but hope does not disappear with age. Support, education, and intentional care can still make a meaningful difference throughout the autism journey.',
+    },
+    {
+      slug: 'navigating-school-support-and-ieps-in-autism-care',
+      title: 'Navigating School Support and IEPs in Autism Care',
+      captivateId: '2e5c5b22-70f5-4cdd-b8b9-63a32235f238',
+      desc: 'School support can feel overwhelming for families navigating autism. What is an IEP? Do you need a diagnosis to get one? How do schools, parents, and practitioners actually work together to support a child? In this episode, Ashley Tamayo shares both her professional and personal perspective as a practitioner and a parent.',
+      bullets: [
+        'What an IEP actually is and how to get one',
+        'Whether a formal diagnosis is required for school support',
+        'How schools, parents, and practitioners work together',
+        'Common mistakes families make navigating school systems',
+        'How to advocate effectively for your child at school',
+      ],
+    },
+    {
+      slug: 'autism-assessments-what-actually-matters-and-what-doesnt',
+      title: 'Autism Assessments: What Actually Matters (and What Doesn\'t)',
+      captivateId: 'c7a00c7d-1f10-4c5d-819d-404f3fbc1e5b',
+      desc: 'When a parent first begins exploring autism, the amount of information online can feel overwhelming. What assessments actually matter? What is the difference between a screening and a formal diagnosis? And how do practitioners determine the most intentional path forward for a child? In this episode, Ashley Tamayo breaks it all down.',
+      bullets: [
+        'The difference between a screening and a formal diagnosis',
+        'Which assessments actually matter — and which don\'t',
+        'Why patience during the diagnostic process matters',
+        'How practitioners determine the path forward',
+        'What to expect at each stage of the assessment process',
+      ],
+    },
+    {
+      slug: 'what-progress-really-looks-like-in-autism-care-its-not-what-you-expect',
+      title: 'What Progress Really Looks Like in Autism Care (It\'s Not What You Expect)',
+      captivateId: '74c24def-00b5-4c46-b04e-8d288a54e0ac',
+      desc: 'What does progress actually look like in autism care? It\'s not always obvious. It\'s not always linear. And it rarely looks the same from one family to another. In this episode, Ashley Tamayo shares a grounded perspective on how progress unfolds over time — from communication milestones to behavioural shifts.',
+      bullets: [
+        'Why progress in autism care is rarely linear',
+        'What "small wins" actually mean for development',
+        'Communication milestones vs. behavioural shifts',
+        'How to measure progress without comparing to others',
+        'The mindset shift that helps families keep going',
+      ],
+    },
+    {
+      slug: 'guiding-families-between-visits-where-progress-happens-fix-therapy-gap',
+      title: 'Guiding Families Between Visits: Where Progress Happens (Fix Therapy Gap)',
+      captivateId: 'a2f42367-7969-4fcc-8bb9-3e862405b906',
+      desc: 'What happens between therapy sessions matters more than most people realise. This episode explores how practitioners can support families outside of the clinic — where real-life application and progress take place.',
+      bullets: [
+        'Why progress doesn\'t stop when the session ends',
+        'How practitioners can support families outside the clinic',
+        'The "therapy gap" problem and how to bridge it',
+        'What families need to stay consistent between visits',
+        'How Neurosage Hub addresses the gap between appointments',
+      ],
+    },
+    {
+      slug: 'first-steps-after-an-autism-diagnosis-dont-skip-the-fundamentals',
+      title: 'First Steps After an Autism Diagnosis (Don\'t Skip the Fundamentals)',
+      captivateId: 'd355a5b4-bd6e-42a6-abce-a86ccbb695e4',
+      desc: 'After an autism diagnosis, most families feel the urge to do everything immediately. But that instinct can lead to overwhelm. What actually matters is where you start. This episode is about the fundamentals that too many families skip.',
+      bullets: [
+        'Why the first step after diagnosis is education',
+        'The danger of trying to "jump ahead" too quickly',
+        'How to avoid overwhelm in the early stages',
+        'Which fundamentals to focus on first',
+        'Building a sustainable support plan from day one',
+      ],
+    },
+    {
+      slug: 'what-to-do-when-parents-are-in-denial-about-autism',
+      title: 'What to Do When Parents Are in Denial About Autism',
+      captivateId: 'f34091d0-568b-4c3f-ad72-9b69182b3fab',
+      desc: 'Denial is often one of the first responses when a parent is faced with the possibility of an autism diagnosis. It\'s not resistance. It\'s not refusal. It\'s emotion. And how a practitioner responds in that moment can shape everything that comes next.',
+      bullets: [
+        'Why denial is a natural and complex emotional response',
+        'The difference between denial and genuine disagreement',
+        'How practitioners can respond with compassion and clarity',
+        'When to give space and when to gently push forward',
+        'How to keep the family engaged through uncertainty',
+      ],
+    },
+    {
+      slug: 'how-to-tell-a-parent-their-child-may-be-autistic-the-hardest-conversation',
+      title: 'How to Tell a Parent Their Child May Be Autistic (The Hardest Conversation)',
+      captivateId: '39493284-f5da-4373-abc5-e6808f26f414',
+      desc: 'One of the most important and difficult moments in autism care is the conversation where a parent first hears that their child may be autistic. In this episode, Ashley Tamayo shares what it means to navigate that moment with clarity, compassion, and responsibility.',
+      bullets: [
+        'Why this conversation is one of the hardest in healthcare',
+        'How to deliver difficult news with compassion',
+        'What words to use — and what to avoid',
+        'How parents typically respond and how to hold space for that',
+        'What comes immediately after the conversation',
+      ],
+    },
+    {
+      slug: 'choosing-the-right-autism-practitioner-without-the-overwhelm',
+      title: 'Choosing the Right Autism Practitioner Without the Overwhelm',
+      captivateId: '4c7ee200-1ff2-4807-acc7-439076298ea0',
+      desc: 'When a parent begins to suspect autism, one of the first questions is: Where do I go, and who do I trust? In this episode, Ashley Tamayo shares how families can approach finding the right practitioner without becoming overwhelmed.',
+      bullets: [
+        'Where to start when you don\'t know where to start',
+        'Word-of-mouth vs. referrals vs. online searches',
+        'Red flags when choosing a practitioner',
+        'Questions to ask before committing to a provider',
+        'How to build a team rather than a single-practitioner approach',
+      ],
+    },
+    {
+      slug: 'early-children-signs-for-autism',
+      title: 'Early Signs of Autism: What Parents, Practitioners, and Educators Should Look For',
+      captivateId: 'bdd20d3f-2a06-44a4-b8be-5d215b469840',
+      desc: 'What are the early signs of autism, and how can parents recognise them without jumping to fear or conclusions? In this episode, host Justin Barton sits down with Ashley Tamayo to explore what early indicators of autism actually look like — and what to do when you notice them.',
+      bullets: [
+        'The earliest signs parents often notice',
+        'How educators can spot early indicators in the classroom',
+        'The difference between "developmental variation" and a genuine concern',
+        'How to raise concerns with a practitioner',
+        'Why early awareness — not early alarm — is the goal',
+      ],
+    },
+    {
+      slug: 'why-disney-movies-trigger-meltdowns-and-how-to-de-stress-the-autistic-brain',
+      title: 'Why Disney Movies Trigger Meltdowns (And How to De-Stress the Autistic Brain)',
+      captivateId: '27e989ea-cdef-4d69-b850-da3a35e983d6',
+      desc: 'Have you ever watched your child cover their ears and run out of the room during a movie, even when the scene wasn\'t scary? In this episode, we unpack the intense world of sensory processing and what is actually happening inside an overstimulated brain. We explore the phenomenon of "hyper-acoustics" and how the subtle buildup of music or a crowded mall can trigger an uncontrollable fight-or-flight startle reflex in autistic children.',
+      bullets: [
+        'The "Disney Movie" Startle Reflex: why music triggers fight-or-flight, even during non-scary scenes',
+        'Understanding Hyper-Acoustics: how the brain processes sound and why crowded spaces lead to severe dysregulation',
+        'Nature as the Ultimate Regulator: why the outdoors can act as a natural reset for the nervous system',
+        'The Power of Rhythm: how low-frequency sounds and rhythmic movement can sync an anxious brain',
+        'Screen Time Fears vs. Video Game Therapy: addressing parental concerns and how VR can safely improve motor skills',
+        'The Facial Tone Secret: why studying your child\'s face reveals what\'s happening inside their brain',
+        'Trusting Your Gut: a reminder that a parent\'s intuition is always the first and best diagnostic tool',
+      ],
+    },
+  ];
+
+  return episodes.map((ep) => ({
+    params: { slug: ep.slug },
+    props: { episode: ep, allEpisodes: episodes },
+  }));
+}
+
+const { episode, allEpisodes } = Astro.props;
+const epIndex = allEpisodes.findIndex((e) => e.slug === episode.slug);
+const prevEp = epIndex > 0 ? allEpisodes[epIndex - 1] : null;
+const nextEp = epIndex < allEpisodes.length - 1 ? allEpisodes[epIndex + 1] : null;
+---
+
+<BaseLayout
+  title={`${episode.title} | Practitioner Perspectives | Neurosage Hub`}
+  description={episode.desc}
+>
+  <Header />
+
+  <main>
+
+    <!-- Hero -->
+    <section class="py-16" style="background:#082438;">
+      <div class="container">
+        <div class="max-w-2xl mx-auto text-center">
+          <a href="/podcasts/" class="inline-flex items-center gap-1.5 mb-5 fade-up" style="font-family:'DM Sans',sans-serif; font-size:0.875rem; font-weight:600; color:rgba(255,255,255,0.45); text-decoration:none;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            All Episodes
+          </a>
+          <p class="nsh-eyebrow mb-4 fade-up" style="color:#D8896A;">Practitioner Perspectives in Autism Care</p>
+          <h1 class="fade-up" style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.5rem,3.5vw,2.25rem); color:white; line-height:1.2;">
+            {episode.title}
+          </h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- Player + Show Notes -->
+    <section class="py-16" style="background:white;">
+      <div class="container">
+        <div class="max-w-3xl mx-auto">
+
+          <!-- Captivate Player -->
+          <div class="mb-10 rounded-2xl overflow-hidden fade-up" style="box-shadow:0 4px 24px rgba(8,36,56,0.10);">
+            <iframe
+              src={`https://player.captivate.fm/episode/${episode.captivateId}`}
+              style="width:100%; height:200px; border:none; display:block;"
+              title={episode.title}
+              loading="lazy"
+              allow="autoplay"
+            ></iframe>
+          </div>
+
+          <!-- Description -->
+          <div class="fade-up mb-10">
+            <p style="font-family:'DM Sans',sans-serif; font-size:1.0625rem; color:#3d5a6e; line-height:1.8;">{episode.desc}</p>
+          </div>
+
+          <!-- What's Inside -->
+          {episode.bullets && episode.bullets.length > 0 && (
+            <div class="rounded-2xl p-7 mb-8 fade-up" style="background:#F7F2EB; border:1px solid #ddd9d2;">
+              <p class="nsh-eyebrow mb-4" style="color:#7B9E8B;">In This Episode</p>
+              <ul class="space-y-3">
+                {episode.bullets.map((b) => (
+                  <li class="flex items-start gap-3">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7B9E8B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; line-height:1.65;">{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <!-- Episode Sections (timestamps) -->
+          {episode.sections && episode.sections.length > 0 && (
+            <div class="mb-10 fade-up">
+              <p class="nsh-eyebrow mb-4" style="color:#7B9E8B;">Episode Sections</p>
+              <div class="space-y-2">
+                {episode.sections.map(({ time, label }) => (
+                  <div class="flex items-center gap-3">
+                    <span style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; font-weight:700; color:#2E6E8E; min-width:3.5rem;">[{time}]</span>
+                    <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#3d5a6e;">{label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <!-- Key Takeaway -->
+          {episode.keyTakeaway && (
+            <div class="rounded-2xl p-6 mb-10 fade-up" style="background:#E4EFF6; border-left:4px solid #2E6E8E;">
+              <p style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#2E6E8E; margin-bottom:0.5rem;">Key Takeaway</p>
+              <p style="font-family:'DM Sans',sans-serif; font-size:1rem; color:#082438; line-height:1.7;">{episode.keyTakeaway}</p>
+            </div>
+          )}
+
+          <!-- Prev / Next -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-8" style="border-top:1px solid #ddd9d2;">
+            {prevEp ? (
+              <a href={`/podcasts/${prevEp.slug}`} class="rounded-xl p-5 hover:shadow-md transition-shadow fade-up" style="background:#F7F2EB; border:1px solid #ddd9d2; text-decoration:none;">
+                <p style="font-family:'DM Sans',sans-serif; font-size:0.75rem; font-weight:600; color:#7B9E8B; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.375rem;">← Previous</p>
+                <p style="font-family:'DM Sans',sans-serif; font-size:0.875rem; font-weight:600; color:#082438; line-height:1.4;">{prevEp.title}</p>
+              </a>
+            ) : <div />}
+            {nextEp && (
+              <a href={`/podcasts/${nextEp.slug}`} class="rounded-xl p-5 hover:shadow-md transition-shadow fade-up text-right" style="background:#F7F2EB; border:1px solid #ddd9d2; text-decoration:none;">
+                <p style="font-family:'DM Sans',sans-serif; font-size:0.75rem; font-weight:600; color:#7B9E8B; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.375rem;">Next →</p>
+                <p style="font-family:'DM Sans',sans-serif; font-size:0.875rem; font-weight:600; color:#082438; line-height:1.4;">{nextEp.title}</p>
+              </a>
+            )}
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16" style="background:#082438;">
+      <div class="container">
+        <div class="max-w-xl mx-auto text-center fade-up">
+          <p class="nsh-eyebrow mb-3" style="color:#7B9E8B;">Neurosage Hub</p>
+          <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.5rem,3vw,2rem); color:white; line-height:1.2; margin-bottom:1rem;">
+            Building Hope. Walking Together.
+          </h2>
+          <p style="font-family:'DM Sans',sans-serif; font-size:1rem; color:rgba(255,255,255,0.65); margin-bottom:2rem; line-height:1.7;">
+            Everything Dr. Kyle and our practitioners discuss in the podcast — put into structured tools your family can use at home.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/family-sign-up" class="nsh-btn-cta" style="font-size:1rem; padding:0.875rem 2rem;">
+              Start Free →
+            </a>
+            <a href="/podcasts/" class="inline-flex items-center justify-center px-7 py-3.5 rounded-xl font-semibold" style="font-family:'DM Sans',sans-serif; font-size:1rem; color:rgba(255,255,255,0.65); border:1.5px solid rgba(255,255,255,0.2); text-decoration:none;">
+              All Episodes
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,39 @@
+# Neurosage Hub — URL Redirects
+# Format: /old-path  /new-path  301
+# This file handles server-side 301 redirects (Netlify).
+# For other hosts: Vercel uses vercel.json, Cloudflare Pages uses _redirects too.
+
+# Podcast redirects (branded URL is primary)
+/podcasts   /practitioner-perspectives   301
+/podcast    /practitioner-perspectives   301
+
+# Blog → Resource Center
+/the-blog           /resources   301
+/the-blog/          /resources   301
+/blog               /resources   301
+
+# Original blog post URLs → new resource hub articles
+/5-fine-motor-activities-you-can-do-today           /resources/regulation/5-fine-motor-activities-you-can-do-today   301
+/5-fine-motor-activities-you-can-do-today/          /resources/regulation/5-fine-motor-activities-you-can-do-today   301
+/vestibular-activities-that-calm-and-center         /resources/sensory-processing/vestibular-activities-that-calm-and-center   301
+/vestibular-activities-that-calm-and-center/        /resources/sensory-processing/vestibular-activities-that-calm-and-center   301
+/unlocking-potential-how-games-drive-neurodevelopment      /resources/regulation/unlocking-potential-how-games-drive-neurodevelopment   301
+/unlocking-potential-how-games-drive-neurodevelopment/     /resources/regulation/unlocking-potential-how-games-drive-neurodevelopment   301
+
+# Launch-era promo posts (not indexed) → relevant pages
+/a-new-era-of-neurodevelopmental-support-is-coming-to-the-classroom-and-you-are-invited-to-lead-the-way    /for-practitioners   301
+/a-new-era-of-neurodevelopmental-support-is-coming-to-the-classroom-and-you-are-invited-to-lead-the-way/   /for-practitioners   301
+/a-new-kind-of-support-is-coming-for-families-navigating-autism-and-you-can-be-among-the-first-to-access-it    /resources   301
+/a-new-kind-of-support-is-coming-for-families-navigating-autism-and-you-can-be-among-the-first-to-access-it/   /resources   301
+/the-future-of-autism-care-is-coming-and-you-are-invited-to-shape-it    /for-practitioners   301
+/the-future-of-autism-care-is-coming-and-you-are-invited-to-shape-it/   /for-practitioners   301
+
+# Autism-meltdowns section → new Resource Center URLs
+/autism-meltdowns                           /resources/meltdowns                                   301
+/autism-meltdowns/                          /resources/meltdowns                                   301
+/autism-meltdowns/triggers                  /resources/meltdowns/common-meltdown-triggers          301
+/autism-meltdowns/triggers/                 /resources/meltdowns/common-meltdown-triggers          301
+/autism-meltdowns/how-to-help               /resources/meltdowns/how-to-help                       301
+/autism-meltdowns/how-to-help/              /resources/meltdowns/how-to-help                       301
+/autism-meltdowns/meltdown-vs-tantrum       /resources/meltdowns/meltdown-vs-tantrum               301
+/autism-meltdowns/meltdown-vs-tantrum/      /resources/meltdowns/meltdown-vs-tantrum               301
