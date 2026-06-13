@@ -24,7 +24,7 @@ const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663645323174/cAF6S
             <div style="width:32px; height:32px; border-radius:50%; background:#123D5A; border:1.5px solid rgba(123,158,139,0.4); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7B9E8B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
             </div>
-            <span style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; font-weight:600; color:rgba(255,255,255,0.5); letter-spacing:0.06em; text-transform:uppercase;">Eva · Neurosage Guide</span>
+            <span style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; font-weight:600; color:rgba(255,255,255,0.5); letter-spacing:0.06em; text-transform:uppercase;">Sage™ · Neurosage Guide</span>
           </div>
 
           <!-- Dialog box -->
@@ -38,7 +38,7 @@ const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663645323174/cAF6S
                 </div>
                 <div style="background:#F7F2EB; border-radius:0 1rem 1rem 1rem; padding:1rem 1.125rem; flex:1;">
                   <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; line-height:1.7; margin:0;">
-                    Hi — I'm Eva. I help families figure out where to start. <strong>Where are you right now?</strong>
+                    Hi — I'm Sage™. I help families figure out where to start. <strong>Where are you right now?</strong>
                   </p>
                 </div>
               </div>
@@ -72,12 +72,46 @@ const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663645323174/cAF6S
                 <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; font-weight:500;">I'm a practitioner looking to support my families</span>
               </a>
 
+              <!-- Other: open text input -->
+              <div style="margin-top:0.25rem; border-top:1px solid #f0ede8; padding-top:0.875rem;">
+                <p style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; font-weight:600; color:#9a9187; margin:0 0 0.5rem 0.25rem;">Something else?</p>
+                <div id="eva-other-form" style="display:flex; gap:0.5rem;">
+                  <input
+                    id="eva-other-input"
+                    type="text"
+                    placeholder="Tell me where you want to go…"
+                    style="flex:1; font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; background:#F7F2EB; border:1.5px solid #ddd9d2; border-radius:0.875rem; padding:0.75rem 1rem; outline:none; transition:border-color 0.15s;"
+                    onfocus="this.style.borderColor='#2E6E8E'"
+                    onblur="this.style.borderColor='#ddd9d2'"
+                  />
+                  <button
+                    id="eva-other-send"
+                    onclick="evaHandleOther()"
+                    style="width:44px; height:44px; border-radius:0.875rem; background:#2E6E8E; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:background 0.15s;"
+                    onmouseover="this.style.background='#1A4A6B'"
+                    onmouseout="this.style.background='#2E6E8E'"
+                    aria-label="Send"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                  </button>
+                </div>
+                <!-- Eva reply bubble (hidden until user sends) -->
+                <div id="eva-other-reply" style="display:none; margin-top:0.875rem; padding:0.875rem 1rem; background:#F7F2EB; border-radius:0.75rem;">
+                  <div style="display:flex; align-items:flex-start; gap:0.625rem;">
+                    <div style="width:28px; height:28px; border-radius:50%; background:#E4EFF6; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px;">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2E6E8E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                    </div>
+                    <p id="eva-other-reply-text" style="font-family:'DM Sans',sans-serif; font-size:0.875rem; color:#082438; line-height:1.65; margin:0;"></p>
+                  </div>
+                </div>
+              </div>
+
             </div>
 
           </div>
 
           <p class="fade-up text-center mt-5" style="font-family:'DM Sans',sans-serif; font-size:0.75rem; color:rgba(255,255,255,0.25);">
-            Eva provides educational guidance, not medical advice.
+            Sage™ provides educational guidance, not medical advice.
           </p>
 
         </div>
@@ -288,4 +322,53 @@ const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663645323174/cAF6S
   </main>
 
   <Footer />
+
+  <script is:inline>
+    function evaHandleOther() {
+      var input = document.getElementById('eva-other-input');
+      var reply = document.getElementById('eva-other-reply');
+      var replyText = document.getElementById('eva-other-reply-text');
+      var val = (input.value || '').trim();
+      if (!val) return;
+
+      // Disable input while "replying"
+      input.disabled = true;
+      input.style.opacity = '0.5';
+
+      // Simple keyword routing
+      var lower = val.toLowerCase();
+      var msg = '';
+
+      if (lower.match(/sleep|bedtime|night|wak/)) {
+        msg = 'Sleep is a big one for many families. Head to our <a href="/resources/sleep" style="color:#2E6E8E; font-weight:600;">Sleep hub</a> — we\'re building guides there now.';
+      } else if (lower.match(/communicat|speech|talk|language|word/)) {
+        msg = 'Communication support is something we cover. Start in our <a href="/resources/communication" style="color:#2E6E8E; font-weight:600;">Communication hub</a> for guidance and tools.';
+      } else if (lower.match(/behav|stimm|self.harm|aggress|bite|hit/)) {
+        msg = 'That sounds really hard. Our <a href="/resources/behavior" style="color:#2E6E8E; font-weight:600;">Behaviour hub</a> has strategies that can help — and a practitioner partnership might be worth exploring too.';
+      } else if (lower.match(/diet|food|eat|gut|nutrition|feed/)) {
+        msg = 'Nutrition and sensory feeding challenges are closely connected. Check out our <a href="/resources/nutrition" style="color:#2E6E8E; font-weight:600;">Nutrition hub</a> for where to start.';
+      } else if (lower.match(/routine|schedule|transit|morning|change/)) {
+        msg = 'Routines can make or break a day. Our <a href="/resources/routines" style="color:#2E6E8E; font-weight:600;">Routines hub</a> walks through building structure that actually holds.';
+      } else if (lower.match(/sensory|overwhelm|noise|light|touch|smell/)) {
+        msg = 'Sensory processing is often at the root of a lot of challenges. Start in our <a href="/resources/sensory-processing" style="color:#2E6E8E; font-weight:600;">Sensory Processing hub</a>.';
+      } else if (lower.match(/game|play|activ|fun|home/)) {
+        msg = 'We\'ve got therapeutic games built for autistic kids — 13 years of research in every one. <a href="/games" style="color:#2E6E8E; font-weight:600;">Explore the games →</a>';
+      } else if (lower.match(/school|teacher|classroom|iep|aide/)) {
+        msg = 'School support is a big part of the picture. Our <a href="/resources" style="color:#2E6E8E; font-weight:600;">Resource Centre</a> has guides across regulation and communication that translate well to school settings.';
+      } else if (lower.match(/practi|therapist|clinician|provider|doctor/)) {
+        msg = 'It sounds like you may be a clinician or work with one. <a href="/for-practitioners" style="color:#2E6E8E; font-weight:600;">Our practitioner page</a> covers how we partner with therapists, OTs, and specialists.';
+      } else {
+        msg = 'Thanks for sharing that. Our <a href="/resources" style="color:#2E6E8E; font-weight:600;">Resource Centre</a> is the best place to start — browse by topic and find what\'s most relevant to where you are right now.';
+      }
+
+      replyText.innerHTML = msg;
+      reply.style.display = 'block';
+    }
+
+    // Allow Enter key to submit
+    document.getElementById('eva-other-input').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') evaHandleOther();
+    });
+  </script>
+
 </BaseLayout>
