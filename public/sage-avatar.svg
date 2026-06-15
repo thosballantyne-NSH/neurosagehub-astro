@@ -1,0 +1,31 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bubble border (navy) -->
+  <rect x="2" y="2" width="82" height="72" rx="16" fill="#082438"/>
+  <!-- Tail border -->
+  <path d="M48 74 L58 92 L68 74Z" fill="#082438"/>
+  <!-- Bubble fill (sage green) -->
+  <rect x="5.5" y="5.5" width="75" height="65" rx="12.5" fill="#7B9E8B"/>
+  <!-- Tail fill -->
+  <path d="M50 74 L59 89 L68 74Z" fill="#7B9E8B"/>
+  <!-- Hair back (dark navy oval) -->
+  <ellipse cx="43" cy="36" rx="28" ry="26" fill="#123D5A"/>
+  <!-- Face (sage, slightly lighter) -->
+  <circle cx="43" cy="40" r="22" fill="#8aae9c"/>
+  <!-- Hair top / bob cut -->
+  <path d="M20 40 C18 15 68 15 66 40 C64 27 22 27 20 40Z" fill="#123D5A"/>
+  <!-- Hair side left -->
+  <ellipse cx="20" cy="49" rx="7" ry="13" fill="#123D5A"/>
+  <!-- Hair side right -->
+  <ellipse cx="66" cy="49" rx="7" ry="13" fill="#123D5A"/>
+  <!-- Eyes -->
+  <circle cx="35" cy="39" r="3" fill="#082438"/>
+  <circle cx="51" cy="39" r="3" fill="#082438"/>
+  <!-- Smile -->
+  <path d="M35 51 Q43 59 51 51" stroke="#E8C98F" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <!-- Bow — left wing -->
+  <path d="M66 20 C66 20 80 12 78 20 C76 26 66 25 66 20Z" fill="#E8C98F"/>
+  <!-- Bow — right wing -->
+  <path d="M66 20 C66 20 54 12 56 20 C58 26 66 25 66 20Z" fill="#d4a870"/>
+  <!-- Bow — center knot -->
+  <circle cx="66" cy="20" r="3.5" fill="#c49040"/>
+</svg>

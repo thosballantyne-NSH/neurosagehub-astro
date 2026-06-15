@@ -10,7 +10,7 @@ interface Props {
 
 const {
   title,
-  description = 'Neurosage Hub — The hub for neuroscience-backed insights, tools, and community.',
+  description = 'Neurosage Hub — Structured Next Steps for Families Navigating Autism.',
   image = '/og-image.png',
   noindex = false,
 } = Astro.props;
@@ -65,24 +65,19 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     >
       <div style="background:white; border-radius:1.5rem; max-width:440px; width:100%; padding:2.5rem 2.25rem 2rem; position:relative; box-shadow:0 32px 80px rgba(0,0,0,0.35); animation:nsh-popup-in 0.25s ease;">
 
-        <!-- Close -->
         <button
           id="nsh-exit-close"
           aria-label="Close"
           style="position:absolute; top:1rem; right:1rem; width:32px; height:32px; border-radius:50%; border:none; background:#F7F2EB; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:1.125rem; color:#5F6975; line-height:1;"
         >✕</button>
 
-        <!-- Top accent -->
         <div style="width:40px; height:4px; border-radius:2px; background:#D8896A; margin-bottom:1.5rem;"></div>
-
         <p style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#D8896A; margin-bottom:0.5rem;">Before you go…</p>
-
         <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:1.625rem; color:#082438; line-height:1.2; margin-bottom:0.875rem;">
-          Get exclusive access,<br>content &amp; free tools.
+          Get your personalised<br>next-step guide.
         </h2>
-
         <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975; line-height:1.65; margin-bottom:1.5rem;">
-          Free resources, early access to new pathways, member-only deals, and the guidance most families never find on their own. No spam — ever.
+          Free resources, early access to new pathways, and the guidance most families never find on their own. No spam — ever.
         </p>
 
         <form id="nsh-exit-form" novalidate>
@@ -104,7 +99,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             onmouseover="this.style.background='#b8694a'"
             onmouseout="this.style.background='#D8896A'"
           >
-            Get Free Access →
+            Send Me the Guide →
           </button>
         </form>
 
@@ -115,68 +110,209 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       </div>
     </div>
 
+    <!-- ===== SAGE™ FLOATING WIDGET ===== -->
+    <div id="sage-widget" style="position:fixed; bottom:1.5rem; right:1.5rem; z-index:9998; font-family:'DM Sans',sans-serif;">
+
+      <!-- Trigger button -->
+      <button
+        id="sage-trigger"
+        aria-label="Chat with Sage™"
+        title="Chat with Sage™"
+        style="width:68px; height:68px; border-radius:50%; border:none; cursor:pointer; padding:0; background:none; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 28px rgba(8,36,56,0.35); transition:transform 0.2s ease, box-shadow 0.2s ease;"
+        onmouseover="this.style.transform='scale(1.08)'; this.style.boxShadow='0 12px 36px rgba(8,36,56,0.45)'"
+        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 28px rgba(8,36,56,0.35)'"
+      >
+        <img src="/sage-avatar.svg" alt="Sage™" style="width:68px; height:68px; border-radius:50%;" />
+      </button>
+
+      <!-- Unread badge -->
+      <span id="sage-badge" style="position:absolute; top:2px; right:2px; width:18px; height:18px; background:#D8896A; border-radius:50%; border:2px solid white; display:flex; align-items:center; justify-content:center; font-size:0.6875rem; font-weight:700; color:white; line-height:1;">1</span>
+
+      <!-- Chat panel -->
+      <div
+        id="sage-panel"
+        style="display:none; position:absolute; bottom:82px; right:0; width:330px; background:white; border-radius:1.375rem; box-shadow:0 16px 56px rgba(8,36,56,0.28); overflow:hidden; animation:sage-in 0.22s ease;"
+        role="dialog"
+        aria-label="Chat with Sage™"
+      >
+
+        <!-- Panel header -->
+        <div style="background:#082438; padding:1rem 1.125rem; display:flex; align-items:center; gap:0.75rem;">
+          <img src="/sage-avatar.svg" alt="" style="width:38px; height:38px; border-radius:50%; flex-shrink:0;" />
+          <div style="flex:1;">
+            <p style="margin:0; font-weight:700; font-size:0.9375rem; color:white; line-height:1.2;">Sage™</p>
+            <p style="margin:0; font-size:0.75rem; color:rgba(255,255,255,0.45);">Neurosage Guide · Online now</p>
+          </div>
+          <button
+            id="sage-panel-close"
+            aria-label="Close"
+            style="background:none; border:none; color:rgba(255,255,255,0.45); cursor:pointer; font-size:1.25rem; line-height:1; padding:0.25rem; border-radius:4px; transition:color 0.15s;"
+            onmouseover="this.style.color='white'"
+            onmouseout="this.style.color='rgba(255,255,255,0.45)'"
+          >✕</button>
+        </div>
+
+        <!-- Messages area -->
+        <div id="sage-msgs" style="padding:1rem; min-height:100px; max-height:260px; overflow-y:auto; display:flex; flex-direction:column; gap:0.625rem;"></div>
+
+        <!-- Input area (swapped by JS) -->
+        <div id="sage-input-area" style="padding:0.75rem 1rem 1rem; border-top:1px solid #f0ede8;"></div>
+
+      </div>
+    </div>
+
     <style>
       @keyframes nsh-popup-in {
         from { opacity: 0; transform: translateY(16px) scale(0.97); }
-        to   { opacity: 1; transform: translateY(0)    scale(1);    }
+        to   { opacity: 1; transform: translateY(0) scale(1); }
       }
+      @keyframes sage-in {
+        from { opacity: 0; transform: translateY(12px) scale(0.96); }
+        to   { opacity: 1; transform: translateY(0) scale(1); }
+      }
+      #sage-msgs::-webkit-scrollbar { width: 4px; }
+      #sage-msgs::-webkit-scrollbar-track { background: transparent; }
+      #sage-msgs::-webkit-scrollbar-thumb { background: #ddd9d2; border-radius: 2px; }
     </style>
 
-    <!-- ===== EVA WIDGET (delayed) + EXIT POPUP LOGIC ===== -->
     <script is:inline>
     (function () {
 
-      /* ── Cookie helpers ── */
-      function getCookie(name) {
-        var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-        return match ? match[2] : null;
+      /* ─── Cookie helpers ─── */
+      function getCookie(n) {
+        var m = document.cookie.match(new RegExp('(^| )' + n + '=([^;]+)'));
+        return m ? m[2] : null;
       }
-      function setCookie(name, value, days) {
-        var expires = new Date(Date.now() + days * 864e5).toUTCString();
-        document.cookie = name + '=' + value + '; expires=' + expires + '; path=/; SameSite=Lax';
+      function setCookie(n, v, days) {
+        var e = new Date(Date.now() + days * 864e5).toUTCString();
+        document.cookie = n + '=' + v + '; expires=' + e + '; path=/; SameSite=Lax';
       }
 
-      /* ── EVA Chat Widget — load after 6 seconds ── */
-      var evaLoaded = false;
-      var isReturningVisitor = !!getCookie('nsh_visitor');
+      /* ─── Sage™ widget ─── */
+      var trigger    = document.getElementById('sage-trigger');
+      var panel      = document.getElementById('sage-panel');
+      var closeBtn   = document.getElementById('sage-panel-close');
+      var msgs       = document.getElementById('sage-msgs');
+      var inputArea  = document.getElementById('sage-input-area');
+      var badge      = document.getElementById('sage-badge');
+      var isOpen     = false;
+      var step       = 'greeting'; // greeting → email → done
+      var userName   = '';
+      var userTopic  = '';
+      var TOPIC_URLS = {
+        'diagnosis':  '/resources/assessments',
+        'meltdowns':  '/resources/meltdowns',
+        'unsure':     '/start-here',
+        'activities': '/games',
+        'practitioner': '/for-practitioners',
+      };
 
-      setTimeout(function () {
-        if (evaLoaded) return;
-        evaLoaded = true;
-
-        // If returning visitor, inject CSS to suppress the auto-open greeting bubble
-        // before the widget script runs
-        if (isReturningVisitor) {
-          var style = document.createElement('style');
-          style.textContent = [
-            /* LeadConnectorHQ widget greeting bubble selectors (best-effort suppression) */
-            '[data-widget-id] .chat-open-btn-wrapper { pointer-events: auto !important; }',
-            '[data-widget-id] .chat-message-wrapper  { display: none !important; }',
-            '[data-widget-id] .chat-popup-wrapper     { display: none !important; }',
-          ].join('\n');
-          document.head.appendChild(style);
+      function addMsg(html, from) {
+        // from: 'sage' | 'user'
+        var wrap = document.createElement('div');
+        wrap.style.cssText = 'display:flex; align-items:flex-end; gap:0.5rem;' + (from === 'user' ? 'flex-direction:row-reverse;' : '');
+        if (from === 'sage') {
+          var av = document.createElement('img');
+          av.src = '/sage-avatar.svg';
+          av.style.cssText = 'width:28px; height:28px; border-radius:50%; flex-shrink:0; margin-bottom:2px;';
+          wrap.appendChild(av);
         }
+        var bub = document.createElement('div');
+        bub.innerHTML = html;
+        bub.style.cssText = from === 'sage'
+          ? 'background:#F7F2EB; border-radius:4px 14px 14px 14px; padding:0.75rem 0.875rem; font-size:0.9rem; color:#082438; line-height:1.6; max-width:220px;'
+          : 'background:#082438; border-radius:14px 4px 14px 14px; padding:0.75rem 0.875rem; font-size:0.9rem; color:white; line-height:1.6; max-width:200px; margin-left:auto;';
+        wrap.appendChild(bub);
+        msgs.appendChild(wrap);
+        msgs.scrollTop = msgs.scrollHeight;
+      }
 
-        var s = document.createElement('script');
-        s.src = 'https://beta.leadconnectorhq.com/loader.js';
-        s.setAttribute('data-resources-url', 'https://beta.leadconnectorhq.com/chat-widget/loader.js');
-        s.setAttribute('data-widget-id', '6a21de9de53da97e71aef3b6');
-        document.body.appendChild(s);
+      function renderGreeting() {
+        addMsg('Hi — I\'m <strong>Sage™</strong>, your Neurosage guide. What\'s going on with your child right now?', 'sage');
+        inputArea.innerHTML = [
+          btn('🔍', 'Just got a diagnosis', 'diagnosis'),
+          btn('🌊', 'Dealing with meltdowns', 'meltdowns'),
+          btn('🧭', 'Not sure where to start', 'unsure'),
+          btn('🎮', 'Looking for activities', 'activities'),
+          btn('🩺', 'I\'m a practitioner', 'practitioner'),
+        ].map(function(b){ return b; }).join('');
 
-        // Mark as returning on first load
-        if (!isReturningVisitor) {
+        inputArea.querySelectorAll('[data-sage-topic]').forEach(function(el) {
+          el.addEventListener('click', function() {
+            userTopic = el.getAttribute('data-sage-topic');
+            addMsg(el.textContent.trim(), 'user');
+            inputArea.innerHTML = '';
+            setTimeout(renderEmailStep, 400);
+          });
+        });
+      }
+
+      function btn(emoji, label, key) {
+        return '<button data-sage-topic="' + key + '" style="display:flex; align-items:center; gap:0.5rem; width:100%; padding:0.625rem 0.875rem; margin-bottom:0.4rem; border-radius:0.75rem; border:1.5px solid #ddd9d2; background:white; font-family:\'DM Sans\',sans-serif; font-size:0.875rem; color:#082438; font-weight:500; cursor:pointer; text-align:left; transition:border-color 0.15s, background 0.15s;" onmouseover="this.style.borderColor=\'#2E6E8E\'; this.style.background=\'#f0f6fa\'" onmouseout="this.style.borderColor=\'#ddd9d2\'; this.style.background=\'white\'">'
+          + '<span style="font-size:1rem;">' + emoji + '</span> ' + label + '</button>';
+      }
+
+      function renderEmailStep() {
+        addMsg('Got it — I can help with that. Where should I send your personalised next-step guide?', 'sage');
+        inputArea.innerHTML = '<div style="display:flex; gap:0.5rem;">'
+          + '<input id="sage-email-in" type="email" placeholder="Your email address" autocomplete="email" style="flex:1; padding:0.625rem 0.875rem; border:1.5px solid #ddd9d2; border-radius:0.75rem; font-family:\'DM Sans\',sans-serif; font-size:0.875rem; color:#082438; outline:none;" onfocus="this.style.borderColor=\'#2E6E8E\'" onblur="this.style.borderColor=\'#ddd9d2\'" />'
+          + '<button id="sage-email-send" style="padding:0 0.875rem; background:#D8896A; color:white; border:none; border-radius:0.75rem; cursor:pointer; font-size:0.875rem; font-weight:700; font-family:\'DM Sans\',sans-serif; white-space:nowrap; transition:background 0.15s;" onmouseover="this.style.background=\'#b8694a\'" onmouseout="this.style.background=\'#D8896A\'">Send →</button>'
+          + '</div>'
+          + '<p style="font-size:0.7rem; color:#9a9187; margin:0.375rem 0 0 0.25rem;">No spam · Unsubscribe anytime</p>';
+
+        function submitEmail() {
+          var emailEl = document.getElementById('sage-email-in');
+          var email = emailEl ? emailEl.value.trim() : '';
+          if (!email || !email.includes('@')) {
+            emailEl.style.borderColor = '#c0392b';
+            return;
+          }
+          addMsg(email, 'user');
+          inputArea.innerHTML = '';
           setCookie('nsh_visitor', '1', 365);
+          setCookie('nsh_exit_seen', '1', 30); // suppress exit popup since they gave email
+          setTimeout(function() { renderDone(email); }, 400);
         }
-      }, 6000);
 
-      /* ── Exit Intent Popup ── */
-      var popup     = document.getElementById('nsh-exit-popup');
-      var closeBtn  = document.getElementById('nsh-exit-close');
-      var form      = document.getElementById('nsh-exit-form');
-      var emailInput = document.getElementById('nsh-exit-email');
+        document.getElementById('sage-email-send').addEventListener('click', submitEmail);
+        document.getElementById('sage-email-in').addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') submitEmail();
+        });
+      }
+
+      function renderDone(email) {
+        addMsg('Perfect — your guide is on its way! Ready to explore?', 'sage');
+        var url = TOPIC_URLS[userTopic] || '/resources';
+        inputArea.innerHTML = '<a href="' + url + '?email=' + encodeURIComponent(email) + '" style="display:flex; align-items:center; justify-content:center; gap:0.5rem; width:100%; padding:0.75rem; background:#082438; color:white; border-radius:0.875rem; text-decoration:none; font-family:\'DM Sans\',sans-serif; font-size:0.9rem; font-weight:700; box-sizing:border-box;">Show me where to start →</a>';
+        // Also fire to sign-up in background
+        window.location.href = '/family-sign-up?email=' + encodeURIComponent(email);
+      }
+
+      function openPanel() {
+        if (isOpen) return;
+        isOpen = true;
+        panel.style.display = 'block';
+        if (badge) badge.style.display = 'none';
+        if (msgs.children.length === 0) renderGreeting();
+      }
+
+      function closePanel() {
+        isOpen = false;
+        panel.style.display = 'none';
+      }
+
+      if (trigger)   trigger.addEventListener('click', function() { isOpen ? closePanel() : openPanel(); });
+      if (closeBtn)  closeBtn.addEventListener('click', closePanel);
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && isOpen) closePanel();
+      });
+
+      /* ─── Exit Intent Popup ─── */
+      var popup      = document.getElementById('nsh-exit-popup');
+      var exitClose  = document.getElementById('nsh-exit-close');
+      var exitForm   = document.getElementById('nsh-exit-form');
+      var exitEmail  = document.getElementById('nsh-exit-email');
       var popupFired = false;
-
-      // Don't show if already submitted or dismissed this session
       var alreadySeen = !!getCookie('nsh_exit_seen');
 
       function showPopup() {
@@ -184,49 +320,28 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         popupFired = true;
         popup.style.display = 'flex';
       }
-
       function hidePopup() {
         popup.style.display = 'none';
-        setCookie('nsh_exit_seen', '1', 7); // suppress for 7 days
+        setCookie('nsh_exit_seen', '1', 7);
       }
 
-      // Desktop: cursor leaves the top of the viewport
-      document.addEventListener('mouseleave', function (e) {
-        if (e.clientY < 10) showPopup();
-      });
-
-      // Mobile: rapid upward scroll near the top (back-button intent)
+      document.addEventListener('mouseleave', function(e) { if (e.clientY < 10) showPopup(); });
       var lastY = window.scrollY;
-      window.addEventListener('scroll', function () {
+      window.addEventListener('scroll', function() {
         var y = window.scrollY;
         if (lastY - y > 80 && y < 120) showPopup();
         lastY = y;
       }, { passive: true });
-
-      // Close button
-      if (closeBtn) closeBtn.addEventListener('click', hidePopup);
-
-      // Click outside the card
-      if (popup) {
-        popup.addEventListener('click', function (e) {
-          if (e.target === popup) hidePopup();
-        });
-      }
-
-      // Escape key
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && popup.style.display === 'flex') hidePopup();
+      if (exitClose) exitClose.addEventListener('click', hidePopup);
+      if (popup)     popup.addEventListener('click', function(e) { if (e.target === popup) hidePopup(); });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && popup && popup.style.display === 'flex') hidePopup();
       });
-
-      // Form submit — redirect to sign-up with email pre-filled
-      if (form) {
-        form.addEventListener('submit', function (e) {
+      if (exitForm) {
+        exitForm.addEventListener('submit', function(e) {
           e.preventDefault();
-          var email = emailInput ? emailInput.value.trim() : '';
-          if (!email || !email.includes('@')) {
-            emailInput.style.borderColor = '#c0392b';
-            return;
-          }
+          var email = exitEmail ? exitEmail.value.trim() : '';
+          if (!email || !email.includes('@')) { if (exitEmail) exitEmail.style.borderColor='#c0392b'; return; }
           setCookie('nsh_exit_seen', '1', 30);
           window.location.href = '/family-sign-up?email=' + encodeURIComponent(email);
         });
