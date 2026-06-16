@@ -7,12 +7,12 @@ const familyLinks = [
   { href: '/home-routines',   label: 'Home Routines' },
   { href: '/games',           label: 'Sensory Games' },
   { href: '/start-here',      label: 'Take the Assessment' },
-  { href: '/practitioner-perspectives', label: 'Podcast' },
 ];
 const practitionerLinks = [
-  { href: '/for-practitioners',          label: 'Meet Our Practitioners' },
-  { href: '/for-practitioners#demo',     label: 'Book a Demo' },
-  { href: '/for-practitioners#workflow', label: 'How It Works' },
+  { href: '/for-practitioners',                                      label: 'For Practitioners' },
+  { href: '/pricing-practitioners',                                  label: 'Practitioner Pricing' },
+  { href: '/practitioner-perspectives',                              label: 'Practitioner Perspectives' },
+  { href: 'https://open.spotify.com/show/3AkgD8H7t6uPww4buFprla',  label: 'Podcast', external: true },
 ];
 const companyLinks = [
   { href: '/about',            label: 'About Us' },
@@ -75,9 +75,9 @@ const companyLinks = [
       <div>
         <h4 class="text-xs font-semibold uppercase tracking-widest mb-4" style="color:#7B9E8B; font-family:'DM Sans',sans-serif;">For Practitioners</h4>
         <ul class="space-y-2.5">
-          {practitionerLinks.map(({ href, label }) => (
+          {practitionerLinks.map(({ href, label, external }) => (
             <li>
-              <a href={href} class="text-sm transition-colors hover:text-white" style="color:#a8b8c4; font-family:'DM Sans',sans-serif;">{label}</a>
+              <a href={href} class="text-sm transition-colors hover:text-white" style="color:#a8b8c4; font-family:'DM Sans',sans-serif;" target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined}>{label}</a>
             </li>
           ))}
         </ul>
