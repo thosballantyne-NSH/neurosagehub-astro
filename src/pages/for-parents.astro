@@ -175,18 +175,13 @@ const pathways = [
               Neurosage Hub turns that foundation-first model into simple education, practical home routines, and progress tracking parents can actually use — without needing to become a therapist.
             </p>
             <div class="flex flex-wrap gap-4 items-center">
-              <a href="#pathways" class="nsh-btn-cta" style="font-size:1rem; padding:0.875rem 1.75rem;">
-                Explore Parent Pathways
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </a>
               <button
                 onclick="document.getElementById('pdf-popup').style.display='flex'"
-                style="display:inline-flex; align-items:center; gap:0.5rem; background:white; border:1.5px solid #2E6E8E; color:#2E6E8E; font-family:'DM Sans',sans-serif; font-size:0.9375rem; font-weight:600; padding:0.75rem 1.25rem; border-radius:9999px; cursor:pointer; transition:background 0.15s;"
-                onmouseover="this.style.background='#E4EFF6'"
-                onmouseout="this.style.background='white'"
+                class="nsh-btn-cta"
+                style="font-size:1rem; padding:0.9rem 1.75rem; display:inline-flex; align-items:center; gap:0.5rem; cursor:pointer; border:none;"
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                Download PDF Guide
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download Pathways and Pyramid Guide
               </button>
             </div>
           </div>
@@ -306,6 +301,20 @@ const pathways = [
 
             </div>
           ))}
+        </div>
+
+        <!-- Download PDF CTA below pathways -->
+        <div class="mt-12 text-center fade-up">
+          <button
+            onclick="document.getElementById('pdf-popup').style.display='flex'"
+            style="display:inline-flex; align-items:center; gap:0.625rem; background:white; border:2px solid #082438; color:#082438; font-family:'DM Sans',sans-serif; font-size:1rem; font-weight:700; padding:0.9rem 2rem; border-radius:9999px; cursor:pointer; transition:all 0.15s; box-shadow:0 2px 8px rgba(8,36,56,0.08);"
+            onmouseover="this.style.background='#082438'; this.style.color='white';"
+            onmouseout="this.style.background='white'; this.style.color='#082438';"
+          >
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PDF Guide
+          </button>
+          <p style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; color:#5F6975; margin-top:0.75rem;">Free · No sign-up required</p>
         </div>
 
       </div>

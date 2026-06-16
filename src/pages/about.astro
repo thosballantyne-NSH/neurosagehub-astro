@@ -2,228 +2,236 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+const PARENT_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663645323174/cAF6S26VtT36Uyb4yyZGdw/nsh_parent_child-ivuL9QAhsMZpMhgtzbS5ot.webp";
 ---
 
 <BaseLayout
-  title="About Neurosage Hub — Build Hope. Walk Together."
-  description="NeuroSage Hub organizes the fragmented autism landscape into structured education, clear pathways, and trusted connections — built for families like yours."
+  title="About Neurosage Hub | Build Hope. Walk Together."
+  description="Neurosage Hub organises the fragmented autism landscape into structured education, clear pathways, and trusted connections — helping families move from overwhelm to confident next steps."
 >
   <Header />
-
   <main>
 
     <!-- ===== HERO ===== -->
-    <section style="background:#082438; padding:5rem 0 4rem;">
-      <div class="container">
-        <div class="max-w-2xl mx-auto text-center">
-          <p class="nsh-eyebrow mb-4 fade-up" style="color:#D8896A;">About Us</p>
-          <h1 class="fade-up mb-5" style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(2rem,5vw,3rem); color:white; line-height:1.15;">
-            Overwhelmed by autism<br>and don't know where to start?
-          </h1>
-          <p class="fade-up" style="font-family:'DM Sans',sans-serif; font-size:1.25rem; color:rgba(255,255,255,0.75); line-height:1.7; max-width:36rem; margin:0 auto;">
-            You're not alone — there is a clearer path forward.
-          </p>
-        </div>
+    <section class="relative overflow-hidden" style="min-height:72vh; background:#082438;">
+      <div class="absolute inset-0 z-0" style="left:45%;">
+        <img
+          src={PARENT_IMG}
+          alt="Parent holding child warmly"
+          class="w-full h-full object-cover object-center"
+          style="opacity:0.28;"
+        />
+        <div class="absolute inset-0" style="background:linear-gradient(90deg, #082438 0%, #082438 30%, rgba(8,36,56,0.4) 100%);"></div>
       </div>
-    </section>
-
-    <!-- ===== THE PROBLEM ===== -->
-    <section style="background:#F7F2EB; padding:5rem 0;">
-      <div class="container">
-        <div class="max-w-3xl mx-auto">
-          <div class="text-center mb-12 fade-up">
-            <p class="nsh-eyebrow mb-3" style="color:#7B9E8B;">The Challenge Families Face</p>
-            <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.75rem,4vw,2.5rem); color:#082438; line-height:1.2;">
-              You deserve clarity,<br>not more confusion.
-            </h2>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-
-            <div class="fade-up rounded-2xl p-7" style="background:white; border-left:4px solid #7B9E8B;">
-              <h3 style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:1.125rem; color:#082438; margin-bottom:0.5rem;">Overwhelm</h3>
-              <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975; line-height:1.65;">Flooded with conflicting information and fear — it's hard to know what's real, what's hype, and where to even begin.</p>
-            </div>
-
-            <div class="fade-up rounded-2xl p-7" style="background:white; border-left:4px solid #D8896A;">
-              <h3 style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:1.125rem; color:#082438; margin-bottom:0.5rem;">Fragmentation</h3>
-              <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975; line-height:1.65;">Services scattered across disconnected systems. Each appointment feels isolated from the rest — there's no thread holding it all together.</p>
-            </div>
-
-            <div class="fade-up rounded-2xl p-7" style="background:white; border-left:4px solid #E8C98F;">
-              <h3 style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:1.125rem; color:#082438; margin-bottom:0.5rem;">Access Gaps</h3>
-              <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975; line-height:1.65;">Hard to find credible practitioners you can trust. Waitlists are long. Not every family knows where to look or who to believe.</p>
-            </div>
-
-            <div class="fade-up rounded-2xl p-7" style="background:white; border-left:4px solid #B9B3D9;">
-              <h3 style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:1.125rem; color:#082438; margin-bottom:0.5rem;">Follow-Through</h3>
-              <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975; line-height:1.65;">Consistency between appointments is difficult. Progress made in the clinic can stall at home without the right tools and guidance to keep things moving.</p>
-            </div>
-
-          </div>
+      <div class="container relative z-10 flex items-center py-24 lg:py-36">
+        <div class="max-w-xl">
+          <p class="nsh-eyebrow mb-5 fade-up" style="color:#D8896A;">About Us</p>
+          <h1 class="fade-up mb-6" style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(2.25rem,5vw,3.5rem); color:white; line-height:1.1;">
+            Overwhelmed by autism and don't know where to start?
+          </h1>
+          <p class="fade-up" style="font-family:'DM Sans',sans-serif; font-size:1.1875rem; color:rgba(255,255,255,0.72); line-height:1.75;">
+            You're not alone — and there is a clearer path forward.
+          </p>
+          <div class="mt-8 fade-up" style="width:3.5rem; height:3px; background:#7B9E8B; border-radius:2px;"></div>
         </div>
       </div>
     </section>
 
     <!-- ===== WHO WE ARE ===== -->
-    <section style="background:white; padding:5rem 0;">
+    <section class="py-20" style="background:#F7F2EB;">
       <div class="container">
-        <div class="max-w-3xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-          <div class="flex flex-col md:flex-row gap-12 items-center">
-            <div class="flex-1 fade-up">
-              <p class="nsh-eyebrow mb-4" style="color:#7B9E8B;">Who We Are</p>
-              <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.75rem,4vw,2.25rem); color:#082438; line-height:1.2; margin-bottom:1.25rem;">
-                An education-first platform built for <span style="color:#D8896A;">families like yours.</span>
-              </h2>
-              <p style="font-family:'DM Sans',sans-serif; font-size:1.0625rem; color:#5F6975; line-height:1.75; margin-bottom:1rem;">
-                NeuroSage Hub organizes the fragmented autism landscape into structured education, clear pathways, and trusted connections.
-              </p>
-              <p style="font-family:'DM Sans',sans-serif; font-size:1.0625rem; color:#5F6975; line-height:1.75; margin-bottom:1.75rem;">
-                We don't replace your practitioners. We strengthen the ecosystem around them — so the work that happens in the clinic keeps going at home, and families stop feeling like they're navigating alone.
-              </p>
-              <div class="flex flex-wrap gap-3">
-                <span class="px-4 py-2 rounded-full text-sm font-semibold" style="background:#082438; color:white; font-family:'DM Sans',sans-serif;">Education First</span>
-                <span class="px-4 py-2 rounded-full text-sm font-semibold" style="background:#1A4A6B; color:white; font-family:'DM Sans',sans-serif;">Parent Centered</span>
-                <span class="px-4 py-2 rounded-full text-sm font-semibold" style="background:#deeae5; color:#4F7563; font-family:'DM Sans',sans-serif;">Practitioner Supported</span>
-              </div>
+          <div class="fade-up">
+            <p class="nsh-eyebrow mb-4" style="color:#2E6E8E;">Who We Are</p>
+            <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.875rem,4vw,2.75rem); color:#082438; line-height:1.1; margin-bottom:1.25rem;">
+              An education-first platform built for <span style="text-decoration:underline; text-decoration-color:#D8896A; text-underline-offset:4px;">families like yours.</span>
+            </h2>
+            <p style="font-family:'DM Sans',sans-serif; font-size:1.0625rem; color:#2d3f4c; line-height:1.75; margin-bottom:1rem;">
+              Neurosage Hub organises the fragmented autism landscape into structured education, clear pathways, and trusted connections.
+            </p>
+            <p style="font-family:'DM Sans',sans-serif; font-size:1.0625rem; color:#2d3f4c; line-height:1.75; margin-bottom:2rem;">
+              We don't replace your practitioners.<br>We strengthen the ecosystem around them.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              {[
+                { label: 'Education First',         bg: '#2E6E8E' },
+                { label: 'Parent Centered',         bg: '#082438' },
+                { label: 'Practitioner Supported',  bg: '#7B9E8B' },
+              ].map(({ label, bg }) => (
+                <span style={`font-family:'DM Sans',sans-serif; font-size:0.875rem; font-weight:600; background:${bg}; color:white; padding:0.5rem 1.125rem; border-radius:9999px;`}>
+                  {label}
+                </span>
+              ))}
             </div>
+          </div>
 
-            <div class="fade-up flex-shrink-0" style="width:100%; max-width:300px;">
-              <div class="rounded-2xl overflow-hidden" style="background:#E4EFF6; padding:2.5rem; text-align:center;">
-                <div style="width:72px; height:72px; border-radius:50%; background:#082438; margin:0 auto 1.25rem; display:flex; align-items:center; justify-content:center;">
-                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
-                    <path d="M8 12h8M12 8v8"/>
-                  </svg>
-                </div>
-                <p style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:1.125rem; color:#082438; margin-bottom:0.5rem;">No Diagnosis Required</p>
-                <p style="font-family:'DM Sans',sans-serif; font-size:0.875rem; color:#5F6975; line-height:1.6;">Whether you're in the middle of an assessment or just starting to notice something — you belong here.</p>
-              </div>
-            </div>
+          <div class="fade-up" style="transition-delay:80ms;">
+            <img
+              src={PARENT_IMG}
+              alt="Mother and child reading together"
+              class="w-full rounded-2xl object-cover"
+              style="max-height:460px; object-position:center top; box-shadow:0 12px 48px rgba(8,36,56,0.12);"
+              loading="lazy"
+            />
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- ===== HOW IT WORKS ===== -->
-    <section style="background:#F7F2EB; padding:5rem 0;">
+    <!-- ===== THE CHALLENGE ===== -->
+    <section class="py-20" style="background:white;">
       <div class="container">
         <div class="max-w-3xl mx-auto">
-
-          <div class="text-center mb-12 fade-up">
-            <p class="nsh-eyebrow mb-3" style="color:#7B9E8B;">How It Works</p>
-            <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.75rem,4vw,2.25rem); color:#082438; line-height:1.2;">
-              Four pillars. One clear direction.
-            </h2>
+          <p class="nsh-eyebrow mb-4 text-center fade-up" style="color:#D8896A;">The Challenge Families Face</p>
+          <h2 class="text-center mb-12 fade-up" style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.875rem,4vw,2.75rem); color:#082438; line-height:1.15;">
+            You deserve clarity,<br>
+            <span style="text-decoration:underline; text-decoration-color:#D8896A; text-underline-offset:4px;">not more confusion.</span>
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {[
+              { title: 'Overwhelm',      border: '#2E6E8E', desc: 'Flooded with conflicting information and fear.' },
+              { title: 'Fragmentation',  border: '#082438', desc: 'Services scattered across disconnected systems.' },
+              { title: 'Access Gaps',    border: '#D8896A', desc: 'Hard to find credible practitioners you can trust.' },
+              { title: 'Follow-Through', border: '#7B9E8B', desc: 'Consistency between appointments is difficult.' },
+            ].map(({ title, border, desc }, i) => (
+              <div class="fade-up rounded-xl p-6" style={`background:white; border:1px solid #e5e1da; border-left:4px solid ${border}; box-shadow:0 2px 12px rgba(8,36,56,0.05); transition-delay:${i*60}ms;`}>
+                <h3 style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:1.0625rem; color:#082438; margin-bottom:0.375rem;">{title}</h3>
+                <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975; line-height:1.65;">{desc}</p>
+              </div>
+            ))}
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="flex flex-col gap-4">
-
-            <div class="fade-up flex items-start gap-5 rounded-2xl p-6" style="background:white;">
-              <div style="width:48px; height:48px; border-radius:0.75rem; background:#082438; flex-shrink:0; display:flex; align-items:center; justify-content:center;">
-                <span style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.875rem; color:white;">01</span>
+    <!-- ===== HOW IT WORKS ===== -->
+    <section class="py-20" style="background:#082438;">
+      <div class="container">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-center mb-12 fade-up" style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.875rem,4vw,2.5rem); color:white;">
+            How It Works
+          </h2>
+          <div class="flex flex-col gap-5">
+            {[
+              { num: '01', title: 'Clarity',     color: '#2E6E8E', desc: "We organise knowledge into structured education that helps families understand what they're seeing." },
+              { num: '02', title: 'Pathways',    color: '#1A4A6B', desc: 'Guided next steps that help you understand where to go and what to explore next.' },
+              { num: '03', title: 'Connection',  color: '#D8896A', desc: 'Responsible access to practitioners and resources within a trusted, vetted ecosystem.' },
+              { num: '04', title: 'Consistency', color: '#7B9E8B', desc: "Tools that extend care and guidance between visits so progress doesn't stop at the clinic door." },
+            ].map(({ num, title, color, desc }, i) => (
+              <div class="fade-up flex items-start gap-5 rounded-xl p-6 bg-white" style={`border-left:4px solid ${color}; transition-delay:${i*70}ms;`}>
+                <div style={`width:40px; height:40px; border-radius:0.625rem; background:${color}; display:flex; align-items:center; justify-content:center; flex-shrink:0;`}>
+                  <span style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:0.8125rem; color:white;">{num}</span>
+                </div>
+                <div>
+                  <h3 style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:1.125rem; color:#082438; margin-bottom:0.375rem;">{title}</h3>
+                  <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975; line-height:1.65;">{desc}</p>
+                </div>
               </div>
-              <div>
-                <h3 style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:1.125rem; color:#082438; margin-bottom:0.375rem;">Clarity</h3>
-                <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975; line-height:1.65;">We organize knowledge into structured education that helps families understand what they're seeing — without the overwhelm of sifting through everything alone.</p>
-              </div>
-            </div>
-
-            <div class="fade-up flex items-start gap-5 rounded-2xl p-6" style="background:white;">
-              <div style="width:48px; height:48px; border-radius:0.75rem; background:#1A4A6B; flex-shrink:0; display:flex; align-items:center; justify-content:center;">
-                <span style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.875rem; color:white;">02</span>
-              </div>
-              <div>
-                <h3 style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:1.125rem; color:#082438; margin-bottom:0.375rem;">Pathways</h3>
-                <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975; line-height:1.65;">Guided next steps that help you understand where to go and what to explore next — so you always know what your right next move is.</p>
-              </div>
-            </div>
-
-            <div class="fade-up flex items-start gap-5 rounded-2xl p-6" style="background:white;">
-              <div style="width:48px; height:48px; border-radius:0.75rem; background:#D8896A; flex-shrink:0; display:flex; align-items:center; justify-content:center;">
-                <span style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.875rem; color:white;">03</span>
-              </div>
-              <div>
-                <h3 style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:1.125rem; color:#082438; margin-bottom:0.375rem;">Connection</h3>
-                <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975; line-height:1.65;">Responsible access to practitioners and resources within a trusted, vetted ecosystem — so you find credible people, not just anyone with a website.</p>
-              </div>
-            </div>
-
-            <div class="fade-up flex items-start gap-5 rounded-2xl p-6" style="background:white;">
-              <div style="width:48px; height:48px; border-radius:0.75rem; background:#7B9E8B; flex-shrink:0; display:flex; align-items:center; justify-content:center;">
-                <span style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.875rem; color:white;">04</span>
-              </div>
-              <div>
-                <h3 style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:1.125rem; color:#082438; margin-bottom:0.375rem;">Consistency</h3>
-                <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975; line-height:1.65;">Tools that extend care and guidance between visits so progress doesn't stop at the clinic door. What happens at home matters just as much as what happens in the room.</p>
-              </div>
-            </div>
-
+            ))}
           </div>
         </div>
       </div>
     </section>
 
     <!-- ===== OUR PROMISE ===== -->
-    <section style="background:#082438; padding:5rem 0; position:relative; overflow:hidden;">
-      <!-- Decorative arcs -->
-      <div style="position:absolute; top:-60px; right:-60px; width:320px; height:320px; border-radius:50%; border:2px solid rgba(123,158,139,0.25); pointer-events:none;"></div>
-      <div style="position:absolute; top:20px; right:20px; width:180px; height:180px; border-radius:50%; border:2px solid rgba(123,158,139,0.15); pointer-events:none;"></div>
-
-      <div class="container" style="position:relative;">
-        <div class="max-w-2xl mx-auto text-center fade-up">
-          <p class="nsh-eyebrow mb-4" style="color:#7B9E8B;">Our Promise</p>
-          <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(2rem,5vw,3rem); color:white; line-height:1.1; margin-bottom:1.5rem;">
-            Build Hope.<br><span style="color:#D8896A;">Walk Together.</span>
+    <section class="relative overflow-hidden py-24" style="background:#1A4A6B;">
+      <svg class="absolute top-0 right-0 opacity-10" width="420" height="300" viewBox="0 0 420 300" fill="none" aria-hidden="true">
+        <path d="M420 0 Q210 160 0 300" stroke="#7B9E8B" stroke-width="2"/>
+        <path d="M420 60 Q230 200 0 360" stroke="#7B9E8B" stroke-width="1.5"/>
+      </svg>
+      <div class="container relative z-10">
+        <div class="max-w-2xl fade-up">
+          <p class="nsh-eyebrow mb-5" style="color:#D8896A; text-decoration:underline; text-underline-offset:3px;">Our Promise</p>
+          <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(2.5rem,6vw,4rem); color:white; line-height:1.05; margin-bottom:1.5rem;">
+            Build Hope.<br>Walk <span style="color:#D8896A;">Together.</span>
           </h2>
-          <p style="font-family:'DM Sans',sans-serif; font-size:1.125rem; color:rgba(255,255,255,0.75); line-height:1.8; margin-bottom:1rem; max-width:38rem; margin-left:auto; margin-right:auto;">
-            We don't promise miracles. We promise clarity, structure, and a system that helps your family move forward with greater confidence.
+          <p style="font-family:'DM Sans',sans-serif; font-size:1.0625rem; color:rgba(255,255,255,0.75); line-height:1.8; margin-bottom:1.5rem;">
+            We don't promise miracles.<br>
+            We promise clarity, structure, and a system that helps your family move forward with greater confidence.
           </p>
-          <p style="font-family:'DM Sans',sans-serif; font-size:1rem; color:#7B9E8B; font-weight:600; margin-bottom:0.25rem;">No hype. No miracle cures.</p>
-          <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:rgba(255,255,255,0.5); line-height:1.7;">Just proven, structured guidance for your next right step.</p>
+          <div style="padding-top:1.25rem; border-top:1px solid rgba(255,255,255,0.15);">
+            <p style="font-family:'DM Sans',sans-serif; font-size:1rem; font-weight:700; color:#7B9E8B; margin-bottom:0.25rem;">No hype. No miracle cures.</p>
+            <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:rgba(255,255,255,0.6);">Just proven, structured guidance for your next right step.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== JOIN CTA ===== -->
-    <section style="background:white; padding:5rem 0;">
+    <!-- ===== CTA + RESOURCES ===== -->
+    <section class="py-20" style="background:#082438;">
       <div class="container">
-        <div class="max-w-2xl mx-auto text-center fade-up">
+        <div class="max-w-xl mx-auto text-center fade-up">
 
-          <p class="nsh-eyebrow mb-4" style="color:#7B9E8B;">Ready to Begin?</p>
-          <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.75rem,4vw,2.25rem); color:#082438; line-height:1.2; margin-bottom:1rem;">
-            Start your free account.
+          <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(2rem,5vw,3rem); color:white; line-height:1.1; margin-bottom:0.75rem;">
+            Start Your<br>Free Account
           </h2>
-          <p style="font-family:'DM Sans',sans-serif; font-size:1.0625rem; color:#5F6975; line-height:1.7; margin-bottom:2rem;">
-            No diagnosis required. Start today. Join families who are finally finding clarity on this journey.
+          <p style="font-family:'DM Sans',sans-serif; font-size:1rem; color:rgba(255,255,255,0.6); margin-bottom:2rem;">
+            No diagnosis required. Start today.
           </p>
 
-          <div class="flex flex-wrap justify-center gap-4 mb-8">
-            <a href="/quiz" class="nsh-btn-cta" style="font-size:1rem; padding:0.875rem 2rem;">
-              Take the Free Quiz
-            </a>
-            <a
-              href="https://app.neurosagehub.com/login"
-              class="inline-flex items-center px-7 py-3.5 rounded-xl font-semibold"
-              style="font-family:'DM Sans',sans-serif; font-size:1rem; color:#082438; border:2px solid #ddd9d2; background:white; text-decoration:none;"
-            >
-              Sign In
-            </a>
+          <a
+            href="https://app.neurosagehub.com/signup"
+            style="display:inline-flex; align-items:center; justify-content:center; font-family:'DM Sans',sans-serif; font-weight:800; font-size:1.0625rem; background:#E8C98F; color:#082438; padding:1rem 2.5rem; border-radius:9999px; text-decoration:none; margin-bottom:2rem; letter-spacing:0.01em;"
+          >
+            JOIN FREE — neurosagehub.com
+          </a>
+
+          <div class="flex flex-wrap justify-center gap-3 mb-14">
+            {[
+              { label: 'Secure Platform',       bg: '#2E6E8E' },
+              { label: 'No Diagnosis Required', bg: '#1A4A6B' },
+              { label: 'Start Today',           bg: '#7B9E8B' },
+            ].map(({ label, bg }) => (
+              <span style={`font-family:'DM Sans',sans-serif; font-size:0.8125rem; font-weight:600; background:${bg}; color:white; padding:0.4rem 0.875rem; border-radius:9999px;`}>
+                {label}
+              </span>
+            ))}
           </div>
 
-          <div class="flex flex-wrap justify-center gap-3">
-            <span class="px-4 py-2 rounded-full text-sm font-semibold" style="background:#E4EFF6; color:#1A4A6B; font-family:'DM Sans',sans-serif;">Secure Platform</span>
-            <span class="px-4 py-2 rounded-full text-sm font-semibold" style="background:#F7F2EB; color:#5F6975; font-family:'DM Sans',sans-serif;">No Diagnosis Required</span>
-            <span class="px-4 py-2 rounded-full text-sm font-semibold" style="background:#deeae5; color:#4F7563; font-family:'DM Sans',sans-serif;">Start Today</span>
+          <!-- Resource library link -->
+          <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:2.5rem;">
+            <p class="nsh-eyebrow mb-3" style="color:#7B9E8B;">Free Resource Library</p>
+            <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:rgba(255,255,255,0.6); max-width:26rem; margin:0 auto 1.5rem; line-height:1.7;">
+              Not ready to sign up? Start with our free guides — assessments, meltdowns, sensory processing, regulation, and more.
+            </p>
+            <a
+              href="/resources"
+              style="display:inline-flex; align-items:center; gap:0.5rem; font-family:'DM Sans',sans-serif; font-size:0.9375rem; font-weight:600; color:white; border:1.5px solid rgba(255,255,255,0.25); padding:0.75rem 1.75rem; border-radius:9999px; text-decoration:none;"
+              onmouseover="this.style.borderColor='rgba(255,255,255,0.55)'"
+              onmouseout="this.style.borderColor='rgba(255,255,255,0.25)'"
+            >
+              Browse the Resource Library →
+            </a>
           </div>
 
         </div>
       </div>
     </section>
+
+    <!-- ===== TAGLINE ===== -->
+    <div style="background:#123D5A; padding:1.25rem 0;">
+      <div class="container flex items-center gap-4">
+        <div style="width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <p style="font-family:'DM Sans',sans-serif; font-size:1.0625rem; color:white;">
+          <strong>Build Hope.</strong> Walk Together.
+        </p>
+      </div>
+    </div>
 
   </main>
-
   <Footer />
+
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
+    );
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+
 </BaseLayout>
