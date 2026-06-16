@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Don't index utility / internal pages
+Disallow: /lp/
+Disallow: /family-signup-thank-you
+Disallow: /family-signup-thank-you/
+
+Sitemap: https://neurosagehub.com/sitemap-index.xml

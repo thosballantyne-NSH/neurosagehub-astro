@@ -2,8 +2,8 @@
   "redirects": [
     { "source": "/home",          "destination": "/",               "permanent": true },
     { "source": "/pathways",      "destination": "/parent-pathways","permanent": true },
-    { "source": "/blog",          "destination": "/blog",           "permanent": false },
-    { "source": "/podcast",       "destination": "/podcast",        "permanent": false }
+    { "source": "/blog",          "destination": "/resources",                 "permanent": true },
+    { "source": "/podcast",       "destination": "/practitioner-perspectives", "permanent": true }
   ],
   "headers": [
     {

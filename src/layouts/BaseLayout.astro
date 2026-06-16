@@ -11,7 +11,7 @@ interface Props {
 const {
   title,
   description = 'Neurosage Hub — Structured Next Steps for Families Navigating Autism.',
-  image = '/og-image.png',
+  image = '/neurosage_hub_og.png',
   noindex = false,
 } = Astro.props;
 
@@ -198,33 +198,32 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       var msgs       = document.getElementById('sage-msgs');
       var inputArea  = document.getElementById('sage-input-area');
       var badge      = document.getElementById('sage-badge');
-      var isOpen     = false;
-      var step       = 'greeting'; // greeting → email → done
-      var userName   = '';
-      var userTopic  = '';
+      var isOpen    = false;
+      var step      = 'welcome'; // welcome → topic → [games|practitioner|email] → done
+      var childName = '';
+      var userTopic = '';
       var TOPIC_URLS = {
-        'diagnosis':  '/resources/assessments',
-        'meltdowns':  '/resources/meltdowns',
-        'unsure':     '/start-here',
-        'activities': '/games',
+        'diagnosis':    '/resources/assessments',
+        'meltdowns':    '/resources/meltdowns',
+        'unsure':       '/start-here',
+        'games':        '/games/play-free',
         'practitioner': '/for-practitioners',
       };
 
+      /* ─── Render a message bubble ─── */
       function addMsg(html, from) {
-        // from: 'sage' | 'user'
         var wrap = document.createElement('div');
         wrap.style.cssText = 'display:flex; align-items:flex-end; gap:0.5rem;' + (from === 'user' ? 'flex-direction:row-reverse;' : '');
         var bub = document.createElement('div');
         bub.innerHTML = html;
         bub.style.cssText = from === 'sage'
-          ? 'background:#F7F2EB; border-radius:4px 14px 14px 14px; padding:0.75rem 0.875rem; font-size:0.9rem; color:#082438; line-height:1.6; max-width:220px;'
-          : 'background:#082438; border-radius:14px 4px 14px 14px; padding:0.75rem 0.875rem; font-size:0.9rem; color:white; line-height:1.6; max-width:200px; margin-left:auto;';
+          ? 'background:#F7F2EB; border-radius:4px 14px 14px 14px; padding:0.75rem 0.875rem; font-size:0.875rem; color:#082438; line-height:1.65; max-width:225px;'
+          : 'background:#082438; border-radius:14px 4px 14px 14px; padding:0.75rem 0.875rem; font-size:0.875rem; color:white; line-height:1.65; max-width:200px; margin-left:auto;';
         if (from === 'sage') {
           var av = document.createElement('img');
           av.src = '/sage-face.png';
           av.style.cssText = 'width:34px; height:34px; border-radius:50%; flex-shrink:0; margin-bottom:2px; object-fit:cover;';
           wrap.appendChild(av);
-          // Column: bubble + "Sage™" name label below
           var col = document.createElement('div');
           col.style.cssText = 'display:flex; flex-direction:column; align-items:flex-start; gap:0.2rem;';
           col.appendChild(bub);
@@ -240,65 +239,125 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         msgs.scrollTop = msgs.scrollHeight;
       }
 
-      function renderGreeting() {
-        addMsg('Hi — I\'m <strong>Sage™</strong>, your Neurosage guide. What\'s going on with your child right now?', 'sage');
+      /* ─── Topic button helper ─── */
+      function topicBtn(emoji, label, key) {
+        return '<button data-sage-topic="' + key + '" style="display:flex; align-items:center; gap:0.5rem; width:100%; padding:0.6rem 0.875rem; margin-bottom:0.375rem; border-radius:0.75rem; border:1.5px solid #ddd9d2; background:white; font-family:\'DM Sans\',sans-serif; font-size:0.875rem; color:#082438; font-weight:500; cursor:pointer; text-align:left; transition:border-color 0.15s, background 0.15s;" onmouseover="this.style.borderColor=\'#2E6E8E\'; this.style.background=\'#f0f6fa\'" onmouseout="this.style.borderColor=\'#ddd9d2\'; this.style.background=\'white\'">'
+          + '<span style="font-size:1rem;">' + emoji + '</span> ' + label + '</button>';
+      }
+
+      /* ─── STEP 1: Welcome — ask child's name ─── */
+      function renderWelcome() {
+        step = 'welcome';
+        addMsg('Hello! Thank you for coming here and letting us build hope with you. What is your child\'s name?', 'sage');
+        inputArea.innerHTML = '<div style="display:flex; gap:0.5rem;">'
+          + '<input id="sage-name-in" type="text" placeholder="Child\'s first name" autocomplete="given-name" style="flex:1; padding:0.625rem 0.875rem; border:1.5px solid #ddd9d2; border-radius:0.75rem; font-family:\'DM Sans\',sans-serif; font-size:0.875rem; color:#082438; outline:none; transition:border-color 0.15s;" onfocus="this.style.borderColor=\'#2E6E8E\'" onblur="this.style.borderColor=\'#ddd9d2\'" />'
+          + '<button id="sage-name-send" style="padding:0 0.875rem; background:#D8896A; color:white; border:none; border-radius:0.75rem; cursor:pointer; font-size:0.875rem; font-weight:700; font-family:\'DM Sans\',sans-serif; white-space:nowrap; transition:background 0.15s;" onmouseover="this.style.background=\'#b8694a\'" onmouseout="this.style.background=\'#D8896A\'">Next →</button>'
+          + '</div>';
+
+        function submitName() {
+          var val = (document.getElementById('sage-name-in').value || '').trim();
+          if (!val) { document.getElementById('sage-name-in').style.borderColor = '#c0392b'; return; }
+          childName = val.charAt(0).toUpperCase() + val.slice(1);
+          addMsg(childName, 'user');
+          inputArea.innerHTML = '';
+          setTimeout(renderTopic, 400);
+        }
+        document.getElementById('sage-name-send').addEventListener('click', submitName);
+        document.getElementById('sage-name-in').addEventListener('keydown', function(e) { if (e.key === 'Enter') submitName(); });
+      }
+
+      /* ─── STEP 2: Topic selection ─── */
+      function renderTopic() {
+        step = 'topic';
+        addMsg('Great! We\'d love to help you on your journey with <strong>' + childName + '</strong>. What brings you here today?', 'sage');
         inputArea.innerHTML = [
-          btn('🔍', 'Just got a diagnosis', 'diagnosis'),
-          btn('🌊', 'Dealing with meltdowns', 'meltdowns'),
-          btn('🧭', 'Not sure where to start', 'unsure'),
-          btn('🎮', 'Looking for activities', 'activities'),
-          btn('🩺', 'I\'m a practitioner', 'practitioner'),
-        ].map(function(b){ return b; }).join('');
+          topicBtn('🔍', 'Just got a diagnosis', 'diagnosis'),
+          topicBtn('🌊', 'Dealing with meltdowns', 'meltdowns'),
+          topicBtn('🧭', 'Not sure where to start', 'unsure'),
+          topicBtn('🎮', 'Looking for free games', 'games'),
+          topicBtn('🩺', "I'm a practitioner", 'practitioner'),
+        ].join('');
 
         inputArea.querySelectorAll('[data-sage-topic]').forEach(function(el) {
           el.addEventListener('click', function() {
             userTopic = el.getAttribute('data-sage-topic');
             addMsg(el.textContent.trim(), 'user');
             inputArea.innerHTML = '';
-            setTimeout(renderEmailStep, 400);
+            setTimeout(function() {
+              if (userTopic === 'games') renderGames();
+              else if (userTopic === 'practitioner') renderPractitioner();
+              else renderEmail();
+            }, 400);
           });
         });
       }
 
-      function btn(emoji, label, key) {
-        return '<button data-sage-topic="' + key + '" style="display:flex; align-items:center; gap:0.5rem; width:100%; padding:0.625rem 0.875rem; margin-bottom:0.4rem; border-radius:0.75rem; border:1.5px solid #ddd9d2; background:white; font-family:\'DM Sans\',sans-serif; font-size:0.875rem; color:#082438; font-weight:500; cursor:pointer; text-align:left; transition:border-color 0.15s, background 0.15s;" onmouseover="this.style.borderColor=\'#2E6E8E\'; this.style.background=\'#f0f6fa\'" onmouseout="this.style.borderColor=\'#ddd9d2\'; this.style.background=\'white\'">'
-          + '<span style="font-size:1rem;">' + emoji + '</span> ' + label + '</button>';
+      /* ─── Games flow ─── */
+      function renderGames() {
+        step = 'games';
+        addMsg('Free games — great! We have free games right inside the Hub. ' + childName + ' can learn more about the games or sign in and start playing right now.', 'sage');
+        inputArea.innerHTML =
+          '<a href="/games/play-free" style="display:flex; align-items:center; justify-content:center; gap:0.5rem; width:100%; padding:0.65rem; background:#082438; color:white; border-radius:0.75rem; text-decoration:none; font-family:\'DM Sans\',sans-serif; font-size:0.875rem; font-weight:700; box-sizing:border-box; margin-bottom:0.4rem; transition:background 0.15s;" onmouseover="this.style.background=\'#1A4A6B\'" onmouseout="this.style.background=\'#082438\'">Learn More →</a>'
+          + '<a href="/family-sign-up" style="display:flex; align-items:center; justify-content:center; gap:0.5rem; width:100%; padding:0.65rem; background:#D8896A; color:white; border-radius:0.75rem; text-decoration:none; font-family:\'DM Sans\',sans-serif; font-size:0.875rem; font-weight:700; box-sizing:border-box; margin-bottom:0.75rem; transition:background 0.15s;" onmouseover="this.style.background=\'#b8694a\'" onmouseout="this.style.background=\'#D8896A\'">Free Sign Up →</a>'
+          + '<p style="font-size:0.8rem; color:#5F6975; margin:0 0 0.4rem; font-family:\'DM Sans\',sans-serif;">Or I can send you more details. Email address:</p>'
+          + renderEmailInputHTML();
+        bindEmailInput();
       }
 
-      function renderEmailStep() {
-        addMsg('Got it — I can help with that. Where should I send your personalised next-step guide?', 'sage');
-        inputArea.innerHTML = '<div style="display:flex; gap:0.5rem;">'
-          + '<input id="sage-email-in" type="email" placeholder="Your email address" autocomplete="email" style="flex:1; padding:0.625rem 0.875rem; border:1.5px solid #ddd9d2; border-radius:0.75rem; font-family:\'DM Sans\',sans-serif; font-size:0.875rem; color:#082438; outline:none;" onfocus="this.style.borderColor=\'#2E6E8E\'" onblur="this.style.borderColor=\'#ddd9d2\'" />'
+      /* ─── Practitioner flow ─── */
+      function renderPractitioner() {
+        step = 'practitioner';
+        addMsg('Welcome to the Hub! We\'re actively looking for more trusted practitioners. Please provide your email and we\'ll be in touch:', 'sage');
+        inputArea.innerHTML = renderEmailInputHTML();
+        bindEmailInput();
+      }
+
+      /* ─── General email step (diagnosis / meltdowns / unsure) ─── */
+      function renderEmail() {
+        step = 'email';
+        var ack = { diagnosis: 'navigating a diagnosis', meltdowns: 'managing meltdowns', unsure: 'finding the right path' }[userTopic] || 'your journey';
+        addMsg('Great. We\'d like to assist you with <strong>' + ack + '</strong> for ' + childName + '. Can we start by sending you an introduction email?', 'sage');
+        inputArea.innerHTML = renderEmailInputHTML();
+        bindEmailInput();
+      }
+
+      /* ─── Shared email input markup ─── */
+      function renderEmailInputHTML() {
+        return '<div style="display:flex; gap:0.5rem;">'
+          + '<input id="sage-email-in" type="email" placeholder="Your email address" autocomplete="email" style="flex:1; padding:0.625rem 0.875rem; border:1.5px solid #ddd9d2; border-radius:0.75rem; font-family:\'DM Sans\',sans-serif; font-size:0.875rem; color:#082438; outline:none; transition:border-color 0.15s;" onfocus="this.style.borderColor=\'#2E6E8E\'" onblur="this.style.borderColor=\'#ddd9d2\'" />'
           + '<button id="sage-email-send" style="padding:0 0.875rem; background:#D8896A; color:white; border:none; border-radius:0.75rem; cursor:pointer; font-size:0.875rem; font-weight:700; font-family:\'DM Sans\',sans-serif; white-space:nowrap; transition:background 0.15s;" onmouseover="this.style.background=\'#b8694a\'" onmouseout="this.style.background=\'#D8896A\'">Send →</button>'
           + '</div>'
           + '<p style="font-size:0.7rem; color:#9a9187; margin:0.375rem 0 0 0.25rem;">No spam · Unsubscribe anytime</p>';
+      }
 
+      /* ─── Bind email input submit (called after innerHTML is set) ─── */
+      function bindEmailInput() {
         function submitEmail() {
           var emailEl = document.getElementById('sage-email-in');
           var email = emailEl ? emailEl.value.trim() : '';
-          if (!email || !email.includes('@')) {
-            emailEl.style.borderColor = '#c0392b';
-            return;
-          }
+          if (!email || !email.includes('@')) { if (emailEl) emailEl.style.borderColor = '#c0392b'; return; }
           addMsg(email, 'user');
           inputArea.innerHTML = '';
           setCookie('nsh_visitor', '1', 365);
-          setCookie('nsh_exit_seen', '1', 30); // suppress exit popup since they gave email
+          setCookie('nsh_exit_seen', '1', 30);
           setTimeout(function() { renderDone(email); }, 400);
         }
-
-        document.getElementById('sage-email-send').addEventListener('click', submitEmail);
-        document.getElementById('sage-email-in').addEventListener('keydown', function(e) {
-          if (e.key === 'Enter') submitEmail();
-        });
+        var sendBtn = document.getElementById('sage-email-send');
+        var emailIn = document.getElementById('sage-email-in');
+        if (sendBtn) sendBtn.addEventListener('click', submitEmail);
+        if (emailIn) emailIn.addEventListener('keydown', function(e) { if (e.key === 'Enter') submitEmail(); });
       }
 
+      /* ─── Done ─── */
       function renderDone(email) {
-        addMsg('Perfect — your guide is on its way! Ready to explore?', 'sage');
-        var url = TOPIC_URLS[userTopic] || '/resources';
-        inputArea.innerHTML = '<a href="' + url + '?email=' + encodeURIComponent(email) + '" style="display:flex; align-items:center; justify-content:center; gap:0.5rem; width:100%; padding:0.75rem; background:#082438; color:white; border-radius:0.875rem; text-decoration:none; font-family:\'DM Sans\',sans-serif; font-size:0.9rem; font-weight:700; box-sizing:border-box;">Show me where to start →</a>';
-        // Also fire to sign-up in background
-        window.location.href = '/family-sign-up?email=' + encodeURIComponent(email);
+        if (userTopic === 'practitioner') {
+          addMsg('Thank you! We\'ll be in touch soon. We\'re excited to have you on the team.', 'sage');
+          inputArea.innerHTML = '<a href="/for-practitioners" style="display:flex; align-items:center; justify-content:center; gap:0.5rem; width:100%; padding:0.75rem; background:#082438; color:white; border-radius:0.875rem; text-decoration:none; font-family:\'DM Sans\',sans-serif; font-size:0.875rem; font-weight:700; box-sizing:border-box;">Learn About the Practitioner Hub →</a>';
+        } else {
+          addMsg('Your introduction is on its way! We\'re so glad you\'re here. Let\'s build hope together for <strong>' + childName + '</strong>. 💙', 'sage');
+          var url = TOPIC_URLS[userTopic] || '/resources';
+          inputArea.innerHTML = '<a href="' + url + '?email=' + encodeURIComponent(email) + '" style="display:flex; align-items:center; justify-content:center; gap:0.5rem; width:100%; padding:0.75rem; background:#082438; color:white; border-radius:0.875rem; text-decoration:none; font-family:\'DM Sans\',sans-serif; font-size:0.875rem; font-weight:700; box-sizing:border-box;">Show me where to start →</a>';
+        }
       }
 
       function openPanel() {
@@ -306,7 +365,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         isOpen = true;
         panel.style.display = 'block';
         if (badge) badge.style.display = 'none';
-        if (msgs.children.length === 0) renderGreeting();
+        if (msgs.children.length === 0) renderWelcome();
       }
 
       function closePanel() {
