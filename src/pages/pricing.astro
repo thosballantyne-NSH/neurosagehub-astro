@@ -87,7 +87,7 @@ import Footer from '../components/Footer.astro';
                 </p>
               </div>
 
-              <a href="/family-sign-up" class="nsh-btn-primary w-full justify-center mb-6" style="display:flex;">
+              <a href="https://app.neurosagehub.com/login" class="nsh-btn-primary w-full justify-center mb-6" style="display:flex;">
                 Get This Course
               </a>
 
@@ -127,7 +127,7 @@ import Footer from '../components/Footer.astro';
                 </p>
               </div>
 
-              <a href="/family-sign-up" class="nsh-btn-cta w-full justify-center mb-6" style="display:flex;">
+              <a href="https://app.neurosagehub.com/login" class="nsh-btn-cta w-full justify-center mb-6" style="display:flex;">
                 Start Full Access
               </a>
 
@@ -191,11 +191,14 @@ import Footer from '../components/Footer.astro';
                   ))}
                 </ul>
                 <button
-                  disabled
-                  style="width:100%; background:rgba(232,201,143,0.15); color:#E8C98F; font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.9375rem; padding:0.875rem; border-radius:0.625rem; border:1.5px solid rgba(232,201,143,0.3); cursor:not-allowed; display:flex; align-items:center; justify-content:center; gap:0.5rem;"
+                  id="btn-notify-platinum"
+                  onclick="document.getElementById('modal-notify').style.display='flex'"
+                  style="width:100%; background:rgba(232,201,143,0.15); color:#E8C98F; font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.9375rem; padding:0.875rem; border-radius:0.625rem; border:1.5px solid rgba(232,201,143,0.3); cursor:pointer; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:background 0.15s;"
+                  onmouseover="this.style.background='rgba(232,201,143,0.28)'"
+                  onmouseout="this.style.background='rgba(232,201,143,0.15)'"
                 >
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                  Coming Soon — Notify Me
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                  Get Notified When It Launches
                 </button>
               </div>
 
@@ -306,6 +309,102 @@ import Footer from '../components/Footer.astro';
     </section>
 
   </main>
+
+  <!-- ===== NOTIFY ME MODAL (Platinum launch) ===== -->
+  <div id="modal-notify" style="display:none; position:fixed; inset:0; z-index:9000; align-items:center; justify-content:center; padding:1rem;" onclick="if(event.target===this)this.style.display='none'">
+    <div style="position:absolute; inset:0; background:rgba(8,36,56,0.78); backdrop-filter:blur(4px);"></div>
+    <div style="position:relative; z-index:1; background:white; border-radius:1.25rem; padding:2.5rem; max-width:26rem; width:100%; box-shadow:0 25px 60px rgba(0,0,0,0.3);">
+      <button onclick="document.getElementById('modal-notify').style.display='none'" style="position:absolute; top:1rem; right:1rem; background:none; border:none; cursor:pointer; color:#5F6975; padding:0.25rem; line-height:1;" aria-label="Close">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <p style="font-family:'DM Sans',sans-serif; font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#E8C98F; margin-bottom:0.75rem;">Platinum — Coming Soon</p>
+      <h3 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:1.5rem; color:#082438; margin-bottom:0.75rem; line-height:1.25;">Be first to know when Platinum launches.</h3>
+      <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975; line-height:1.65; margin-bottom:1.5rem;">Drop your email below and we'll reach out the moment Platinum opens — including early-access pricing for the waitlist.</p>
+      <form id="form-notify" onsubmit="submitNotify(event)">
+        <input type="email" id="input-notify-email" placeholder="Your email address" required
+          style="width:100%; padding:0.75rem 1rem; border:1.5px solid #ddd9d2; border-radius:0.625rem; font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; margin-bottom:0.75rem; box-sizing:border-box; outline:none;"
+          onfocus="this.style.borderColor='#2E6E8E'" onblur="this.style.borderColor='#ddd9d2'"
+        />
+        <button type="submit"
+          style="width:100%; background:#1A4A6B; color:white; font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.9375rem; padding:0.875rem; border-radius:0.625rem; border:none; cursor:pointer; transition:background 0.15s;"
+          onmouseover="this.style.background='#082438'" onmouseout="this.style.background='#1A4A6B'"
+        >
+          Notify Me When It Launches →
+        </button>
+      </form>
+      <div id="notify-success" style="display:none; text-align:center; padding:1.25rem 0;">
+        <p style="font-family:'DM Sans',sans-serif; font-size:1.0625rem; font-weight:800; color:#082438; margin-bottom:0.375rem;">You're on the list!</p>
+        <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975; line-height:1.6;">We'll be in touch the moment Platinum opens.</p>
+      </div>
+      <p style="font-family:'DM Sans',sans-serif; font-size:0.8rem; color:#a0a8b0; margin-top:1rem; text-align:center;">No spam. Unsubscribe any time.</p>
+    </div>
+  </div>
+
+  <!-- ===== 50% OFF POPUP (4-second delay) ===== -->
+  <div id="popup-discount" style="display:none; position:fixed; inset:0; z-index:9100; align-items:center; justify-content:center; padding:1rem;" onclick="if(event.target===this)closeDiscount()">
+    <div style="position:absolute; inset:0; background:rgba(8,36,56,0.82); backdrop-filter:blur(4px);"></div>
+    <div style="position:relative; z-index:1; background:white; border-radius:1.5rem; padding:2.5rem; max-width:28rem; width:100%; box-shadow:0 25px 60px rgba(0,0,0,0.35); text-align:center; overflow:hidden;">
+      <div style="position:absolute; top:-50px; right:-50px; width:220px; height:220px; border-radius:50%; background:linear-gradient(135deg,rgba(232,201,143,0.15),rgba(216,137,106,0.08)); pointer-events:none;"></div>
+      <button onclick="closeDiscount()" style="position:absolute; top:1rem; right:1rem; background:none; border:none; cursor:pointer; color:#5F6975; padding:0.25rem; line-height:1;" aria-label="Close">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div style="display:inline-block; background:#fdf0ea; border-radius:99px; padding:0.375rem 1.1rem; margin-bottom:1rem;">
+        <span style="font-family:'DM Sans',sans-serif; font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#D8896A;">Limited Time Offer</span>
+      </div>
+      <h3 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.5rem,4vw,2rem); color:#082438; line-height:1.2; margin-bottom:0.5rem;">Get 50% Off Full Access</h3>
+      <p style="font-family:'DM Serif Display',serif; font-size:1.125rem; color:#D8896A; font-style:italic; margin-bottom:0.875rem;">Lock in that price for life.</p>
+      <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975; line-height:1.65; margin-bottom:1.5rem;">Enter your email and we'll send your exclusive 50% lifetime discount code — everything in Full Access at half the price, forever.</p>
+      <form id="form-discount" onsubmit="submitDiscount(event)">
+        <input type="email" id="input-discount-email" placeholder="Your email address" required
+          style="width:100%; padding:0.75rem 1rem; border:1.5px solid #ddd9d2; border-radius:0.625rem; font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; margin-bottom:0.75rem; box-sizing:border-box; outline:none;"
+          onfocus="this.style.borderColor='#2E6E8E'" onblur="this.style.borderColor='#ddd9d2'"
+        />
+        <button type="submit"
+          style="width:100%; background:#D8896A; color:white; font-family:'DM Sans',sans-serif; font-weight:700; font-size:1rem; padding:0.9375rem; border-radius:0.625rem; border:none; cursor:pointer; transition:background 0.15s; display:flex; align-items:center; justify-content:center; gap:0.5rem;"
+          onmouseover="this.style.background='#b8694a'" onmouseout="this.style.background='#D8896A'"
+        >
+          Send My 50% Discount →
+        </button>
+      </form>
+      <div id="discount-success" style="display:none; padding:1rem 0;">
+        <p style="font-family:'DM Sans',sans-serif; font-size:1.0625rem; font-weight:800; color:#082438; margin-bottom:0.375rem;">Discount on its way!</p>
+        <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975; line-height:1.6;">Check your inbox for your exclusive 50% lifetime code.</p>
+      </div>
+      <p style="font-family:'DM Sans',sans-serif; font-size:0.8rem; color:#a0a8b0; margin-top:1rem;">No spam. Unsubscribe any time.</p>
+    </div>
+  </div>
+
+  <script is:inline>
+    (function() {
+      // 4-second 50% off popup
+      var _discountShown = false;
+      function closeDiscount() {
+        document.getElementById('popup-discount').style.display = 'none';
+        _discountShown = true;
+      }
+      window.closeDiscount = closeDiscount;
+
+      setTimeout(function() {
+        if (!_discountShown) {
+          document.getElementById('popup-discount').style.display = 'flex';
+        }
+      }, 4000);
+
+      // Notify Me (Platinum) form submit
+      window.submitNotify = function(e) {
+        e.preventDefault();
+        document.getElementById('form-notify').style.display = 'none';
+        document.getElementById('notify-success').style.display = 'block';
+      };
+
+      // Discount form submit
+      window.submitDiscount = function(e) {
+        e.preventDefault();
+        document.getElementById('form-discount').style.display = 'none';
+        document.getElementById('discount-success').style.display = 'block';
+      };
+    })();
+  </script>
 
   <Footer />
 </BaseLayout>
