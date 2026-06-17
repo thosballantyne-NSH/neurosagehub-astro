@@ -431,7 +431,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         _notifyTopic = topic || '';
         if (notifyTitle) {
           notifyTitle.textContent = _notifyTopic
-            ? 'Get notified of new ' + _notifyTopic + ' guides'
+            ? 'Get notified of new guides for ' + _notifyTopic
             : 'Get notified of new guides';
         }
         /* Reset to form state */
