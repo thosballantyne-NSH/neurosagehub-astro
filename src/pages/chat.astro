@@ -2,62 +2,57 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+// ── UPDATE THIS with the iframe URL from your GHL dashboard ──
+// Go to: GHL → Conversations → Chat Widget → [your widget] → Embed → Copy iframe src
+const GHL_CHAT_IFRAME = 'https://widgets.leadconnectorhq.com/chat-widget/index.html?widget_id=6a21de9de53da97e71aef3b6';
 ---
 
 <BaseLayout
-  title="Ask Sage™ | Neurosage Hub"
-  description="Chat with Sage™ — your guide for navigating autism for your family."
+  title="Chat with Campus Assistant | Neurosage Hub"
+  description="Get answers from the Neurosage Campus Assistant — powered by curated, trusted autism content."
 >
   <Header ctaText="Get FREE Access" ctaHref="/family-sign-up" />
 
   <main>
-    <section style="background:#082438; min-height:calc(100vh - 72px); display:flex; align-items:center; padding:3rem 0 5rem;">
+    <section style="background:#082438; min-height:calc(100vh - 72px); display:flex; align-items:flex-start; padding:3rem 0 4rem;">
       <div class="container w-full">
-        <div class="max-w-xl mx-auto">
+        <div class="max-w-2xl mx-auto">
 
           <!-- Sage label row -->
-          <div class="flex items-center justify-center gap-3 mb-8 fade-up">
-            <img src="/sage-bubble.png" alt="Sage™" style="width:36px; height:36px; object-fit:contain; flex-shrink:0;" />
+          <div class="flex items-center justify-center gap-3 mb-6 fade-up">
+            <img src="/sage-bubble.png" alt="Sage™" style="width:32px; height:32px; object-fit:contain; flex-shrink:0;" />
             <span style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; font-weight:600; color:rgba(255,255,255,0.5); letter-spacing:0.06em; text-transform:uppercase;">Sage™ · Campus Assistant</span>
           </div>
 
-          <!-- Dialog card -->
+          <!-- Main card -->
           <div class="fade-up" style="background:white; border-radius:1.5rem; overflow:hidden; box-shadow:0 24px 64px rgba(0,0,0,0.3);">
 
-            <!-- Sage avatar + question echo -->
-            <div style="padding:1.75rem 1.75rem 0;">
+            <!-- Sage intro row -->
+            <div style="padding:1.5rem 1.75rem 1.25rem; border-bottom:1px solid #eee9e2;">
               <div style="display:flex; align-items:flex-start; gap:0.875rem;">
-                <img src="/sage-face.png" alt="Sage™" style="width:36px; height:36px; border-radius:50%; object-fit:cover; flex-shrink:0; margin-top:2px;" />
-                <div style="background:#F7F2EB; border-radius:0 1rem 1rem 1rem; padding:1rem 1.125rem; flex:1;">
-                  <p id="sage-chat-intro" style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; line-height:1.7; margin:0;">
+                <img src="/sage-face.png" alt="Sage™" style="width:34px; height:34px; border-radius:50%; object-fit:cover; flex-shrink:0; margin-top:2px;" />
+                <div>
+                  <p id="sage-chat-intro" style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; line-height:1.7; margin:0 0 0.25rem;">
                     I'm connecting you with the campus assistant now — they'll have the answer for you shortly.
                   </p>
+                  <!-- User question echo — shown only when ?q= is present -->
+                  <div id="q-echo-wrap" style="display:none; margin-top:0.75rem;">
+                    <div id="q-echo" style="display:inline-block; background:#082438; border-radius:10px 2px 10px 10px; padding:0.6rem 0.875rem; font-family:'DM Sans',sans-serif; font-size:0.875rem; color:white; line-height:1.6; max-width:90%;"></div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <!-- User question echo (shown only if ?q= present) -->
-            <div id="q-echo-wrap" style="display:none; padding:0.75rem 1.75rem 0; display:none;">
-              <div style="display:flex; justify-content:flex-end;">
-                <div id="q-echo" style="background:#082438; border-radius:14px 4px 14px 14px; padding:0.75rem 1rem; font-family:'DM Sans',sans-serif; font-size:0.875rem; color:white; line-height:1.65; max-width:85%;"></div>
-              </div>
-            </div>
-
-            <!-- Connecting indicator -->
-            <div style="padding:1.25rem 1.75rem 1.75rem;">
-              <div id="connecting-msg" style="display:flex; align-items:center; gap:0.75rem; padding:0.875rem 1rem; background:#F7F2EB; border-radius:0.875rem;">
-                <div id="spin" style="width:16px; height:16px; border:2px solid #ddd9d2; border-top-color:#7B9E8B; border-radius:50%; animation:sage-spin 0.8s linear infinite; flex-shrink:0;"></div>
-                <p id="connecting-text" style="font-family:'DM Sans',sans-serif; font-size:0.875rem; color:#5F6975; margin:0;">Opening campus assistant…</p>
-              </div>
-              <!-- Fallback CTA if widget doesn't auto-open -->
-              <button
-                id="open-chat-btn"
-                style="display:none; margin-top:0.875rem; width:100%; padding:0.875rem; background:#2E6E8E; color:white; border:none; border-radius:0.875rem; cursor:pointer; font-family:'DM Sans',sans-serif; font-size:0.9375rem; font-weight:700; transition:background 0.15s;"
-                onmouseover="this.style.background='#1A4A6B'"
-                onmouseout="this.style.background='#2E6E8E'"
-              >
-                Open Campus Chat →
-              </button>
+            <!-- ── INLINE CHAT IFRAME ── -->
+            <div style="position:relative; background:#F7F2EB;">
+              <iframe
+                id="campus-chat-frame"
+                src={GHL_CHAT_IFRAME}
+                style="display:block; width:100%; height:580px; border:none;"
+                allow="microphone; camera"
+                title="Campus Assistant Chat"
+              ></iframe>
             </div>
 
           </div>
@@ -73,20 +68,6 @@ import Footer from '../components/Footer.astro';
 
   <Footer />
 
-  <!-- ===== CAMPUS ADMIN CHAT WIDGET ===== -->
-  <!-- LC/GHL chat widget lives exclusively on this page -->
-  <script src="https://beta.leadconnectorhq.com/loader.js"
-    data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
-    data-widget-id="6a21de9de53da97e71aef3b6"
-    defer
-  ></script>
-
-  <style>
-    @keyframes sage-spin {
-      to { transform: rotate(360deg); }
-    }
-  </style>
-
   <script is:inline>
   (function() {
     /* ── Hide Sage bubble — not needed on the dedicated chat page ── */
@@ -96,104 +77,15 @@ import Footer from '../components/Footer.astro';
     /* ── Parse URL params ── */
     var params = new URLSearchParams(window.location.search);
     var q      = params.get('q')     || '';
-    var email  = params.get('email') || '';
 
-    /* ── Show user's question ── */
+    /* ── Show user's question above the iframe ── */
     if (q) {
-      var introEl = document.getElementById('sage-chat-intro');
+      var introEl  = document.getElementById('sage-chat-intro');
       var echoWrap = document.getElementById('q-echo-wrap');
       var echoEl   = document.getElementById('q-echo');
-      if (introEl) introEl.textContent = "Got it — I'm pulling the best answer from the Hub right now.";
-      if (echoEl)  echoEl.textContent = q;
-      if (echoWrap) echoWrap.style.display = 'flex';
-    }
-
-    /* ── Auto-open LC widget once it's ready ── */
-    var _attempts = 0;
-    function tryOpenWidget() {
-      _attempts++;
-
-      /* Try GHL's JS API first */
-      if (window.LeadConnector && typeof window.LeadConnector.openChat === 'function') {
-        window.LeadConnector.openChat();
-        onWidgetOpen();
-        return;
-      }
-
-      /* Fallback: find the launcher button by common GHL selectors */
-      var btn = document.querySelector(
-        '.lc-launcher, .hl-chat-widget-button, ' +
-        'button[class*="launch"], button[class*="chat-btn"], ' +
-        '[data-widget-id="6a21de9de53da97e71aef3b6"] button'
-      );
-      /* Broader fallback — scan all fixed-position buttons */
-      if (!btn) {
-        var allBtns = document.querySelectorAll('button');
-        allBtns.forEach(function(b) {
-          var s = window.getComputedStyle(b);
-          if (s.position === 'fixed' && !btn) btn = b;
-        });
-      }
-
-      if (btn) {
-        btn.click();
-        onWidgetOpen();
-        return;
-      }
-
-      /* Retry for up to 8 seconds */
-      if (_attempts < 16) {
-        setTimeout(tryOpenWidget, 500);
-      } else {
-        /* Give up gracefully — show the manual button */
-        var fallback = document.getElementById('open-chat-btn');
-        var connecting = document.getElementById('connecting-msg');
-        if (fallback)   fallback.style.display = 'block';
-        if (connecting) connecting.style.display = 'none';
-        if (fallback) {
-          fallback.addEventListener('click', function() { tryOpenWidget(); });
-        }
-      }
-    }
-
-    function onWidgetOpen() {
-      /* Update UI to "connected" */
-      var spin = document.getElementById('spin');
-      var txt  = document.getElementById('connecting-text');
-      if (spin) spin.style.display = 'none';
-      if (txt)  txt.textContent = 'Connected — chat is open below ↓';
-
-      /* Attempt to pre-fill the question */
-      if (q) {
-        setTimeout(function() {
-          document.querySelectorAll('iframe').forEach(function(f) {
-            try {
-              f.contentWindow.postMessage({ type: 'prefill-message',      value:   q }, '*');
-              f.contentWindow.postMessage({ type: 'chat-widget:prefill',  message: q }, '*');
-              f.contentWindow.postMessage({ type: 'set_customer_message', value:   q }, '*');
-            } catch(e) {}
-          });
-        }, 800);
-      }
-
-      /* If email was captured, pass it too */
-      if (email) {
-        setTimeout(function() {
-          document.querySelectorAll('iframe').forEach(function(f) {
-            try {
-              f.contentWindow.postMessage({ type: 'set_customer_email', value: email }, '*');
-              f.contentWindow.postMessage({ type: 'prefill-email',      value: email }, '*');
-            } catch(e) {}
-          });
-        }, 1000);
-      }
-    }
-
-    /* Start trying after a short delay to let the LC script initialise */
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', function() { setTimeout(tryOpenWidget, 1800); });
-    } else {
-      setTimeout(tryOpenWidget, 1800);
+      if (introEl)  introEl.textContent = "Got it — I've passed your question to the campus assistant.";
+      if (echoEl)   echoEl.textContent  = q;
+      if (echoWrap) echoWrap.style.display = 'block';
     }
   })();
   </script>
