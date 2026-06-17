@@ -21,9 +21,7 @@ const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663645323174/cAF6S
 
           <!-- Label -->
           <div class="flex items-center justify-center gap-2 mb-8 fade-up">
-            <div style="width:32px; height:32px; border-radius:50%; background:#123D5A; border:1.5px solid rgba(123,158,139,0.4); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7B9E8B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-            </div>
+            <img src="/sage-bubble.png" alt="Sage™" style="width:32px; height:32px; border-radius:50%; object-fit:cover; flex-shrink:0;" />
             <span style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; font-weight:600; color:rgba(255,255,255,0.5); letter-spacing:0.06em; text-transform:uppercase;">Sage™ · Neurosage Guide</span>
           </div>
 
@@ -33,9 +31,7 @@ const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663645323174/cAF6S
             <!-- Eva message -->
             <div style="padding:1.75rem 1.75rem 0;">
               <div style="display:flex; align-items:flex-start; gap:0.875rem;">
-                <div style="width:36px; height:36px; border-radius:50%; background:#E4EFF6; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px;">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E6E8E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-                </div>
+                <img src="/sage-face.png" alt="Sage™" style="width:36px; height:36px; border-radius:50%; object-fit:cover; flex-shrink:0; margin-top:2px;" />
                 <div style="background:#F7F2EB; border-radius:0 1rem 1rem 1rem; padding:1rem 1.125rem; flex:1;">
                   <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; line-height:1.7; margin:0;">
                     Hi — I'm Sage™. I help families figure out where to start. <strong>Where are you right now?</strong>
@@ -47,28 +43,23 @@ const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663645323174/cAF6S
             <!-- Reply options -->
             <div style="padding:1.25rem 1.75rem 1.75rem; display:flex; flex-direction:column; gap:0.625rem;">
 
-              <a href="/resources/assessments" style="display:flex; align-items:center; gap:0.75rem; padding:0.875rem 1.125rem; border-radius:0.875rem; border:1.5px solid #ddd9d2; text-decoration:none; background:white; transition:border-color 0.15s, background 0.15s;" onmouseover="this.style.borderColor='#2E6E8E'; this.style.background='#f0f6fa'" onmouseout="this.style.borderColor='#ddd9d2'; this.style.background='white'">
-                <span style="font-size:1.125rem;">🔍</span>
+              <a href="/resources/assessments" style="display:flex; align-items:center; padding:0.875rem 1.125rem; border-radius:0.875rem; border:1.5px solid #ddd9d2; text-decoration:none; background:white; transition:border-color 0.15s, background 0.15s;" onmouseover="this.style.borderColor='#2E6E8E'; this.style.background='#f0f6fa'" onmouseout="this.style.borderColor='#ddd9d2'; this.style.background='white'">
                 <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; font-weight:500;">We just got a diagnosis and don't know what to do next</span>
               </a>
 
-              <a href="/resources/meltdowns" style="display:flex; align-items:center; gap:0.75rem; padding:0.875rem 1.125rem; border-radius:0.875rem; border:1.5px solid #ddd9d2; text-decoration:none; background:white; transition:border-color 0.15s, background 0.15s;" onmouseover="this.style.borderColor='#2E6E8E'; this.style.background='#f0f6fa'" onmouseout="this.style.borderColor='#ddd9d2'; this.style.background='white'">
-                <span style="font-size:1.125rem;">🌊</span>
+              <a href="/resources/meltdowns" style="display:flex; align-items:center; padding:0.875rem 1.125rem; border-radius:0.875rem; border:1.5px solid #ddd9d2; text-decoration:none; background:white; transition:border-color 0.15s, background 0.15s;" onmouseover="this.style.borderColor='#2E6E8E'; this.style.background='#f0f6fa'" onmouseout="this.style.borderColor='#ddd9d2'; this.style.background='white'">
                 <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; font-weight:500;">We're struggling with meltdowns and need help now</span>
               </a>
 
-              <a href="/quiz" style="display:flex; align-items:center; gap:0.75rem; padding:0.875rem 1.125rem; border-radius:0.875rem; border:1.5px solid #ddd9d2; text-decoration:none; background:white; transition:border-color 0.15s, background 0.15s;" onmouseover="this.style.borderColor='#2E6E8E'; this.style.background='#f0f6fa'" onmouseout="this.style.borderColor='#ddd9d2'; this.style.background='white'">
-                <span style="font-size:1.125rem;">🧭</span>
+              <a href="/quiz" style="display:flex; align-items:center; padding:0.875rem 1.125rem; border-radius:0.875rem; border:1.5px solid #ddd9d2; text-decoration:none; background:white; transition:border-color 0.15s, background 0.15s;" onmouseover="this.style.borderColor='#2E6E8E'; this.style.background='#f0f6fa'" onmouseout="this.style.borderColor='#ddd9d2'; this.style.background='white'">
                 <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; font-weight:500;">I'm not sure where to begin — help me figure it out</span>
               </a>
 
-              <a href="/games" style="display:flex; align-items:center; gap:0.75rem; padding:0.875rem 1.125rem; border-radius:0.875rem; border:1.5px solid #ddd9d2; text-decoration:none; background:white; transition:border-color 0.15s, background 0.15s;" onmouseover="this.style.borderColor='#2E6E8E'; this.style.background='#f0f6fa'" onmouseout="this.style.borderColor='#ddd9d2'; this.style.background='white'">
-                <span style="font-size:1.125rem;">🎮</span>
+              <a href="/games" style="display:flex; align-items:center; padding:0.875rem 1.125rem; border-radius:0.875rem; border:1.5px solid #ddd9d2; text-decoration:none; background:white; transition:border-color 0.15s, background 0.15s;" onmouseover="this.style.borderColor='#2E6E8E'; this.style.background='#f0f6fa'" onmouseout="this.style.borderColor='#ddd9d2'; this.style.background='white'">
                 <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; font-weight:500;">I'm looking for activities and games we can do at home</span>
               </a>
 
-              <a href="/for-practitioners" style="display:flex; align-items:center; gap:0.75rem; padding:0.875rem 1.125rem; border-radius:0.875rem; border:1.5px solid #ddd9d2; text-decoration:none; background:white; transition:border-color 0.15s, background 0.15s;" onmouseover="this.style.borderColor='#2E6E8E'; this.style.background='#f0f6fa'" onmouseout="this.style.borderColor='#ddd9d2'; this.style.background='white'">
-                <span style="font-size:1.125rem;">🩺</span>
+              <a href="/for-practitioners" style="display:flex; align-items:center; padding:0.875rem 1.125rem; border-radius:0.875rem; border:1.5px solid #ddd9d2; text-decoration:none; background:white; transition:border-color 0.15s, background 0.15s;" onmouseover="this.style.borderColor='#2E6E8E'; this.style.background='#f0f6fa'" onmouseout="this.style.borderColor='#ddd9d2'; this.style.background='white'">
                 <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; font-weight:500;">I'm a practitioner looking to support my families</span>
               </a>
 
@@ -98,9 +89,7 @@ const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663645323174/cAF6S
                 <!-- Eva reply bubble (hidden until user sends) -->
                 <div id="eva-other-reply" style="display:none; margin-top:0.875rem; padding:0.875rem 1rem; background:#F7F2EB; border-radius:0.75rem;">
                   <div style="display:flex; align-items:flex-start; gap:0.625rem;">
-                    <div style="width:28px; height:28px; border-radius:50%; background:#E4EFF6; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px;">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2E6E8E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-                    </div>
+                    <img src="/sage-face.png" alt="Sage™" style="width:28px; height:28px; border-radius:50%; object-fit:cover; flex-shrink:0; margin-top:1px;" />
                     <p id="eva-other-reply-text" style="font-family:'DM Sans',sans-serif; font-size:0.875rem; color:#082438; line-height:1.65; margin:0;"></p>
                   </div>
                 </div>
