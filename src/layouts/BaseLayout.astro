@@ -396,5 +396,78 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     })();
     </script>
 
+    <!-- ===== LEADCONNECTOR CHAT WIDGET ===== -->
+    <script src="https://beta.leadconnectorhq.com/loader.js"
+      data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
+      data-widget-id="6a21de9de53da97e71aef3b6"
+      defer
+    ></script>
+
+    <script is:inline>
+    /* ─── LC Widget skin + global open helper ─── */
+    (function () {
+      var LC_ID   = '6a21de9de53da97e71aef3b6';
+      var _lcBtn  = null;
+
+      /* Find the default LC launch button, hide it visually but keep it
+         clickable so we can trigger it programmatically */
+      function skinLC() {
+        var container = document.querySelector('[data-widget-id="' + LC_ID + '"]');
+        if (!container) { setTimeout(skinLC, 600); return; }
+
+        /* GHL typically renders a fixed launcher button as the direct child */
+        var btn = container.querySelector(
+          'button[class*="launch"], button[class*="trigger"], ' +
+          'div[class*="launch"] button, div[class*="widget"] > button, ' +
+          '.lc-launcher, .hl-chat-widget-button'
+        );
+        /* Broader fallback — last button in the container */
+        if (!btn) {
+          var btns = container.querySelectorAll('button');
+          if (btns.length) btn = btns[btns.length - 1];
+        }
+
+        if (btn) {
+          _lcBtn = btn;
+          /* Hide visually — Sage™ bubble is the only visible trigger */
+          btn.style.cssText += '; opacity:0 !important; pointer-events:none !important; width:1px !important; height:1px !important; position:absolute !important; overflow:hidden !important;';
+        }
+      }
+
+      /* Global helper — called from any page to open LC and optionally pre-fill */
+      window.nshOpenLC = function (message) {
+        /* Re-enable pointer events briefly to trigger the click */
+        if (_lcBtn) {
+          _lcBtn.style.pointerEvents = 'auto';
+          _lcBtn.click();
+          _lcBtn.style.pointerEvents = 'none';
+        }
+
+        /* Attempt to pre-fill the message inside the LC iframe.
+           GHL/LC uses postMessage — the exact event type may vary;
+           dev team should verify against the live widget console. */
+        if (message) {
+          setTimeout(function () {
+            document.querySelectorAll('iframe').forEach(function (f) {
+              try {
+                /* Common GHL postMessage shapes */
+                f.contentWindow.postMessage({ type: 'prefill-message',       value: message },  '*');
+                f.contentWindow.postMessage({ type: 'chat-widget:prefill',   message: message }, '*');
+                f.contentWindow.postMessage({ type: 'set_customer_message',  value: message },  '*');
+              } catch (e) { /* cross-origin guard */ }
+            });
+          }, 500);
+        }
+      };
+
+      /* Run after DOM + widget script have had time to render */
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function () { setTimeout(skinLC, 1200); });
+      } else {
+        setTimeout(skinLC, 1200);
+      }
+    })();
+    </script>
+
   </body>
 </html>
