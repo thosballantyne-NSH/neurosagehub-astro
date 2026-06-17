@@ -1,0 +1,166 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Page Not Found | Neurosage Hub"
+  description="The page you were looking for doesn't exist. Let Sage™ help you find where you want to go."
+  noindex={true}
+>
+  <Header ctaText="Get FREE Access" ctaHref="/family-sign-up" />
+
+  <main>
+
+    <!-- ===== 404 SAGE DIALOG ===== -->
+    <section style="background:#082438; min-height:calc(100vh - 72px); display:flex; align-items:center; padding:4rem 0 5rem;">
+      <div class="container w-full">
+        <div class="max-w-xl mx-auto">
+
+          <!-- 404 badge -->
+          <div class="flex items-center justify-center gap-3 mb-6 fade-up">
+            <span style="font-family:'DM Sans',sans-serif; font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.25); background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); padding:0.3rem 0.875rem; border-radius:9999px;">404 · Page Not Found</span>
+          </div>
+
+          <!-- Sage label -->
+          <div class="flex items-center justify-center gap-2 mb-8 fade-up">
+            <img src="/sage-bubble.png" alt="Sage™" style="width:32px; height:32px; border-radius:50%; object-fit:cover; flex-shrink:0;" />
+            <span style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; font-weight:600; color:rgba(255,255,255,0.5); letter-spacing:0.06em; text-transform:uppercase;">Sage™ · Neurosage Guide</span>
+          </div>
+
+          <!-- Dialog card -->
+          <div class="fade-up" style="background:white; border-radius:1.5rem; overflow:hidden; box-shadow:0 24px 64px rgba(0,0,0,0.3);">
+
+            <!-- Sage message bubble -->
+            <div style="padding:1.75rem 1.75rem 0;">
+              <div style="display:flex; align-items:flex-start; gap:0.875rem;">
+                <img src="/sage-face.png" alt="Sage™" style="width:36px; height:36px; border-radius:50%; object-fit:cover; flex-shrink:0; margin-top:2px;" />
+                <div style="background:#F7F2EB; border-radius:0 1rem 1rem 1rem; padding:1rem 1.125rem; flex:1;">
+                  <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; line-height:1.7; margin:0;">
+                    Hmm.. it looks like you aren't sure where you are. <strong>Can I help you get where you want to go?</strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Reply options -->
+            <div style="padding:1.25rem 1.75rem 1.75rem; display:flex; flex-direction:column; gap:0.625rem;">
+
+              <a href="/" style="display:flex; align-items:center; padding:0.875rem 1.125rem; border-radius:0.875rem; border:1.5px solid #ddd9d2; text-decoration:none; background:white; transition:border-color 0.15s, background 0.15s;" onmouseover="this.style.borderColor='#2E6E8E'; this.style.background='#f0f6fa'" onmouseout="this.style.borderColor='#ddd9d2'; this.style.background='white'">
+                <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; font-weight:500;">Take me back to the home page</span>
+              </a>
+
+              <a href="/resources/assessments" style="display:flex; align-items:center; padding:0.875rem 1.125rem; border-radius:0.875rem; border:1.5px solid #ddd9d2; text-decoration:none; background:white; transition:border-color 0.15s, background 0.15s;" onmouseover="this.style.borderColor='#2E6E8E'; this.style.background='#f0f6fa'" onmouseout="this.style.borderColor='#ddd9d2'; this.style.background='white'">
+                <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; font-weight:500;">We just got a diagnosis and don't know what to do next</span>
+              </a>
+
+              <a href="/resources/meltdowns" style="display:flex; align-items:center; padding:0.875rem 1.125rem; border-radius:0.875rem; border:1.5px solid #ddd9d2; text-decoration:none; background:white; transition:border-color 0.15s, background 0.15s;" onmouseover="this.style.borderColor='#2E6E8E'; this.style.background='#f0f6fa'" onmouseout="this.style.borderColor='#ddd9d2'; this.style.background='white'">
+                <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; font-weight:500;">We're struggling with meltdowns and need help now</span>
+              </a>
+
+              <a href="/games/play-free" style="display:flex; align-items:center; padding:0.875rem 1.125rem; border-radius:0.875rem; border:1.5px solid #ddd9d2; text-decoration:none; background:white; transition:border-color 0.15s, background 0.15s;" onmouseover="this.style.borderColor='#2E6E8E'; this.style.background='#f0f6fa'" onmouseout="this.style.borderColor='#ddd9d2'; this.style.background='white'">
+                <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; font-weight:500;">I'm looking for free games for my child</span>
+              </a>
+
+              <a href="/for-practitioners" style="display:flex; align-items:center; padding:0.875rem 1.125rem; border-radius:0.875rem; border:1.5px solid #ddd9d2; text-decoration:none; background:white; transition:border-color 0.15s, background 0.15s;" onmouseover="this.style.borderColor='#2E6E8E'; this.style.background='#f0f6fa'" onmouseout="this.style.borderColor='#ddd9d2'; this.style.background='white'">
+                <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; font-weight:500;">I'm a practitioner looking to support my families</span>
+              </a>
+
+              <!-- Something else: open text input -->
+              <div style="margin-top:0.25rem; border-top:1px solid #f0ede8; padding-top:0.875rem;">
+                <p style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; font-weight:600; color:#9a9187; margin:0 0 0.5rem 0.25rem;">Something else?</p>
+                <div style="display:flex; gap:0.5rem;">
+                  <input
+                    id="sage-404-input"
+                    type="text"
+                    placeholder="Tell me where you want to go…"
+                    style="flex:1; font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; background:#F7F2EB; border:1.5px solid #ddd9d2; border-radius:0.875rem; padding:0.75rem 1rem; outline:none; transition:border-color 0.15s;"
+                    onfocus="this.style.borderColor='#2E6E8E'"
+                    onblur="this.style.borderColor='#ddd9d2'"
+                  />
+                  <button
+                    onclick="sage404Send()"
+                    style="width:44px; height:44px; border-radius:0.875rem; background:#2E6E8E; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:background 0.15s;"
+                    onmouseover="this.style.background='#1A4A6B'"
+                    onmouseout="this.style.background='#2E6E8E'"
+                    aria-label="Send"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                  </button>
+                </div>
+                <!-- Sage reply (hidden until sent) -->
+                <div id="sage-404-reply" style="display:none; margin-top:0.875rem; padding:0.875rem 1rem; background:#F7F2EB; border-radius:0.75rem;">
+                  <div style="display:flex; align-items:flex-start; gap:0.625rem;">
+                    <img src="/sage-face.png" alt="Sage™" style="width:28px; height:28px; border-radius:50%; object-fit:cover; flex-shrink:0; margin-top:1px;" />
+                    <p id="sage-404-reply-text" style="font-family:'DM Sans',sans-serif; font-size:0.875rem; color:#082438; line-height:1.65; margin:0;"></p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <p class="fade-up text-center mt-5" style="font-family:'DM Sans',sans-serif; font-size:0.75rem; color:rgba(255,255,255,0.2);">
+            Sage™ provides educational guidance, not medical advice.
+          </p>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+
+  <script is:inline>
+    function sage404Send() {
+      var input = document.getElementById('sage-404-input');
+      var reply = document.getElementById('sage-404-reply');
+      var replyText = document.getElementById('sage-404-reply-text');
+      var val = (input.value || '').trim();
+      if (!val) return;
+
+      input.disabled = true;
+      input.style.opacity = '0.5';
+
+      var lower = val.toLowerCase();
+      var msg = '';
+
+      if (lower.match(/home|back|main/)) {
+        msg = 'Of course — <a href="/" style="color:#2E6E8E; font-weight:600;">head to the home page here</a>.';
+      } else if (lower.match(/sleep|bedtime|night|wak/)) {
+        msg = 'Sleep is a big one for many families. Our <a href="/resources/sleep" style="color:#2E6E8E; font-weight:600;">Sleep hub</a> has guides to help.';
+      } else if (lower.match(/communicat|speech|talk|language|word/)) {
+        msg = 'Communication support is something we cover well. Head to our <a href="/resources/communication" style="color:#2E6E8E; font-weight:600;">Communication hub</a>.';
+      } else if (lower.match(/behav|stimm|self.harm|aggress|bite|hit/)) {
+        msg = 'That sounds really hard. Our <a href="/resources/behavior" style="color:#2E6E8E; font-weight:600;">Behaviour hub</a> has strategies that can help.';
+      } else if (lower.match(/diet|food|eat|gut|nutrition|feed/)) {
+        msg = 'Our <a href="/resources/nutrition" style="color:#2E6E8E; font-weight:600;">Nutrition hub</a> covers the gut-brain connection and sensory feeding challenges.';
+      } else if (lower.match(/routine|schedule|transit|morning|change/)) {
+        msg = 'Our <a href="/resources/routines" style="color:#2E6E8E; font-weight:600;">Routines hub</a> walks through building structure that actually holds.';
+      } else if (lower.match(/sensory|overwhelm|noise|light|touch|smell/)) {
+        msg = 'Sensory processing is often at the root of a lot. Start in our <a href="/resources/sensory-processing" style="color:#2E6E8E; font-weight:600;">Sensory Processing hub</a>.';
+      } else if (lower.match(/game|play|activ|fun/)) {
+        msg = 'We have therapeutic games built for autistic kids. <a href="/games/play-free" style="color:#2E6E8E; font-weight:600;">Explore the free games →</a>';
+      } else if (lower.match(/practi|therapist|clinician|provider|doctor/)) {
+        msg = '<a href="/for-practitioners" style="color:#2E6E8E; font-weight:600;">Our practitioner page</a> covers how we partner with therapists, OTs, and specialists.';
+      } else if (lower.match(/diagnos|assess|test/)) {
+        msg = 'Our <a href="/resources/assessments" style="color:#2E6E8E; font-weight:600;">Assessments hub</a> walks you through what to expect before, during, and after a diagnosis.';
+      } else if (lower.match(/meltdown|tantrum|melt/)) {
+        msg = 'Our <a href="/resources/meltdowns" style="color:#2E6E8E; font-weight:600;">Meltdowns hub</a> has practical strategies for in-the-moment and prevention.';
+      } else {
+        msg = 'Our <a href="/resources" style="color:#2E6E8E; font-weight:600;">Resource Centre</a> is the best place to start — browse by topic and find what\'s most relevant to where you are right now.';
+      }
+
+      replyText.innerHTML = msg;
+      reply.style.display = 'block';
+    }
+
+    document.getElementById('sage-404-input').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') sage404Send();
+    });
+  </script>
+
+</BaseLayout>
