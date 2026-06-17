@@ -110,6 +110,73 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       </div>
     </div>
 
+    <!-- ===== GET NOTIFIED MODAL ===== -->
+    <div
+      id="nsh-notify-modal"
+      style="display:none; position:fixed; inset:0; z-index:99998; background:rgba(8,36,56,0.82); backdrop-filter:blur(5px); align-items:center; justify-content:center; padding:1rem;"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Get notified of new guides"
+    >
+      <div style="background:white; border-radius:1.5rem; max-width:420px; width:100%; padding:2.25rem 2rem 1.75rem; position:relative; box-shadow:0 32px 80px rgba(0,0,0,0.35); animation:nsh-popup-in 0.25s ease;">
+
+        <button
+          id="nsh-notify-close"
+          aria-label="Close"
+          style="position:absolute; top:1rem; right:1rem; width:32px; height:32px; border-radius:50%; border:none; background:#F7F2EB; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:1.125rem; color:#5F6975; line-height:1;"
+        >✕</button>
+
+        <!-- Bell icon -->
+        <div style="width:44px; height:44px; border-radius:12px; background:#E4EFF6; display:flex; align-items:center; justify-content:center; margin-bottom:1.25rem;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A4A6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        </div>
+
+        <h2 id="nsh-notify-title" style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:1.375rem; color:#082438; line-height:1.3; margin-bottom:0.5rem;">
+          Get notified of new guides
+        </h2>
+        <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#5F6975; line-height:1.65; margin-bottom:1.5rem;">
+          We'll send you an email when we publish new content in this hub. No spam — ever.
+        </p>
+
+        <!-- Form -->
+        <form id="nsh-notify-form" novalidate>
+          <div style="margin-bottom:0.75rem;">
+            <input
+              type="email"
+              id="nsh-notify-email"
+              placeholder="Your email address"
+              required
+              autocomplete="email"
+              style="width:100%; padding:0.875rem 1rem; border:1.5px solid #ddd9d2; border-radius:0.625rem; font-family:'DM Sans',sans-serif; font-size:1rem; color:#082438; outline:none; box-sizing:border-box; transition:border-color 150ms;"
+              onfocus="this.style.borderColor='#2E6E8E'"
+              onblur="this.style.borderColor='#ddd9d2'"
+            />
+          </div>
+          <button
+            type="submit"
+            id="nsh-notify-submit"
+            style="width:100%; background:#D8896A; color:white; font-family:'DM Sans',sans-serif; font-weight:700; font-size:1rem; padding:0.875rem; border-radius:0.625rem; border:none; cursor:pointer; transition:background 160ms;"
+            onmouseover="this.style.background='#b8694a'"
+            onmouseout="this.style.background='#D8896A'"
+          >
+            Notify Me →
+          </button>
+        </form>
+
+        <!-- Success state (hidden until submit) -->
+        <div id="nsh-notify-success" style="display:none; text-align:center; padding:0.5rem 0;">
+          <div style="font-size:2rem; margin-bottom:0.75rem;">✅</div>
+          <p style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:1rem; color:#082438; margin:0 0 0.375rem;">You're on the list!</p>
+          <p id="nsh-notify-success-text" style="font-family:'DM Sans',sans-serif; font-size:0.875rem; color:#5F6975; line-height:1.65; margin:0;"></p>
+        </div>
+
+        <p style="font-family:'DM Sans',sans-serif; font-size:0.8rem; color:#5F6975; text-align:center; margin-top:1rem; margin-bottom:0;">
+          No spam · Unsubscribe anytime
+        </p>
+
+      </div>
+    </div>
+
     <!-- ===== SAGE™ FLOATING WIDGET ===== -->
     <div id="sage-widget" style="position:fixed; bottom:1.5rem; right:1.5rem; z-index:9998; font-family:'DM Sans',sans-serif;">
 
@@ -135,8 +202,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         role="dialog"
         aria-label="Chat with Sage™"
       >
-
-        <!-- Panel header -->
+        <!-- Header -->
         <div style="background:#082438; padding:1rem 1.125rem; display:flex; align-items:center; gap:0.75rem;">
           <img src="/sage-face.png" alt="" style="width:42px; height:42px; border-radius:50%; flex-shrink:0; object-fit:cover;" />
           <div style="flex:1;">
@@ -151,13 +217,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             onmouseout="this.style.color='rgba(255,255,255,0.45)'"
           >✕</button>
         </div>
-
-        <!-- Messages area -->
-        <div id="sage-msgs" style="padding:1rem; min-height:100px; max-height:260px; overflow-y:auto; display:flex; flex-direction:column; gap:0.625rem;"></div>
-
-        <!-- Input area (swapped by JS) -->
+        <!-- Messages -->
+        <div id="sage-msgs" style="padding:1rem; min-height:80px; max-height:260px; overflow-y:auto; display:flex; flex-direction:column; gap:0.625rem;"></div>
+        <!-- Input area -->
         <div id="sage-input-area" style="padding:0.75rem 1rem 1rem; border-top:1px solid #f0ede8;"></div>
-
       </div>
     </div>
 
@@ -191,7 +254,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         document.cookie = n + '=' + v + '; expires=' + e + '; path=/; SameSite=Lax';
       }
 
-      /* ─── Sage™ widget ─── */
+      /* ─── Sage™ panel — question → offer → email / bypass → /chat ─── */
       var trigger   = document.getElementById('sage-trigger');
       var panel     = document.getElementById('sage-panel');
       var closeBtn  = document.getElementById('sage-panel-close');
@@ -199,110 +262,91 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       var inputArea = document.getElementById('sage-input-area');
       var badge     = document.getElementById('sage-badge');
       var isOpen    = false;
-      var userRole  = '';
+      var userQ     = '';
 
-      /* Role config — mirror copy + destination per role */
-      var ROLES = {
-        parent: {
-          label:    'Parent / Caregiver',
-          mirror:   'I understand — you\'re here because you want the best for your child and your family. I\'m really glad you came.',
-          emailAsk: 'To point you in the right direction, what\'s your email?',
-          doneMsg:  'Your guide is on its way. We\'re so glad you\'re here — let\'s build hope together.',
-          doneUrl:  '/resources',
-          doneLabel:'Show me where to start →'
-        },
-        games: {
-          label:    'Free Video Games',
-          mirror:   'I understand — you want therapeutic games your child can start playing right away. Great choice.',
-          emailAsk: 'What\'s your email so I can send you access and get everything set up?',
-          doneMsg:  'Perfect — check your inbox! You can also start exploring the games right now.',
-          doneUrl:  '/games/play-free',
-          doneLabel:'See the Free Games →'
-        },
-        practitioner: {
-          label:    "I'm a Practitioner",
-          mirror:   'I understand — you\'re looking to better support the families in your care. That\'s exactly what we\'re here for.',
-          emailAsk: 'What\'s your email? We\'d love to connect and show you how we work with practitioners.',
-          doneMsg:  'Wonderful — we\'ll be in touch soon. We\'re excited to have you on board.',
-          doneUrl:  '/for-practitioners',
-          doneLabel:'See the Practitioner Hub →'
-        }
-      };
+      var CHAT_URL  = '/chat';
 
-      /* ─── Render a message bubble ─── */
+      /* Add a chat bubble */
       function addMsg(html, from) {
         var wrap = document.createElement('div');
-        wrap.style.cssText = 'display:flex; align-items:flex-end; gap:0.5rem;' + (from === 'user' ? 'flex-direction:row-reverse;' : '');
+        wrap.style.cssText = 'display:flex; align-items:flex-start; gap:0.5rem;' + (from === 'user' ? 'flex-direction:row-reverse;' : '');
         var bub = document.createElement('div');
         bub.innerHTML = html;
         bub.style.cssText = from === 'sage'
-          ? 'background:#F7F2EB; border-radius:4px 14px 14px 14px; padding:0.75rem 0.875rem; font-size:0.875rem; color:#082438; line-height:1.65; max-width:225px;'
-          : 'background:#082438; border-radius:14px 4px 14px 14px; padding:0.75rem 0.875rem; font-size:0.875rem; color:white; line-height:1.65; max-width:200px; margin-left:auto;';
+          ? 'background:#F7F2EB; border-radius:4px 14px 14px 14px; padding:0.75rem 0.875rem; font-size:0.875rem; color:#082438; line-height:1.65; max-width:230px;'
+          : 'background:#082438; border-radius:14px 4px 14px 14px; padding:0.75rem 0.875rem; font-size:0.875rem; color:white; line-height:1.65; max-width:210px; margin-left:auto;';
         if (from === 'sage') {
           var av = document.createElement('img');
           av.src = '/sage-face.png';
-          av.style.cssText = 'width:34px; height:34px; border-radius:50%; flex-shrink:0; margin-bottom:2px; object-fit:cover;';
+          av.style.cssText = 'width:32px; height:32px; border-radius:50%; flex-shrink:0; object-fit:cover; margin-top:2px;';
           wrap.appendChild(av);
-          var col = document.createElement('div');
-          col.style.cssText = 'display:flex; flex-direction:column; align-items:flex-start; gap:0.2rem;';
-          col.appendChild(bub);
-          var lbl = document.createElement('p');
-          lbl.textContent = 'Sage™';
-          lbl.style.cssText = 'margin:0; font-size:0.6875rem; font-weight:600; color:#7B9E8B; padding-left:0.25rem;';
-          col.appendChild(lbl);
-          wrap.appendChild(col);
-        } else {
-          wrap.appendChild(bub);
         }
+        wrap.appendChild(bub);
         msgs.appendChild(wrap);
         msgs.scrollTop = msgs.scrollHeight;
       }
 
-      /* ─── Role button helper ─── */
-      function roleBtn(label, key) {
-        return '<button data-sage-role="' + key + '" style="display:flex; align-items:center; width:100%; padding:0.7rem 0.875rem; margin-bottom:0.375rem; border-radius:0.75rem; border:1.5px solid #ddd9d2; background:white; font-family:\'DM Sans\',sans-serif; font-size:0.875rem; color:#082438; font-weight:500; cursor:pointer; text-align:left; transition:border-color 0.15s, background 0.15s;" onmouseover="this.style.borderColor=\'#2E6E8E\'; this.style.background=\'#f0f6fa\'" onmouseout="this.style.borderColor=\'#ddd9d2\'; this.style.background=\'white\'">'
-          + label + '</button>';
-      }
-
-      /* ─── STEP 1: Welcome — role selection ─── */
-      function renderWelcome() {
-        addMsg('Hi — I\'m Sage™. I help families navigating autism find their next step. <strong>Who are you?</strong>', 'sage');
-        inputArea.innerHTML = [
-          roleBtn('Parent / Caregiver', 'parent'),
-          roleBtn('Free Video Games', 'games'),
-          roleBtn("I'm a Practitioner", 'practitioner'),
-        ].join('');
-
-        inputArea.querySelectorAll('[data-sage-role]').forEach(function(el) {
-          el.addEventListener('click', function() {
-            userRole = el.getAttribute('data-sage-role');
-            addMsg(el.textContent.trim(), 'user');
-            inputArea.innerHTML = '';
-            setTimeout(renderMirror, 400);
-          });
+      /* STEP 1 — Ask the question */
+      function renderAsk() {
+        addMsg("Hi — what's your question? I'm happy to help.", 'sage');
+        inputArea.innerHTML =
+          '<textarea id="sage-q-in" rows="2" placeholder="Type your question…" style="width:100%; padding:0.625rem 0.875rem; border:1.5px solid #ddd9d2; border-radius:0.75rem; font-family:\'DM Sans\',sans-serif; font-size:0.875rem; color:#082438; outline:none; resize:none; box-sizing:border-box; transition:border-color 0.15s;" onfocus="this.style.borderColor=\'#2E6E8E\'" onblur="this.style.borderColor=\'#ddd9d2\'"></textarea>'
+          + '<button id="sage-q-send" style="margin-top:0.5rem; width:100%; padding:0.625rem; background:#D8896A; color:white; border:none; border-radius:0.75rem; cursor:pointer; font-family:\'DM Sans\',sans-serif; font-size:0.875rem; font-weight:700; transition:background 0.15s;" onmouseover="this.style.background=\'#b8694a\'" onmouseout="this.style.background=\'#D8896A\'">Ask →</button>';
+        var qIn = document.getElementById('sage-q-in');
+        var qSend = document.getElementById('sage-q-send');
+        function submitQ() {
+          var val = qIn ? qIn.value.trim() : '';
+          if (!val) return;
+          userQ = val;
+          addMsg(val, 'user');
+          inputArea.innerHTML = '';
+          setTimeout(renderOffer, 400);
+        }
+        if (qSend) qSend.addEventListener('click', submitQ);
+        if (qIn) qIn.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); submitQ(); }
         });
       }
 
-      /* ─── STEP 2: Mirror their choice + ask for email ─── */
-      function renderMirror() {
-        var role = ROLES[userRole];
-        if (!role) return;
-        addMsg(role.mirror + '<br><br>' + role.emailAsk, 'sage');
-        inputArea.innerHTML = '<div style="display:flex; gap:0.5rem;">'
-          + '<input id="sage-email-in" type="email" placeholder="Your email address" autocomplete="email" style="flex:1; padding:0.625rem 0.875rem; border:1.5px solid #ddd9d2; border-radius:0.75rem; font-family:\'DM Sans\',sans-serif; font-size:0.875rem; color:#082438; outline:none; transition:border-color 0.15s;" onfocus="this.style.borderColor=\'#2E6E8E\'" onblur="this.style.borderColor=\'#ddd9d2\'" />'
+      /* STEP 2 — Informed-answer offer */
+      function renderOffer() {
+        addMsg('To get the best answer, I can access the Hub database — curated autism content from trusted, verified sources. Would you like an informed answer?', 'sage');
+        function makeBtn(id, text) {
+          return '<button id="' + id + '" style="display:block; width:100%; padding:0.7rem 0.875rem; margin-bottom:0.375rem; border-radius:0.75rem; border:1.5px solid #ddd9d2; background:white; font-family:\'DM Sans\',sans-serif; font-size:0.8125rem; color:#082438; font-weight:500; cursor:pointer; text-align:left; transition:border-color 0.15s, background 0.15s;" onmouseover="this.style.borderColor=\'#2E6E8E\'; this.style.background=\'#f0f6fa\'" onmouseout="this.style.borderColor=\'#ddd9d2\'; this.style.background=\'white\'">' + text + '</button>';
+        }
+        inputArea.innerHTML =
+          makeBtn('sage-yes', 'Yes — please provide an email to access the Hub')
+          + makeBtn('sage-no',  'No — click here to get the answer and chat more');
+        document.getElementById('sage-yes').addEventListener('click', renderEmail);
+        document.getElementById('sage-no').addEventListener('click', function() {
+          addMsg('No problem — connecting you now.', 'user');
+          inputArea.innerHTML = '';
+          setTimeout(function() {
+            window.location.href = CHAT_URL + '?q=' + encodeURIComponent(userQ);
+          }, 600);
+        });
+      }
+
+      /* STEP 3 — Email capture (Yes path) */
+      function renderEmail() {
+        addMsg('Please share your email address to access the Hub.', 'sage');
+        inputArea.innerHTML =
+          '<div style="display:flex; gap:0.5rem;">'
+          + '<input id="sage-email-in" type="email" placeholder="Your email" autocomplete="email" style="flex:1; padding:0.625rem 0.875rem; border:1.5px solid #ddd9d2; border-radius:0.75rem; font-family:\'DM Sans\',sans-serif; font-size:0.875rem; color:#082438; outline:none; transition:border-color 0.15s;" onfocus="this.style.borderColor=\'#2E6E8E\'" onblur="this.style.borderColor=\'#ddd9d2\'" />'
           + '<button id="sage-email-send" style="padding:0 0.875rem; background:#D8896A; color:white; border:none; border-radius:0.75rem; cursor:pointer; font-size:0.875rem; font-weight:700; font-family:\'DM Sans\',sans-serif; white-space:nowrap; transition:background 0.15s;" onmouseover="this.style.background=\'#b8694a\'" onmouseout="this.style.background=\'#D8896A\'">Send →</button>'
           + '</div>'
           + '<p style="font-size:0.7rem; color:#9a9187; margin:0.375rem 0 0 0.25rem;">No spam · Unsubscribe anytime</p>';
-
         function submitEmail() {
           var emailEl = document.getElementById('sage-email-in');
-          var email = emailEl ? emailEl.value.trim() : '';
+          var email   = emailEl ? emailEl.value.trim() : '';
           if (!email || !email.includes('@')) { if (emailEl) emailEl.style.borderColor = '#c0392b'; return; }
+          setCookie('nsh_visitor',   '1', 365);
+          setCookie('nsh_exit_seen', '1', 30);
           addMsg(email, 'user');
           inputArea.innerHTML = '';
-          setCookie('nsh_visitor', '1', 365);
-          setCookie('nsh_exit_seen', '1', 30);
-          setTimeout(function() { renderDone(email); }, 400);
+          setTimeout(function() {
+            window.location.href = CHAT_URL + '?email=' + encodeURIComponent(email) + '&q=' + encodeURIComponent(userQ);
+          }, 500);
         }
         var sendBtn = document.getElementById('sage-email-send');
         var emailIn = document.getElementById('sage-email-in');
@@ -310,26 +354,22 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         if (emailIn) emailIn.addEventListener('keydown', function(e) { if (e.key === 'Enter') submitEmail(); });
       }
 
-      /* ─── STEP 3: Done ─── */
-      function renderDone(email) {
-        var role = ROLES[userRole];
-        if (!role) return;
-        addMsg(role.doneMsg, 'sage');
-        inputArea.innerHTML = '<a href="' + role.doneUrl + (email ? '?email=' + encodeURIComponent(email) : '') + '" style="display:flex; align-items:center; justify-content:center; gap:0.5rem; width:100%; padding:0.75rem; background:#082438; color:white; border-radius:0.875rem; text-decoration:none; font-family:\'DM Sans\',sans-serif; font-size:0.875rem; font-weight:700; box-sizing:border-box; transition:background 0.15s;" onmouseover="this.style.background=\'#1A4A6B\'" onmouseout="this.style.background=\'#082438\'">' + role.doneLabel + '</a>';
-      }
-
       function openPanel() {
         if (isOpen) return;
         isOpen = true;
         panel.style.display = 'block';
         if (badge) badge.style.display = 'none';
-        if (msgs.children.length === 0) renderWelcome();
+        if (msgs.children.length === 0) renderAsk();
       }
-
       function closePanel() {
         isOpen = false;
         panel.style.display = 'none';
       }
+
+      /* Global helper — start-here options & 404 "Something else?" both route here */
+      window.nshOpenLC = function(message) {
+        window.location.href = CHAT_URL + (message ? '?q=' + encodeURIComponent(message) : '');
+      };
 
       if (trigger)  trigger.addEventListener('click', function() { isOpen ? closePanel() : openPanel(); });
       if (closeBtn) closeBtn.addEventListener('click', closePanel);
@@ -377,6 +417,67 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         });
       }
 
+      /* ─── Get Notified Modal ─── */
+      var notifyModal        = document.getElementById('nsh-notify-modal');
+      var notifyClose        = document.getElementById('nsh-notify-close');
+      var notifyForm         = document.getElementById('nsh-notify-form');
+      var notifyEmailIn      = document.getElementById('nsh-notify-email');
+      var notifyTitle        = document.getElementById('nsh-notify-title');
+      var notifySuccess      = document.getElementById('nsh-notify-success');
+      var notifySuccessText  = document.getElementById('nsh-notify-success-text');
+      var _notifyTopic       = '';
+
+      window.nshOpenNotify = function(topic) {
+        _notifyTopic = topic || '';
+        if (notifyTitle) {
+          notifyTitle.textContent = _notifyTopic
+            ? 'Get notified of new ' + _notifyTopic + ' guides'
+            : 'Get notified of new guides';
+        }
+        /* Reset to form state */
+        if (notifyForm)    { notifyForm.style.display    = 'block'; notifyForm.reset(); }
+        if (notifySuccess) { notifySuccess.style.display = 'none'; }
+        if (notifyEmailIn) { notifyEmailIn.style.borderColor = '#ddd9d2'; }
+        if (notifyModal)   {
+          notifyModal.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+          setTimeout(function() { if (notifyEmailIn) notifyEmailIn.focus(); }, 50);
+        }
+      };
+
+      function closeNotifyModal() {
+        if (notifyModal) notifyModal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+
+      if (notifyClose)  notifyClose.addEventListener('click', closeNotifyModal);
+      if (notifyModal)  notifyModal.addEventListener('click', function(e) { if (e.target === notifyModal) closeNotifyModal(); });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && notifyModal && notifyModal.style.display === 'flex') closeNotifyModal();
+      });
+
+      if (notifyForm) {
+        notifyForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var email = notifyEmailIn ? notifyEmailIn.value.trim() : '';
+          if (!email || !email.includes('@')) {
+            if (notifyEmailIn) notifyEmailIn.style.borderColor = '#c0392b';
+            return;
+          }
+          setCookie('nsh_visitor', '1', 365);
+          /* Show inline success — backend team wires up email storage to CRM */
+          if (notifyForm)    notifyForm.style.display    = 'none';
+          if (notifySuccess) notifySuccess.style.display = 'block';
+          if (notifySuccessText) {
+            notifySuccessText.textContent = _notifyTopic
+              ? "We'll let you know when new " + _notifyTopic + " guides are published."
+              : "We'll send you new guides as they're published.";
+          }
+          /* Auto-close after 3 s */
+          setTimeout(closeNotifyModal, 3000);
+        });
+      }
+
       /* ─── Fade-up observer (global — ensures all .fade-up elements animate in) ─── */
       var _fadeEls = document.querySelectorAll('.fade-up');
       if ('IntersectionObserver' in window) {
@@ -396,78 +497,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     })();
     </script>
 
-    <!-- ===== LEADCONNECTOR CHAT WIDGET ===== -->
-    <script src="https://beta.leadconnectorhq.com/loader.js"
-      data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
-      data-widget-id="6a21de9de53da97e71aef3b6"
-      defer
-    ></script>
-
-    <script is:inline>
-    /* ─── LC Widget skin + global open helper ─── */
-    (function () {
-      var LC_ID   = '6a21de9de53da97e71aef3b6';
-      var _lcBtn  = null;
-
-      /* Find the default LC launch button, hide it visually but keep it
-         clickable so we can trigger it programmatically */
-      function skinLC() {
-        var container = document.querySelector('[data-widget-id="' + LC_ID + '"]');
-        if (!container) { setTimeout(skinLC, 600); return; }
-
-        /* GHL typically renders a fixed launcher button as the direct child */
-        var btn = container.querySelector(
-          'button[class*="launch"], button[class*="trigger"], ' +
-          'div[class*="launch"] button, div[class*="widget"] > button, ' +
-          '.lc-launcher, .hl-chat-widget-button'
-        );
-        /* Broader fallback — last button in the container */
-        if (!btn) {
-          var btns = container.querySelectorAll('button');
-          if (btns.length) btn = btns[btns.length - 1];
-        }
-
-        if (btn) {
-          _lcBtn = btn;
-          /* Hide visually — Sage™ bubble is the only visible trigger */
-          btn.style.cssText += '; opacity:0 !important; pointer-events:none !important; width:1px !important; height:1px !important; position:absolute !important; overflow:hidden !important;';
-        }
-      }
-
-      /* Global helper — called from any page to open LC and optionally pre-fill */
-      window.nshOpenLC = function (message) {
-        /* Re-enable pointer events briefly to trigger the click */
-        if (_lcBtn) {
-          _lcBtn.style.pointerEvents = 'auto';
-          _lcBtn.click();
-          _lcBtn.style.pointerEvents = 'none';
-        }
-
-        /* Attempt to pre-fill the message inside the LC iframe.
-           GHL/LC uses postMessage — the exact event type may vary;
-           dev team should verify against the live widget console. */
-        if (message) {
-          setTimeout(function () {
-            document.querySelectorAll('iframe').forEach(function (f) {
-              try {
-                /* Common GHL postMessage shapes */
-                f.contentWindow.postMessage({ type: 'prefill-message',       value: message },  '*');
-                f.contentWindow.postMessage({ type: 'chat-widget:prefill',   message: message }, '*');
-                f.contentWindow.postMessage({ type: 'set_customer_message',  value: message },  '*');
-              } catch (e) { /* cross-origin guard */ }
-            });
-          }, 500);
-        }
-      };
-
-      /* Run after DOM + widget script have had time to render */
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function () { setTimeout(skinLC, 1200); });
-      } else {
-        setTimeout(skinLC, 1200);
-      }
-    })();
-    </script>
+    <!-- LC chat loads inside the Sage™ lightbox iframe — no external script needed -->
 
   </body>
 </html>
