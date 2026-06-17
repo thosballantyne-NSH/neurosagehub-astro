@@ -310,13 +310,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
       /* STEP 2 — Informed-answer offer */
       function renderOffer() {
-        addMsg('To get the best answer, I can access the Hub database — curated autism content from trusted, verified sources. Would you like an informed answer?', 'sage');
+        addMsg('I can pull answers from the Hub — curated autism content from trusted, verified sources. How would you like me to help?', 'sage');
         function makeBtn(id, text) {
           return '<button id="' + id + '" style="display:block; width:100%; padding:0.7rem 0.875rem; margin-bottom:0.375rem; border-radius:0.75rem; border:1.5px solid #ddd9d2; background:white; font-family:\'DM Sans\',sans-serif; font-size:0.8125rem; color:#082438; font-weight:500; cursor:pointer; text-align:left; transition:border-color 0.15s, background 0.15s;" onmouseover="this.style.borderColor=\'#2E6E8E\'; this.style.background=\'#f0f6fa\'" onmouseout="this.style.borderColor=\'#ddd9d2\'; this.style.background=\'white\'">' + text + '</button>';
         }
         inputArea.innerHTML =
-          makeBtn('sage-yes', 'Yes — please provide an email to access the Hub')
-          + makeBtn('sage-no',  'No — click here to get the answer and chat more');
+          makeBtn('sage-yes', 'Yes, give me Hub resourced answers')
+          + makeBtn('sage-no',  'No, just fast chat answers');
         document.getElementById('sage-yes').addEventListener('click', renderEmail);
         document.getElementById('sage-no').addEventListener('click', function() {
           addMsg('No problem — connecting you now.', 'user');

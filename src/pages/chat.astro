@@ -89,6 +89,10 @@ import Footer from '../components/Footer.astro';
 
   <script is:inline>
   (function() {
+    /* ── Hide Sage bubble — not needed on the dedicated chat page ── */
+    var sageWidget = document.getElementById('sage-widget');
+    if (sageWidget) sageWidget.style.display = 'none';
+
     /* ── Parse URL params ── */
     var params = new URLSearchParams(window.location.search);
     var q      = params.get('q')     || '';
