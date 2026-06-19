@@ -44,6 +44,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={new URL(image, Astro.site)} />
 
+    <!-- ===== Google Analytics 4 + Google Ads ===== -->
+    <!-- GA4 Measurement ID: G-ZV4TDQH8X5 | Google Ads ID: AW-18151207119 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZV4TDQH8X5" is:inline></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZV4TDQH8X5');
+      gtag('config', 'AW-18151207119');
+    </script>
+
     <!-- Fonts: DM Serif Display + DM Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
