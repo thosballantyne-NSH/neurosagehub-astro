@@ -10,7 +10,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <!-- Minimal header — logo only, no nav -->
   <header style="background:#E4EFF6; padding:1.25rem 0; border-bottom:1px solid rgba(8,36,56,0.08);">
     <div class="container">
-      <a href="/" style="display:inline-flex; align-items:center; gap:0.625rem; text-decoration:none;">
+      <a href="/for-practitioners" style="display:inline-flex; align-items:center; gap:0.625rem; text-decoration:none;">
         <img src="/logo.png" alt="Neurosage Hub" style="height:44px; width:auto;"
           onerror="this.style.display='none'; document.getElementById('logo-txt').style.display='block'" />
         <span id="logo-txt" style="display:none; font-family:'DM Sans',sans-serif; font-size:1.125rem; font-weight:800; color:#082438;">Neurosage Hub</span>
@@ -80,7 +80,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div style="background:white; border-radius:1rem; padding:2rem; box-shadow:0 4px 40px rgba(8,36,56,0.1); border:1px solid rgba(8,36,56,0.06);">
             <iframe
               src="https://links.campusadmin.ai/widget/form/fhTwh2inwJDj5MBjj4yg"
-              style="display:block; width:100%; min-height:680px; border:none;"
+              style="display:block; width:100%; min-height:1020px; border:none;"
               title="Practitioner Early Access Sign Up"
               allow="fullscreen"
               loading="lazy"
@@ -91,6 +91,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </div>
   </main>
+
+  <!-- Minimal footer -->
+  <footer style="background:#082438; padding:1.25rem 0;">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+      <p style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; color:rgba(255,255,255,0.4); margin:0;">
+        © {new Date().getFullYear()} Neurosage Hub. All rights reserved.
+      </p>
+      <div style="display:flex; gap:1.5rem;">
+        <a href="/privacy-policy" style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; color:rgba(255,255,255,0.4); text-decoration:none;">Privacy Policy</a>
+        <a href="/terms-of-service" style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; color:rgba(255,255,255,0.4); text-decoration:none;">Terms of Service</a>
+        <a href="https://app.neurosagehub.com/login" style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; color:rgba(255,255,255,0.4); text-decoration:none;">Login</a>
+      </div>
+    </div>
+  </footer>
 
 </BaseLayout>
 
