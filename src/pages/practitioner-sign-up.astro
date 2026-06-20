@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Practitioner Early Access | Neurosage Hub"
+  description="Join Neurosage Hub's Early Access Program. A platform designed for practitioners to bridge the gap between home and clinic — AI guidance, progress tracking, and evidence-based tools for autism care."
+>
+  <Header />
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="py-20" style="background:#082438;">
+      <div class="container">
+        <div class="max-w-2xl mx-auto text-center">
+          <p class="nsh-eyebrow mb-4 fade-up" style="color:#D8896A;">Early Access Program</p>
+          <h1 class="fade-up mb-5" style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(2rem,5vw,3rem); color:white; line-height:1.1;">
+            Empower Autism Care<br>with Neurosage Hub
+          </h1>
+          <p class="fade-up" style="font-family:'DM Sans',sans-serif; font-size:1.125rem; color:rgba(255,255,255,0.65); line-height:1.7; max-width:34rem; margin:0 auto;">
+            Cutting-edge neuroscience and practical tools in one platform — bridging the gap between home and clinic for the families you serve.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <section class="py-16" style="background:#F7F2EB;">
+      <div class="container">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; max-width:72rem; margin:0 auto; align-items:start;">
+
+          <!-- Left: Value props -->
+          <div class="fade-up">
+            <p class="nsh-eyebrow mb-4" style="color:#7B9E8B;">What you get</p>
+            <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.5rem,3vw,2rem); color:#082438; line-height:1.2; margin-bottom:1.5rem;">
+              Built for practitioners who want more for their families.
+            </h2>
+            <div style="display:flex; flex-direction:column; gap:1.125rem; margin-bottom:2.5rem;">
+              {[
+                { icon: '🧠', title: 'AI Mentor', desc: 'Real-time guidance on next steps — for both you and the families you support.' },
+                { icon: '🏠', title: 'Home Plans', desc: 'Practical sensory, movement, and nutrition plans families can actually follow.' },
+                { icon: '📚', title: 'Hub Academy', desc: 'Training modules that extend your clinical reach between appointments.' },
+                { icon: '📊', title: 'Progress Tracking', desc: 'Track outcomes and share reports with the full care team.' },
+                { icon: '✅', title: 'Evidence-Based', desc: 'Strategies grounded in neuroscience and designed for sustained growth.' },
+              ].map(item => (
+                <div style="display:flex; align-items:flex-start; gap:1rem;">
+                  <div style="width:44px; height:44px; border-radius:12px; background:white; border:1px solid #ddd9d2; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:1.25rem;">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <p style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.9375rem; color:#082438; margin:0 0 0.125rem;">{item.title}</p>
+                    <p style="font-family:'DM Sans',sans-serif; font-size:0.875rem; color:#5F6975; line-height:1.6; margin:0;">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <!-- Social proof nudge -->
+            <div style="background:white; border-radius:1rem; padding:1.25rem 1.5rem; border:1px solid #ddd9d2;">
+              <p style="font-family:'DM Serif Display',serif; font-size:1rem; color:#082438; font-style:italic; line-height:1.6; margin:0 0 0.75rem;">
+                "Finally a platform that keeps families engaged between sessions — and gives me visibility into what's actually happening at home."
+              </p>
+              <p style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; font-weight:700; color:#7B9E8B; margin:0;">
+                — Occupational Therapist, Early Access Member
+              </p>
+            </div>
+          </div>
+
+          <!-- Right: GHL Form -->
+          <div class="fade-up" style="transition-delay:100ms;">
+            <div style="background:white; border-radius:1.5rem; padding:2rem; border:1px solid #ddd9d2; box-shadow:0 4px 32px rgba(8,36,56,0.08);">
+              <p class="nsh-eyebrow mb-2" style="color:#D8896A;">Join the program</p>
+              <h3 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:1.375rem; color:#082438; margin-bottom:0.5rem; line-height:1.25;">
+                Apply for Early Access
+              </h3>
+              <p style="font-family:'DM Sans',sans-serif; font-size:0.875rem; color:#5F6975; margin-bottom:1.5rem; line-height:1.6;">
+                We're onboarding practitioners in cohorts. Fill in your details and we'll be in touch.
+              </p>
+              <!-- GHL Form Embed -->
+              <iframe
+                src="https://links.campusadmin.ai/widget/form/fhTwh2inwJDj5MBjj4yg"
+                style="display:block; width:100%; min-height:520px; border:none; border-radius:0.5rem;"
+                title="Practitioner Sign Up Form"
+                allow="fullscreen"
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BOTTOM CTA ===== -->
+    <section class="py-16" style="background:#082438;">
+      <div class="container">
+        <div class="max-w-xl mx-auto text-center">
+          <p class="nsh-eyebrow mb-3" style="color:#D8896A;">Already a member?</p>
+          <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.5rem,3.5vw,2.125rem); color:white; margin-bottom:0.875rem; line-height:1.25;">
+            Access your practitioner dashboard
+          </h2>
+          <p style="font-family:'DM Sans',sans-serif; font-size:1rem; color:rgba(255,255,255,0.65); max-width:26rem; margin:0 auto 2rem; line-height:1.7;">
+            View your assigned families, track progress, and access your training modules.
+          </p>
+          <a href="https://app.neurosagehub.com/login" style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; font-weight:700; background:#D8896A; color:white; padding:0.875rem 2rem; border-radius:9999px; text-decoration:none; display:inline-block;">
+            Log In to the Hub
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  @media (max-width: 768px) {
+    section div[style*="grid-template-columns:1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+      gap: 2rem !important;
+    }
+  }
+</style>
