@@ -21,8 +21,8 @@ const GHL_CHAT_IFRAME = 'https://widgets.leadconnectorhq.com/chat-widget/index.h
 
           <!-- Sage label row -->
           <div class="flex items-center justify-center gap-3 mb-6 fade-up">
-            <img src="/sage-bubble.png" alt="Sage™" style="width:32px; height:32px; object-fit:contain; flex-shrink:0;" />
-            <span style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; font-weight:600; color:rgba(255,255,255,0.5); letter-spacing:0.06em; text-transform:uppercase;">Sage™ · Campus Assistant</span>
+            <img src="/eva-bubble.png" alt="Eva™" style="width:32px; height:32px; object-fit:contain; flex-shrink:0;" />
+            <span style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; font-weight:600; color:rgba(255,255,255,0.5); letter-spacing:0.06em; text-transform:uppercase;">Eva™ · Campus Assistant</span>
           </div>
 
           <!-- Main card -->
@@ -31,9 +31,9 @@ const GHL_CHAT_IFRAME = 'https://widgets.leadconnectorhq.com/chat-widget/index.h
             <!-- Sage intro row -->
             <div style="padding:1.5rem 1.75rem 1.25rem; border-bottom:1px solid #eee9e2;">
               <div style="display:flex; align-items:flex-start; gap:0.875rem;">
-                <img src="/sage-face.png" alt="Sage™" style="width:34px; height:34px; border-radius:50%; object-fit:cover; flex-shrink:0; margin-top:2px;" />
+                <img src="/eva-face.png" alt="Eva™" style="width:34px; height:34px; border-radius:50%; object-fit:cover; flex-shrink:0; margin-top:2px;" />
                 <div>
-                  <p id="sage-chat-intro" style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; line-height:1.7; margin:0 0 0.25rem;">
+                  <p id="eva-chat-intro" style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; line-height:1.7; margin:0 0 0.25rem;">
                     I'm connecting you with the campus assistant now — they'll have the answer for you shortly.
                   </p>
                   <!-- User question echo — shown only when ?q= is present -->
@@ -58,7 +58,7 @@ const GHL_CHAT_IFRAME = 'https://widgets.leadconnectorhq.com/chat-widget/index.h
           </div>
 
           <p class="fade-up text-center mt-5" style="font-family:'DM Sans',sans-serif; font-size:0.75rem; color:rgba(255,255,255,0.2);">
-            Sage™ provides educational guidance, not medical advice.
+            Eva™ provides educational guidance, not medical advice.
           </p>
 
         </div>
@@ -70,9 +70,9 @@ const GHL_CHAT_IFRAME = 'https://widgets.leadconnectorhq.com/chat-widget/index.h
 
   <script is:inline>
   (function() {
-    /* ── Hide Sage bubble — not needed on the dedicated chat page ── */
-    var sageWidget = document.getElementById('sage-widget');
-    if (sageWidget) sageWidget.style.display = 'none';
+    /* ── Hide Eva bubble — not needed on the dedicated chat page ── */
+    var evaWidget = document.getElementById('eva-widget');
+    if (evaWidget) evaWidget.style.display = 'none';
 
     /* ── Parse URL params ── */
     var params = new URLSearchParams(window.location.search);
@@ -80,7 +80,7 @@ const GHL_CHAT_IFRAME = 'https://widgets.leadconnectorhq.com/chat-widget/index.h
 
     /* ── Show user's question above the iframe ── */
     if (q) {
-      var introEl  = document.getElementById('sage-chat-intro');
+      var introEl  = document.getElementById('eva-chat-intro');
       var echoWrap = document.getElementById('q-echo-wrap');
       var echoEl   = document.getElementById('q-echo');
       if (introEl)  introEl.textContent = "Got it — I've passed your question to the campus assistant.";

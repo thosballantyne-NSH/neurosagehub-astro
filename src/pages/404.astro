@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 
 <BaseLayout
   title="Page Not Found | Neurosage Hub"
-  description="The page you were looking for doesn't exist. Let Sage™ help you find where you want to go."
+  description="The page you were looking for doesn't exist. Let Eva™ help you find where you want to go."
   noindex={true}
 >
   <Header ctaText="Get FREE Access" ctaHref="/family-sign-up" />
@@ -25,8 +25,8 @@ import Footer from '../components/Footer.astro';
 
           <!-- Sage label -->
           <div class="flex items-center justify-center gap-2 mb-8 fade-up">
-            <img src="/sage-bubble.png" alt="Sage™" style="width:32px; height:32px; border-radius:50%; object-fit:cover; flex-shrink:0;" />
-            <span style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; font-weight:600; color:rgba(255,255,255,0.5); letter-spacing:0.06em; text-transform:uppercase;">Sage™ · Neurosage Guide</span>
+            <img src="/eva-bubble.png" alt="Eva™" style="width:32px; height:32px; border-radius:50%; object-fit:cover; flex-shrink:0;" />
+            <span style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; font-weight:600; color:rgba(255,255,255,0.5); letter-spacing:0.06em; text-transform:uppercase;">Eva™ · Neurosage Guide</span>
           </div>
 
           <!-- Dialog card -->
@@ -35,7 +35,7 @@ import Footer from '../components/Footer.astro';
             <!-- Sage message bubble -->
             <div style="padding:1.75rem 1.75rem 0;">
               <div style="display:flex; align-items:flex-start; gap:0.875rem;">
-                <img src="/sage-face.png" alt="Sage™" style="width:36px; height:36px; border-radius:50%; object-fit:cover; flex-shrink:0; margin-top:2px;" />
+                <img src="/eva-face.png" alt="Eva™" style="width:36px; height:36px; border-radius:50%; object-fit:cover; flex-shrink:0; margin-top:2px;" />
                 <div style="background:#F7F2EB; border-radius:0 1rem 1rem 1rem; padding:1rem 1.125rem; flex:1;">
                   <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; line-height:1.7; margin:0;">
                     Hmm.. it looks like you aren't sure where you are. <strong>Can I help you get where you want to go?</strong>
@@ -72,7 +72,7 @@ import Footer from '../components/Footer.astro';
                 <p style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; font-weight:600; color:#9a9187; margin:0 0 0.5rem 0.25rem;">Something else?</p>
                 <div style="display:flex; gap:0.5rem;">
                   <input
-                    id="sage-404-input"
+                    id="eva-404-input"
                     type="text"
                     placeholder="Tell me where you want to go…"
                     style="flex:1; font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; background:#F7F2EB; border:1.5px solid #ddd9d2; border-radius:0.875rem; padding:0.75rem 1rem; outline:none; transition:border-color 0.15s;"
@@ -80,7 +80,7 @@ import Footer from '../components/Footer.astro';
                     onblur="this.style.borderColor='#ddd9d2'"
                   />
                   <button
-                    onclick="sage404Send()"
+                    onclick="eva404Send()"
                     style="width:44px; height:44px; border-radius:0.875rem; background:#2E6E8E; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:background 0.15s;"
                     onmouseover="this.style.background='#1A4A6B'"
                     onmouseout="this.style.background='#2E6E8E'"
@@ -90,10 +90,10 @@ import Footer from '../components/Footer.astro';
                   </button>
                 </div>
                 <!-- Sage reply (hidden until sent) -->
-                <div id="sage-404-reply" style="display:none; margin-top:0.875rem; padding:0.875rem 1rem; background:#F7F2EB; border-radius:0.75rem;">
+                <div id="eva-404-reply" style="display:none; margin-top:0.875rem; padding:0.875rem 1rem; background:#F7F2EB; border-radius:0.75rem;">
                   <div style="display:flex; align-items:flex-start; gap:0.625rem;">
-                    <img src="/sage-face.png" alt="Sage™" style="width:28px; height:28px; border-radius:50%; object-fit:cover; flex-shrink:0; margin-top:1px;" />
-                    <p id="sage-404-reply-text" style="font-family:'DM Sans',sans-serif; font-size:0.875rem; color:#082438; line-height:1.65; margin:0;"></p>
+                    <img src="/eva-face.png" alt="Eva™" style="width:28px; height:28px; border-radius:50%; object-fit:cover; flex-shrink:0; margin-top:1px;" />
+                    <p id="eva-404-reply-text" style="font-family:'DM Sans',sans-serif; font-size:0.875rem; color:#082438; line-height:1.65; margin:0;"></p>
                   </div>
                 </div>
               </div>
@@ -103,7 +103,7 @@ import Footer from '../components/Footer.astro';
           </div>
 
           <p class="fade-up text-center mt-5" style="font-family:'DM Sans',sans-serif; font-size:0.75rem; color:rgba(255,255,255,0.2);">
-            Sage™ provides educational guidance, not medical advice.
+            Eva™ provides educational guidance, not medical advice.
           </p>
 
         </div>
@@ -115,10 +115,10 @@ import Footer from '../components/Footer.astro';
   <Footer />
 
   <script is:inline>
-    function sage404Send() {
-      var input = document.getElementById('sage-404-input');
-      var reply = document.getElementById('sage-404-reply');
-      var replyText = document.getElementById('sage-404-reply-text');
+    function eva404Send() {
+      var input = document.getElementById('eva-404-input');
+      var reply = document.getElementById('eva-404-reply');
+      var replyText = document.getElementById('eva-404-reply-text');
       var val = (input.value || '').trim();
       if (!val) return;
 
@@ -158,8 +158,8 @@ import Footer from '../components/Footer.astro';
       reply.style.display = 'block';
     }
 
-    document.getElementById('sage-404-input').addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') sage404Send();
+    document.getElementById('eva-404-input').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') eva404Send();
     });
   </script>
 
