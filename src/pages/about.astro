@@ -227,11 +227,19 @@ const PARENT_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663645323174/cAF
   <Footer />
 
   <script>
+    const vp = window.innerHeight;
+    document.querySelectorAll('.fade-up').forEach(el => {
+      const { top, bottom } = el.getBoundingClientRect();
+      if (top < vp && bottom > 0) el.classList.add('visible');
+    });
     const observer = new IntersectionObserver(
       (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
       { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
     );
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    document.querySelectorAll('.fade-up:not(.visible)').forEach(el => observer.observe(el));
+    setTimeout(() => {
+      document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+    }, 700);
   </script>
 
 </BaseLayout>

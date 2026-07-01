@@ -222,11 +222,24 @@ const displayLinks = navLinks.map((link, i) => {
   });
 
   /* ── Fade-up observer ── */
+  // Synchronously reveal elements already in the viewport — prevents the
+  // flash of invisible content caused by async IntersectionObserver delay.
+  const vp = window.innerHeight;
+  document.querySelectorAll('.fade-up').forEach(el => {
+    const { top, bottom } = el.getBoundingClientRect();
+    if (top < vp && bottom > 0) el.classList.add('visible');
+  });
+
   const observer = new IntersectionObserver(
     (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
     { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
   );
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  document.querySelectorAll('.fade-up:not(.visible)').forEach(el => observer.observe(el));
+
+  // Safety net: after 700 ms anything still hidden gets revealed.
+  setTimeout(() => {
+    document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+  }, 700);
 
   /* ── Search ── */
   const PAGES = [
