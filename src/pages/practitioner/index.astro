@@ -1,0 +1,231 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+
+const features = [
+  {
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`,
+    title: 'Assign Structured Pathways',
+    desc: 'Build a home protocol for each patient. Assign learning content, routines, and exercises your family can follow between visits — in the right order.',
+  },
+  {
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>`,
+    title: 'Track Compliance & Progress',
+    desc: 'See how families are engaging with their assigned content. Usage logs and progress data give you the full picture before every visit.',
+  },
+  {
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="3"/><path d="M8 12h.01M12 10v4M10 12h4"/></svg>`,
+    title: 'Games as Clinical Tools',
+    desc: 'Assign therapeutic video games to run at home — as a warm-up, calm-down, or reward. Families see the same games in their parent portal.',
+  },
+  {
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+    title: 'Your Own Practitioner Portal',
+    desc: 'A dedicated clinic dashboard — manage your patients, review logs, and stay connected to what\'s happening at home, all in one place.',
+  },
+];
+
+const steps = [
+  { num: '01', title: 'Book a 30-Min Demo',    desc: 'We walk you through the practitioner portal, show you how pathways work, and answer your questions. No commitment.' },
+  { num: '02', title: 'Set Up Your Clinic',     desc: 'Your portal is ready in under 30 minutes. Add your patients, build your first pathway, and invite families to join.' },
+  { num: '03', title: 'Assign & Monitor',       desc: 'Assign content between visits. See engagement data in real time. Come to every session already knowing what happened at home.' },
+  { num: '04', title: 'Extend Your Impact',     desc: 'Your care doesn\'t stop at the clinic door. Families stay connected to your guidance every day — not just on appointment days.' },
+];
+---
+
+<BaseLayout
+  title="For Practitioners & Clinics | Neurosage Hub"
+  description="You have 50 minutes. They have 10,080. Neurosage Hub extends your care beyond the clinic — giving families the structure to reinforce what you started."
+>
+  <Header />
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="py-16 lg:py-20" style="background:white;">
+      <div class="container">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+          <!-- Left: copy -->
+          <div>
+            <p class="nsh-eyebrow mb-5 fade-up" style="color:#D8896A;">For Practitioners</p>
+            <h1 class="fade-up" style="font-family:'DM Sans',sans-serif; font-weight:800; line-height:1.1; margin-bottom:0.5rem;">
+              <span style="font-size:clamp(2.5rem, 5vw, 3.75rem); color:#082438; display:block;">You have 50 minutes.</span>
+              <span style="font-size:clamp(2.5rem, 5vw, 3.75rem); color:#D8896A; display:block;">They have 10,080.</span>
+            </h1>
+            <div class="mb-6" style="width:3rem; height:3px; background:#D8896A; border-radius:2px;"></div>
+
+            <p class="nsh-body-lg mb-6 fade-up" style="color:#123D5A; max-width:32rem;">
+              Extend your care beyond the clinic. Neurosage Hub bridges the gap between appointments — giving families the structure to reinforce what you started.
+            </p>
+
+            <!-- Pain points -->
+            <ul class="space-y-3 mb-8 fade-up">
+              {[
+                'Families forget what was covered.',
+                'Progress doesn\'t consistently carry home.',
+                'You\'re not getting clear feedback between visits.',
+              ].map((point) => (
+                <li class="flex items-start gap-3">
+                  <div class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background:#D8896A;"></div>
+                  <span style="font-family:'DM Sans',sans-serif; font-size:1rem; color:#123D5A;">{point}</span>
+                </li>
+              ))}
+            </ul>
+
+            <!-- CTAs -->
+            <div class="flex flex-wrap gap-4 mb-8 fade-up">
+              <a href="#demo" class="nsh-btn-cta">
+                Request Free Demo
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+              <a href="#how-it-works" class="nsh-btn-secondary">
+                See How It Works
+              </a>
+            </div>
+
+            <!-- Trust statement -->
+            <div class="p-4 rounded-xl fade-up" style="background:#f9f7f4; border:1px solid #deeae5;">
+              <p style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438;">
+                <strong>Neurosage Hub doesn't replace your work.</strong><br/>
+                <span style="color:#123D5A;">It extends it</span> — between every appointment.
+              </p>
+            </div>
+
+            <!-- Practitioner photo -->
+            <div class="mt-6 fade-up hidden lg:block" style="transition-delay:160ms;">
+              <img
+                src="/hero-practitioner.jpg"
+                alt="Practitioner reviewing patient notes in clinic"
+                class="w-full rounded-2xl"
+                style="display:block; box-shadow:0 8px 32px rgba(8,36,56,0.10);"
+              />
+            </div>
+          </div>
+
+          <!-- Right: demo form -->
+          <div id="demo" class="fade-up" style="transition-delay:120ms;">
+            <div class="rounded-2xl p-7 lg:p-8" style="background:white; box-shadow:0 8px 48px rgba(8,36,56,0.10); border:1px solid #deeae5;">
+              <p class="nsh-eyebrow mb-2" style="color:#D8896A; text-align:center;">For Practitioners</p>
+              <h2 class="text-center font-bold mb-1" style="font-family:'DM Sans',sans-serif; font-size:1.5rem; color:#082438;">Request a Free Demo</h2>
+              <div class="mx-auto mb-6" style="width:2.5rem; height:3px; background:#D8896A; border-radius:2px;"></div>
+
+              <!-- CampusAdmin form embed -->
+              <iframe
+                src="https://links.campusadmin.ai/widget/form/fhTwh2inwJDj5MBjj4yg"
+                style="width:100%; min-height:480px; border:none; display:block;"
+                title="Request a Free Demo"
+                loading="lazy"
+              ></iframe>
+
+              <!-- Trust badges -->
+              <div class="grid grid-cols-2 gap-3 mt-5 pt-5" style="border-top:1px solid #ddd9d2;">
+                {[
+                  { icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#123D5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`, label: 'No Commitment' },
+                  { icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#123D5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`, label: '30-Min Setup' },
+                ].map(({ icon, label }) => (
+                  <div class="flex items-center gap-2">
+                    <Fragment set:html={icon} />
+                    <span style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; color:#3d5a6e;">{label}</span>
+                  </div>
+                ))}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section id="how-it-works" class="py-20" style="background:#f9f7f4;">
+      <div class="container">
+        <div class="max-w-2xl mx-auto text-center mb-14">
+          <p class="nsh-eyebrow mb-4 fade-up">How It Works</p>
+          <h2 class="nsh-heading-2 mb-4 fade-up">From demo to deployed in one session.</h2>
+          <p class="nsh-body fade-up">No complex onboarding. No IT department required. You'll be assigning your first pathway the same day.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {steps.map(({ num, title, desc }, i) => (
+            <div class="nsh-card p-7 fade-up" style={`transition-delay:${i * 70}ms;`}>
+              <div class="text-4xl font-bold mb-4" style="color:#a8b8c4; font-family:'DM Sans',sans-serif;">{num}</div>
+              <h3 class="nsh-heading-3 mb-3">{title}</h3>
+              <p class="nsh-body" style="font-size:0.9375rem;">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FEATURES ===== -->
+    <section class="py-20" style="background:white;">
+      <div class="container">
+        <div class="max-w-2xl mx-auto text-center mb-14">
+          <p class="nsh-eyebrow mb-4 fade-up">What You Get</p>
+          <h2 class="nsh-heading-2 mb-4 fade-up">Everything you need to extend care beyond the clinic.</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {features.map(({ icon, title, desc }, i) => (
+            <div class="nsh-card p-8 fade-up" style={`transition-delay:${i * 70}ms;`}>
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:#F7F2EB; color:#123D5A;">
+                <Fragment set:html={icon} />
+              </div>
+              <h3 class="nsh-heading-3 mb-3">{title}</h3>
+              <p class="nsh-body">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== GAMES FOR CLINICS ===== -->
+    <section class="py-16" style="background:#082438;">
+      <div class="container">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8 fade-up">
+          <div class="flex-1">
+            <p class="nsh-eyebrow mb-3" style="color:#7B9E8B;">Clinical Tool</p>
+            <h3 class="nsh-heading-2 mb-4" style="color:white;">13 years of video game research, ready for your clinic.</h3>
+            <p class="nsh-body mb-0" style="color:rgba(255,255,255,0.7);">
+              Dr. Kyle's therapeutic game library is built into the Hub. Assign games as session warm-ups, calm-downs, or home rewards — and see usage logs in your practitioner portal.
+            </p>
+          </div>
+          <div class="flex-shrink-0">
+            <a href="/games#clinic" class="nsh-btn-cta">
+              Use Games in Your Clinic
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FINAL CTA ===== -->
+    <section class="py-20" style="background:white;">
+      <div class="container">
+        <div class="max-w-2xl mx-auto text-center fade-up">
+          <h2 class="nsh-heading-2 mb-4">Ready to see it in action?</h2>
+          <p class="nsh-body-lg mb-8" style="color:#3d5a6e;">
+            Book a free 30-minute demo. We'll walk you through the portal, answer every question, and have you set up the same day if you're ready.
+          </p>
+          <a href="#demo" class="nsh-btn-cta" style="font-size:1.0625rem; padding:1rem 2.25rem;">
+            Request Free Demo
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BOTTOM TAGLINE ===== -->
+    <div style="background:#082438; padding:1.25rem 0;">
+      <div class="container">
+        <p class="text-center" style="font-family:'DM Sans',sans-serif; font-size:1rem; color:white;">
+          <span style="color:#D8896A; font-weight:700;">Education-first.</span> Extend care. Build outcomes.
+        </p>
+      </div>
+    </div>
+
+  </main>
+
+  <Footer />
+</BaseLayout>

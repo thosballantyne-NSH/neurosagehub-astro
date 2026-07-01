@@ -11,12 +11,16 @@ export interface Props {
   articleTitle: string;
   publishDate?: string;
   readTime?: string;
+  heroImage?: string;
+  heroImageAlt?: string;
+  author?: string;
+  authorTitle?: string;
 }
 
-const { title, description, hub, hubSlug, articleTitle, publishDate, readTime = '5 min read' } = Astro.props;
+const { title, description, hub, hubSlug, articleTitle, publishDate, readTime = '5 min read', heroImage, heroImageAlt, author, authorTitle } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} image={heroImage}>
   <Header />
 
   <main>
@@ -60,15 +64,49 @@ const { title, description, hub, hubSlug, articleTitle, publishDate, readTime = 
             {articleTitle}
           </h1>
 
-          {publishDate && (
-            <p style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; color:rgba(255,255,255,0.4); margin-top:0.875rem;">
-              Published {publishDate}
-            </p>
+          {(publishDate || author) && (
+            <div style="display:flex; align-items:center; gap:1rem; margin-top:1rem; flex-wrap:wrap;">
+              {author && (
+                <div style="display:flex; align-items:center; gap:0.5rem;">
+                  <div style="width:32px; height:32px; border-radius:50%; background:#1A4A6B; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  </div>
+                  <div>
+                    <p style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; font-weight:700; color:rgba(255,255,255,0.85); margin:0; line-height:1.2;">{author}</p>
+                    {authorTitle && <p style="font-family:'DM Sans',sans-serif; font-size:0.75rem; color:rgba(255,255,255,0.45); margin:0;">{authorTitle}</p>}
+                  </div>
+                </div>
+              )}
+              {publishDate && (
+                <p style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; color:rgba(255,255,255,0.4); margin:0;">
+                  {publishDate}
+                </p>
+              )}
+            </div>
           )}
 
         </div>
       </div>
     </section>
+
+    <!-- ===== HERO IMAGE ===== -->
+    {heroImage && (
+      <div style="background:white; padding:0 0 0;">
+        <div class="container">
+          <div class="max-w-3xl mx-auto">
+            <img
+              src={heroImage}
+              alt={heroImageAlt || articleTitle}
+              width="896"
+              height="504"
+              style="width:100%; height:auto; max-height:420px; object-fit:cover; border-radius:1rem; display:block; margin-top:-1px;"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </div>
+        </div>
+      </div>
+    )}
 
     <!-- ===== ARTICLE BODY ===== -->
     <section class="py-14" style="background:white;">
@@ -100,120 +138,4 @@ const { title, description, hub, hubSlug, articleTitle, publishDate, readTime = 
 
           <!-- Hub navigation -->
           <div class="mt-10 pt-10" style="border-top:1px solid #ddd9d2;">
-            <p class="nsh-eyebrow mb-4" style="color:#7B9E8B;">More in {hub}</p>
-            <a
-              href={`/resources/${hubSlug}`}
-              style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; font-weight:600; color:#2E6E8E; text-decoration:none; display:inline-flex; align-items:center; gap:0.375rem;"
-            >
-              ← Back to {hub} resources
-            </a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== CTA ===== -->
-    <section class="py-16" style="background:#082438;">
-      <div class="container">
-        <div class="max-w-2xl mx-auto text-center">
-          <p class="nsh-eyebrow mb-3" style="color:#D8896A;">Neurosage Hub</p>
-          <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.5rem,3.5vw,2.125rem); color:white; margin-bottom:0.875rem; line-height:1.25;">
-            Turn insights into daily progress
-          </h2>
-          <p style="font-family:'DM Sans',sans-serif; font-size:1rem; color:rgba(255,255,255,0.65); max-width:30rem; margin:0 auto 2rem; line-height:1.7;">
-            Get guided activities, practitioner support, and therapeutic games designed for children on the spectrum.
-          </p>
-          <div class="flex flex-wrap justify-center gap-3">
-            <a
-              href="/family-sign-up"
-              style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; font-weight:700; background:#D8896A; color:white; padding:0.875rem 2rem; border-radius:9999px; text-decoration:none; display:inline-block;"
-            >
-              Get Started Free
-            </a>
-            <a
-              href="/for-practitioners"
-              style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; font-weight:600; background:rgba(255,255,255,0.1); color:white; padding:0.875rem 2rem; border-radius:9999px; text-decoration:none; display:inline-block; border:1px solid rgba(255,255,255,0.2);"
-            >
-              I'm a Practitioner
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <Footer />
-</BaseLayout>
-
-<style>
-  .resource-body h2 {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 700;
-    font-size: 1.1875rem;
-    color: #082438;
-    margin-top: 2.25rem;
-    margin-bottom: 0.625rem;
-    line-height: 1.3;
-  }
-  .resource-body p {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.9375rem;
-    color: #3d5a6e;
-    line-height: 1.85;
-    margin-bottom: 1rem;
-  }
-  .resource-body ul, .resource-body ol {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.9375rem;
-    color: #3d5a6e;
-    line-height: 1.85;
-    padding-left: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  .resource-body li {
-    margin-bottom: 0.25rem;
-  }
-  .resource-body strong {
-    color: #082438;
-    font-weight: 700;
-  }
-  .resource-body .direct-answer {
-    background: #E4EFF6;
-    border-left: 3px solid #2E6E8E;
-    border-radius: 0 0.5rem 0.5rem 0;
-    padding: 0.875rem 1.125rem;
-    margin-bottom: 1rem;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.9375rem;
-    color: #082438;
-    font-weight: 600;
-    line-height: 1.7;
-  }
-  .resource-body .tip-box {
-    background: #F7F2EB;
-    border: 1px solid #ddd9d2;
-    border-radius: 0.75rem;
-    padding: 1.125rem 1.25rem;
-    margin: 1.5rem 0;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.9375rem;
-    color: #3d5a6e;
-    line-height: 1.8;
-  }
-  .resource-body .tip-box .tip-label {
-    font-weight: 700;
-    color: #082438;
-    display: block;
-    margin-bottom: 0.25rem;
-    font-size: 0.8125rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-  .resource-body hr {
-    border: none;
-    border-top: 1px solid #ddd9d2;
-    margin: 2.25rem 0;
-  }
-</style>
+            <p class="nsh-eyebrow mb-4" style="color:#7B9E8B;">More in {hub}<

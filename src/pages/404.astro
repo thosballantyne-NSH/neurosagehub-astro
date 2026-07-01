@@ -63,7 +63,7 @@ import Footer from '../components/Footer.astro';
                 <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; font-weight:500;">I'm looking for free games for my child</span>
               </a>
 
-              <a href="/for-practitioners" style="display:flex; align-items:center; padding:0.875rem 1.125rem; border-radius:0.875rem; border:1.5px solid #ddd9d2; text-decoration:none; background:white; transition:border-color 0.15s, background 0.15s;" onmouseover="this.style.borderColor='#2E6E8E'; this.style.background='#f0f6fa'" onmouseout="this.style.borderColor='#ddd9d2'; this.style.background='white'">
+              <a href="/practitioner" style="display:flex; align-items:center; padding:0.875rem 1.125rem; border-radius:0.875rem; border:1.5px solid #ddd9d2; text-decoration:none; background:white; transition:border-color 0.15s, background 0.15s;" onmouseover="this.style.borderColor='#2E6E8E'; this.style.background='#f0f6fa'" onmouseout="this.style.borderColor='#ddd9d2'; this.style.background='white'">
                 <span style="font-family:'DM Sans',sans-serif; font-size:0.9375rem; color:#082438; font-weight:500;">I'm a practitioner looking to support my families</span>
               </a>
 
@@ -145,7 +145,7 @@ import Footer from '../components/Footer.astro';
       } else if (lower.match(/game|play|activ|fun/)) {
         msg = 'We have therapeutic games built for autistic kids. <a href="/games/play-free" style="color:#2E6E8E; font-weight:600;">Explore the free games →</a>';
       } else if (lower.match(/practi|therapist|clinician|provider|doctor/)) {
-        msg = '<a href="/for-practitioners" style="color:#2E6E8E; font-weight:600;">Our practitioner page</a> covers how we partner with therapists, OTs, and specialists.';
+        msg = '<a href="/practitioner" style="color:#2E6E8E; font-weight:600;">Our practitioner page</a> covers how we partner with therapists, OTs, and specialists.';
       } else if (lower.match(/diagnos|assess|test/)) {
         msg = 'Our <a href="/resources/assessments" style="color:#2E6E8E; font-weight:600;">Assessments hub</a> walks you through what to expect before, during, and after a diagnosis.';
       } else if (lower.match(/meltdown|tantrum|melt/)) {
@@ -164,3 +164,4 @@ import Footer from '../components/Footer.astro';
   </script>
 
 </BaseLayout>
+                   

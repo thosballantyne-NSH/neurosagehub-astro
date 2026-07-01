@@ -1,11 +1,15 @@
 {
   "redirects": [
-    { "source": "/home",          "destination": "/",               "permanent": true },
-    { "source": "/pathways",      "destination": "/parent-pathways","permanent": true },
-    { "source": "/blog",              "destination": "/resources",                 "permanent": true },
-    { "source": "/practitionersignup","destination": "/practitioner-sign-up",    "permanent": true },
-    { "source": "/practitionersignup/","destination": "/practitioner-sign-up",   "permanent": true },
-    { "source": "/podcast",       "destination": "/practitioner-perspectives", "permanent": true }
+    { "source": "/home",                "destination": "/",                      "permanent": true },
+    { "source": "/pathways",            "destination": "/parent-pathways",       "permanent": true },
+    { "source": "/blog",                "destination": "/resources",             "permanent": true },
+    { "source": "/practitionersignup",  "destination": "/practitioner-sign-up", "permanent": true },
+    { "source": "/practitionersignup/", "destination": "/practitioner-sign-up", "permanent": true },
+    { "source": "/podcast",             "destination": "/practitioner-perspectives", "permanent": true },
+    { "source": "/for-practitioners",   "destination": "/practitioner",          "permanent": true },
+    { "source": "/for-practitioners/",  "destination": "/practitioner",          "permanent": true },
+    { "source": "/for-parents",         "destination": "/parents",               "permanent": true },
+    { "source": "/for-parents/",        "destination": "/parents",               "permanent": true }
   ],
   "headers": [
     {

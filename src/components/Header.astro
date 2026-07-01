@@ -7,8 +7,8 @@ const { ctaText = 'Take the Quiz', ctaHref = '/quiz' } = Astro.props;
 
 const navLinks = [
   { href: '/start-here',        label: 'Start Here' },
-  { href: '/for-parents',       label: 'For Parents' },
-  { href: '/for-practitioners', label: 'For Practitioners' },
+  { href: '/parents',       label: 'For Parents' },
+  { href: '/practitioner', label: 'For Practitioners' },
   { href: '/resources',         label: 'Resources' },
   { href: '/games',             label: 'Sensory Games' },
 ];
@@ -20,7 +20,7 @@ const activeIndex = navLinks.findIndex(({ href }) =>
 );
 const displayLinks = navLinks.map((link, i) => {
   if (i === activeIndex) {
-    const pricingHref = current.startsWith('/for-practitioners')
+    const pricingHref = current.startsWith('/practitioner')
       ? '/pricing-practitioners'
       : '/pricing';
     return { href: pricingHref, label: 'Pricing', isPricing: true };
@@ -264,8 +264,8 @@ const displayLinks = navLinks.map((link, i) => {
     { title: 'Routines Resources', desc: 'Why predictable routines are a regulation tool and how to build them.', url: '/resources/routines', tags: 'routines schedule structure morning bedtime' },
 
     // Main pages
-    { title: 'For Parents & Caregivers', desc: 'How Neurosage Hub supports families navigating autism at home.', url: '/for-parents', tags: 'parents families home support' },
-    { title: 'For Practitioners', desc: 'Clinical partnership portal for OTs, SLPs, neurologists and more.', url: '/for-practitioners', tags: 'practitioners OT SLP portal clinical' },
+    { title: 'For Parents & Caregivers', desc: 'How Neurosage Hub supports families navigating autism at home.', url: '/parents', tags: 'parents families home support' },
+    { title: 'For Practitioners', desc: 'Clinical partnership portal for OTs, SLPs, neurologists and more.', url: '/practitioner', tags: 'practitioners OT SLP portal clinical' },
     { title: 'Sensory Games', desc: 'Therapeutic video games that build regulation, focus, and sensory integration.', url: '/games', tags: 'games sensory therapeutic neurodevelopment' },
     { title: 'Podcast: Practitioner Perspectives', desc: 'Real conversations about what autism care actually looks like.', url: '/practitioner-perspectives', tags: 'podcast autism care practitioners' },
     { title: 'Pricing for Families', desc: 'Plans and pricing for families using the Neurosage Hub platform.', url: '/pricing', tags: 'pricing cost families subscription' },

@@ -20,37 +20,43 @@
 /unlocking-potential-how-games-drive-neurodevelopment      /resources/regulation/unlocking-potential-how-games-drive-neurodevelopment   301
 /unlocking-potential-how-games-drive-neurodevelopment/     /resources/regulation/unlocking-potential-how-games-drive-neurodevelopment   301
 
+# URL renames (301 permanent)
+/for-practitioners            /practitioner          301
+/for-practitioners/           /practitioner          301
+/for-parents                  /parents               301
+/for-parents/                 /parents               301
+
 # Launch-era promo posts (not indexed) → relevant pages
-/a-new-era-of-neurodevelopmental-support-is-coming-to-the-classroom-and-you-are-invited-to-lead-the-way    /for-practitioners   301
-/a-new-era-of-neurodevelopmental-support-is-coming-to-the-classroom-and-you-are-invited-to-lead-the-way/   /for-practitioners   301
+/a-new-era-of-neurodevelopmental-support-is-coming-to-the-classroom-and-you-are-invited-to-lead-the-way    /practitioner   301
+/a-new-era-of-neurodevelopmental-support-is-coming-to-the-classroom-and-you-are-invited-to-lead-the-way/   /practitioner   301
 /a-new-kind-of-support-is-coming-for-families-navigating-autism-and-you-can-be-among-the-first-to-access-it    /resources   301
 /a-new-kind-of-support-is-coming-for-families-navigating-autism-and-you-can-be-among-the-first-to-access-it/   /resources   301
-/the-future-of-autism-care-is-coming-and-you-are-invited-to-shape-it    /for-practitioners   301
-/the-future-of-autism-care-is-coming-and-you-are-invited-to-shape-it/   /for-practitioners   301
+/the-future-of-autism-care-is-coming-and-you-are-invited-to-shape-it    /practitioner   301
+/the-future-of-autism-care-is-coming-and-you-are-invited-to-shape-it/   /practitioner   301
 
 # Old WordPress page URLs → Astro equivalents
 /caregivers-sign-up           /family-sign-up        301
 /caregivers-sign-up/          /family-sign-up        301
 /get-started                  /start-here            301
 /get-started/                 /start-here            301
-/parents-caregivers           /for-parents           301
-/parents-caregivers/          /for-parents           301
-/parents-and-caregivers       /for-parents           301
-/parents-and-caregivers/      /for-parents           301
-/practitioner-signup          /for-practitioners     301
-/practitioner-signup/         /for-practitioners     301
-/practitioners                /for-practitioners     301
-/practitioners/               /for-practitioners     301
+/parents-caregivers           /parents               301
+/parents-caregivers/          /parents               301
+/parents-and-caregivers       /parents               301
+/parents-and-caregivers/      /parents               301
+/practitioner-signup          /practitioner-sign-up  301
+/practitioner-signup/         /practitioner-sign-up  301
+/practitioners                /practitioner          301
+/practitioners/               /practitioner          301
 /onboarding                   https://app.neurosagehub.com/login   301
 /onboarding/                  https://app.neurosagehub.com/login   301
 
 # WordPress pages without Astro equivalents → best match
 /the-science                  /resources             301
 /the-science/                 /resources             301
-/educators                    /for-practitioners     301
-/educators/                   /for-practitioners     301
-/demo-request                 /for-practitioners     301
-/demo-request/                /for-practitioners     301
+/educators                    /practitioner          301
+/educators/                   /practitioner          301
+/demo-request                 /practitioner          301
+/demo-request/                /practitioner          301
 
 # Autism-meltdowns section → new Resource Center URLs
 /autism-meltdowns                           /resources/meltdowns                                   301

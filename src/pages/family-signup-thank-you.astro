@@ -103,30 +103,4 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
   if (email) {
     document.getElementById('welcome-body').innerHTML =
-      'Your free account is being set up, <strong style="color:white;">' + email + '</strong>. ' +
-      'Check your inbox — we\'ve sent you a confirmation with your next steps.';
-  }
-
-  // ── Wire "Go to My Account" → app with pre-filled params ──
-  var appParams = new URLSearchParams();
-  if (email)     appParams.set('email',     email);
-  if (firstName) appParams.set('firstName', firstName);
-  if (lastName)  appParams.set('lastName',  lastName);
-  if (phone)     appParams.set('phone',     phone);
-  appParams.set('role', 'parent');
-  var appCta = document.getElementById('app-cta');
-  if (appCta) appCta.href = 'https://app.neurosagehub.com/signup?' + appParams.toString();
-
-  // ── GA4 sign-up conversion event ──
-  if (typeof gtag === 'function') {
-    gtag('event', 'sign_up', { method: 'marketing_site' });
-
-    // ── Google Ads conversion ──
-    // TODO (dev team): Replace CONVERSION_LABEL with the label from
-    // Google Ads → Goals → Conversions → your conversion action → Tag setup
-    // Example label looks like: AbCdEfGhIjKlMnOp
-    gtag('event', 'conversion', {
-      send_to: 'AW-18151207119/CONVERSION_LABEL'
-    });
-  }
-</script>
+      'Your free account is being set up, <str
