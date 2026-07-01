@@ -9,7 +9,17 @@
     { "source": "/for-practitioners",   "destination": "/practitioner",          "permanent": true },
     { "source": "/for-practitioners/",  "destination": "/practitioner",          "permanent": true },
     { "source": "/for-parents",         "destination": "/parents",               "permanent": true },
-    { "source": "/for-parents/",        "destination": "/parents",               "permanent": true }
+    { "source": "/for-parents/",        "destination": "/parents",               "permanent": true },
+    { "source": "/resources/meltdowns/parent-teen-communication-checklist",     "destination": "/resources/conversations/parent-teen-communication-checklist", "permanent": true },
+    { "source": "/resources/meltdowns/parent-teen-communication-checklist/",    "destination": "/resources/conversations/parent-teen-communication-checklist", "permanent": true },
+    { "source": "/resources/meltdowns/self-help-video-modules-autistic-teens",  "destination": "/resources/support/self-help-video-modules-autistic-teens",   "permanent": true },
+    { "source": "/resources/meltdowns/self-help-video-modules-autistic-teens/", "destination": "/resources/support/self-help-video-modules-autistic-teens",   "permanent": true },
+    { "source": "/resources/meltdowns/online-autism-courses-meltdown-roi",      "destination": "/resources/support/online-autism-courses-meltdown-roi",        "permanent": true },
+    { "source": "/resources/meltdowns/online-autism-courses-meltdown-roi/",     "destination": "/resources/support/online-autism-courses-meltdown-roi",        "permanent": true },
+    { "source": "/resources/meltdowns/structured-therapy-vs-youtube",           "destination": "/resources/support/structured-therapy-vs-youtube",             "permanent": true },
+    { "source": "/resources/meltdowns/structured-therapy-vs-youtube/",          "destination": "/resources/support/structured-therapy-vs-youtube",             "permanent": true },
+    { "source": "/resources/meltdowns/autism-checklists-paper-vs-digital",      "destination": "/resources/tools/autism-checklists-paper-vs-digital",          "permanent": true },
+    { "source": "/resources/meltdowns/autism-checklists-paper-vs-digital/",     "destination": "/resources/tools/autism-checklists-paper-vs-digital",          "permanent": true }
   ],
   "headers": [
     {

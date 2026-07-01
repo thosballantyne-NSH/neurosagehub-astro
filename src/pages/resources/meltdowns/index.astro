@@ -49,18 +49,6 @@ const teenArticles = [
     desc: 'The 5 most commonly missed early warning signs in autistic teenagers, and the actionable steps to take the moment you notice them.',
     readTime: '10 min',
   },
-  {
-    slug: 'parent-teen-communication-checklist',
-    title: 'Parent-Teen Communication Checklist to De-escalate Meltdowns',
-    desc: 'A step-by-step communication checklist for parents and autistic teens — covering pre-interaction setup, reading sensory cues, and post-conversation debrief.',
-    readTime: '12 min',
-  },
-  {
-    slug: 'self-help-video-modules-autistic-teens',
-    title: 'Self-Help Video Modules for Autistic Teens: What Works',
-    desc: 'How video-based skill building supports autistic teens — what the research says about visual learning, task analysis, and building a structured 15-minute daily practice.',
-    readTime: '11 min',
-  },
 ];
 
 const adultArticles = [
@@ -81,27 +69,6 @@ const adultArticles = [
     title: 'Workplace Triggers for Autistic Adults and Coping Techniques',
     desc: 'The most common workplace triggers — sensory overload, schedule disruptions, communication demands — and the practical accommodations and coping techniques that prevent meltdowns at work.',
     readTime: '18 min',
-  },
-];
-
-const resourceArticles = [
-  {
-    slug: 'autism-checklists-paper-vs-digital',
-    title: 'Paper Worksheets vs Digital Checklists for Autism: Which Works Better?',
-    desc: 'A direct comparison of paper-based and digital tools for autism learning and meltdown tracking — with case snapshots, a decision flowchart, and a cost and ROI breakdown.',
-    readTime: '14 min',
-  },
-  {
-    slug: 'online-autism-courses-meltdown-roi',
-    title: 'Do Online Autism Courses Reduce Meltdown Frequency? Tracking Real Outcomes',
-    desc: 'How to set a baseline, log frequency and duration, and calculate the real-world impact of structured online learning on meltdown reduction over time.',
-    readTime: '15 min',
-  },
-  {
-    slug: 'structured-therapy-vs-youtube',
-    title: 'Structured Autism Therapy vs. Free YouTube Videos: What Families Actually Need',
-    desc: 'An honest cost and feature comparison of structured subscription-based therapy platforms versus free YouTube content — with a calculator to estimate your family\'s actual support needs.',
-    readTime: '12 min',
   },
 ];
 ---
@@ -132,7 +99,7 @@ const resourceArticles = [
           </p>
 
           <div class="flex items-center gap-3 mt-6">
-            <span style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; color:rgba(255,255,255,0.4);">{foundations.length + teenArticles.length + adultArticles.length + resourceArticles.length} guides</span>
+            <span style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; color:rgba(255,255,255,0.4);">{foundations.length + teenArticles.length + adultArticles.length} guides</span>
             <span style="color:rgba(255,255,255,0.2);">·</span>
             <span style="font-family:'DM Sans',sans-serif; font-size:0.8125rem; color:rgba(255,255,255,0.4);">Children, teens & adults</span>
           </div>
@@ -158,4 +125,117 @@ const resourceArticles = [
     <!-- ===== FOUNDATIONS ===== -->
     <section class="py-16" style="background:white;">
       <div class="container">
-        <div class="max-w-3xl mx-au
+        <div class="max-w-3xl mx-auto">
+          <p class="nsh-eyebrow mb-2 fade-up" style="color:#7B9E8B;">Start here</p>
+          <h2 class="fade-up mb-8" style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:1.5rem; color:#082438;">Foundations</h2>
+          <div>
+            {foundations.map((article, i) => (
+              <a
+                href={`/resources/meltdowns/${article.slug}`}
+                class="fade-up group"
+                style={`display:block; padding:1.5rem 0; border-bottom:1px solid #ddd9d2; ${i === 0 ? 'border-top:1px solid #ddd9d2;' : ''} text-decoration:none;`}
+              >
+                <div class="flex items-start gap-4">
+                  <div style="width:36px; height:36px; border-radius:50%; background:#E4EFF6; flex-shrink:0; display:flex; align-items:center; justify-content:center; margin-top:2px;">
+                    <span style="font-family:'DM Sans',sans-serif; font-size:0.75rem; font-weight:700; color:#1A4A6B;">{i + 1}</span>
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center gap-2 mb-1">
+                      <p class="group-hover:underline" style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:1rem; color:#082438; line-height:1.4;">{article.title}</p>
+                      <span style="font-family:'DM Sans',sans-serif; font-size:0.75rem; color:#7B9E8B; white-space:nowrap;">{article.readTime}</span>
+                    </div>
+                    <p style="font-family:'DM Sans',sans-serif; font-size:0.875rem; color:#5F6975; line-height:1.65;">{article.desc}</p>
+                  </div>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E6E8E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:4px;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TEENS ===== -->
+    <section class="py-16" style="background:#F7F2EB;">
+      <div class="container">
+        <div class="max-w-3xl mx-auto">
+          <p class="nsh-eyebrow mb-2 fade-up" style="color:#7B9E8B;">Ages 13–19</p>
+          <h2 class="fade-up mb-8" style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:1.5rem; color:#082438;">Teens & Adolescents</h2>
+          <div>
+            {teenArticles.map((article, i) => (
+              <a
+                href={`/resources/meltdowns/${article.slug}`}
+                class="fade-up group"
+                style={`display:block; padding:1.5rem 0; border-bottom:1px solid #ddd9d2; ${i === 0 ? 'border-top:1px solid #ddd9d2;' : ''} text-decoration:none;`}
+              >
+                <div class="flex items-start gap-4">
+                  <div style="width:36px; height:36px; border-radius:50%; background:#E4EFF6; flex-shrink:0; display:flex; align-items:center; justify-content:center; margin-top:2px;">
+                    <span style="font-family:'DM Sans',sans-serif; font-size:0.75rem; font-weight:700; color:#1A4A6B;">{i + 1}</span>
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center gap-2 mb-1">
+                      <p class="group-hover:underline" style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:1rem; color:#082438; line-height:1.4;">{article.title}</p>
+                      <span style="font-family:'DM Sans',sans-serif; font-size:0.75rem; color:#7B9E8B; white-space:nowrap;">{article.readTime}</span>
+                    </div>
+                    <p style="font-family:'DM Sans',sans-serif; font-size:0.875rem; color:#5F6975; line-height:1.65;">{article.desc}</p>
+                  </div>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E6E8E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:4px;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ADULTS ===== -->
+    <section class="py-16" style="background:white;">
+      <div class="container">
+        <div class="max-w-3xl mx-auto">
+          <p class="nsh-eyebrow mb-2 fade-up" style="color:#7B9E8B;">Adults & caregivers</p>
+          <h2 class="fade-up mb-8" style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:1.5rem; color:#082438;">Adults</h2>
+          <div>
+            {adultArticles.map((article, i) => (
+              <a
+                href={`/resources/meltdowns/${article.slug}`}
+                class="fade-up group"
+                style={`display:block; padding:1.5rem 0; border-bottom:1px solid #ddd9d2; ${i === 0 ? 'border-top:1px solid #ddd9d2;' : ''} text-decoration:none;`}
+              >
+                <div class="flex items-start gap-4">
+                  <div style="width:36px; height:36px; border-radius:50%; background:#E4EFF6; flex-shrink:0; display:flex; align-items:center; justify-content:center; margin-top:2px;">
+                    <span style="font-family:'DM Sans',sans-serif; font-size:0.75rem; font-weight:700; color:#1A4A6B;">{i + 1}</span>
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center gap-2 mb-1">
+                      <p class="group-hover:underline" style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:1rem; color:#082438; line-height:1.4;">{article.title}</p>
+                      <span style="font-family:'DM Sans',sans-serif; font-size:0.75rem; color:#7B9E8B; white-space:nowrap;">{article.readTime}</span>
+                    </div>
+                    <p style="font-family:'DM Sans',sans-serif; font-size:0.875rem; color:#5F6975; line-height:1.65;">{article.desc}</p>
+                  </div>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E6E8E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:4px;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="py-16" style="background:#082438;">
+      <div class="container">
+        <div class="max-w-xl mx-auto text-center">
+          <p class="nsh-eyebrow mb-3" style="color:#D8896A;">Neurosage Hub</p>
+          <h2 style="font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(1.5rem,3.5vw,2.125rem); color:white; margin-bottom:0.875rem; line-height:1.25;">Get started today</h2>
+          <p style="font-family:'DM Sans',sans-serif; font-size:1rem; color:rgba(255,255,255,0.65); max-width:28rem; margin:0 auto 1.5rem; line-height:1.7;">Evidence-based courses and tools to help autistic individuals and their families build skills and reduce meltdown frequency.</p>
+          <a href="/resources" style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.75rem 1.625rem; background:#D8896A; color:white; border-radius:0.875rem; text-decoration:none; font-family:'DM Sans',sans-serif; font-size:0.9375rem; font-weight:700;">
+            Browse all resources →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</BaseLayout>
